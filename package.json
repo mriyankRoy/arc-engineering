@@ -1,0 +1,35 @@
+{
+  "name": "agp-solutions",
+  "version": "1.0.0",
+  "description": "Art Genpower Solutions Ltd Website",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mriyankRoy/agp-solutions.git"
+  },
+  "keywords": [],
+  "author": "Mriyank Roy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mriyankRoy/agp-solutions/issues"
+  },
+  "homepage": "https://github.com/mriyankRoy/agp-solutions#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.10",
+    "parcel": "^2.15.2",
+    "tailwindcss": "^4.1.10"
+  },
+  "dependencies": {
+    "lucide-react": "^0.515.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
