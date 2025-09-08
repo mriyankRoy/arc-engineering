@@ -13,7 +13,7 @@ const HeaderDropDown = () => {
 
       {/* Dropdown content */}
       <div
-        className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 absolute left-0 top-full mt-4 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-2 z-50"
+        className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 absolute left-0 top-full mt-3 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-2 z-50"
       >
         <a
           href="#"

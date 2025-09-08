@@ -23,7 +23,6 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700 relative">
             {/* Products with Dropdown */}
             <HeaderDropDown />
-
             <a
               href="#"
               className="px-4 border-l border-r border-gray-300 hover:text-gray-900 hover:underline underline-offset-4 transition"
@@ -34,7 +33,7 @@ const Header = () => {
               href="#"
               className="px-4 border-l border-r border-gray-300 hover:text-gray-900 hover:underline underline-offset-4 transition"
             >
-              About
+              Company
             </a>
             <a
               href="#"
@@ -52,6 +51,7 @@ const Header = () => {
             >
               Get a Quote
             </a>
+            
           </div>
 
           {/* Mobile Menu Toggle */}

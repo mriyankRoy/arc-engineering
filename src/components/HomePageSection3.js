@@ -59,7 +59,7 @@ const HomePageSection3 = () => {
             {plans.map((plan) => (
               <div
                 key={plan.title}
-                className="bg-white shadow-md rounded-2xl p-8 text-left flex flex-col justify-between border"
+                className="bg-white text-left flex flex-col justify-between rounded-3xl  p-10 pb-9 shadow-2xl ring-1 ring-black/5"
               >
                 <div>
                   <h4 className="text-xs uppercase tracking-widest text-gray-500">

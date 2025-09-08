@@ -1,13 +1,14 @@
-import React from "react";
 import HomePageSection1 from "./HomePageSection1";
 import HomePageSection2 from "./HomePageSection2";
 import Footer from "./Footer";
 import HomePageSection3 from "./HomePageSection3";
+import ReviewerFeatures from "./ReviewerFeatures";
 
 const HomePage = () => {
   return (
     <div>
       <HomePageSection1 />
+      <ReviewerFeatures />
       <HomePageSection2 />
       <HomePageSection3 />
       <Footer />

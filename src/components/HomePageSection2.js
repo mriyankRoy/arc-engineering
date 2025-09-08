@@ -2,8 +2,8 @@ import React from "react";
 
 const HomePageSection2 = () => {
   return (
-    <div>
-      <section className="bg-[#0E1117] text-white px-6 py-20 rounded-4xl m-2">
+    <div className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-8">
+      <section className="bg-[#0E1117] text-white px-6 m-2 relative rounded-3xl sm:rounded-4xl isolate overflow-hidden py-24 sm:py-32 shadow-xl">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Left Panel: Chat Simulation */}
           <div className="space-y-6">
@@ -11,12 +11,13 @@ const HomePageSection2 = () => {
               <p className="text-sm uppercase tracking-widest text-gray-400">
                 About Us
               </p>
-              <h2 className="text-4xl font-bold leading-tight">
-                Customer outreach has never been easier.
+              <h2 className="text-4xl font-bold leading-tight pt-5">
+                Art GenPower Solutions Limited Your Partner for Containerized
+                Power Solutions in the UK & Europe
               </h2>
             </div>
 
-            <div className="bg-[#1A1D24] rounded-2xl p-6 shadow-lg text-gray-300">
+            {/* <div className="bg-[#1A1D24] rounded-2xl p-6 shadow-lg text-gray-300">
               <p className="mb-4 text-sm">
                 I got your details from Megan Dunfold and she mentioned Vandelay
                 was looking for an AST. I think we've got the best AST on the
@@ -62,44 +63,56 @@ const HomePageSection2 = () => {
                   Your bot is typing...
                 </p>
               </div>
+            </div> */}
+            <div className="bg-[#1A1D24] rounded-2xl p-6 shadow-lg flex flex-col justify-between">
+            <div className="space-y-3">
+              <p className="text-sm uppercase tracking-widest text-gray-400">
+                Company Overview
+              </p>
+              <h3 className="text-2xl font-semibold text-white">
+                Bringing Global Manufacturing Excellence to Your Local Power Needs.
+              </h3>
+              <p className="text-lg text-gray-400">
+                Art GenPower Solutions Limited is a dynamic, UK-based specialist
+                in the supply and distribution of customized containers for
+                generators, E-houses, and E-Pods across the United Kingdom and
+                throughout Europe. We leverage strong strategic partnerships
+                with leading manufacturers, Ace Crane and Engineering and ESI
+                Engineering. Their manufacturing facilities are based in the
+                UAE, India, and several other global locations. This unique
+                collaboration allows us to combine their world-class
+                manufacturing capabilities with our dedicated local expertise in
+                sales, logistics, and technical support, providing our clients
+                with robust, cost-effective, and rapidly deployable power
+                solutions.
+              </p>
             </div>
+          </div>
           </div>
 
           {/* Right Panel: Integration Cloud */}
           <div className="bg-[#1A1D24] rounded-2xl p-6 shadow-lg flex flex-col justify-between">
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-widest text-gray-400">
-                Integrations
+                Company Overview
               </p>
               <h3 className="text-2xl font-semibold text-white">
-                Meet leads where they are
+                Bringing Global Manufacturing Excellence to Your Local Power Needs.
               </h3>
-              <p className="text-sm text-gray-400">
-                With thousands of integrations, no one will be able to escape
-                your cold outreach.
+              <p className="text-lg text-gray-400">
+                Art GenPower Solutions Limited is a dynamic, UK-based specialist
+                in the supply and distribution of customized containers for
+                generators, E-houses, and E-Pods across the United Kingdom and
+                throughout Europe. We leverage strong strategic partnerships
+                with leading manufacturers, Ace Crane and Engineering and ESI
+                Engineering. Their manufacturing facilities are based in the
+                UAE, India, and several other global locations. This unique
+                collaboration allows us to combine their world-class
+                manufacturing capabilities with our dedicated local expertise in
+                sales, logistics, and technical support, providing our clients
+                with robust, cost-effective, and rapidly deployable power
+                solutions.
               </p>
-            </div>
-
-            <div className="relative mt-6 h-[300px] bg-dotted-pattern rounded-xl flex flex-wrap justify-center items-center gap-4 p-4">
-              {[
-                "Gmail",
-                "Microsoft Teams",
-                "Google Calendar",
-                "Discord",
-                "Slack",
-                "Adobe Creative Cloud",
-                "Zoom",
-              ].map((tool, i) => (
-                <span
-                  key={i}
-                  className="text-sm bg-[#2C2F36] text-white px-3 py-1 rounded-full shadow"
-                >
-                  {tool}
-                </span>
-              ))}
-              <div className="absolute w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white text-xl">
-                ●
-              </div>
             </div>
           </div>
         </div>
