@@ -1,58 +1,67 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 import HeaderDropDown from "./HeaderDropDown";
+import { Link } from "react-router";
+import HeaderSearch from "./HeaderSearch";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute top-15 left-0 w-full z-50 backdrop-blur-md">
+    <header className="fixed top-15 left-0 w-full z-50 backdrop-blur-md">
       {/* Top double border */}
       <div className="flex flex-col gap-2">
         <div className="h-[1px] bg-gray-300" />
         <div className="h-[1px] bg-gray-300" />
       </div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="/" className="text-xl font-bold text-gray-900">
-            AGP
-          </a>
+          <Link to="/">
+            <img
+              src="https://res.cloudinary.com/dc912sjxj/image/upload/v1764248576/Art_Genpower_Solutions_Ltd_Logo_wswrtz.png"
+              alt="AGP Logo"
+              className="h-15 w-auto"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700 relative">
             {/* Products with Dropdown */}
             <HeaderDropDown />
-            <a
-              href="#"
+
+            <Link
+              to="/"
               className="px-4 border-l border-r border-gray-300 hover:text-gray-900 hover:underline underline-offset-4 transition"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+
+            <Link
+              to="/about"
               className="px-4 border-l border-r border-gray-300 hover:text-gray-900 hover:underline underline-offset-4 transition"
             >
               Company
-            </a>
-            <a
-              href="#"
+            </Link>
+
+            <Link
+              to="/projects"
+              className="px-4 border-l border-r border-gray-300 hover:text-gray-900 hover:underline underline-offset-4 transition"
+            >
+              Projects
+            </Link>
+
+            <Link
+              to="/contact"
               className="px-4 border-l border-r border-gray-300 hover:text-gray-900 hover:underline underline-offset-4 transition"
             >
               Contact
-            </a>
-          </nav>
+            </Link>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#"
-              className="inline-block rounded-md bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 transition"
-            >
-              Get a Quote
-            </a>
-            
-          </div>
+            {/* Search Bar */}
+            <HeaderSearch />
+          </nav>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
@@ -70,7 +79,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu (simple version, no dropdown logic here) */}
+      {/* Mobile Menu (simple version) */}
       {mobileMenuOpen && (
         <div className="md:hidden px-4 pb-4 pt-2 border-t border-gray-200">
           <nav className="flex flex-col gap-2 text-sm font-medium text-gray-700">
@@ -90,6 +99,7 @@ const Header = () => {
           </nav>
         </div>
       )}
+
       {/* Bottom double border */}
       <div className="flex flex-col gap-2">
         <div className="h-[1px] bg-gray-300" />

@@ -1,17 +1,20 @@
-import HomePageSection1 from "./HomePageSection1";
-import HomePageSection2 from "./HomePageSection2";
-import Footer from "./Footer";
-import HomePageSection3 from "./HomePageSection3";
-import ReviewerFeatures from "./ReviewerFeatures";
+import HomePageSection1 from "./HomePageHeroSection";
+import CompanyVideoSection from "./CompanyVideoSection";
+import FeaturesSection from "./FeaturesSection";
+import AboutSection from "./AboutSection";
+import TrustedPartners from "./TrustedPartners";
+import GraphiteScrollingFeatures from "./GraphiteScrollingFeatures";
 
 const HomePage = () => {
+  
   return (
     <div>
       <HomePageSection1 />
-      <ReviewerFeatures />
-      <HomePageSection2 />
-      <HomePageSection3 />
-      <Footer />
+      <TrustedPartners />
+      <CompanyVideoSection />
+      <GraphiteScrollingFeatures />
+      <FeaturesSection />
+      <AboutSection />
     </div>
   );
 };

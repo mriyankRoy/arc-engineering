@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const heroSentences = [
   "Your Global Partner for Generator Needs.",
@@ -19,7 +20,7 @@ const HomePageSection1 = () => {
   return (
     // Outer div for overall page margin, ensuring the section doesn't touch screen edges
     <div className="mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-8">
-      <section className="relative rounded-3xl sm:rounded-4xl isolate overflow-hidden py-24 sm:py-32 bg-linear-115 from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] sm:bg-linear-145 shadow-xl">
+      <section className="relative rounded-4xl sm:rounded-4xl isolate overflow-hidden py-24 sm:py-32 bg-linear-115 from-[#fff1be] from-28% via-[#ee87cb] via-70% to-[#b060ff] sm:bg-linear-145 shadow-xl">
         <div className="max-w-7xl mx-auto text-left px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
           <h1
             className="relative
@@ -49,15 +50,16 @@ const HomePageSection1 = () => {
 
           {/* Call-to-action buttons - Spacing refined */}
           <div className="mt-10 flex flex-col sm:flex-row justify-start gap-3 sm:gap-4">
-            <a
-              href="#"
+            <Link
+              to="/contact"
               className="text-center inline-block rounded-full bg-gray-900 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
             >
               Get a Quote
-            </a>
+            </Link>
             {/* Redesigned "About Us" button for better integration and visual appeal */}
-            <a
-              href="#"
+
+            <Link
+              to="/about"
               className="inline-flex items-center justify-center rounded-full
                          border border-gray-300 bg-white/30 backdrop-blur-sm
                          px-6 py-3 text-base font-medium text-gray-900 shadow-md
@@ -65,7 +67,7 @@ const HomePageSection1 = () => {
                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 hover:scale-105"
             >
               About Us
-            </a>
+            </Link>
           </div>
         </div>
 
