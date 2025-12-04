@@ -64,7 +64,7 @@ export default function SkillsTabs() {
   );
 
   return (
-    <section className="rounded-4xl relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-16">
+    <section className="rounded-4xl relative overflow-hidden  py-16">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
@@ -92,7 +92,7 @@ export default function SkillsTabs() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div
-            className={`inline-block px-4 py-1 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-200 text-sm font-medium mb-4 transition-all duration-1000 ${
+            className={`font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase data-dark:text-gray-400 inline-block px-4 py-1 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full  mb-4 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-4"
@@ -101,7 +101,7 @@ export default function SkillsTabs() {
             Our Expertise
           </div>
           <h2
-            className={`text-4xl md:text-5xl font-extrabold text-white drop-shadow-2xl mb-3 transition-all duration-1000 delay-150 ${
+            className={`mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 data-dark:text-white sm:text-6xl ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
@@ -110,7 +110,7 @@ export default function SkillsTabs() {
             Technical Skills & Core Expertise
           </h2>
           <p
-            className={`text-blue-100 text-lg mt-3 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-300 ${
+            className={`mt-6 max-w-3xl text-2xl font-medium text-gray-500  mx-auto leading-relaxed transition-all duration-1000 delay-300 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
