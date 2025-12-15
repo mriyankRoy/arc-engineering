@@ -6,6 +6,11 @@ export const products = [
     category: "Instrument & Generator Package Accessories",
     slug: "instrument-generator-accessories",
     categoryId: "CAT-ACC",
+    image: { 
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809542/Instrument_Generator_Package_Accessories_smtofy.png",
+      alt: "Close-up of industrial sensors and manometers on a pipeline."
+    },
+    description: "Sensors, gauges, and monitoring systems for continuous fluid level, gas, and temperature control within generator and plant packages.",
     items: [
       {
         id: "CP5340-CF005F",
@@ -31,7 +36,8 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Datasheet", url: "/pdfs/hitec-cp5340.pdf" }
+          { name: "Datasheet", url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765811657/Datasheet_-_GB_CP5340_xdizgc.pdf" },
+          { name: "Manual", url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765811714/Manual_-_CP5340_1_gdlfje.pdf" }
         ],
         details: {
           PowerSupply: "12-30V DC",
@@ -188,6 +194,11 @@ export const products = [
     category: "Electrical Items and Accessories",
     slug: "electrical-items-accessories",
     categoryId: "CAT-ELEC",
+    image: { 
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809542/Electrical_Items_and_Accessories_kxykmg.png",
+      alt: "Interior view of an industrial electrical panel with circuit breakers and wires."
+    },
+    description: "High-current switches, transformers, heaters, and lighting solutions for industrial power distribution and enclosure management.",
     items: [
       {
         id: "DURITE-0-605-53",
@@ -348,7 +359,7 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Product Spec Sheet", url: "https://img.acuitybrands.com/public-assets/catalog/114966/wst-led.pdf" }
+          { name: "Datasheet", url: "https://img.acuitybrands.com/public-assets/catalog/114966/wst-led.pdf" }
         ],
         details: {
           LightSource: "LED",
@@ -369,6 +380,11 @@ export const products = [
     category: "Mechanical Items and Accessories",
     slug: "mechanical-items-accessories",
     categoryId: "CAT-MECH",
+    image: { 
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809543/Mechanical_Items_and_Accessories_szhbsa.png",
+      alt: "Industrial pipes and valves with red handwheels."
+    },
+    description: "Valves, flame arrestors, and actuators for safe and precise control of fuel, water, and air flow in fluid handling systems.",
     items: [
       {
         id: "RIS-STOP-2SF",
@@ -584,6 +600,11 @@ export const products = [
     category: "Generator Enclosures, Pump Skids, E-House/E-POD",
     slug: "generator-systems",
     categoryId: "CAT-ENCL",
+    image: { 
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809542/Generator_Enclosures_Pump_Skids_E-House_E-POD_z95sfa.png", // Reusing an existing product image for context
+      alt: "Heavy-duty industrial door latch and damper components."
+    },
+    description: "Heavy-duty hardware and safety components for constructing robust, secure, and certified generator enclosures and modular buildings.",
     items: [
       {
         id: "ATEX-DAMPER",
@@ -608,7 +629,7 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Product Brochure", url: "https://engineeredairtreatment.co.uk/wp-content/uploads/2021/02/Gas-Retention-Dampers-v1.pdf" }
+          { name: "Datasheet", url: "https://engineeredairtreatment.co.uk/wp-content/uploads/2021/02/Gas-Retention-Dampers-v1.pdf" }
         ],
         details: {
           ATEXZone: "Zone 2 (Gas)",
@@ -642,7 +663,7 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Installation Guide", url: "https://www.kasonind.com/files/pdf/Kason_IS_0056_SafeGuardLatch.pdf" }
+          { name: "Datasheet", url: "https://www.kasonind.com/files/pdf/Kason_IS_0056_SafeGuardLatch.pdf" }
         ],
         details: {
           Finish: "Polished Stainless Steel (or Black Powder Coated)",
@@ -676,7 +697,7 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Product Data", url: "https://www.pommier.eu/sites/default/files/downloads-documentions/pdf/AGS01-Web_082005700_en.pdf" }
+          { name: "Datasheet", url: "https://www.pommier.eu/sites/default/files/downloads-documentions/pdf/AGS01-Web_082005700_en.pdf" }
         ],
         details: {
           BladeLength: "300mm",
@@ -710,7 +731,7 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Image Reference", url: "https://www.bloxwichdoorgear.com/acatalog/BCP20103E-zoom1.jpg" }
+          { name: "Datasheet", url: "https://www.bloxwichdoorgear.com/acatalog/BCP20103E-zoom1.jpg" }
         ],
         details: {
           Material: "Heavy-Duty Rubber (EPDM/Neoprene blend)",
@@ -731,6 +752,11 @@ export const products = [
     category: "Testing and Measurement Tools",
     slug: "testing-measurement-tools",
     categoryId: "CAT-TEST",
+    image: { 
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809543/Testing_and_Measurement_Tools_w1ka52.png",
+      alt: "Engineer checking voltage with a digital multimeter in an electrical panel."
+    },
+    description: "Portable and fixed instruments for on-site quality control, inspection, calibration, and material verification.",
     items: [
       {
         id: "FLEXBAR-17295",
@@ -755,7 +781,7 @@ export const products = [
         ],
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
-          { name: "Product Catalog", url: "https://www.tqscorp.com/docs/products/Flexbar-Catalog.pdf" }
+          { name: "Datasheet", url: "https://www.tqscorp.com/docs/products/Flexbar-Catalog.pdf" }
         ],
         details: {
           MeasurementScale: "Rockwell C, B, HRC, HRB (Requires Conversion)",

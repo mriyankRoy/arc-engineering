@@ -92,6 +92,17 @@ const ProductDetailPage = () => {
     setActiveIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
 
+  // --- NEW DOWNLOAD HANDLER ---
+  const handleDownloadSpecs = () => {
+    // Check if the product has downloads and if the first item has a URL
+    if (product.downloads && product.downloads.length > 0) {
+      const firstDownloadUrl = product.downloads[0].url;
+      
+      // Open the URL in a new tab to initiate download
+      window.open(firstDownloadUrl, '_blank');
+    }
+  };
+  
   // --- Utility Function to format Detail Keys ---
   const formatDetailKey = (key) => {
     // Insert space before capital letters (except the first character) and replace underscores
@@ -105,6 +116,7 @@ const ProductDetailPage = () => {
 
   // Component to render the Product Details (key/value pairs)
   const DetailsTab = () => (
+    // Triggering an image for the measurement method
     <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 text-base">
       {Object.entries(product.details || {}).map(([key, value]) => (
         <div key={key} className="flex flex-col border-b border-gray-100 pb-2">
@@ -112,6 +124,13 @@ const ProductDetailPage = () => {
           <dd className="text-[#44444E]/90 mt-0.5">{value}</dd>
         </div>
       ))}
+       {/* Instructionally relevant image for the key measurement method */}
+       {product.details.TestMethod === 'Rebound / Impact' && (
+            <div className="md:col-span-2 mt-4 p-4 border border-gray-200 rounded-lg">
+                <p className="font-semibold text-[#44444E] mb-2">Illustration of Rebound/Impact Hardness Testing:</p>
+                
+            </div>
+        )}
     </dl>
   );
 
@@ -125,7 +144,7 @@ const ProductDetailPage = () => {
             href={download.url}
             target="_blank"
             rel="noopener noreferrer"
-            download
+            download // Ensure the download attribute is present for browser handling
             className="flex items-center justify-between gap-4 p-4 border border-gray-200 rounded-xl hover:border-[#CF0F0F] hover:shadow-md transition-all duration-300 group bg-white"
           >
             <div className="flex flex-col">
@@ -170,6 +189,19 @@ const ProductDetailPage = () => {
           className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS1wd2lkdGg9IjEiLz48L2RlZnM+PjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCIiLz48L2RlZnM+PC9zdmc=')] "
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         ></div>
+
+        {/* Animated background pattern (Subtle dots/texture) */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+              animation: "drift 20s linear infinite", // Requires custom CSS for @keyframes drift
+            }}
+          ></div>
+        </div>
 
         {/* Animated light beams - Changed colors to white/red */}
         <div className="absolute inset-0 overflow-hidden opacity-30">
@@ -438,7 +470,8 @@ const ProductDetailPage = () => {
                 {/* Quick link to downloads tab if documents exist */}
                 {(product.downloads || []).length > 0 && (
                   <button
-                    onClick={() => setActiveTab(TAB_DOWNLOADS)}
+                    // *** ACTION: Triggers direct download of the first document (Datasheet) ***
+                    onClick={handleDownloadSpecs}
                     className="w-full flex items-center justify-center gap-2 bg-[#44444E] hover:bg-black text-white text-base font-semibold py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group"
                   >
                     <FileText
@@ -455,17 +488,16 @@ const ProductDetailPage = () => {
         </div>
         {/* --- END OF EYE-CATCHING MAIN GRID --- */}
 
-        {/* --- NEW MAIN CONTENT GRID: TABS (2/3) vs. DESCRIPTION/USES (1/3) vs. SIDEBAR (1/3) --- */}
+        {/* --- NEW MAIN CONTENT GRID: TABS vs. DESCRIPTION/USES --- */}
         <div className="mb-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          {/* 1. LEFT COLUMN: TABS SECTION (Spans 2/3 width) - Note: Now spans two columns on LG */}
+          {/* 1. LEFT COLUMN: TABS SECTION (Spans 2/3 width) */}
           <div 
             className={`lg:col-span-2 space-y-0 transition-all duration-500 delay-[900ms] ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {/* Tabs Container - Must use flex-col and h-full to manage height matching */}
-            {/* NOTE: We removed the lg:col-span-1 wrapper from the previous implementation, making the Tabs section take 2/3 width */}
+            {/* Tabs Container */}
             <div className="flex flex-col h-full min-h-[400px] bg-white rounded-3xl shadow-xl border border-gray-100">
                 {/* Tab Headers */}
                 <div className="flex border-b border-gray-200 flex-shrink-0 p-4 px-8">
@@ -502,7 +534,7 @@ const ProductDetailPage = () => {
                     </button>
                 </div>
 
-                {/* Tab Content Area: flex-grow and overflow-y-auto to allow stretching/scrolling */}
+                {/* Tab Content Area */}
                 <div
                     className={`p-8 flex-grow overflow-y-auto transition-opacity duration-500`}
                 >
@@ -513,7 +545,7 @@ const ProductDetailPage = () => {
           </div>
 
 
-          {/* 2. RIGHT COLUMN GROUP: DESCRIPTION and USES (Spans 1/3 width) - Note: These two divs now share the second column slot */}
+          {/* 2. RIGHT COLUMN GROUP: DESCRIPTION and USES (Spans 1/3 width) */}
           <div className="lg:col-span-1 space-y-8">
             
             {/* PRODUCT LONG DESCRIPTION (Detailed Product Overview) */}
