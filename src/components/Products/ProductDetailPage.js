@@ -23,7 +23,8 @@ const ProductDetailPage = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Initial activeIndex is 0
+  const [activeIndex, setActiveIndex] = useState(0); 
   // NEW STATE: Tracks the currently active tab
   const [activeTab, setActiveTab] = useState(TAB_DETAILS);
   const navigate = useNavigate();
@@ -35,6 +36,13 @@ const ProductDetailPage = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // *** FIX: Reset active image index when product changes ***
+  useEffect(() => {
+    setActiveIndex(0); // Set the active index to the first image (index 0)
+    // Dependency array includes productName, so this runs every time a new product is loaded
+  }, [productName]);
+
 
   // --- Modal Logic ---
   const handleCloseModal = () => setIsModalOpen(false);
@@ -159,7 +167,7 @@ const ProductDetailPage = () => {
 
         {/* Animated pattern using the new dark color */}
         <div
-          className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS1wd2lkdGg9IjEiLz48L2RldmY+PjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCIiLz48L3N2Zz4=')] "
+          className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS1wd2lkdGg9IjEiLz48L2RlZnM+PjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCIiLz48L2RlZnM+PC9zdmc=')] "
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         ></div>
 
@@ -307,24 +315,29 @@ const ProductDetailPage = () => {
               {/* --- 1. THUMBNAIL GALLERY (Vertical Left) --- */}
               {totalImages > 0 && (
                 <div
-                  className="mt-2 flex flex-col gap-3 h-[500px] overflow-y-auto pb-4 pr-1 flex-shrink-0 ml-3"
+                  // FIX: Removed mt-2 from the container
+                  className="flex flex-col gap-3 h-[500px] overflow-y-auto pb-4 pr-1 flex-shrink-0 ml-3"
                   style={{ width: "110px" }}
                 >
                   {productImages.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setActiveIndex(index)}
-                      className={`w-20 h-20 flex-shrink-0 rounded-xl transition-all duration-300 ${
+                      // The button defines the full, clickable area and the cursor.
+                      // REMOVED p-0.5 HERE for maximum content fill
+                      className={`z-10 m-1 w-20 h-20 flex-shrink-0 rounded-xl transition-all duration-300 focus:outline-none cursor-pointer ${
                         index === activeIndex
-                          ? "mt-2 ml-2 border-2 border-[#CF0F0F] scale-105 shadow-lg bg-white"
-                          : "mt-2 ml-2 border-2 border-gray-200 opacity-80 hover:opacity-100 hover:border-[#CF0F0F]/50"
+                          ? "border-4 border-[#CF0F0F] scale-105 shadow-lg bg-white"
+                          : "border-2 border-gray-200 opacity-80 hover:opacity-100 hover:border-[#CF0F0F]/50"
                       }`}
                       aria-label={`View image ${index + 1}`}
                     >
-                      <img
-                        src={image}
-                        alt={`Thumbnail ${index + 1} of ${product.name}`}
-                        className="w-full h-full object-cover rounded-lg p-0.5"
+                      {/* Using div with background image ensures no conflicting child event layer (Final Thumbnail Fix) */}
+                      <div
+                        className="w-full h-full bg-cover bg-center rounded-xl" 
+                        style={{ backgroundImage: `url(${image})` }}
+                        role="img" 
+                        aria-label={`Thumbnail ${index + 1} of ${product.name}`}
                       />
                     </button>
                   ))}
@@ -334,7 +347,8 @@ const ProductDetailPage = () => {
 
               {/* --- 2. MAIN IMAGE DISPLAY (Right Side, filling remaining space) --- */}
               <div
-                className="relative flex-grow overflow-hidden rounded-2xl group w-full flex items-center justify-center bg-white cursor-zoom-in shadow-inner"
+                // Keep cursor-pointer on the container (Line 277)
+                className="relative flex-grow overflow-hidden rounded-2xl group w-full flex items-center justify-center bg-white cursor-pointer shadow-inner"
                 onClick={handleOpenModal}
               >
                 {/* Navigation Buttons for Main Image */}
@@ -345,7 +359,8 @@ const ProductDetailPage = () => {
                         e.stopPropagation();
                         goToPrev();
                       }}
-                      className="absolute left-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-[#CF0F0F]/80 transition-all duration-300 shadow-md"
+                      // FIX: Explicitly added cursor-pointer to buttons (Line 253)
+                      className="absolute left-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-[#CF0F0F]/80 transition-all duration-300 shadow-md cursor-pointer"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="w-6 h-6" />
@@ -355,7 +370,8 @@ const ProductDetailPage = () => {
                         e.stopPropagation();
                         goToNext();
                       }}
-                      className="absolute right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-[#CF0F0F]/80 transition-all duration-300 shadow-md"
+                      // FIX: Explicitly added cursor-pointer to buttons (Line 263)
+                      className="absolute right-4 z-20 p-2 bg-black/50 text-white rounded-full hover:bg-[#CF0F0F]/80 transition-all duration-300 shadow-md cursor-pointer"
                       aria-label="Next image"
                     >
                       <ChevronRight className="w-6 h-6" />
@@ -367,7 +383,8 @@ const ProductDetailPage = () => {
                   src={productImages[activeIndex]}
                   alt={product.name}
                   key={productImages[activeIndex]}
-                  className="relative h-full w-full object-contain shadow-xl transition-transform duration-700 group-hover:scale-105"
+                  // *** FINAL FIX: Removed cursor-pointer from the child <img> (Line 300) to resolve conflict with parent div's pointer style ***
+                  className="relative h-full w-full object-contain shadow-xl transition-transform duration-700 group-hover:scale-105" 
                 />
                 {/* Shimmer effect on hover */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
@@ -506,7 +523,7 @@ const ProductDetailPage = () => {
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-8"
               }`}
-              style={{ transitionDelay: "1100ms" }}
+              style={{ transitionDelay: "100ms" }}
             >
               <div className="flex items-center gap-3 mb-4 relative z-10">
                 <div className="w-1 h-6 bg-[#CF0F0F] rounded-full group-hover:h-8 transition-all duration-300"></div>
@@ -517,6 +534,8 @@ const ProductDetailPage = () => {
               <p className="text-base text-[#44444E]/90 leading-relaxed whitespace-pre-line">
                 {product.description}
               </p>
+              {/* Animated corner accent - Dark Gray subtle gradient */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tr from-[#BF092F]/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
             {/* USES SECTION (Applications & Uses) */}
@@ -585,6 +604,7 @@ const ProductDetailPage = () => {
             <img
               src={productImages[activeIndex]}
               alt={`Enlarged view of ${product.name}`}
+              key={productImages[activeIndex]} // Important for smooth transitions
               className="w-full h-full object-contain rounded-lg shadow-2xl"
             />
           </div>

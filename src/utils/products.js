@@ -17,6 +17,7 @@ export const products = [
           "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
           "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
           "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765717438/Crowcon_Gasmaster_4_Control_Panel_ugauxx.jpg"
         ],
         shortDescription:
           "High-precision hydrostatic level transmitter with 4-20mA output for continuous tank monitoring.",

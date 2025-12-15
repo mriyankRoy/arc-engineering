@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { products } from "../../utils/products";
 import ProductCard from "./ProductCard";
 import { useLocation, useNavigate } from "react-router";
-import { Filter } from "lucide-react"; 
+import { Filter, Home } from "lucide-react"; // Imported Home Icon
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const ProductPage = () => {
     ? products.find((p) => p.slug === categorySlug)
     : null;
 
+  // Ensure currentCategory is always defined, defaulting to the first category if none is matched
   const currentCategory = matchedCategory || products[0];
 
   const [selectedCategory, setSelectedCategory] = useState(
@@ -51,7 +52,7 @@ const ProductPage = () => {
 
         {/* Animated pattern (Texture) using the dark color */}
         <div
-          className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] "
+          className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiIHN0cm9rZS1wd2lkdGg9IjEiLz48L2RldmY+PjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCIvPjwvc3ZnPg==')] "
           style={{ transform: `translateY(${scrollY * 0.5}px)` }} // Parallax effect
         ></div>
 
@@ -72,7 +73,7 @@ const ProductPage = () => {
         <div className="relative container mx-auto px-4 lg:px-8"> 
           <div className="max-w-7xl text-left"> 
             
-            {/* --- BREADCRUMB --- */}
+            {/* --- BREADCRUMB --- UPDATED WITH HOME ICON */}
             <nav className={`mb-6 transition-all duration-1000 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
               }`}
@@ -81,7 +82,23 @@ const ProductPage = () => {
             >
               <ol className="inline-flex items-center space-x-2 text-sm md:text-base font-medium">
                 
-                {/* 1. Products Root Link */}
+                {/* 1. HOME Link (Clickable) */}
+                <li className="inline-flex items-center">
+                  <button
+                    onClick={() => navigate('/')} // Navigate to home page
+                    className="flex items-center gap-1 text-white/80 hover:text-[#CF0F0F] transition-colors duration-200 focus:outline-none"
+                  >
+                    <Home className="w-4 h-4" /> {/* Home Icon */}
+                    Home
+                  </button>
+                </li>
+                
+                {/* Separator */}
+                <li className="text-white/50">
+                  <span className="mx-2">&gt;</span>
+                </li>
+                
+                {/* 2. Products Root Link */}
                 <li className="inline-flex items-center">
                   <button
                     onClick={() => navigate('/products')}
@@ -96,7 +113,7 @@ const ProductPage = () => {
                   <span className="mx-2">&gt;</span>
                 </li>
                 
-                {/* 2. Category Name (Current Page) - RED BACKGROUND TAG */}
+                {/* 3. Category Name (Current Page) - RED BACKGROUND TAG */}
                 <li 
                     className={`inline-block px-4 py-1 bg-[#CF0F0F] text-white rounded-full font-semibold whitespace-nowrap`}
                 >
