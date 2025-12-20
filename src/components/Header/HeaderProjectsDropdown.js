@@ -24,8 +24,8 @@ const HeaderProjectsDropdown = () => {
       </button>
 
       {/* --- DROPDOWN CONTAINER --- */}
-      <div className="absolute left-[-50px] w-[750px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] rounded-sm border-t-4 border-[#CF0F0F] overflow-hidden opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-500 ease-out z-50">
-        <div className="grid grid-cols-[220px_1fr]">
+      <div className="absolute left-[-50px] w-[750px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] rounded-xl border-t-4 border-[#CF0F0F] overflow-hidden opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-500 ease-out z-50">
+        <div className="grid grid-cols-[240px_1fr]">
           {/* LEFT: CATEGORY SIDEBAR (The Directory) */}
           <div className="bg-[#44444E] py-6">
             <nav className="flex flex-col">
@@ -81,7 +81,7 @@ const HeaderProjectsDropdown = () => {
                       className="rounded-xl group/link flex items-center justify-between p-4 bg-gray-50 border border-transparent hover:border-[#CF0F0F] hover:bg-white transition-all duration-300"
                     >
                       <div className="flex flex-col">
-                        <span className="text-xs font-black text-[#44444E] uppercase tracking-wide">
+                        <span className="text-xs font-bold text-[#44444E] uppercase tracking-wide group-hover/link:text-[#CF0F0F]">
                           {project.name}
                         </span>
                       </div>
@@ -100,7 +100,7 @@ const HeaderProjectsDropdown = () => {
 
               {/* View All Footer */}
               <button
-                onClick={() => navigate("/projects")}
+                onClick={() => navigate(`/projects?type=${encodeURIComponent(activeType)}`)}
                 className="mt-auto pt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#44444E] hover:text-[#CF0F0F] transition-colors group/all"
               >
                 Explore Full {activeType} Portfolio{" "}

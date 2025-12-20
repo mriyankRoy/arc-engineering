@@ -28,7 +28,7 @@ export default function FacilitiesPage() {
 
         <div className="container mx-auto px-6 mb-24 relative z-20">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
             className="group flex items-center gap-2 text-white/70 hover:text-[#CF0F0F] mb-6 transition-colors"
           >
             <ChevronLeft
@@ -36,7 +36,7 @@ export default function FacilitiesPage() {
               className="group-hover:-translate-x-1 transition-transform"
             />
             <span className="text-sm font-bold uppercase tracking-widest">
-              Company Overview
+              Home
             </span>
           </button>
 
