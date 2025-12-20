@@ -15,7 +15,7 @@ const HeaderProductsDropDown = () => {
       {/* --- TRIGGER --- */}
       <button
         onClick={() => navigate("/products")}
-        className="inline-flex gap-1 items-center text-sm font-black uppercase tracking-[0.2em] text-white hover:text-[#44444E] transition-colors py-4"
+        className="inline-flex gap-1 items-center text-sm uppercase tracking-[0.2em] text-white hover:text-[#44444E] transition-colors py-4"
       >
         Products
         <ChevronDown className="w-4 h-4 transition-transform duration-500 group-hover:rotate-180" />

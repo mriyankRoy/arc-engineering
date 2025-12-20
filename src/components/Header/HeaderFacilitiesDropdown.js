@@ -18,14 +18,14 @@ const HeaderFacilitiesDropdown = () => {
       {/* --- TRIGGER --- */}
       <button
         onClick={() => navigate("/facilities")}
-        className="inline-flex gap-1 items-center text-sm font-black uppercase tracking-[0.2em] text-white hover:text-[#44444E] transition-colors py-4"
+        className="inline-flex gap-1 items-center text-sm uppercase tracking-[0.2em] text-white hover:text-[#44444E] transition-colors py-4"
       >
         Facilities
         <ChevronDown className="w-4 h-4 transition-transform duration-500 group-hover:rotate-180" />
       </button>
 
       {/* --- DROPDOWN CONTAINER --- */}
-      <div className="absolute left-0 w-[550px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] rounded-sm border-t-4 border-[#CF0F0F] overflow-hidden opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-500 ease-out z-50">
+      <div className="absolute left-0 w-[550px] bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] rounded-xl border-t-4 border-[#CF0F0F] overflow-hidden opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-500 ease-out z-50">
         <div className="grid grid-cols-[200px_1fr]">
           {/* LEFT: FACILITY LIST (The Directory) */}
           <div className="bg-[#44444E] py-4">
@@ -52,12 +52,9 @@ const HeaderFacilitiesDropdown = () => {
 
           {/* RIGHT: PREVIEW PANEL (The Visual) */}
           <div className="relative p-6 bg-white overflow-hidden">
-            {/* Subtle Grid Texture Background */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-
             {currentFacility && (
               <div className="relative animate-fadeIn">
-                <div className="aspect-video w-full overflow-hidden rounded-sm mb-4 bg-gray-100">
+                <div className="aspect-video w-full overflow-hidden rounded-xl mb-4 bg-gray-100">
                   <img
                     src={currentFacility.facilityImg[0]}
                     alt={currentFacility.title}

@@ -9,9 +9,8 @@ import HeaderProductsDropDown from "./HeaderProductsDropDown";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Reusable style for Nav Links to ensure consistency
   const navLinkStyles =
-    "inline-flex gap-2 items-center text-sm font-black uppercase tracking-[0.2em] text-white hover:text-[#44444E] transition-colors py-4";
+    "inline-flex gap-2 items-center text-sm uppercase tracking-[0.2em] text-white hover:text-[#44444E] transition-colors py-4";
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
@@ -23,10 +22,11 @@ const Header = () => {
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Container updated to match FacilitiesPage layout */}
+      <div className="container mx-auto px-6">
         <div className="flex h-20 items-center justify-between">
-          {/* LOGO SECTION */}
-          <Link to="/" className="flex-shrink-0 pr-8 group">
+          {/* LOGO SECTION - Padding removed to align strictly with the grid edge */}
+          <Link to="/" className="flex-shrink-0 group">
             <img
               src="https://res.cloudinary.com/dc912sjxj/image/upload/v1764248576/Art_Genpower_Solutions_Ltd_Logo_wswrtz.png"
               alt="AGP Logo"
@@ -52,7 +52,6 @@ const Header = () => {
               Contact
             </Link>
 
-            {/* SEARCH BAR - Integrated with industrial borders */}
             <div className="pl-4 border-l border-white/20">
               <HeaderSearch />
             </div>
@@ -70,7 +69,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* 📱 MOBILE NAVIGATION (INDUSTRIAL OVERLAY) */}
+      {/* 📱 MOBILE NAVIGATION */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-[#44444E] border-t-4 border-[#BF092F] shadow-2xl animate-fadeIn">
           <nav className="flex flex-col p-6 gap-4">
@@ -97,7 +96,7 @@ const Header = () => {
         </div>
       )}
 
-      {/* ⚡ BOTTOM ACCENT STRIP (Blueprint Style) */}
+      {/* ⚡ BOTTOM ACCENT STRIP */}
       <div className="h-[3px] w-full flex">
         <div className="w-3/4 bg-white/20" />
         <div className="w-1/4 bg-[#BF092F]" />
