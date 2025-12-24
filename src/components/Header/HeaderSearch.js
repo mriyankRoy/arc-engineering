@@ -90,7 +90,7 @@ const HeaderSearch = () => {
           onKeyDown={handleKeyDown}
         />
 
-        <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-[#44444E] w-4 h-4 opacity-70" />
+        <Search className="absolute bg-white right-3 top-1/2 -translate-y-1/2 text-[#44444E] w-4 h-4 opacity-70" />
 
         {/* RESULTS DROPDOWN */}
         {results.length > 0 && (
@@ -101,8 +101,8 @@ const HeaderSearch = () => {
                 onClick={() => handleSelect(item)}
                 className={`px-4 py-2.5 text-xs font-bold uppercase tracking-tight cursor-pointer transition ${
                   highlightedIndex === index
-                    ? "bg-white text-[#44444E]"
-                    : "text-[#44444E] hover:bg-gray-100"
+                    ? "bg-[#BF092F] text-white"
+                    : "text-[#44444E] hover:bg-gray-200"
                 }`}
               >
                 {item.name}
