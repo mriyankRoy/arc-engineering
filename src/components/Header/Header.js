@@ -23,20 +23,25 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-[100] pt-1 px-2 transition-all duration-500">
-      <div 
+      <div
         className="relative w-full mx-auto rounded-2xl md:rounded-2xl shadow-2xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div
           className={`absolute inset-0 -z-10 rounded-2xl md:rounded-2xl transition-all duration-500 
-            ${(isScrolled && !isHovered) ? "opacity-75 backdrop-blur-md" : "opacity-100"}`}
-          style={{ background: "linear-gradient(110deg, #BF092F 80.05%, #44444E 0%)" }}
+            ${
+              isScrolled && !isHovered
+                ? "opacity-75 backdrop-blur-md"
+                : "opacity-100"
+            }`}
+          style={{
+            background: "linear-gradient(110deg, #BF092F 80.05%, #44444E 0%)",
+          }}
         />
 
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-[auto_1fr_auto] h-18 md:h-20 items-center gap-8">
-            
             <div className="flex justify-start items-center">
               <Link to="/" className="flex-shrink-0 group/logo">
                 <img
@@ -50,26 +55,22 @@ const Header = () => {
             <nav className="hidden md:flex items-center justify-center gap-x-1 lg:gap-x-2">
               {/* --- About Link --- */}
               <Link to="/about" className={navLinkStyles}>
-                {/* Rectangular Highlighter (Graphite Style) */}
                 <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
-                
-                {/* Reddish Modern Glow (Refined) */}
                 <span className="absolute inset-0 bg-[#BF092F]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
-                
                 About
               </Link>
-              
+
               <HeaderProductsDropDown />
               <HeaderProjectsDropdown />
               <HeaderFacilitiesDropdown />
-              
+
               {/* --- Career Link --- */}
               <Link to="/careers" className={navLinkStyles}>
                 <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
                 <span className="absolute inset-0 bg-[#BF092F]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
                 Career
               </Link>
-              
+
               {/* --- Contact Link --- */}
               <Link to="/contact" className={navLinkStyles}>
                 <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
@@ -99,7 +100,15 @@ const Header = () => {
         <div className="md:hidden absolute top-full left-0 w-full px-4 pt-2 z-[110]">
           <div className="bg-[#44444E] border-t-4 border-[#BF092F] rounded-2xl shadow-2xl overflow-hidden">
             <nav className="flex flex-col p-6 gap-2">
-              {["Home", "About", "Products", "Projects", "Facility", "Career", "Contact"].map((item) => (
+              {[
+                "Home",
+                "About",
+                "Products",
+                "Projects",
+                "Facility",
+                "Career",
+                "Contact",
+              ].map((item) => (
                 <Link
                   key={item}
                   to={`/${item === "Home" ? "" : item.toLowerCase()}`}
