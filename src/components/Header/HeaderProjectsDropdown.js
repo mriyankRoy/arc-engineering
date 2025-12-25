@@ -17,8 +17,12 @@ const HeaderProjectsDropdown = () => {
       {/* --- TRIGGER --- */}
       <button
         onClick={() => navigate("/projects")}
-        className="cursor-pointer inline-flex gap-1 items-center tracking-widest text-white hover:text-[#44444E] transition-colors py-4 text-[12px] font-bold uppercase whitespace-nowrap"
+        className="relative cursor-pointer inline-flex items-center tracking-widest text-white hover:text-white transition-all duration-300 px-2 py-2 text-[12px] lg:text-[13px] uppercase font-medium whitespace-nowrap group"
       >
+        {/* Rectangular Highlighter (Graphite Style) */}
+        <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
+        {/* Reddish Modern Glow (Refined) */}
+        <span className="absolute inset-0 bg-[#BF092F]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
         Projects
         <ChevronDown className="w-4 h-4 transition-transform duration-500 group-hover:rotate-180" />
       </button>
@@ -98,13 +102,12 @@ const HeaderProjectsDropdown = () => {
 
               {/* View All Footer */}
               <button
-                onClick={() => navigate(`/projects?type=${encodeURIComponent(activeType)}`)}
+                onClick={() =>
+                  navigate(`/projects?type=${encodeURIComponent(activeType)}`)
+                }
                 className="cursor-pointer mt-auto pt-6 flex items-center gap-2 text-[12px] tracking-[0.2em] text-[#44444E] hover:text-[#CF0F0F] transition-colors"
               >
-                Explore {activeType} Portfolio{" "}
-                <ArrowRight
-                  size={12}
-                />
+                Explore {activeType} Portfolio <ArrowRight size={12} />
               </button>
             </div>
           </div>
