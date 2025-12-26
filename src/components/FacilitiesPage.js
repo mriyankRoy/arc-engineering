@@ -142,12 +142,12 @@ export default function FacilitiesPage() {
                         </div>
 
                         <div className="flex items-center justify-between mb-1 md:mb-2 pl-4 md:pl-6">
-                          <span className={`text-[7px] md:text-[9px] font-black uppercase tracking-widest ${isActive ? "text-[#BF092F]" : "text-gray-400"}`}>
+                          <span className={`text-[7px] md:text-[9px] font-black uppercase tracking-widest ${isActive ? "text-[#BF092F]" : "text-gray-900"}`}>
                             Ref_0{i + 1}
                           </span>
                         </div>
                         
-                        <h4 className={`text-sm md:text-xl font-bold uppercase tracking-tight pl-4 md:pl-6 ${isActive ? "text-[#44444E]" : "text-gray-300"}`}>
+                        <h4 className={`text-sm md:text-xl font-bold uppercase tracking-tight pl-4 md:pl-6 ${isActive ? "text-[#44444E]" : "text-gray-900"}`}>
                           {c.title}
                         </h4>
 

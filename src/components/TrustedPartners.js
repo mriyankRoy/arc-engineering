@@ -33,7 +33,7 @@ export default function TrustedPartners() {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="group relative aspect-[3/2] bg-white border-r border-b border-gray-100 flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-[#44444E]"
+              className="group relative aspect-[3/2] bg-white border-r border-b border-gray-100 flex flex-col items-center justify-center p-8 transition-all duration-500 hover:bg-white hover:border-10 hover:border-gray-500 hover:rounded-2xl"
             >
               {/* Technical Cell Coordinates */}
               <span className="absolute top-4 left-4 text-[8px] font-mono font-bold text-gray-300 group-hover:text-white/20 uppercase tracking-widest">
@@ -48,6 +48,7 @@ export default function TrustedPartners() {
               <img
                 src={partner.logo}
                 alt={partner.name}
+                /* Added rounded-2xl here */
                 className="w-full max-h-12 md:max-h-16 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
               />
 

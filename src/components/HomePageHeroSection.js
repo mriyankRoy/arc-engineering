@@ -26,7 +26,7 @@ const HomePageSection1 = () => {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <div className="pt-22 px-2 md:px-2 pb-12">
-        <header className="relative min-h-[550px] md:h-[70vh] w-full flex items-center overflow-hidden rounded-2xl shadow-2xl bg-[#44444E]">
+        <section className="relative min-h-[550px] md:h-[70vh] w-full flex items-center overflow-hidden rounded-2xl shadow-2xl bg-[#44444E]">
           
           {/* LAYER 1: VIDEO */}
           <div className="absolute inset-0 z-0">
@@ -37,14 +37,14 @@ const HomePageSection1 = () => {
             />
           </div>
 
-          {/* LAYER 2: THE MULTI-STRIPE OVERLAY (Solid Colors) */}
+          {/* LAYER 2: GREY & VIDEO OVERLAY */}
           <div 
             className="absolute inset-0 z-10 pointer-events-none"
             style={{
               background: `linear-gradient(${slantDegree}, 
                 #44444E ${firstGreyEnd}, 
-                #BF092F ${firstGreyEnd}, 
-                #BF092F ${redStripeEnd}, 
+                transparent ${firstGreyEnd}, 
+                transparent ${redStripeEnd}, 
                 #44444E ${redStripeEnd},
                 #44444E ${secondGreyEnd},
                 transparent ${secondGreyEnd}
@@ -52,25 +52,29 @@ const HomePageSection1 = () => {
             }}
           />
           
-          {/* LAYER 3: DEPTH GRADIENT (Moved to z-20 so it only affects content/video blend, not stripes) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-15 pointer-events-none" />
+          {/* LAYER 3: DEPTH GRADIENT (Darkens video/grey, but NOT the red) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-15 pointer-events-none" />
 
-          {/* LAYER 4: DECORATIVE GRID */}
-          <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-            <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#BF092F] to-transparent animate-pulse opacity-20" />
-            <div className="absolute -top-20 -left-20 opacity-[0.03]">
-               <Globe size={600} className="text-white" />
-            </div>
-          </div>
+          {/* LAYER 4: PURE RED STRIPE (Sitting on top of all gradients to match header exactly) */}
+          <div 
+            className="absolute inset-0 z-20 pointer-events-none"
+            style={{
+              background: `linear-gradient(${slantDegree}, 
+                transparent ${firstGreyEnd}, 
+                #BF092F ${firstGreyEnd}, 
+                #BF092F ${redStripeEnd}, 
+                transparent ${redStripeEnd}
+              )`,
+            }}
+          />
 
-          {/* LAYER 5: CONTENT */}
+          {/* LAYER 6: CONTENT */}
           <div className="container mx-auto px-6 md:px-12 relative z-30">
             <div className="flex items-center gap-3 mb-8">
               <div className="bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg flex items-center gap-2">
                 <Activity size={14} className="animate-pulse" />
                 <span className="text-[10px] font-black uppercase tracking-[0.3em]">System_Live</span>
               </div>
-              {/* RESTORED: Exact Heavy Engineering Label */}
               <div className="h-4 w-px bg-white/20 mx-2 hidden sm:block" />
               <span className="text-white/40 text-[10px] uppercase tracking-[0.4em] font-medium hidden sm:block">
                 Heavy_Engineering_Systems
@@ -87,23 +91,22 @@ const HomePageSection1 = () => {
               ))}
             </div>
 
-            {/* RESTORED: Original Heavy Sentence with Bold and Italic */}
             <p className="text-white/60 text-lg md:text-xl tracking-wide leading-relaxed max-w-2xl mb-12 border-l-2 border-[#BF092F] pl-6 italic">
               Accessing the unified registry for <span className="text-white font-bold not-italic">high-performance power systems</span> and precision-engineered container solutions.
             </p>
 
             <div className="flex flex-wrap gap-6">
               <Link to="/products" className="rounded-2xl group relative flex items-center gap-8 px-10 py-5 bg-[#BF092F] text-white transition-all hover:scale-105 shadow-xl shadow-[#BF092F]/20">
-                <span className="text-[11px] font-black uppercase tracking-[0.3em]">Registry Access</span>
+                <span className="text-[11px] font-black uppercase tracking-[0.3em]">Products</span>
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
               </Link>
               <Link to="/about" className="rounded-2xl group flex items-center gap-8 px-10 py-5 border border-white/20 text-white transition-all hover:bg-white/10">
-                <span className="text-[11px] font-black uppercase tracking-[0.3em]">Our Facility</span>
+                <span className="text-[11px] font-black uppercase tracking-[0.3em]">Our Company</span>
                 <Zap size={16} className="text-[#BF092F]" />
               </Link>
             </div>
           </div>
-        </header>
+        </section>
       </div>
     </section>
   );
