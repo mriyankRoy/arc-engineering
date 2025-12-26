@@ -73,11 +73,11 @@ const HeaderSearch = () => {
           placeholder="Search..."
           className="
             pl-4 pr-10 py-1.5 
-            bg-white/90 text-[10px] lg:text-sm text-gray-800 
+            bg-white text-[10px] lg:text-sm text-gray-800 
             rounded-full border border-white/20 shadow-sm 
             focus:outline-none focus:ring-2 focus:ring-[#BF092F] 
             transition-all
-            w-28 lg:w-48 xl:w-64
+            w-28 lg:w-48 xl:w-90
           "
           value={query}
           onChange={handleSearchChange}

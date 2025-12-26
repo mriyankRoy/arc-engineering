@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link } from "react-router";
 import HeaderSearch from "./HeaderSearch";
 import HeaderFacilitiesDropdown from "./HeaderFacilitiesDropdown";
@@ -17,26 +17,23 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Updated link styles: rounded-md and transition-all to match the Graphite "pill" feel
   const navLinkStyles =
     "relative cursor-pointer inline-flex items-center tracking-widest text-white hover:text-white transition-all duration-300 px-2 py-2 text-[12px] lg:text-[13px] uppercase font-medium whitespace-nowrap group";
 
   return (
     <header className="fixed top-0 left-0 w-full z-[100] pt-1 px-2 transition-all duration-500">
+      {/* REMOVED overflow-hidden from this wrapper */}
       <div
-        className="relative w-full mx-auto rounded-2xl md:rounded-2xl shadow-2xl"
+        className="relative w-full mx-auto" 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        {/* Background Layer - Apply rounded corners and overflow-hidden here instead */}
         <div
-          className={`absolute inset-0 -z-10 rounded-2xl md:rounded-2xl transition-all duration-500 
-            ${
-              isScrolled && !isHovered
-                ? "opacity-75 backdrop-blur-md"
-                : "opacity-100"
-            }`}
+          className={`absolute inset-0 -z-10 transition-all duration-500 rounded-2xl shadow-2xl overflow-hidden
+            ${isScrolled && !isHovered ? "opacity-75 backdrop-blur-md" : "opacity-100"}`}
           style={{
-            background: "linear-gradient(110deg, #BF092F 80.05%, #44444E 0%)",
+            background: "linear-gradient(110deg, #BF092F 75vw, #44444E 75vw)",
           }}
         />
 
@@ -52,11 +49,10 @@ const Header = () => {
               </Link>
             </div>
 
+            {/* Dropdowns now have a clear path to render downwards */}
             <nav className="hidden md:flex items-center justify-center gap-x-1 lg:gap-x-2">
-              {/* --- About Link --- */}
               <Link to="/about" className={navLinkStyles}>
                 <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
-                <span className="absolute inset-0 bg-[#BF092F]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
                 About
               </Link>
 
@@ -64,17 +60,13 @@ const Header = () => {
               <HeaderProjectsDropdown />
               <HeaderFacilitiesDropdown />
 
-              {/* --- Career Link --- */}
               <Link to="/careers" className={navLinkStyles}>
                 <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
-                <span className="absolute inset-0 bg-[#BF092F]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
                 Career
               </Link>
 
-              {/* --- Contact Link --- */}
               <Link to="/contact" className={navLinkStyles}>
                 <span className="absolute inset-0 bg-white/10 rounded-lg scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out -z-10" />
-                <span className="absolute inset-0 bg-[#BF092F]/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
                 Contact
               </Link>
             </nav>
@@ -94,35 +86,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* MOBILE NAV (Unchanged) */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full px-4 pt-2 z-[110]">
-          <div className="bg-[#44444E] border-t-4 border-[#BF092F] rounded-2xl shadow-2xl overflow-hidden">
-            <nav className="flex flex-col p-6 gap-2">
-              {[
-                "Home",
-                "About",
-                "Products",
-                "Projects",
-                "Facility",
-                "Career",
-                "Contact",
-              ].map((item) => (
-                <Link
-                  key={item}
-                  to={`/${item === "Home" ? "" : item.toLowerCase()}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between text-white text-[12px] font-bold uppercase tracking-widest py-4 border-b border-white/5"
-                >
-                  {item}
-                  <ArrowRight size={18} className="text-[#BF092F]" />
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </div>
-      )}
     </header>
   );
 };
