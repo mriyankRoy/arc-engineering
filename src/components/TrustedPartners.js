@@ -62,7 +62,7 @@ export default function TrustedPartners() {
           ))}
 
           {/* FILLER CELL - Technical Data / Supply Chain Status */}
-          <div className="hidden lg:flex aspect-[3/2] bg-gray-50 border-b border-gray-100 items-center justify-center p-8">
+          {/* <div className="hidden lg:flex aspect-[3/2] bg-gray-50 border-b border-gray-100 items-center justify-center p-8">
             <div className="text-center">
               <Zap
                 size={20}
@@ -73,7 +73,7 @@ export default function TrustedPartners() {
                 <span className="text-[#44444E]">Active_Supply</span>
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
