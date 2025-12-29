@@ -127,7 +127,7 @@ const ProductPage = () => {
             <nav className="flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
-                className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
+                className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
                 <span className="text-[10px] md:text-xs tracking-widest uppercase">Home</span>
@@ -141,7 +141,7 @@ const ProductPage = () => {
                 className={`text-[10px] md:text-xs tracking-widest uppercase transition-all duration-300 ${
                   isGeneralOverview 
                   ? "bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold" 
-                  : "text-white/50 hover:text-white"
+                  : "cursor-pointer text-white/50 hover:text-white"
                 }`}
               >
                 Product Categories

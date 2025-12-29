@@ -7,7 +7,8 @@ import {
   Activity
 } from "lucide-react";
 import { useNavigate } from "react-router";
-import { features } from "../utils/features";
+// 1. Import your products data instead of features
+import { products } from "../utils/products"; 
 
 export default function FeaturesSection() {
   const sectionRef = useRef(null);
@@ -22,11 +23,9 @@ export default function FeaturesSection() {
       ref={sectionRef}
       className="relative py-24 bg-white overflow-hidden"
     >
-      
-      {/* 1. MATCHED CONTAINER: Using px-4 md:px-6 to match ProductPage alignment */}
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         
-        {/* 🏗️ INDUSTRIAL HEADER: Exactly aligned with Product Registry header */}
+        {/* INDUSTRIAL HEADER */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-6">
             <div className="h-8 w-1 bg-[#BF092F]" />
@@ -45,11 +44,11 @@ export default function FeaturesSection() {
           </div>
         </div>
 
-        {/* 📊 TECHNICAL METRICS STRIP */}
+        {/* TECHNICAL METRICS STRIP */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mb-20 rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-white">
           {[
             { value: "850+", label: "Units Delivered" },
-            { value: "UAE/IND", label: "Production Hubs" },
+            { value: "UAE", label: "Production Hubs" },
             { value: "100%", label: "FAT Certified" },
             { value: "ISO", label: "Quality Standards" },
           ].map((stat, i) => (
@@ -60,19 +59,19 @@ export default function FeaturesSection() {
           ))}
         </div>
 
-        {/* 🛠️ FEATURES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-20">
-          {features.map((feature, index) => (
+        {/* 🛠️ CATEGORIES GRID (Updated to map through products) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-20">
+          {products.map((category, index) => (
             <FeatureCard
               key={index}
-              feature={feature}
+              category={category} // Passing category instead of feature
               index={index}
               isVisible={isVisible}
             />
           ))}
         </div>
 
-        {/* ⚡ INDUSTRIAL CTA CHASSIS */}
+        {/* INDUSTRIAL CTA CHASSIS */}
         <div className="relative group overflow-hidden rounded-2xl bg-[#44444E] p-10 md:p-14 shadow-2xl">
           <ShieldCheck size={200} className="absolute -right-10 -bottom-10 text-white/5 rotate-12 transition-transform group-hover:rotate-0 duration-1000" />
           
@@ -101,12 +100,13 @@ export default function FeaturesSection() {
   );
 }
 
-function FeatureCard({ feature, index, isVisible }) {
+function FeatureCard({ category, index, isVisible }) {
   const navigate = useNavigate();
   
   return (
     <div
-      onClick={() => navigate(feature.link)}
+      // 2. Updated navigation to use the category slug
+      onClick={() => navigate(`/products?category=${category.slug}`)}
       className={`group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
@@ -114,14 +114,14 @@ function FeatureCard({ feature, index, isVisible }) {
     >
       <div className="absolute top-4 right-4 z-20">
         <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
-          ID: {100 + index}
+          ID: {category.categoryId}
         </span>
       </div>
 
       <div className="h-56 relative overflow-hidden bg-gray-50">
         <img
-          src={feature.image}
-          alt={feature.title}
+          src={category.image.url} // Using your products API image structure
+          alt={category.image.alt}
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 opacity-90"
         />
         <div className="absolute -bottom-6 left-6 w-12 h-12 bg-[#BF092F] flex items-center justify-center text-white shadow-xl transition-transform duration-700 group-hover:rotate-[360deg]">
@@ -132,17 +132,17 @@ function FeatureCard({ feature, index, isVisible }) {
       <div className="p-8 pt-10 flex flex-col justify-between flex-grow">
         <div>
           <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3">
-            {feature.title}
+            {category.category}
           </h3>
           <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed line-clamp-2">
-            {feature.description}
+            {category.description}
           </p>
         </div>
 
         <div className="mt-8 flex justify-between items-center pt-6 border-t border-gray-100">
            <div className="flex items-center gap-2">
               <Layers size={14} className="text-[#BF092F]" />
-              <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">Deploy_Solution</span>
+              <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">View Range</span>
            </div>
            <ArrowRight 
              size={18} 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// Import the new structure
 import { projects } from "../../utils/projects";
 import { useLocation, useNavigate } from "react-router";
 import ProjectCard from "./ProjectCard";
@@ -8,17 +9,11 @@ import {
   ArrowRight,
   Activity,
   ChevronRight,
-  Briefcase,
   LayoutGrid,
 } from "lucide-react";
 
-const projectTypes = [
-  "All",
-  "Enclosure",
-  "E-House",
-  "Power-Pack",
-  "Cooling-Shelter",
-];
+// Get types dynamically from the new API
+const projectTypes = ["All", ...projects.map((cat) => cat.categoryName)];
 
 export default function ProjectsPage() {
   const navigate = useNavigate();
@@ -40,10 +35,18 @@ export default function ProjectsPage() {
     }
   }, [typeQuery]);
 
-  const filteredProjects =
-    selectedType === "All"
-      ? projects
-      : projects.filter((p) => p.type === selectedType);
+  // Logic to get the list of projects based on the new nested structure
+  const getFilteredProjects = () => {
+    if (selectedType === "All") {
+      // Flatten all projects from all categories into one list
+      return projects.flatMap((cat) => cat.projects);
+    }
+    // Find the specific category and return its projects
+    const category = projects.find((cat) => cat.categoryName === selectedType);
+    return category ? category.projects : [];
+  };
+
+  const filteredProjects = getFilteredProjects();
 
   /**
    * INDUSTRIAL OVERVIEW: Project Type Cards
@@ -58,98 +61,107 @@ export default function ProjectsPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {projectTypes
-          .filter((t) => t !== "All")
-          .map((type, idx) => {
-            const count = projects.filter((p) => p.type === type).length;
-            return (
-              <div
-                key={idx}
-                onClick={() => navigate(`/projects?type=${type}`)}
-                className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
-              >
+        {projects.map((category, idx) => {
+          // Use the internal project count from the category
+          const count = category.projects.length;
+          return (
+            <div
+              key={category.categoryId}
+              onClick={() =>
+                navigate(`/projects?type=${category.categoryName}`)
+              }
+              className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
+            >
+              <div className="absolute top-4 right-4 z-20">
+                <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
+                  LOG: {500 + idx}
+                </span>
+              </div>
+
+              <div className="h-48 bg-[#44444E] relative overflow-hidden">
+                {/* Category Image Replacement */}
+                <img
+                  src={category.categoryImage}
+                  alt={category.categoryName}
+                  className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
+                />
+
+                {/* Overlay Gradient to ensure text/UI elements remain visible */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#44444E] via-transparent to-transparent opacity-60" />
+
+                {/* Industrial Accent Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#BF092F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                {/* Keep the LOG number visible over the image */}
                 <div className="absolute top-4 right-4 z-20">
-                  <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
+                  <span className="text-[10px] font-mono font-bold text-white/50 group-hover:text-white transition-colors tracking-widest uppercase">
                     LOG: {500 + idx}
                   </span>
                 </div>
+              </div>
 
-                <div className="h-48 bg-[#44444E] flex items-center justify-center relative overflow-hidden">
-                  <Briefcase
-                    size={120}
-                    className="text-white opacity-5 group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#BF092F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="p-8 flex flex-col justify-between flex-grow">
+                <div>
+                  <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3">
+                    {category.categoryName} Systems
+                  </h3>
+                  <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed line-clamp-2">
+                    {category.categoryDescription}
+                  </p>
                 </div>
 
-                <div className="p-8 flex flex-col justify-between flex-grow">
-                  <div>
-                    <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3">
-                      {type} Systems
-                    </h3>
-                    <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed">
-                      View active deployments and technical field logs.
-                    </p>
+                <div className="mt-8 flex justify-between items-center pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-2">
+                    <Activity size={14} className="text-[#BF092F]" />
+                    <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">
+                      {count} Projects
+                    </span>
                   </div>
-
-                  <div className="mt-8 flex justify-between items-center pt-6 border-t border-gray-100">
-                    <div className="flex items-center gap-2">
-                      <Activity size={14} className="text-[#BF092F]" />
-                      <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">
-                        {count} Projects
-                      </span>
-                    </div>
-                    <ArrowRight
-                      size={18}
-                      className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all"
-                    />
-                  </div>
+                  <ArrowRight
+                    size={18}
+                    className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all"
+                  />
                 </div>
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
-      {/* 🏗️ FLOATING HERO SECTION */}
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
-
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#BF092F] to-transparent animate-pulse" />
             <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent animate-pulse delay-700" />
           </div>
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            {/* 🧭 ENHANCED BREADCRUMB */}
             <nav className="flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
-                className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
+                className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
                 <span className="text-[10px] md:text-xs tracking-widest uppercase">
                   Home
                 </span>
               </button>
-
               <span className="text-white/20 text-xs font-mono">{">"}</span>
-
               <button
                 onClick={() => navigate("/projects")}
                 className={`text-[10px] md:text-xs tracking-widest uppercase transition-all duration-300 ${
                   isGeneralOverview
                     ? "bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold"
-                    : "text-white/50 hover:text-white"
+                    : "cursor-pointer text-white/50 hover:text-white"
                 }`}
               >
                 Project Registry
               </button>
-
               {!isGeneralOverview && (
                 <>
                   <span className="text-white/20 text-xs font-mono">{">"}</span>
@@ -176,7 +188,9 @@ export default function ProjectsPage() {
             <p className="text-white/60 text-lg md:text-xl tracking-wide leading-relaxed mt-4 max-w-3xl font-medium">
               {isGeneralOverview
                 ? "Documenting global deployments and bespoke engineering solutions across critical power infrastructure."
-                : `Technical data and delivery records for the ${selectedType} infrastructure range.`}
+                : projects.find((c) => c.categoryName === selectedType)
+                    ?.categoryDescription ||
+                  `Technical data for the ${selectedType} infrastructure range.`}
             </p>
           </div>
         </header>
@@ -189,7 +203,6 @@ export default function ProjectsPage() {
           </div>
         ) : (
           <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
-            {/* SIDEBAR */}
             <aside className="lg:col-span-3 space-y-8 h-full">
               <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
                 <div className="p-8 border-b border-white/10">
@@ -233,8 +246,6 @@ export default function ProjectsPage() {
               </div>
             </aside>
 
-            {/* MAIN LISTING */}
-            {/* Replace the carousel call in your Main Listing section with this: */}
             <section className="lg:col-span-9">
               <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 min-h-[600px]">
                 <div className="flex items-center justify-between mb-12 border-b border-gray-100 pb-8">
@@ -247,7 +258,6 @@ export default function ProjectsPage() {
                 </div>
 
                 {filteredProjects.length > 0 ? (
-                  /* --- GRID SYSTEM REPLACING CAROUSEL --- */
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {filteredProjects.map((project) => (
                       <ProjectCard key={project.id} project={project} />
@@ -265,7 +275,6 @@ export default function ProjectsPage() {
           </div>
         )}
       </main>
-
       <div className="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
     </div>
   );

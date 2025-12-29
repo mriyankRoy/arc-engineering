@@ -1,14 +1,9 @@
-import { Zap, Shield, Settings, Factory, Award, ArrowRight, CheckCircle, Star, TrendingUp } from "lucide-react";
+import { Zap, Settings, Factory } from "lucide-react";
 
 export const features = [
   {
-    icon: <Zap className="w-6 h-6" />,
     title: "Fuel System Instruments & Accessories",
     description: "Precision-engineered fuel management systems featuring advanced gauges, sensors, and automated control units designed for critical industrial applications.",
-    gradient: "from-blue-600 to-blue-700",
-    shadowColor: "shadow-blue-500/25",
-    hoverShadow: "group-hover:shadow-blue-500/40",
-    delay: 0,
     image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=300&fit=crop&crop=center",
     link: "/products?category=instrument-generator-accessories",
     slug: "instrument-generator-accessories",
@@ -17,13 +12,8 @@ export const features = [
     projects: "20+",
   },
   {
-    icon: <Zap className="w-6 h-6" />,
     title: "Electrical Items & Accessories",
     description: "Comprehensive electrical solutions including power distribution systems, control panels, and industrial-grade components for demanding environments.",
-    gradient: "from-slate-600 to-slate-700",
-    shadowColor: "shadow-slate-500/25",
-    hoverShadow: "group-hover:shadow-slate-500/40",
-    delay: 0.15,
     image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=500&h=300&fit=crop&crop=center",
     link: "/products?category=electrical-items-accessories",
     slug: "electrical-items-accessories",
@@ -32,13 +22,8 @@ export const features = [
     projects: "35+",
   },
   {
-    icon: <Settings className="w-6 h-6" />,
     title: "Mechanical Items & Accessories",
     description: "High-performance mechanical components and precision tools engineered for heavy-duty industrial operations and maximum durability.",
-    gradient: "from-gray-600 to-gray-700",
-    shadowColor: "shadow-gray-500/25",
-    hoverShadow: "group-hover:shadow-gray-500/40",
-    delay: 0.3,
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=300&fit=crop&crop=center",
     link: "/products?category=mechanical-items-accessories",
     slug: "mechanical-items-accessories",
@@ -47,13 +32,8 @@ export const features = [
     projects: "18+",
   },
   {
-    icon: <Factory className="w-6 h-6" />,
     title: "Generator Enclosures, Pump Skids & E-House/E-POD",
     description: "Complete turnkey power solutions featuring custom generator housing, integrated pump systems, and modular electrical distribution units.",
-    gradient: "from-emerald-600 to-emerald-700",
-    shadowColor: "shadow-emerald-500/25",
-    hoverShadow: "group-hover:shadow-emerald-500/40",
-    delay: 0.45,
     image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=500&h=300&fit=crop&crop=center",
     link: "/products?category=generator-systems",
     slug: "generator-systems",

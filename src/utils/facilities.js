@@ -13,27 +13,27 @@ export const facilities = [
       "Specialized fabrication for power and industrial sectors"
     ],
     facilityImg: [
-      "https://esi-me.com/wp-content/uploads/2025/09/dji_fly_20250804_161638_0015_1754310536622_photo-scaled.jpg",
-      "https://esi-me.com/wp-content/uploads/2025/09/dji_fly_20250804_161602_0013_1754310534807_photo-scaled.jpg",
-      "https://esi-me.com/wp-content/uploads/2025/09/16-scaled.jpg",
-      "https://esi-me.com/wp-content/uploads/2025/09/dji_fly_20250822_113216_0027_1755848024390_photo.jpg",
-      "https://esi-me.com/wp-content/uploads/2025/09/dji_fly_20250822_113256_0029_1755848022723_photo-scaled.jpg",
-      "https://esi-me.com/wp-content/uploads/2025/09/dji_fly_20250804_161624_0014_1754310535739_photo-scaled.jpg",
-      "https://esi-me.com/wp-content/uploads/2025/09/6-Copy-scaled.jpg"
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938662/Hamriyah_Facility_04_quoxy3.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938664/Hamriyah_Facility_07_zhmvbj.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938663/Hamriyah_Facility_05_gpaxiz.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938664/Hamriyah_Facility_03_t0bzmv.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938664/Hamriyah_Facility_06_wk0qdz.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938664/Hamriyah_Facility_01_zrwlxp.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938663/Hamriyah_Facility_02_e5bffp.jpg"
     ],
     capabilityImg: [
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/Shearing-Machine-1-scaled.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938927/Hamriyah_Facility_Capability_01_ij2og6.jpg",
         title: "Shearing Machine",
         desc: "High-precision shearing machine for accurate cutting of industrial-grade steel sheets."
       },
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/CNC-Plasma-Cutter-Machine-2-scaled.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938927/Hamriyah_Facility_Capability_02_t5lqnj.jpg",
         title: "CNC Plasma Cutter",
         desc: "CNC-controlled plasma cutting machine for complex shapes and heavy-duty cuts."
       },
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/Bending-Machine-2-1-scaled.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766938927/Hamriyah_Facility_Capability_03_lhmp0e.jpg",
         title: "Bending Machine",
         desc: "Automated bending machine for precision-formed metal structures."
       }
@@ -53,29 +53,29 @@ export const facilities = [
       "Advanced QA/QC inspection tools"
     ],
     facilityImg: [
-      "https://esi-me.com/wp-content/uploads/2025/09/2137.jpeg",
-      "https://esi-me.com/wp-content/uploads/2025/09/2132.jpeg",
-      "https://esi-me.com/wp-content/uploads/2025/09/2130.jpeg",
-      "https://esi-me.com/wp-content/uploads/2025/09/2129.jpeg"
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939294/Sajja_Facility_03_rmvrvx.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939294/Sajja_Facility_04_ffud2z.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939293/Sajja_Facility_02_vnufpq.jpg",
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939293/Sajja_Facility_01_abke3w.jpg"
     ],
     capabilityImg: [
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/IMG_0289.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939313/Sajja_Facility_Capability_04_leqz9a.jpg",
         title: "Heavy-Duty Welding Stations",
         desc: "Multiple welding lines equipped for large-scale industrial fabrication."
       },
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/IMG_0283.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939312/Sajja_Facility_Capability_02_f5iexu.jpg",
         title: "CNC Machining Zone",
         desc: "Advanced CNC units for machining with high repeatability and precision."
       },
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/IMG_0299.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939313/Sajja_Facility_Capability_03_hysn8t.jpg",
         title: "Assembly & Integration Area",
         desc: "Designated space for assembling complete power systems and industrial units."
       },
       {
-        img: "https://esi-me.com/wp-content/uploads/2025/09/Akshay-1-scaled.jpg",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766939297/Sajja_Facility_Capability_01_x4hkvh.jpg",
         title: "QA/QC Inspection Tools",
         desc: "Fully equipped testing and inspection area ensuring reliability and compliance."
       }

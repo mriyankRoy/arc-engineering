@@ -7,7 +7,7 @@ export const products = [
     slug: "instrument-generator-accessories",
     categoryId: "CAT-ACC",
     image: { 
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809542/Instrument_Generator_Package_Accessories_smtofy.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767037334/AGP_Instrument_Generator_Package_Accessories_dye6xo.png",
       alt: "Close-up of industrial sensors and manometers on a pipeline."
     },
     description: "Sensors, gauges, and monitoring systems for continuous fluid level, gas, and temperature control within generator and plant packages.",
@@ -20,9 +20,6 @@ export const products = [
         Make: "Hitec",
         images: [
           "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765717438/Crowcon_Gasmaster_4_Control_Panel_ugauxx.jpg"
         ],
         shortDescription:
           "High-precision hydrostatic level transmitter with 4-20mA output for continuous tank monitoring.",
@@ -195,7 +192,7 @@ export const products = [
     slug: "electrical-items-accessories",
     categoryId: "CAT-ELEC",
     image: { 
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809542/Electrical_Items_and_Accessories_kxykmg.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767037624/AGP_Electrical_Items_and_Accessories_aopze4.png",
       alt: "Interior view of an industrial electrical panel with circuit breakers and wires."
     },
     description: "High-current switches, transformers, heaters, and lighting solutions for industrial power distribution and enclosure management.",
@@ -381,7 +378,7 @@ export const products = [
     slug: "mechanical-items-accessories",
     categoryId: "CAT-MECH",
     image: { 
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809543/Mechanical_Items_and_Accessories_szhbsa.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767036691/AGP_Mechanical_Items_and_Accessories_hobdam.png",
       alt: "Industrial pipes and valves with red handwheels."
     },
     description: "Valves, flame arrestors, and actuators for safe and precise control of fuel, water, and air flow in fluid handling systems.",
@@ -601,7 +598,7 @@ export const products = [
     slug: "generator-systems",
     categoryId: "CAT-ENCL",
     image: { 
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809542/Generator_Enclosures_Pump_Skids_E-House_E-POD_z95sfa.png", // Reusing an existing product image for context
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767037025/AGP_Generator_Enclosures_Pump_Skids_E-House_E-POD_ebhz4f.png", // Reusing an existing product image for context
       alt: "Heavy-duty industrial door latch and damper components."
     },
     description: "Heavy-duty hardware and safety components for constructing robust, secure, and certified generator enclosures and modular buildings.",
@@ -753,7 +750,7 @@ export const products = [
     slug: "testing-measurement-tools",
     categoryId: "CAT-TEST",
     image: { 
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765809543/Testing_and_Measurement_Tools_w1ka52.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766949563/AGP_Testing_and_Measurement_Tools_a86az2.png",
       alt: "Engineer checking voltage with a digital multimeter in an electrical panel."
     },
     description: "Portable and fixed instruments for on-site quality control, inspection, calibration, and material verification.",

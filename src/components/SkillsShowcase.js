@@ -15,11 +15,11 @@ export default function SkillsTabs() {
   const firstHalf = skills.slice(0, 5);
   const secondHalf = skills.slice(5);
 
-  const renderTab = (skill, index, actualIndex) => (
+  const renderTab = (skill, actualIndex) => (
     <button
       key={actualIndex}
       onClick={() => setSelected(actualIndex)}
-      className={`group relative px-6 py-5 text-left transition-all duration-300 border-b border-white/5 flex items-center justify-between ${
+      className={`cursor-pointer group relative px-6 py-5 text-left transition-all duration-300 border-b border-white/5 flex items-center justify-between ${
         selected === actualIndex
           ? "bg-white text-[#44444E]"
           : "bg-transparent text-white/40 hover:text-white hover:bg-white/5"

@@ -182,11 +182,6 @@ export default function FacilityDetailsPage() {
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
 
-          {/* Watermark Icon */}
-          {/* <div className="absolute top-0 right-0 p-4 opacity-10 z-10">
-            <Factory size={450} className="text-white" />
-          </div> */}
-
           {/* Animated Red Beams */}
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#BF092F] to-transparent animate-pulse" />
@@ -198,7 +193,7 @@ export default function FacilityDetailsPage() {
             <nav className="flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
-                className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
+                className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
                 <span className="text-[10px] md:text-xs tracking-widest uppercase">
@@ -210,7 +205,7 @@ export default function FacilityDetailsPage() {
 
               <button
                 onClick={() => navigate("/facilities")}
-                className="text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
+                className="cursor-pointer text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
               >
                 Facilities
               </button>

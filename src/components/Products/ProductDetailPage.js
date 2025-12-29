@@ -78,10 +78,6 @@ const ProductDetailPage = () => {
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
 
-          {/* <div className="absolute top-0 right-0 p-4 opacity-10 z-10">
-            <PackageSearch size={400} className="text-white" />
-          </div> */}
-
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#BF092F] to-transparent animate-pulse" />
             <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent animate-pulse delay-700" />
@@ -95,7 +91,7 @@ const ProductDetailPage = () => {
                 className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase">
+                <span className="cursor-pointer text-[10px] md:text-xs tracking-widest uppercase">
                   Home
                 </span>
               </button>
@@ -104,7 +100,7 @@ const ProductDetailPage = () => {
 
               <button
                 onClick={() => navigate("/products")}
-                className="text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
+                className="cursor-pointer text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
               >
                 Product Categories
               </button>
@@ -113,7 +109,7 @@ const ProductDetailPage = () => {
 
               <button
                 onClick={() => navigate(`/products?category=${categorySlug}`)}
-                className="text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
+                className="cursor-pointer text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
               >
                 {category.category}
               </button>
