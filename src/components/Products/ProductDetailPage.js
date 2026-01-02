@@ -205,7 +205,7 @@ const ProductDetailPage = () => {
             >
               <img
                 src={productImages[activeIndex]}
-                className="max-h-full max-w-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                className="rounded-2xl max-h-full max-w-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
                 alt="main"
               />
               <button
@@ -333,7 +333,7 @@ const ProductDetailPage = () => {
                     href={d.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between p-6 bg-[#44444E] rounded-xl text-white hover:bg-[#BF092F] transition-all group"
+                    className="cursor-pointer flex items-center justify-between p-6 bg-[#44444E] rounded-xl text-white hover:bg-[#BF092F] transition-all group"
                   >
                     <span className="text-sm font-bold">{d.name}</span>
                     <Download
