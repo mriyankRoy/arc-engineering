@@ -310,20 +310,87 @@ const ProductDetailPage = () => {
 
           <div className="p-8 md:p-12">
             {activeTab === TAB_DETAILS ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-100 border border-gray-100">
-                {Object.entries(product.details || {}).map(([key, value]) => (
-                  <div
-                    key={key}
-                    className="flex flex-col p-6 bg-white hover:bg-gray-50 transition-colors"
-                  >
-                    <dt className="text-[10px] font-bold text-[#BF092F] uppercase tracking-[0.2em] mb-2">
-                      {formatDetailKey(key)}
-                    </dt>
-                    <dd className="text-sm font-bold text-[#44444E] tracking-tight">
-                      {value}
-                    </dd>
+              <div className="flex flex-col gap-8">
+                {/* 📋 EXISTING TECHNICAL REGISTRY GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-100 border border-gray-100">
+                  {Object.entries(product.details || {}).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="flex flex-col p-6 bg-white hover:bg-gray-50 transition-colors"
+                    >
+                      <dt className="text-[10px] font-bold text-[#BF092F] uppercase tracking-[0.2em] mb-2">
+                        {formatDetailKey(key)}
+                      </dt>
+                      <dd className="text-sm font-bold text-[#44444E] tracking-tight">
+                        {typeof value === "object" && value !== null ? (
+                          <div className="mt-2 space-y-1 border-l border-gray-100 pl-3">
+                            {Object.entries(value).map(([subKey, subVal]) => (
+                              <div
+                                key={subKey}
+                                className="flex items-center gap-2"
+                              >
+                                <span className="text-[9px] text-[#BF092F]/50">
+                                  ●
+                                </span>
+                                <span className="text-[11px] text-gray-400 uppercase tracking-wider font-semibold">
+                                  {subKey}:
+                                </span>
+                                <span className="text-sm text-[#44444E]">
+                                  {subVal}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          value
+                        )}
+                      </dd>
+                    </div>
+                  ))}
+                </div>
+
+                {/* 📏 SIZING DATA TABLE INTEGRATION */}
+                {product.sizingData && product.sizingData.length > 0 && (
+                  <div className="mt-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#44444E] mb-6 flex items-center gap-2">
+                      <PackageSearch size={14} className="text-[#BF092F]" />{" "}
+                      Dimensional & Torque Registry
+                    </h4>
+                    <div className="overflow-x-auto rounded-xl border border-gray-100 shadow-sm">
+                      <table className="w-full text-left border-collapse bg-white">
+                        <thead>
+                          <tr className="bg-gray-50 border-b border-gray-100">
+                            {Object.keys(product.sizingData[0]).map((key) => (
+                              <th
+                                key={key}
+                                className="py-4 px-4 text-[9px] font-bold text-[#BF092F] uppercase tracking-widest"
+                              >
+                                {key.replace(/_/g, " ")}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {product.sizingData.map((row, i) => (
+                            <tr
+                              key={i}
+                              className="border-b border-gray-50 last:border-0 hover:bg-gray-50/50 transition-colors"
+                            >
+                              {Object.values(row).map((val, j) => (
+                                <td
+                                  key={j}
+                                  className="py-3 px-4 text-sm font-bold text-[#44444E]"
+                                >
+                                  {val}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                ))}
+                )}
               </div>
             ) : (
               <div className="space-y-3">
