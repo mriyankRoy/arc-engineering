@@ -26,9 +26,13 @@ const HeaderSearch = () => {
       }))
     );
 
-    const filtered = allItems.filter((item) =>
-      item.name.toLowerCase().includes(value.toLowerCase())
-    );
+    const filtered = allItems.filter((item) => {
+      const searchTerm = value.toLowerCase();
+      return (
+        item.name.toLowerCase().includes(searchTerm) ||
+        item.manufacturerPartNumber.toLowerCase().includes(searchTerm)
+      );
+    });
 
     setResults(filtered.slice(0, 5));
   };
@@ -98,7 +102,8 @@ const HeaderSearch = () => {
                     : "text-[#44444E] hover:bg-gray-200"
                 }`}
               >
-                {item.name}
+                {/* UPDATED: Displays Part Number - Product Name */}
+                {item.manufacturerPartNumber} - {item.name}
               </li>
             ))}
           </ul>

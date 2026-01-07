@@ -109,7 +109,7 @@ export default function FacilityDetailsPage() {
           {/* Close Button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
+            className="cursor-pointer absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
           >
             <X
               size={40}
@@ -126,7 +126,7 @@ export default function FacilityDetailsPage() {
               {/* Previous Button - Positioned to the left of the image */}
               <button
                 onClick={showPrev}
-                className="absolute left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+                className="cursor-pointer absolute left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
               >
                 <ChevronLeft size={60} strokeWidth={1} />
               </button>
@@ -144,7 +144,7 @@ export default function FacilityDetailsPage() {
               {/* Next Button - Positioned to the right of the image */}
               <button
                 onClick={showNext}
-                className="absolute right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+                className="cursor-pointer absolute right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
               >
                 <ChevronRight size={60} strokeWidth={1} />
               </button>

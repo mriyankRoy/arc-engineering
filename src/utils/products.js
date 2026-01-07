@@ -7,7 +7,7 @@ export const products = [
     slug: "instrument-generator-accessories",
     categoryId: "CAT-ACC",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767037334/AGP_Instrument_Generator_Package_Accessories_dye6xo.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767795640/AGP_Instrument_Generator_Package_Accessories_pwyvhg.webp",
       alt: "Close-up of industrial sensors and manometers on a pipeline.",
     },
     description:
@@ -20,7 +20,7 @@ export const products = [
         AGPPartNumber: "AGP-ACC-001",
         Make: "Hitec",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Hitec_Hydrostatic_Level_Transmitter_sorctl.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/Hitec_Hydrostatic_Level_Transmitter_ofru7c.webp",
         ],
         shortDescription:
           "High-precision 316L SS hydrostatic transmitter for heating oil, gasoline, and hydrocarbons.",
@@ -61,10 +61,10 @@ export const products = [
         AGPPartNumber: "AGP-ACC-002",
         Make: "Crowcon",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765717438/Crowcon_Gasmaster_4_Control_Panel_ugauxx.jpg",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767105487/Crowcon_Gasmaster_4_Control_Panel_02_his9ko.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767105942/Crowcon_Gasmaster_4_Control_Panel_03_turyyt.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767121718/Crowcon_Gasmaster_4_Control_Panel_04_kolg7j.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807824/Crowcon_Gasmaster_4_Control_Panel_01_k8aan0.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/Crowcon_Gasmaster_4_Control_Panel_02_kgxlu7.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807825/Crowcon_Gasmaster_4_Control_Panel_03_peszlq.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/Crowcon_Gasmaster_4_Control_Panel_04_nvzutn.webp",
         ],
         shortDescription:
           "High-versatility 4-channel control hub for integrated gas, fire, and flame detection with Modbus connectivity.",
@@ -110,10 +110,10 @@ export const products = [
         AGPPartNumber: "AGP-ACC-003",
         Make: "Crowcon",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Crowcon_Xgard_Type_5_Gas_Detector_l5pyt9.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767125731/Crowcon_Xgard_02_lcxcoj.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767125872/Crowcon_Xgard_03_qiyjsm.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767126074/Crowcon_Xgard_04_gjqdg2.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801637/Crowcon_Xgard_01_ypnfj4.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801637/Crowcon_Xgard_02_rdvmev.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801639/Crowcon_Xgard_03_zesj6c.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801643/Crowcon_Xgard_04_wuuyft.webp",
         ],
         shortDescription:
           "Flameproof (Exd) electrochemical detector for toxic gases and Oxygen monitoring with 2-wire 4-20mA output.",
@@ -198,7 +198,7 @@ export const products = [
         AGPPartNumber: "AGP-ACC-005",
         Make: "PECO",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716274/PECO_Multi-Use_Industrial_Thermostat_ufbshm.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807824/PECO_Multi-Use_Industrial_Thermostat_xpanjv.webp",
         ],
         shortDescription:
           "Rugged NEMA 4X line-voltage mechanical thermostat for high-capacity industrial heating or cooling.",
@@ -245,7 +245,7 @@ export const products = [
     slug: "electrical-items-accessories",
     categoryId: "CAT-ELEC",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767037624/AGP_Electrical_Items_and_Accessories_aopze4.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767795637/AGP_Electrical_Items_and_Accessories_z0et1c.webp",
       alt: "Interior view of an industrial electrical panel with circuit breakers and wires.",
     },
     description:
@@ -258,7 +258,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-001",
         Make: "Durite",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767374753/0-605-53_Durite_01_ockqxl.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/0-605-53_Durite_01_selgtv.webp",
         ],
         shortDescription:
           "Weatherproof IP66-rated 400A battery isolator with 4000A surge capacity and removable safety key.",
@@ -298,13 +298,13 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-002",
         Make: "Littelfuse",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375329/880175-0002_Littlefuse_01_oj3wh1.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375329/880175-0002_Littlefuse_02_cfrsvs.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375329/880175-0002_Littlefuse_04_twnl7o.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375330/880175-0002_Littlefuse_03_tqezc8.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375472/880175-0002_Littlefuse_05_ilhstm.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375781/880175-0002_Littlefuse_07_gdfmjo.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767375781/880175-0002_Littlefuse_06_xujfgb.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801088/880175-0002_Littlefuse_01_u1vbjr.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801091/880175-0002_Littlefuse_02_u9hdll.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801090/880175-0002_Littlefuse_04_vmkblq.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801090/880175-0002_Littlefuse_03_bgew81.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801090/880175-0002_Littlefuse_05_q4ac1j.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801092/880175-0002_Littlefuse_07_cjhwdk.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801092/880175-0002_Littlefuse_06_hu8cd9.webp",
         ],
         shortDescription:
           "IP67/IPX9K rated 500A dual-pole battery disconnect switch with yellow knob and integrated LOTO.",
@@ -348,7 +348,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-003",
         Make: "Frico",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767376780/C5N_Frico_01_mgird2.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813264/C5N_Frico_01_w87vcz.webp",
         ],
         shortDescription:
           "Compact 5kW industrial fan heater with IP44 rating and 480 m³/h airflow.",
@@ -391,7 +391,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-004",
         Make: "Schneider",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767377921/EXN30T3H_Schneider_01_wtb1ku.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814062/EXN30T3H_Schneider_01_uq3ex8.webp",
         ],
         shortDescription:
           "High-efficiency 30kVA DOE 2016 compliant transformer, 480V Delta to 208Y/120V with 150°C rise.",
@@ -424,6 +424,462 @@ export const products = [
           Mounting: "Floor (Optional wall/trapeze accessories available)",
         },
       },
+      {
+        id: "SCHNEIDER-A9F55110",
+        name: "Acti9 iC60H 10A Single Pole 10kA D Curve MCB",
+        manufacturerPartNumber: "A9F55110",
+        AGPPartNumber: "AGP-ELEC-MCB-10A-D",
+        Make: "Schneider Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643039/r7svqgrlcw4jusciaoyb.png",
+        ],
+        shortDescription:
+          "High-performance 10A 1P 10kA Type D MCB for industrial and commercial circuit protection.",
+        description:
+          "The Schneider Acti9 iC60H (A9F55110) is a multi-standard miniature circuit breaker that provides circuit protection against short-circuit and overload currents. It features a D-curve tripping characteristic designed specifically for circuits with high inrush currents, such as motor starters and transformers. Its VisiSafe and VisiTrip features ensure maximum safety and rapid intervention during maintenance.",
+        uses: [
+          "Industrial motor and transformer protection",
+          "Commercial electrical distribution boards",
+          "High inrush current lighting circuits",
+          "Protection of power outlets in workshop environments",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643038/kwribxkcsbkmuuaq6mvx.pdf",
+          },
+        ],
+        details: {
+          CurrentRating: "10A",
+          VoltageRating: "230V AC (50/60 Hz)",
+          ShortCircuitRating:
+            "10kA Icn (BS EN 60898-1) / 15kA Icu (BS EN 60947-2)",
+          TrippingCurve: "Type D (10 to 14 x In)",
+          NumberOfPoles: "1P (Single Pole)",
+          MountingMode: "Clip-on DIN Rail (35mm)",
+          ConnectionTerminals:
+            "Tunnel type (1..25 mm² rigid / 1..16 mm² flexible)",
+          TighteningTorque: "2 N.m",
+          MechanicalDurability: "20,000 cycles",
+          ElectricalDurability: "10,000 cycles",
+          IPRating: "IP20 (Terminal) / IP40 (Enclosure)",
+          PollutionDegree: "3",
+          OperatingTemperature: "-35°C to 70°C",
+          StorageTemperature: "-40°C to 85°C",
+          Dimensions: "85mm (H) x 18mm (W) x 78.5mm (D)",
+          Weight: "0.125 kg",
+          LegacyPartNumber: "C60HD110",
+          Standards: "EN/IEC 60898-1, EN/IEC 60947-2",
+        },
+      },
+      {
+        id: "SCHNEIDER-A9F53110",
+        name: "Acti9 iC60H 1P 10A B Miniature Circuit Breaker",
+        manufacturerPartNumber: "A9F553110",
+        AGPPartNumber: "AGP-ELEC-MCB-10A-B",
+        Make: "Schneider Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643396/lm4mefjlb681vs5x6x0u.png",
+        ],
+        shortDescription:
+          "10A Single Pole 10kA B-Curve MCB for circuit protection against short-circuit and overload currents.",
+        description:
+          "The Acti9 iC60H is a multi-standard miniature circuit breaker with a B-curve tripping characteristic. It provides thermal-magnetic protection and is suitable for both AC and DC networks. Features include VisiTrip for fault indication and VisiSafe for guaranteed contact opening during maintenance. Designed for DIN rail mounting with double tunnel terminals for secure cabling.",
+        uses: [
+          "Residential and commercial circuit protection",
+          "Protection of lighting and power circuits with low inrush currents",
+          "Control and isolation of electrical distribution systems",
+          "Suitable for AC and DC application environments",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643397/um2osdm5raby4sg0kajn.pdf",
+          },
+        ],
+        details: {
+          CurrentRating: "10A",
+          VoltageRating: "230V AC / 72V DC",
+          ShortCircuitRating:
+            "10kA Icn (BS EN 60898-1) / 15kA Icu (BS EN 60947-2)",
+          TrippingCurve: "Type B (3 to 5 x In)",
+          NumberOfPoles: "1P (Single Pole)",
+          NetworkType: "AC / DC",
+          MountingMode: "Clip-on DIN Rail (35mm)",
+          ConnectionTerminals:
+            "Single terminal (Top or Bottom) 1..25 mm² rigid / 1..16 mm² flexible",
+          TighteningTorque: "2 N.m",
+          MechanicalDurability: "20,000 cycles",
+          ElectricalDurability: "10,000 cycles",
+          IPRating: "IP20 (Terminals) / IP40 (Enclosure)",
+          OperatingTemperature: "-35°C to 70°C",
+          Dimensions: "85mm (H) x 18mm (W) x 78.5mm (D)",
+          Weight: "0.125 kg",
+          Standards: "EN/IEC 60898-1, EN/IEC 60947-2",
+          Warranty: "18 Months",
+        },
+      },
+      {
+        id: "SCHNEIDER-A9F53106",
+        name: "Acti9 iC60H 1P 6A B Miniature Circuit Breaker",
+        manufacturerPartNumber: "A9F53106",
+        AGPPartNumber: "AGP-ELEC-MCB-06A-B",
+        Make: "Schneider Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643710/uounngsz2cq9syfrwhmq.png",
+        ],
+        shortDescription:
+          "6A Single Pole 10kA B-Curve MCB for circuit protection against overloads and short circuits.",
+        description:
+          "The Schneider Acti9 iC60H (A9F53106) is a multi-standard miniature circuit breaker with a B-curve tripping characteristic. It provides high-performance thermal-magnetic protection and is suitable for AC and DC networks. Key safety features include VisiTrip for fault indication and VisiSafe for physical contact gap status. Designed for 35mm DIN rail mounting with double tunnel terminals.",
+        uses: [
+          "Residential and light commercial lighting circuits",
+          "Small appliance circuit protection",
+          "Control and isolation in distribution boards",
+          "Suitable for high-specification industrial and commercial applications",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643710/yhr47fary6ygxdttk2sg.pdf",
+          },
+        ],
+        details: {
+          CurrentRating: "6A",
+          VoltageRating: "230V AC / 72V DC",
+          ShortCircuitRating:
+            "10kA Icn (BS EN 60898-1) / 15kA Icu (BS EN 60947-2)",
+          TrippingCurve: "Type B (3 to 5 x In)",
+          NumberOfPoles: "1P (Single Pole)",
+          NetworkType: "AC / DC",
+          MountingMode: "Clip-on DIN Rail (35mm)",
+          ConnectionTerminals:
+            "Single terminal (Top or Bottom) 1..25 mm² rigid / 1..16 mm² flexible",
+          TighteningTorque: "2 N.m",
+          MechanicalDurability: "20,000 cycles",
+          ElectricalDurability: "10,000 cycles",
+          IPRating: "IP20 (Terminals) / IP40 (Enclosure)",
+          PollutionDegree: "3",
+          OperatingTemperature: "-35°C to 70°C",
+          Dimensions: "85mm (H) x 18mm (W) x 78.5mm (D)",
+          Weight: "0.125 kg",
+          Standards: "EN/IEC 60898-1, EN/IEC 60947-2",
+          Warranty: "18 Months",
+        },
+      },
+      {
+        id: "SCHNEIDER-A9F53363",
+        name: "Acti9 iC60H 3P 63A B Miniature Circuit Breaker",
+        manufacturerPartNumber: "A9F53363",
+        AGPPartNumber: "AGP-ELEC-MCB-63A-3P-B",
+        Make: "Schneider Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813832/A9F53363_Schneider_01_tsfrvm.webp",
+        ],
+        shortDescription:
+          "63A Three Pole 10kA B-Curve MCB for industrial and commercial circuit protection.",
+        description:
+          "The Acti9 iC60H is a multi-standard miniature circuit breaker that provides high-level circuit protection against short-circuits and overloads. This 3-pole version is rated at 63A with a B-curve tripping characteristic. It features VisiSafe for physical contact indication and VisiTrip for rapid fault identification, ensuring maximum safety and operational efficiency in AC and DC networks.",
+        uses: [
+          "Industrial and commercial electrical distribution boards",
+          "Three-phase circuit protection for power and lighting",
+          "Protection of circuits with low inrush currents",
+          "Suitable for isolation in compliance with industrial standards",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767643955/orhfswh7ldhmz8wwalj7.png",
+          },
+        ],
+        details: {
+          CurrentRating: "63A",
+          VoltageRating: "415V AC / <= 180V DC",
+          ShortCircuitRating:
+            "10kA Icn (BS EN 60898-1) / 15kA Icu (BS EN 60947-2)",
+          TrippingCurve: "Type B (3 to 5 x In)",
+          NumberOfPoles: "3P (Triple Pole)",
+          NetworkType: "AC / DC",
+          MountingMode: "Clip-on DIN Rail (35mm)",
+          ConnectionTerminals:
+            "Single terminal (Top or Bottom) 1..35 mm² rigid / 1..16 mm² flexible",
+          TighteningTorque: "3.5 N.m",
+          MechanicalDurability: "20,000 cycles",
+          ElectricalDurability: "10,000 cycles",
+          IPRating: "IP20 (Terminals) / IP40 (Enclosure)",
+          PollutionDegree: "3",
+          OperatingTemperature: "-35°C to 70°C",
+          Dimensions: "85mm (H) x 54mm (W) x 78.5mm (D)",
+          Weight: "0.375 kg",
+          Standards: "EN/IEC 60898-1, EN/IEC 60947-2",
+          Warranty: "18 Months",
+        },
+      },
+      {
+        id: "SCHNEIDER-A9F53306",
+        name: "Acti9 iC60H 3P 6A B Miniature Circuit Breaker",
+        manufacturerPartNumber: "A9F53306",
+        AGPPartNumber: "AGP-ELEC-MCB-06A-3P-B",
+        Make: "Schneider Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813415/A9F53306_Schneider_01_mtnepd.webp",
+        ],
+        shortDescription:
+          "6A Three Pole 10kA B-Curve MCB for industrial and commercial circuit protection.",
+        description:
+          "The Acti9 iC60H is a multi-standard miniature circuit breaker (MCB) with a B-curve tripping characteristic. This 3-pole model is rated at 6A and is designed for the protection of circuits against short-circuit and overload currents. It features VisiTrip for rapid fault identification and VisiSafe to guarantee the physical opening of the contacts during maintenance, suitable for both AC and DC networks.",
+        uses: [
+          "Industrial and commercial three-phase circuit protection",
+          "Protection of small motors and control circuits",
+          "Lighting and power circuits with low inrush currents",
+          "Suitable for use in harsh environments with Tropicalisation 2 rating",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767644171/c3zbihpvpohfx18lppq3.pdf",
+          },
+        ],
+        details: {
+          CurrentRating: "6A",
+          VoltageRating: "415V AC / <= 180V DC",
+          ShortCircuitRating:
+            "10kA Icn (BS EN 60898-1) / 15kA Icu (BS EN 60947-2)",
+          TrippingCurve: "Type B (3 to 5 x In)",
+          NumberOfPoles: "3P (Triple Pole)",
+          NetworkType: "AC / DC",
+          MountingMode: "Clip-on DIN Rail (35mm)",
+          ConnectionTerminals:
+            "Single terminal (Top or Bottom) 1..25 mm² rigid / 1..16 mm² flexible",
+          TighteningTorque: "2 N.m",
+          MechanicalDurability: "20,000 cycles",
+          ElectricalDurability: "10,000 cycles",
+          IPRating: "IP20 (Terminals) / IP40 (Enclosure)",
+          PollutionDegree: "3",
+          OperatingTemperature: "-35°C to 70°C",
+          Dimensions: "85mm (H) x 54mm (W) x 78.5mm (D)",
+          Weight: "0.375 kg",
+          Standards: "EN/IEC 60898-1, EN/IEC 60947-2",
+          Warranty: "18 Months",
+        },
+      },
+      {
+        id: "SCHNEIDER-A9D31820",
+        name: "Acti9 iC60H RCBO 1P+Ns 20A B 30mA 10kA Type A",
+        manufacturerPartNumber: "A9D31820",
+        AGPPartNumber: "AGP-ELEC-RCBO-20A-B",
+        Make: "Schneider Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767644417/ity0vp93sgj7dtt7qh3f.png",
+        ],
+        shortDescription:
+          "20A 1P+N B-Curve 30mA Type A RCBO for combined earth leakage, short-circuit, and overload protection.",
+        description:
+          "The Acti9 iC60H RCBO is a high-performance residual current breaker with overcurrent protection. This single-pole plus neutral (1P+Ns) device is rated at 20A with a B-curve tripping characteristic and 30mA earth-leakage sensitivity. It provides critical protection against electric shocks and electrical fires while also guarding the circuit against short-circuits and overloads. Features include VisiSafe for physical contact indication and VisiTrip for rapid fault identification.",
+        uses: [
+          "Protection of persons against electric shock (direct contact)",
+          "Combined protection of electrical circuits against short-circuit and overload",
+          "Residential and commercial electrical distribution boards",
+          "Suitable for TN earthing systems",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767644418/x65vmzen1zxmm1mil8vd.pdf",
+          },
+          {
+            name: "Manual",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767644417/ulza8hrfuskss70opgty.pdf",
+          },
+        ],
+        details: {
+          CurrentRating: "20A (at 50 °C)",
+          VoltageRating: "230/240V AC 50/60 Hz",
+          ShortCircuitRating: "10,000A Icn (IEC 61009-2-2)",
+          EarthLeakageSensitivity: "30 mA",
+          EarthLeakageClass: "Type A (Instantaneous)",
+          TrippingCurve: "Type B",
+          NumberOfPoles: "1P + Ns",
+          NeutralPosition: "Left",
+          MountingMode: "Clip-on DIN Rail (35mm)",
+          ConnectionTerminals:
+            "Screw clamp (Top: 1-25mm² rigid; Bottom: 1-16mm² rigid)",
+          TighteningTorque: "Top: 3.5 N.m / Bottom: 2 N.m",
+          MechanicalDurability: "20,000 cycles",
+          ElectricalDurability: "5,000 cycles",
+          IPRating: "IP20 (Terminals) / IP40 (Enclosure)",
+          OperatingTemperature: "-15°C to 60°C",
+          Dimensions: "110mm (H) x 18mm (W) x 77.5mm (D)",
+          Weight: "0.205 kg",
+          Standards: "IEC 61009-2-2, IEC 61009-1, BS EN 61009-1",
+          Warranty: "18 Months",
+        },
+      },
+      {
+        id: "MK-K3631WHI",
+        name: "MK Grid Plus 1 Gang Grid Front Plate White",
+        manufacturerPartNumber: "K3631WHI",
+        AGPPartNumber: "AGP-WIR-GRID-1G-WHI",
+        Make: "MK Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767704778/jmxmgacj24kfedhyo45e.png",
+        ],
+        shortDescription:
+          "1 Gang white moulded grid front plate for use with the MK Grid Plus modular system.",
+        description:
+          "The MK Grid Plus (K3631WHI) is a 1-gang front plate designed for modular flexibility. Part of the Logic Plus range, it features a screwless 'clip-fit' design for modules, allowing them to be easily moved, removed, or replaced without special tools even after the frame is fitted. The plate is made from high-grade urea formaldehyde with antimicrobial properties, providing a durable and hygienic finish.",
+        uses: [
+          "Commercial and domestic modular switch installations",
+          "Custom switching arrangements using MK Grid Plus modules",
+          "Installations requiring frequent configuration changes",
+          "Healthcare or public areas due to antimicrobial properties",
+        ],
+        downloads: [
+          {
+            name: "MK Catalogue",
+            url: "https://www.mkelectric.com/en-gb/Products/WD/GridPlus/Plates/Pages/K3631WHI.aspx",
+          },
+        ],
+        details: {
+          NumberofGangs: "1 Gang",
+          ProductRange: "Grid Plus / Logic Plus",
+          Material: "Urea Formaldehyde (Antimicrobial)",
+          Colour: "White",
+          Finish: "Moulded White Gloss",
+          MountingType: "Grid (Requires K3701 Yoke/Frame)",
+          FixingCentres: "60.3 mm",
+          Height: "86 mm",
+          Width: "86 mm",
+          Depth: "12 mm",
+          Standards: "BS 5733",
+          IPRating: "IP2X",
+          OperatingTemperature: "-5°C to +40°C",
+          Warranty: "20 Years",
+        },
+      },
+      {
+        id: "MK-K4899WHI",
+        name: "MK Grid Plus 20A 2-Way Key Grid Switch marked 'EMG LTG'",
+        manufacturerPartNumber: "K4899WHI",
+        AGPPartNumber: "AGP-WIR-GRID-KEY-EMG",
+        Make: "MK Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767705752/z5sxzlfdqihonqaiedwt.png",
+        ],
+        shortDescription:
+          "20A 2-Way Key Operated Grid Switch module, white, marked 'EMG LTG' for emergency lighting test circuits.",
+        description:
+          "A high-performance key-operated switch module from the MK Grid Plus range. Designed specifically for emergency lighting testing, it features the 'EMG LTG' marking and requires a key for operation to prevent unauthorized tampering or accidental switching of safety circuits. The module employs the signature 'clip-fit' design for tool-free installation into Grid Plus mounting frames.",
+        uses: [
+          "Emergency lighting test circuits",
+          "Secure switching in public or commercial buildings",
+          "Preventing unauthorized operation of critical lighting",
+          "Modular configuration within Grid Plus front plates",
+        ],
+        downloads: [
+          {
+            name: "MK Grid Plus Technical Datasheet",
+            url: "https://www.mkelectric.com/en-gb/Products/WD/GridPlus/Documents/Grid%20Plus%20Technical.pdf",
+          },
+        ],
+        details: {
+          CurrentRating: "20 Amp",
+          VoltageRating: "230V AC",
+          SwitchType: "Key Operated",
+          SwitchFunction: "2-Way",
+          Marking: "EMG LTG (Emergency Lighting)",
+          ProductRange: "Grid Plus",
+          Material: "Urea Formaldehyde (Antimicrobial)",
+          Colour: "White",
+          MountingType: "Grid (Clip-fit)",
+          TerminalCapacity:
+            "4 x 1.0mm², 4 x 1.5mm², 3 x 2.5mm², 2 x 4.0mm², or 1 x 6.0mm²",
+          Standards: "BS EN 60669-1",
+          IPRating: "IP2X",
+          Weight: "0.031 kg",
+          Warranty: "20 Years",
+        },
+      },
+      {
+        id: "MK-K3701",
+        name: "MK Grid Plus 1 Gang Grid Yoke / Mounting Frame",
+        manufacturerPartNumber: "K3701",
+        AGPPartNumber: "AGP-WIR-GRID-YOKE-1G",
+        Make: "MK Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767707741/estzuanbhsjtacd0gsmu.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767707741/rv1fapxwe8dzitgg8qth.webp",
+        ],
+        shortDescription:
+          "1 Gang steel mounting frame for MK Grid Plus modular switching system.",
+        description:
+          "The MK Grid Plus K3701 is a high-quality 1-gang mounting frame (yoke) constructed from pre-galvanised steel for maximum corrosion resistance. It acts as the backbone of the Grid Plus modular system, allowing any single grid module (switches, indicators, etc.) to be securely clipped in from the front. The design allows modules to be added or replaced easily after the frame has been fixed to the back box.",
+        uses: [
+          "Primary mounting frame for all MK Grid Plus 1-module installations",
+          "Commercial, industrial, and domestic modular wiring projects",
+          "Used in conjunction with Logic Plus, Metalclad, and Aspect front plates",
+        ],
+        downloads: [
+          {
+            name: "MK Grid Plus Technical Datasheet",
+            url: "https://www.mkelectric.com/en-gb/Products/WD/GridPlus/Documents/Grid%20Plus%20Technical.pdf",
+          },
+        ],
+        details: {
+          NumberofGangs: "1 Gang",
+          Material: "Pre-galvanised Steel",
+          FixingCentres: "60.3 mm",
+          EarthTerminalCapacity: "16 mm²",
+          ProductRange: "Grid Plus",
+          CorrosionResistance: "High (Pre-galvanised)",
+          InstallationMethod:
+            "Screw fixed to back box; modules clip into frame",
+          Standards: "BS 5733",
+          Weight: "0.059 kg",
+          Warranty: "20 Years",
+        },
+      },
+      {
+        id: "MK-K8891ALM",
+        name: "MK Electric Metalclad 1 Gang Surface Back Box",
+        manufacturerPartNumber: "K8891ALM",
+        AGPPartNumber: "AGP-WIR-MET-SBX-1G",
+        Make: "MK Electric",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto/v1767707488/uchzml6vwvmyhi2al2h7.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767707488/spaz6zbmx0kubvim1wk3.webp",
+        ],
+        shortDescription:
+          "1 Gang 38mm deep Metalclad surface mounting back box in silver aluminium finish.",
+        description:
+          "The MK K8891ALM is a rugged 1-gang surface-mounted back box from the Metalclad Plus range. Constructed from durable aluminium, it is designed for use in industrial and commercial environments where impact resistance is essential. The box features multiple 20mm knockouts for easy conduit entry and is finished in a metallic silver/grey to match the Metalclad Plus switch and socket range.",
+        uses: [
+          "Surface mounting for Metalclad Plus switches and sockets",
+          "Industrial, workshop, and garage installations",
+          "High-traffic commercial areas requiring robust wiring protection",
+        ],
+        downloads: [
+          {
+            name: "MK Metalclad Plus Technical Datasheet",
+            url: "https://docs.rs-online.com/6290/0900766b8002a24d.pdf",
+          },
+        ],
+        details: {
+          NumberofGangs: "1 Gang",
+          Depth: "38 mm",
+          Material: "Aluminium / Steel",
+          Colour: "Silver / Aluminium",
+          Finish: "Powder Coated Metallic",
+          Dimensions: "86mm (L) x 86mm (W) x 38mm (D)",
+          IPRating: "IP20",
+          FixingStandard: "BS Standard",
+          ProductRange: "Metalclad Plus",
+          Knockouts: "Multiple 20mm",
+          MountingType: "Surface",
+          Weight: "0.191 kg",
+          Warranty: "20 Years",
+        },
+      },
     ],
   },
 
@@ -435,7 +891,7 @@ export const products = [
     slug: "mechanical-items-accessories",
     categoryId: "CAT-MECH",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767036691/AGP_Mechanical_Items_and_Accessories_hobdam.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767795639/AGP_Mechanical_Items_and_Accessories_ak01wl.webp",
       alt: "Industrial pipes and valves with red handwheels.",
     },
     description:
@@ -448,8 +904,8 @@ export const products = [
         AGPPartNumber: "AGP-MECH-001",
         Make: "Risbridger",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767380052/RIS-STOP-2SF-R-AF_Risbridger_01_wnklpj.png",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767380414/RIS-STOP-2SF-R-AF_Risbridger_02_vouspq.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814210/RIS-STOP-2SF-R-AF_Risbridger_01_kjdair.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814209/RIS-STOP-2SF-R-AF_Risbridger_02_quharg.webp",
         ],
         shortDescription:
           '2" high-flow overfill prevention valve with 4-bolt flanged inlet and anti-syphon capability.',
@@ -502,9 +958,8 @@ export const products = [
         AGPPartNumber: "AGP-MECH-002",
         Make: "Elmac",
         images: [
-          "https://elmactechnologies.com/wp-content/uploads/2017/11/ERB-1.png",
-          "https://elmactechnologies.com/wp-content/uploads/2017/11/ERB-1.png",
-          "https://elmactechnologies.com/wp-content/uploads/2017/11/ERB-1.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813949/ERB_Elmac_01_cq8c7g.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813948/ERB_Elmac_02_ze2j5p.webp",
         ],
         shortDescription:
           "2-inch End-of-Line deflagration flame arrestor for tank vent protection.",
@@ -539,7 +994,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-003",
         Make: "Landon Kingsway",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767468366/109037XX_Landon_Kingsway_bhatfz.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813004/109037XX_Landon_Kingsway_aaom82.webp",
         ],
         shortDescription:
           "Essential fuel isolation valve for plant rooms and generators, activated by fusible links or electrical intervention.",
@@ -671,7 +1126,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-004",
         Make: "Ridart",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767436793/197VA-50-AL_Ridart_01_xttfrx.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767812829/197-EN-P-AL_Ridart_wxyeml.webp",
         ],
         shortDescription:
           'Aluminium pressure/vacuum relief valve available in 2", 3", 4", and 6" sizes for traditional fuels.',
@@ -750,7 +1205,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-005",
         Make: "Ridart",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767465772/197-EN-P-PTFE_Ridart_ibotqb.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813004/197-EN-P-PTFE_Ridart_icdkz2.webp",
         ],
         shortDescription:
           'PTFE coated chemical-resistant valve available in 3", 4", and 6" sizes (2" not available).',
@@ -820,7 +1275,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-006",
         Make: "Ridart",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767465772/197-EN-P-SS_Ridart_pdwg07.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813005/197-EN-P-SS_Ridart_wp74ht.webp",
         ],
         shortDescription:
           'Full Stainless Steel valve for aggressive media, available in 3", 4", and 6" sizes (2" not available).',
@@ -890,7 +1345,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-008",
         Make: "Belimo",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767431429/SRFA-S2-R_Belimo_01_j5coqu.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814209/SRFA-S2-R_Belimo_01_zjkhon.webp",
         ],
         shortDescription:
           "20Nm fail-safe actuator for precise open/close control in cold and warm water HVAC systems.",
@@ -939,7 +1394,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-009",
         Make: "Leengate",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767466441/LV8635_Leengate_nnxwnq.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814124/LV8635_Leengate_qf1yxs.webp",
         ],
         shortDescription:
           "Full bore carbon steel ball valve, flanged PN16/40 with ISO 5211 direct mount pad.",
@@ -1017,7 +1472,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-010",
         Make: "Leengate",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767466927/LV5556_Leengate_pfmqs0.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814123/LV5556_Leengate_q8wdoi.webp",
         ],
         shortDescription:
           "PN16 flanged ductile iron ball valve with brass ball/stem and ISO 5211 direct mount pad.",
@@ -1122,7 +1577,7 @@ export const products = [
     slug: "generator-systems",
     categoryId: "CAT-ENCL",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767037025/AGP_Generator_Enclosures_Pump_Skids_E-House_E-POD_ebhz4f.png", // Reusing an existing product image for context
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767795636/AGP_Generator_Enclosures_Pump_Skids_E-House_E-POD_zp5f8n.webp", // Reusing an existing product image for context
       alt: "Heavy-duty industrial door latch and damper components.",
     },
     description:
@@ -1172,9 +1627,7 @@ export const products = [
         AGPPartNumber: "AGP-ENCL-002",
         Make: "Kason",
         images: [
-          "https://www.cateringhardwaredirect.co.uk/cdn/shop/products/black-powder-coated-cylinder-locking-latch-latches-410780_800x.jpg?v=1750922891",
-          "https://www.cateringhardwaredirect.co.uk/cdn/shop/products/black-powder-coated-cylinder-locking-latch-latches-410780_800x.jpg?v=1750922891",
-          "https://www.cateringhardwaredirect.co.uk/cdn/shop/products/black-powder-coated-cylinder-locking-latch-latches-410780_800x.jpg?v=1750922891",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767555051/legu9tp6ajyuqcdg5kxi.png",
         ],
         shortDescription:
           "Polished stainless steel heavy-duty door latch with locking cylinder.",
@@ -1190,7 +1643,7 @@ export const products = [
         downloads: [
           {
             name: "Datasheet",
-            url: "https://www.kasonind.com/files/pdf/Kason_IS_0056_SafeGuardLatch.pdf",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767555013/by6ahhqh434fby9vmz13.pdf",
           },
         ],
         details: {
@@ -1203,77 +1656,180 @@ export const products = [
         },
       },
       {
-        id: "POMMIER-HINGE",
-        name: "Stainless Steel Hinge System (300mm)",
-        manufacturerPartNumber: "082005700 Series",
+        id: "POMMIER-082005700",
+        name: "Stainless Steel Hinge with Self-Lubricating Bushes",
+        manufacturerPartNumber: "082005700",
         AGPPartNumber: "AGP-ENCL-003",
         Make: "Pommier",
         images: [
-          "https://www.pommier.eu/sites/default/files/pim/thumbs_380_380/G/0820_05700.jpg",
-          "https://www.pommier.eu/sites/default/files/pim/thumbs_380_380/G/0820_05700.jpg",
-          "https://www.pommier.eu/sites/default/files/pim/thumbs_380_380/G/0820_05700.jpg",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813004/082005700_Pommier_01_qzalaf.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813005/082005700_Pommier_02_wawvm9.webp",
         ],
         shortDescription:
-          "Heavy-duty stainless steel hinge system (blade, bracket, pin) for large industrial doors.",
+          "Heavy-duty Grade 304 stainless steel hinge with integrated self-lubricating bushes for panels up to 100mm thickness.",
         description:
-          "The Pommier hinge system is a modular, high-load bearing solution for heavy industrial doors. Comprising a 300mm stainless steel blade, robust bracket, and pin, it is engineered to support the weight of acoustic and armored doors on generator enclosures and containers without sagging or corrosion.",
+          "A polished austenitic stainless steel hinge specifically engineered for high-performance commercial vehicle openings. It features maintenance-free self-lubricating bushes and is designed for heavy-duty applications on insulated or refrigerated vehicle bodies.",
         uses: [
-          "Containerized generator doors",
-          "Heavy acoustic enclosure access points",
-          "Truck body and trailer doors",
-          "Marine grade external cabinetry",
+          "Refrigerated truck door assemblies",
+          "Insulated trailer rear doors",
+          "Heavy-duty commercial vehicle openings",
+          "Maintenance-free hinge installations",
         ],
-        // UPDATED: Replaced pdfLink with downloads array
         downloads: [
           {
             name: "Datasheet",
-            url: "https://www.pommier.eu/sites/default/files/downloads-documentions/pdf/AGS01-Web_082005700_en.pdf",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767549894/hsuwby84vgdl0f5tuu0q.pdf",
           },
         ],
         details: {
-          BladeLength: "300mm",
-          Material: "Stainless Steel",
-          LoadCapacity: "Heavy-Duty (Spec varies by assembly)",
-          Mounting: "Weld-on or Bolt-on",
-          CorrosionResistance: "Excellent (Marine Grade)",
-          PinType: "Non-removable safety pin",
+          Material: "Austenitic Stainless Steel (Grade 304)",
+          Finish: "Polished",
+          Weight: "1.13 kg",
+          MaxPanelThickness: "100 mm",
+          Feature: "Self-lubricating bushes",
+          Compatibility: "Fits brackets 082005740, 082010207, 082005760",
+          Maintenance: "Self-lubricating (no grease required)",
+        },
+      },
+      {
+        id: "POMMIER-082005740",
+        name: "Stainless Steel Bolt-on Bracket",
+        manufacturerPartNumber: "082005740",
+        AGPPartNumber: "AGP-ENCL-004",
+        Make: "Pommier",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767551948/qijbf4p5nksulu59od5z.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767551947/sxdwo1rh7sxkycpxnzeh.jpg",
+        ],
+        shortDescription:
+          "High-quality Grade 304 stainless steel bracket designed for secure bolt-on mounting in commercial vehicle opening systems.",
+        description:
+          "A polished austenitic stainless steel bracket specifically engineered for truck and trailer bodies. It is designed to work in conjunction with reference 082005700 and provides a durable, corrosion-resistant solution for door and hinge assemblies.",
+        uses: [
+          "Commercial vehicle rear door hinges",
+          "Side door opening systems",
+          "Heavy-duty trailer hardware",
+          "Corrosion-resistant mounting applications",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767551709/rg39bwjzo5uskdvvtqkl.pdf",
+          },
+        ],
+        details: {
+          Material: "Austenitic Stainless Steel (Grade 304)",
+          Finish: "Polished",
+          Weight: "0.35 kg",
+          Compatibility: "Designed for component 082005700",
+          MountingType: "Bolt-on",
+          CorrosionResistance: "High (Standard Industrial), Grade 304",
+          MaintenanceNote:
+            "Surface rust from external pollutants can be removed by cleaning without loss of integrity",
+        },
+      },
+      {
+        id: "POMMIER-082005792",
+        name: "Stainless Steel Lock Nut HM10",
+        manufacturerPartNumber: "082005792",
+        AGPPartNumber: "AGP-ENCL-005",
+        Make: "Pommier",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553068/a0lpyclzdlilv4hpmnhh.png",
+        ],
+        shortDescription:
+          "Grade 304 stainless steel HM10 lock nut for commercial vehicle opening systems.",
+        description:
+          "A raw finish austenitic stainless steel lock nut designed to provide a secure fastening for hinge pins and axles in truck and trailer bodywork. This nut is specifically engineered for use with multiple Pommier hinge systems to ensure vibration-resistant assembly.",
+        uses: [
+          "Securing hinge pins in door assemblies",
+          "Fastening hardware for commercial vehicle bodies",
+          "Anti-vibration fastening in opening systems",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553068/yeprwv1clddjc8j14snt.pdf",
+          },
+        ],
+        details: {
+          Material: "Austenitic Stainless Steel (Grade 304)",
+          Finish: "Raw",
+          Type: "HM10",
+          Compatibility:
+            "Fits hinges 082005700, 082011077, 082505710, and 084011765",
+          CorrosionResistance: "High (Standard Industrial), Grade 304",
+          Application: "Axles / Openings",
+        },
+      },
+      {
+        id: "POMMIER-082005780",
+        name: "Hexagonal Head Hinge Pin",
+        manufacturerPartNumber: "082005780",
+        AGPPartNumber: "AGP-ENCL-006",
+        Make: "Pommier",
+        images: [
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553293/ftehenbplnnoosgp1cki.png",
+        ],
+        shortDescription:
+          "Grade 304 stainless steel hexagonal head hinge pin (HM10-125) for commercial vehicle door assemblies.",
+        description:
+          "A raw finish austenitic stainless steel hinge pin designed to provide a secure and durable pivot point for truck and trailer door hinges. Specifically engineered for use with hinge systems and brackets in heavy-duty commercial vehicle bodywork.",
+        uses: [
+          "Commercial vehicle rear door hinge pivot",
+          "Side door hinge assembly",
+          "Securing door brackets to hinge bodies",
+          "Replacement hardware for Pommier hinge systems",
+        ],
+        downloads: [
+          {
+            name: "Datasheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553292/juhjynwez3nbaxtnydoo.pdf",
+          },
+        ],
+        details: {
+          Material: "Austenitic Stainless Steel (Grade 304)",
+          Finish: "Raw",
+          Type: "HM10-125",
+          Compatibility: "Fits hinges 082005700 and 082011077",
+          CorrosionResistance: "High (Standard Industrial), Grade 304",
+          Application: "Hinge Axles / Openings",
         },
       },
       {
         id: "BLOXWICH-GASKET",
-        name: "Strike Gasket (Heavy-Duty Rubber)",
+        name: "Walk-In Heavy Duty Strike Gasket",
         manufacturerPartNumber: "BCP20103E",
-        AGPPartNumber: "AGP-ENCL-004",
+        AGPPartNumber: "AGP-ENCL-007",
         Make: "Bloxwich",
         images: [
-          "https://www.bloxwichdoorgear.com/acatalog/mzi_db45e6f10cef0f50184496a27826e5fc_162_162_ffffff_75.jpg",
-          "https://www.bloxwichdoorgear.com/acatalog/mzi_db45e6f10cef0f50184496a27826e5fc_162_162_ffffff_75.jpg",
-          "https://www.bloxwichdoorgear.com/acatalog/mzi_db45e6f10cef0f50184496a27826e5fc_162_162_ffffff_75.jpg",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553831/giq92uxefyg9o044o5dp.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553831/aowimk6ampdu92nt4hwc.png",
         ],
         shortDescription:
-          "Heavy-duty rubber gasket for sealing door strikes against weather and vibration.",
+          "EPDM rubber gasket designed to prevent abrasion and galvanic corrosion on heavy-duty walk-in strikes.",
         description:
-          "The Bloxwich BCP20103E is a specialized heavy-duty rubber gasket designed to sit behind door strikes. It provides essential cushioning to absorb the impact of heavy doors closing and ensures a watertight seal around the locking mechanism, protecting the enclosure from moisture and dust ingress.",
+          "The Bloxwich BCP20103E is a specialized EPDM rubber gasket designed for walk-in fridges, freezers, and industrial enclosures. It prevents 'in service' abrasion between door components and the door surface, while also eliminating potential 'galvanic' corrosion caused by direct contact between dissimilar materials.",
         uses: [
-          "Weatherproofing container door locks",
-          "Vibration dampening for door strikes",
-          "Sealing generator enclosure access points",
-          "Industrial vehicle door assemblies",
+          "Walk-in fridges and freezers",
+          "Foodservice equipment",
+          "Industrial enclosures and generators",
+          "Offshore equipment and delivery vans",
         ],
-        // UPDATED: Replaced pdfLink with downloads array
         downloads: [
           {
             name: "Datasheet",
-            url: "https://www.bloxwichdoorgear.com/acatalog/BCP20103E-zoom1.jpg",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767553831/ydukrc9lzwtlq2rb9g0b.pdf",
           },
         ],
         details: {
-          Material: "Heavy-Duty Rubber (EPDM/Neoprene blend)",
-          Function: "Seal and Vibration Dampener",
-          Application: "Behind Door Strike Plates",
-          Color: "Black",
-          Durability: "UV and Weather Resistant",
-          Dimensions: "Custom cut for standard strike plates",
+          Material: "EPDM Rubber",
+          Weight: "4 g",
+          CommodityCode: "400829",
+          GTIN: "5060345317213",
+          Function: "Abrasion Prevention and Galvanic Corrosion Protection",
+          Compatibility:
+            "Specifically for BCP22035 and BCSP22035 Walk-In Latches",
         },
       },
     ],
@@ -1287,7 +1843,7 @@ export const products = [
     slug: "testing-measurement-tools",
     categoryId: "CAT-TEST",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766949563/AGP_Testing_and_Measurement_Tools_a86az2.png",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767795639/AGP_Testing_and_Measurement_Tools_qpdgeu.webp",
       alt: "Engineer checking voltage with a digital multimeter in an electrical panel.",
     },
     description:

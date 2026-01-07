@@ -111,20 +111,20 @@ export default function ProjectDetailPage() {
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
+            className="cursor-pointer absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
           >
             <X size={40} className="group-hover:rotate-90 transition-transform" />
           </button>
 
           <div className="max-w-7xl w-full flex flex-col items-center gap-6" onClick={(e) => e.stopPropagation()}>
             <div className="relative flex items-center justify-center group px-16 md:px-24">
-              <button onClick={showPrev} className="absolute left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110">
+              <button onClick={showPrev} className="cursor-pointer absolute left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110">
                 <ChevronLeft size={60} strokeWidth={1} />
               </button>
               <div className="relative border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
                 <img src={project.imageUrls[currentIndex]} className="max-h-[65vh] w-auto block select-none" alt="Technical View" />
               </div>
-              <button onClick={showNext} className="absolute right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110">
+              <button onClick={showNext} className="cursor-pointer absolute right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110">
                 <ChevronRight size={60} strokeWidth={1} />
               </button>
             </div>

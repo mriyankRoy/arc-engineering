@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { products } from "../../utils/products";
 import ProductCard from "../Products/ProductCard";
-import {
-  Search,
-  Home,
-  ChevronLeft,
-  PackageSearch,
-} from "lucide-react";
+import { Search, Home, ChevronLeft, PackageSearch } from "lucide-react";
 
 const SearchResultsPage = () => {
   const { query } = useParams();
@@ -28,13 +23,16 @@ const SearchResultsPage = () => {
     }))
   );
 
-  const results = allItems.filter((item) =>
-    item.name.toLowerCase().includes(decodedQuery.toLowerCase())
-  );
+  const results = allItems.filter((item) => {
+    const searchTerm = decodedQuery.toLowerCase();
+    return (
+      item.name.toLowerCase().includes(searchTerm) ||
+      item.manufacturerPartNumber.toLowerCase().includes(searchTerm)
+    );
+  });
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
-      
       {/* 🏗️ MATCHED FLOATING HERO SECTION */}
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
@@ -57,7 +55,9 @@ const SearchResultsPage = () => {
                 className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase">Home</span>
+                <span className="text-[10px] md:text-xs tracking-widest uppercase">
+                  Home
+                </span>
               </button>
 
               <span className="text-white/20 text-xs font-mono">{">"}</span>
@@ -80,14 +80,19 @@ const SearchResultsPage = () => {
             <div>
               <h1
                 className={`font-semibold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-[-0.02em] max-w-4xl transition-all duration-1000 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
               >
                 Registry <span className="text-[#BF092F]">Query</span>
               </h1>
 
               <p className="text-white/60 text-lg md:text-xl tracking-wide leading-relaxed mt-4 max-w-3xl">
-                Displaying system matches for: <span className="text-white font-mono italic">"{decodedQuery}"</span>
+                Displaying system matches for:{" "}
+                <span className="text-white font-mono italic">
+                  "{decodedQuery}"
+                </span>
               </p>
             </div>
           </div>
@@ -96,7 +101,6 @@ const SearchResultsPage = () => {
 
       <main className="container mx-auto py-7 relative z-30 px-4">
         <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 min-h-[600px]">
-          
           <div className="flex items-center justify-between mb-12 border-b border-gray-100 pb-8">
             <div className="flex items-center gap-4">
               <div className="h-6 w-1 bg-[#BF092F]" />
@@ -116,7 +120,8 @@ const SearchResultsPage = () => {
                 No Records Found
               </h3>
               <p className="text-gray-400 text-sm mb-8 max-w-xs uppercase tracking-widest leading-relaxed">
-                The term "{decodedQuery}" does not match any entries in the active registry.
+                The term "{decodedQuery}" does not match any entries in the
+                active registry.
               </p>
               <button
                 onClick={() => navigate("/products")}
@@ -128,8 +133,14 @@ const SearchResultsPage = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {results.map((item, idx) => (
-                <div key={idx} className="transition-all duration-500 hover:-translate-y-2">
-                  <ProductCard product={item} categorySlug={item.categorySlug} />
+                <div
+                  key={idx}
+                  className="transition-all duration-500 hover:-translate-y-2"
+                >
+                  <ProductCard
+                    product={item}
+                    categorySlug={item.categorySlug}
+                  />
                 </div>
               ))}
             </div>

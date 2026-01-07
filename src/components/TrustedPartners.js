@@ -37,12 +37,12 @@ export default function TrustedPartners() {
               {/* --- NEW MODERN HOVER LAYER (Dynamic Glow) --- */}
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#BF092F]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
-              
+
               {/* Technical Cell Coordinates */}
               <span className="absolute top-4 left-4 text-[8px] font-mono font-bold text-gray-300 group-hover:text-[#44444E] transition-colors uppercase tracking-widest z-10">
                 PARTNER_0{index + 1}
               </span>
-              
+
               <Box
                 className="absolute top-4 right-4 text-gray-100 group-hover:text-[#BF092F] group-hover:rotate-12 transition-all duration-500 z-10"
                 size={14}
@@ -53,7 +53,7 @@ export default function TrustedPartners() {
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="w-full max-h-12 md:max-h-16 object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+                  className="w-[80%] h-auto object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
                 />
               </div>
 

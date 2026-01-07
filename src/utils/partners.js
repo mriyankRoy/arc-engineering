@@ -1,83 +1,82 @@
 export const partners = [
-    {
-      name: "ADNOC",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862049/ADNOC_Logo_yzdkjq.png"
-    },
-    {
-      name: "EXPRO",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862150/EXPRO_Logo_mjcyp6.png",
-    },
-    {
-      name: "Cummins",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862371/Cummins_Logo_motjni.png",
-    },
-    
-    {
-      name: "Siemens",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862444/Siemens_Logo_aleea3.png",
-    },
-    {
-      name: "Dubai Petroleum and Dubai Supply Authority",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862651/Dubai_Petroleum_and_Dubai_Supply_Authority_Logo_p3xr8f.png"
-    },
-    {
-      name: "Al Bahar CAT",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862715/Al-Bahar_CAT_Logo_jzauf4.png",
-    },
-    {
-      name: "Olayan Energy",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862806/Olayan_Energy_Logo_eytlpr.jpg"
-    },
-    {
-      name: "Motoren- und Turbinen-Union (MTU)",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766862979/Motoren-_und_Turbinen-Union_MTU__Logo_wqlo9m.png"
-    },
-    {
-      name: "Jakson Group",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766863087/Jakson_Group_Logo_hubete.png"
-    },
-    {
-      name: "Kanoo Energy",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766863152/Kanoo_Energy_Logo_quwsrb.png"
-    },
-    {
-      name: "Energia",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766863326/Energia_Logo_gtftsd.jpg"
-    },
-    {
-      name: "Peax",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766863405/Peax_Logo_g5m5jy.png"
-    },
-    {
-      name: "WT Petrotech USA",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766864978/WT_Petrotech_USA_Logo_stvrvw.png"
-    },
-    {
-      name: "Webuild",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766865062/Webuild_Logo_w17ykm.png"
-    },
-    {
-      name: "Bifco",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766865141/Bifco_Logo_cocr6y.png"
-    },
-    {
-      name: "Intech",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766865227/Intech_Logo_fpqpdz.png"
-    },
-    {
-      name: "Versar",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766865479/Versar_Logo_qo2rsi.png"
-    },
-    {
-      name: "Al-Sultan & Khalaf Trading Co",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766865625/Al-Sultan_Khalaf_Trading_Co_Logo_iu2sz2.png"
-    },
-    {
-      name: "Danway Group",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766866346/Danway_Logo_ef26wn.jpg"
-    },
-    {
-      name: "Hunter",
-      logo: "https://res.cloudinary.com/dc912sjxj/image/upload/v1766866169/Hunter_Logo_vgybgf.jpg"
-    }
-  ];
+  {
+    name: "ADNOC",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767802477/ADNOC_Logo_gayuva.webp",
+  },
+  {
+    name: "EXPRO",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806822/EXPRO_Logo_wtcooi.webp",
+  },
+  {
+    name: "Cummins",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806818/Cummins_Logo_fbae83.webp",
+  },
+  {
+    name: "Siemens",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806853/Siemens_Logo_wfzbta.webp",
+  },
+  {
+    name: "Dubai Petroleum and Dubai Supply Authority",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806820/Dubai_Petroleum_and_Dubai_Supply_Authority_Logo_ywcvlh.webp",
+  },
+  {
+    name: "Al Bahar CAT",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767802586/Al-Bahar_CAT_Logo_wufxhq.webp",
+  },
+  {
+    name: "Olayan Energy",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806843/Olayan_Energy_Logo_nx4lba.webp",
+  },
+  {
+    name: "Motoren- und Turbinen-Union (MTU)",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806841/Motoren-_und_Turbinen-Union_MTU__Logo_sqowdw.webp",
+  },
+  {
+    name: "Jakson Group",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806835/Jakson_Group_Logo_afhldx.webp",
+  },
+  {
+    name: "Kanoo Energy",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806837/Kanoo_Energy_Logo_cyr1fl.webp",
+  },
+  {
+    name: "Energia",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806823/Energia_Logo_wxbwml.webp",
+  },
+  {
+    name: "Peax",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806876/Peax_Logo_q2cn8s.webp",
+  },
+  {
+    name: "WT Petrotech USA",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806873/WT_Petrotech_USA_Logo_f23d3o.webp",
+  },
+  {
+    name: "Webuild",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806857/Webuild_Logo_stogts.webp",
+  },
+  {
+    name: "Bifco",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767802590/Bifco_Logo_b9e9z4.webp",
+  },
+  {
+    name: "Intech",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806828/Intech_Logo_kaat8l.webp",
+  },
+  {
+    name: "Versar",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806855/Versar_Logo_wz0b6w.webp",
+  },
+  {
+    name: "Al-Sultan & Khalaf Trading Co",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767802587/Al-Sultan_Khalaf_Trading_Co_Logo_yfcq8r.webp",
+  },
+  {
+    name: "Danway Group",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806826/Danway_Logo_v5ufs2.webp",
+  },
+  {
+    name: "Hunter",
+    logo: "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,e_trim,w_400,h_200,c_lpad,b_transparent/v1767806894/Hunter_Logo_xb1hfl.webp",
+  },
+];
