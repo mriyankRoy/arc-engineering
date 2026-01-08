@@ -391,7 +391,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-004",
         Make: "Schneider",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814062/EXN30T3H_Schneider_01_uq3ex8.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767814062/EXN30T3H_Schneider_01_uq3ex8.webp",
         ],
         shortDescription:
           "High-efficiency 30kVA DOE 2016 compliant transformer, 480V Delta to 208Y/120V with 150°C rise.",
@@ -574,7 +574,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-MCB-63A-3P-B",
         Make: "Schneider Electric",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813832/A9F53363_Schneider_01_tsfrvm.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813832/A9F53363_Schneider_01_tsfrvm.webp",
         ],
         shortDescription:
           "63A Three Pole 10kA B-Curve MCB for industrial and commercial circuit protection.",
@@ -622,7 +622,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-MCB-06A-3P-B",
         Make: "Schneider Electric",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813415/A9F53306_Schneider_01_mtnepd.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813415/A9F53306_Schneider_01_mtnepd.webp",
         ],
         shortDescription:
           "6A Three Pole 10kA B-Curve MCB for industrial and commercial circuit protection.",
@@ -807,8 +807,8 @@ export const products = [
         AGPPartNumber: "AGP-WIR-GRID-YOKE-1G",
         Make: "MK Electric",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767707741/estzuanbhsjtacd0gsmu.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767707741/rv1fapxwe8dzitgg8qth.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767874963/K3701_MK_01_kvbpic.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767874965/K3701_MK_02_dpjvne.webp",
         ],
         shortDescription:
           "1 Gang steel mounting frame for MK Grid Plus modular switching system.",
@@ -846,8 +846,8 @@ export const products = [
         AGPPartNumber: "AGP-WIR-MET-SBX-1G",
         Make: "MK Electric",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto/v1767707488/uchzml6vwvmyhi2al2h7.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767707488/spaz6zbmx0kubvim1wk3.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767875138/K8891ALM_MK_01_ntg5ft.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767875138/K8891ALM_MK_02_ruxohj.webp",
         ],
         shortDescription:
           "1 Gang 38mm deep Metalclad surface mounting back box in silver aluminium finish.",
@@ -1627,7 +1627,7 @@ export const products = [
         AGPPartNumber: "AGP-ENCL-002",
         Make: "Kason",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767555051/legu9tp6ajyuqcdg5kxi.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767874555/10056CL902205_Kason_01_vxuzgm.webp",
         ],
         shortDescription:
           "Polished stainless steel heavy-duty door latch with locking cylinder.",
@@ -1662,8 +1662,8 @@ export const products = [
         AGPPartNumber: "AGP-ENCL-003",
         Make: "Pommier",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813004/082005700_Pommier_01_qzalaf.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813005/082005700_Pommier_02_wawvm9.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813004/082005700_Pommier_01_qzalaf.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813005/082005700_Pommier_02_wawvm9.webp",
         ],
         shortDescription:
           "Heavy-duty Grade 304 stainless steel hinge with integrated self-lubricating bushes for panels up to 100mm thickness.",
