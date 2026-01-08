@@ -20,7 +20,7 @@ export const products = [
         AGPPartNumber: "AGP-ACC-001",
         Make: "Hitec",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/Hitec_Hydrostatic_Level_Transmitter_ofru7c.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807823/Hitec_Hydrostatic_Level_Transmitter_ofru7c.webp",
         ],
         shortDescription:
           "High-precision 316L SS hydrostatic transmitter for heating oil, gasoline, and hydrocarbons.",
@@ -61,10 +61,10 @@ export const products = [
         AGPPartNumber: "AGP-ACC-002",
         Make: "Crowcon",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807824/Crowcon_Gasmaster_4_Control_Panel_01_k8aan0.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/Crowcon_Gasmaster_4_Control_Panel_02_kgxlu7.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807825/Crowcon_Gasmaster_4_Control_Panel_03_peszlq.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/Crowcon_Gasmaster_4_Control_Panel_04_nvzutn.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807824/Crowcon_Gasmaster_4_Control_Panel_01_k8aan0.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807823/Crowcon_Gasmaster_4_Control_Panel_02_kgxlu7.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807825/Crowcon_Gasmaster_4_Control_Panel_03_peszlq.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807823/Crowcon_Gasmaster_4_Control_Panel_04_nvzutn.webp",
         ],
         shortDescription:
           "High-versatility 4-channel control hub for integrated gas, fire, and flame detection with Modbus connectivity.",
@@ -110,10 +110,10 @@ export const products = [
         AGPPartNumber: "AGP-ACC-003",
         Make: "Crowcon",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801637/Crowcon_Xgard_01_ypnfj4.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801637/Crowcon_Xgard_02_rdvmev.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801639/Crowcon_Xgard_03_zesj6c.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801643/Crowcon_Xgard_04_wuuyft.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801637/Crowcon_Xgard_01_ypnfj4.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801637/Crowcon_Xgard_02_rdvmev.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801639/Crowcon_Xgard_03_zesj6c.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801643/Crowcon_Xgard_04_wuuyft.webp",
         ],
         shortDescription:
           "Flameproof (Exd) electrochemical detector for toxic gases and Oxygen monitoring with 2-wire 4-20mA output.",
@@ -164,7 +164,7 @@ export const products = [
         AGPPartNumber: "AGP-ACC-004",
         Make: "Afriso",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Afriso_Tank_Bund_Leak_Detection_mq9ekl.png",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807822/Afriso_Tank_Bund_Leak_Detection_u0f81t.webp",
           "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Afriso_Tank_Bund_Leak_Detection_mq9ekl.png",
           "https://res.cloudinary.com/dc912sjxj/image/upload/v1765716273/Afriso_Tank_Bund_Leak_Detection_mq9ekl.png",
         ],
@@ -198,7 +198,7 @@ export const products = [
         AGPPartNumber: "AGP-ACC-005",
         Make: "PECO",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807824/PECO_Multi-Use_Industrial_Thermostat_xpanjv.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807824/PECO_Multi-Use_Industrial_Thermostat_xpanjv.webp",
         ],
         shortDescription:
           "Rugged NEMA 4X line-voltage mechanical thermostat for high-capacity industrial heating or cooling.",
@@ -258,7 +258,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-001",
         Make: "Durite",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767807823/0-605-53_Durite_01_selgtv.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767807823/0-605-53_Durite_01_selgtv.webp",
         ],
         shortDescription:
           "Weatherproof IP66-rated 400A battery isolator with 4000A surge capacity and removable safety key.",
@@ -298,13 +298,13 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-002",
         Make: "Littelfuse",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801088/880175-0002_Littlefuse_01_u1vbjr.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801091/880175-0002_Littlefuse_02_u9hdll.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801090/880175-0002_Littlefuse_04_vmkblq.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801090/880175-0002_Littlefuse_03_bgew81.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801090/880175-0002_Littlefuse_05_q4ac1j.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801092/880175-0002_Littlefuse_07_cjhwdk.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767801092/880175-0002_Littlefuse_06_hu8cd9.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801088/880175-0002_Littlefuse_01_u1vbjr.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801091/880175-0002_Littlefuse_02_u9hdll.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801090/880175-0002_Littlefuse_04_vmkblq.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801090/880175-0002_Littlefuse_03_bgew81.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801090/880175-0002_Littlefuse_05_q4ac1j.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801092/880175-0002_Littlefuse_07_cjhwdk.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767801092/880175-0002_Littlefuse_06_hu8cd9.webp",
         ],
         shortDescription:
           "IP67/IPX9K rated 500A dual-pole battery disconnect switch with yellow knob and integrated LOTO.",
@@ -904,8 +904,8 @@ export const products = [
         AGPPartNumber: "AGP-MECH-001",
         Make: "Risbridger",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814210/RIS-STOP-2SF-R-AF_Risbridger_01_kjdair.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814209/RIS-STOP-2SF-R-AF_Risbridger_02_quharg.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767833418/RIS-STOP-2SF-R-AF_Risbridger_01_i19he5.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767814209/RIS-STOP-2SF-R-AF_Risbridger_02_quharg.webp",
         ],
         shortDescription:
           '2" high-flow overfill prevention valve with 4-bolt flanged inlet and anti-syphon capability.',
@@ -958,8 +958,8 @@ export const products = [
         AGPPartNumber: "AGP-MECH-002",
         Make: "Elmac",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813949/ERB_Elmac_01_cq8c7g.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813948/ERB_Elmac_02_ze2j5p.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767834293/ERB_Elmac_01_xbf4gn.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767834296/ERB_Elmac_02_bgqvdd.webp",
         ],
         shortDescription:
           "2-inch End-of-Line deflagration flame arrestor for tank vent protection.",
@@ -994,7 +994,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-003",
         Make: "Landon Kingsway",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813004/109037XX_Landon_Kingsway_aaom82.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813004/109037XX_Landon_Kingsway_aaom82.webp",
         ],
         shortDescription:
           "Essential fuel isolation valve for plant rooms and generators, activated by fusible links or electrical intervention.",
@@ -1126,7 +1126,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-004",
         Make: "Ridart",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767812829/197-EN-P-AL_Ridart_wxyeml.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767812829/197-EN-P-AL_Ridart_wxyeml.webp",
         ],
         shortDescription:
           'Aluminium pressure/vacuum relief valve available in 2", 3", 4", and 6" sizes for traditional fuels.',
@@ -1205,7 +1205,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-005",
         Make: "Ridart",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813004/197-EN-P-PTFE_Ridart_icdkz2.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813004/197-EN-P-PTFE_Ridart_icdkz2.webp",
         ],
         shortDescription:
           'PTFE coated chemical-resistant valve available in 3", 4", and 6" sizes (2" not available).',
@@ -1275,7 +1275,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-006",
         Make: "Ridart",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813005/197-EN-P-SS_Ridart_wp74ht.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813005/197-EN-P-SS_Ridart_wp74ht.webp",
         ],
         shortDescription:
           'Full Stainless Steel valve for aggressive media, available in 3", 4", and 6" sizes (2" not available).',
@@ -1345,7 +1345,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-008",
         Make: "Belimo",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814209/SRFA-S2-R_Belimo_01_zjkhon.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767814209/SRFA-S2-R_Belimo_01_zjkhon.webp",
         ],
         shortDescription:
           "20Nm fail-safe actuator for precise open/close control in cold and warm water HVAC systems.",
@@ -1394,7 +1394,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-009",
         Make: "Leengate",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814124/LV8635_Leengate_qf1yxs.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767814124/LV8635_Leengate_qf1yxs.webp",
         ],
         shortDescription:
           "Full bore carbon steel ball valve, flanged PN16/40 with ISO 5211 direct mount pad.",
@@ -1472,7 +1472,7 @@ export const products = [
         AGPPartNumber: "AGP-MECH-010",
         Make: "Leengate",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767814123/LV5556_Leengate_q8wdoi.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767814123/LV5556_Leengate_q8wdoi.webp",
         ],
         shortDescription:
           "PN16 flanged ductile iron ball valve with brass ball/stem and ISO 5211 direct mount pad.",
