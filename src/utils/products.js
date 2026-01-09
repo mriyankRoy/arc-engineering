@@ -34,12 +34,12 @@ export const products = [
         ],
         downloads: [
           {
-            name: "Datasheet",
-            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765811657/Datasheet_-_GB_CP5340_xdizgc.pdf",
+            name: "Information & Spec Sheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/q_auto/v1767923198/Datasheet_-_CP5340_Hitec_ujthi6.pdf",
           },
           {
-            name: "Manual",
-            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1765811714/Manual_-_CP5340_1_gdlfje.pdf",
+            name: "Installation & Maintenance Instructions",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/q_auto/v1767923262/Manual_-_CP5340_Hitec_lzrtga.pdf",
           },
         ],
         details: {
@@ -348,7 +348,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-003",
         Make: "Frico",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1767813264/C5N_Frico_01_w87vcz.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1767813264/C5N_Frico_01_w87vcz.webp",
         ],
         shortDescription:
           "Compact 5kW industrial fan heater with IP44 rating and 480 m³/h airflow.",
@@ -1758,8 +1758,12 @@ export const products = [
         // UPDATED: Replaced pdfLink with downloads array
         downloads: [
           {
-            name: "Datasheet",
-            url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767555013/by6ahhqh434fby9vmz13.pdf",
+            name: "Information & Spec Sheet",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/q_auto/v1767922936/Datasheet_-_10056CL902205_Kason_Industries_wr3zqf.pdf",
+          },
+          {
+            name: "Installation & Maintenance Instructions",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/q_auto/v1767922855/Manual_-_10056CL902205_Kason_Industries_cicq8h.pdf",
           },
         ],
         details: {
