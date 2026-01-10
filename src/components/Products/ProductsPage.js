@@ -254,7 +254,7 @@ const ProductPage = () => {
                 {/* Bottom pagination visible even if 1 page */}
                 <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col items-center gap-6">
                   <div className="text-[11px] font-mono text-gray-400 uppercase tracking-widest">
-                    Showing {startRange} to {endRange} of {totalItems} models
+                    Showing {startRange} to {endRange} of {totalItems} Items
                   </div>
                   <div className="flex items-center justify-center gap-4">
                     <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="p-3 cursor-pointer rounded-xl border border-gray-200 text-[#44444E] disabled:opacity-30 disabled:cursor-not-allowed hover:border-[#BF092F] hover:text-[#BF092F] transition-all">

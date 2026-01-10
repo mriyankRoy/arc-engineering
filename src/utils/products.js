@@ -295,7 +295,7 @@ export const products = [
         AGPPartNumber: "AGP-ELEC-PHOTO-SWIV-208",
         Make: "Precision Multiple Controls",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1/ST168_Precision_Sensor_01.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768062009/ST-168_Precision_01_fcnpr2.webp",
         ],
         shortDescription:
           "208V-277V Swivel-mount photocell with 1800W Tungsten / 1100VA Ballast rating and 5-year warranty.",
@@ -386,7 +386,7 @@ export const products = [
         AGPPartNumber: "AGP-FUEL-PROG-T4020",
         Make: "O.L.E (Offshore & Line Equipment Ltd)",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1/T4020-01_Programming_Kit_Main.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768062961/T4020-01_OLE_Offshore_Line_Equipment_Ltd__Hyek_01_uvqosz.webp",
         ],
         shortDescription:
           "USB programming and calibration kit for O.L.E T5020 and Z5020 electronic tank gauges.",
@@ -1425,7 +1425,12 @@ export const products = [
         AGPPartNumber: "AGP-RCBO-IC60H-20A-10MA",
         Make: "Schneider Electric",
         images: [
-          "https://www.se.com/uk/en/product/A9D10820/ic60h-earth-leakage-circuit-breaker-1p-+-n-c-curve-20-a-10-ma-240-v/",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768064992/A9D10820_Schneider_Electric_01_fvphkw.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768064995/A9D10820_Schneider_Electric_02_wlj5ya.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768064999/A9D10820_Schneider_Electric_03_okn3zl.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768065001/A9D10820_Schneider_Electric_04_do9hy0.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768065004/A9D10820_Schneider_Electric_05_y5awva.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768065009/A9D10820_Schneider_Electric_07_tflqma.webp",
         ],
         shortDescription:
           "Acti9 iC60H 20A single-pole RCBO with high-sensitivity 10mA protection and C-curve trip characteristics.",
@@ -1439,8 +1444,12 @@ export const products = [
         ],
         downloads: [
           {
-            name: "Product Datasheet",
+            name: "Information & Spec Sheet",
             url: "https://www.se.com/uk/en/product/A9D10820/ic60h-earth-leakage-circuit-breaker-1p-+-n-c-curve-20-a-10-ma-240-v/",
+          },
+          {
+            name: "Installation & Maintenance Instructions",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/q_auto/v1767906534/Manual_-_A9D12810_Schneider_Electric_m7zmye.pdf",
           },
         ],
         details: {
@@ -1473,7 +1482,7 @@ export const products = [
         AGPPartNumber: "AGP-RCBO-IC60H-16A-10MA",
         Make: "Schneider Electric",
         images: [
-          "https://www.se.com/uk/en/product/A9D10816/ic60h-earth-leakage-circuit-breaker-1p-+-n-c-curve-16-a-10-ma-240-v/",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768069282/A9D10816_Schneider_Electric_01_v7suaz.webp",
         ],
         shortDescription:
           "Acti9 iC60H 16A single-pole RCBO with high-sensitivity 10mA protection and C-curve trip characteristics.",
@@ -1487,9 +1496,13 @@ export const products = [
         ],
         downloads: [
           {
-            name: "Product Datasheet",
+            name: "Information & Spec Sheet",
             url: "https://www.se.com/uk/en/product/A9D10816/ic60h-earth-leakage-circuit-breaker-1p-+-n-c-curve-16-a-10-ma-240-v/",
           },
+          {
+            name: "Installation & Maintenance Instructions",
+            url: "https://res.cloudinary.com/dc912sjxj/image/upload/q_auto/v1767906534/Manual_-_A9D12810_Schneider_Electric_m7zmye.pdf",
+          }
         ],
         details: {
           PolesDescription: "1P + N",

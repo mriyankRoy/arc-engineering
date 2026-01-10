@@ -10,26 +10,34 @@ const ProductCard = ({ product, categorySlug }) => {
     navigate(`/products/${categorySlug}/${encodeURIComponent(product.name)}`);
   };
 
+  // Helper to inject Cloudinary SEO optimizations
+  const getOptimizedUrl = (url) => {
+    if (!url || !url.includes("cloudinary.com")) return url;
+    return url.replace("/upload/", "/upload/f_auto,q_auto/");
+  };
+
   return (
-    // Added 'h-full' to the wrapper to ensure grid alignment
-    <div
+    <article
       className="group relative flex flex-col h-full bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={handleNavigate}
+      aria-label={`View details for ${product.name}`}
     >
-      {/* 1. TECHNICAL INDICATOR (TOP RIGHT) */}
+      {/* 1. TECHNICAL INDICATOR */}
       <div className="absolute top-4 right-4 z-20">
         <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
           {product.AGPPartNumber || "SPEC_READY"}
         </span>
       </div>
 
-      {/* 2. IMAGE SECTION - Fixed height maintained */}
+      {/* 2. IMAGE SECTION */}
       <div className="h-64 min-h-[16rem] relative overflow-hidden bg-gray-50 border-b border-gray-50">
         <img
-          src={product.images[0]}
+          src={getOptimizedUrl(product.images[0])}
           alt={product.name}
+          loading="lazy" // Critical for PageSpeed/SEO
+          decoding="async" // Helps with browser rendering speed
           className={`w-full h-full object-cover grayscale transition-all duration-700 opacity-90 ${
             hover ? "grayscale-0 scale-110 opacity-100" : ""
           }`}
@@ -47,21 +55,19 @@ const ProductCard = ({ product, categorySlug }) => {
             </span>
           </div>
           
-          {/* Fixed height for Title to prevent misalignment */}
           <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3 leading-snug min-h-[3.5rem] line-clamp-2">
             {product.name}
           </h3>
           
-          {/* Fixed height for Description to ensure footer alignment */}
           <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed line-clamp-3 min-h-[3rem]">
-            {product.shortDescription || "High-performance power system component designed for extreme operational environments."}
+            {product.shortDescription || `High-performance ${product.name} designed for industrial environments.`}
           </p>
         </div>
 
-        {/* 4. FOOTER ACTION - mt-auto pushes this to the very bottom */}
+        {/* 4. FOOTER ACTION */}
         <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Package  size={14} className="text-[#BF092F]" />
+            <Package size={14} className="text-[#BF092F]" />
             <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">
               {product.manufacturerPartNumber}
             </span>
@@ -74,9 +80,9 @@ const ProductCard = ({ product, categorySlug }) => {
         </div>
       </div>
 
-      {/* 5. HOVER ACCENT BAR (BOTTOM) */}
+      {/* 5. HOVER ACCENT BAR */}
       <div className={`absolute bottom-0 left-0 h-1 bg-[#BF092F] transition-all duration-500 ${hover ? 'w-full' : 'w-0'}`} />
-    </div>
+    </article>
   );
 };
 
