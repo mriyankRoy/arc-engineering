@@ -3655,7 +3655,14 @@ export const products = [
         AGPPartNumber: "AGP-CONT-XXX",
         Make: "ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1768234812/Data_Center_Container_Main.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768326360/Art_Genpower_Solutions_Ltd_ESI_Container_01_lufldh.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768329341/Art_Genpower_Solutions_Ltd_ESI_Container_02_axoz6j.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768326359/Art_Genpower_Solutions_Ltd_ESI_Container_03_tkl9ds.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,r_20/v1768327794/Art_Genpower_Solutions_Ltd___ESI_Container_04_klp7lm.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,r_20/v1767730757/Hamriyah_Facility_03_z6hmoe.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,r_20/v1767730367/Sajja_Facility_02_t6limt.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768327414/Art_Genpower_Solutions_Ltd_ESI_Container_Layout_01_dquuzi.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768327414/Art_Genpower_Solutions_Ltd_ESI_Container_Layout_02_lveqwf.webp",
         ],
         shortDescription:
           "Custom-engineered acoustic and weatherproof containers for data center standby power, rated for critical sound levels and hazardous environments.",
@@ -3712,7 +3719,10 @@ export const products = [
         AGPPartNumber: "AGP-PWR-EHOUSE",
         Make: "ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1768234812/E-House_Modular_Substation_Main.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768330245/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_01_l7dfol.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768330248/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_02_kq90fj.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,r_20/v1768330571/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_03_sirvro.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto/v1768330687/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_04_ebzsbb.webp",
         ],
         shortDescription:
           "A complete, plug-and-play power distribution center. Our customized E-House modules deliver reliable power infrastructure to the most remote and demanding locations.",
@@ -3787,7 +3797,9 @@ export const products = [
         AGPPartNumber: "AGP-FLUID-INJ",
         Make: "ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1768234812/Chemical_Injection_Skid_Main.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768331209/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_01_jj0rdu.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768331658/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_02_eqgm8e.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,r_20/v1768331854/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_03_jdh8w1.webp",
         ],
         shortDescription:
           "Engineered for the demanding Oil & Gas sector, our modular Pump Skids and Injection Packages provide precise fluid delivery and well intervention solutions.",

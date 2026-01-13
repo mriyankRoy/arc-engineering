@@ -186,7 +186,7 @@ const ProductPage = () => {
                 <Home size={14} /><span className="text-[10px] md:text-xs tracking-widest uppercase">Home</span>
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
-              <button onClick={() => navigate("/products")} className={`text-[10px] md:text-xs tracking-widest uppercase transition-all duration-300 ${isGeneralOverview ? "bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg" : "text-white/50 hover:text-white"}`}>
+              <button onClick={() => navigate("/products")} className={`cursor-pointer text-[10px] md:text-xs tracking-widest uppercase transition-all duration-300 ${isGeneralOverview ? "bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg" : "text-white/50 hover:text-white"}`}>
                 Product Categories
               </button>
               {!isGeneralOverview && (
@@ -262,7 +262,7 @@ const ProductPage = () => {
                     </button>
                     <div className="flex items-center gap-2">
                       {[...Array(totalPages)].map((_, i) => (
-                        <button key={i} onClick={() => handlePageChange(i + 1)} className={`w-10 h-10 rounded-xl text-xs font-bold tracking-widest transition-all ${currentPage === i + 1 ? "bg-[#BF092F] text-white shadow-lg" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}>
+                        <button key={i} onClick={() => handlePageChange(i + 1)} className={`cursor-pointer w-10 h-10 rounded-xl text-xs font-bold tracking-widest transition-all ${currentPage === i + 1 ? "bg-[#BF092F] text-white shadow-lg" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}>
                           {String(i + 1).padStart(2, '0')}
                         </button>
                       ))}
