@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import ProductPage from "./components/Products/ProductsPage";
 import ProductDetailPage from "./components/Products/ProductDetailPage"; // <-- import
 import ContactUsPage from "./components/ContactUsPage";
-import AboutUsPage from "./components/AboutUsPage";
 import ScrollToTop from "./components/ScrollToTop";
 import SearchResultsPage from "./components/Header/SearchResultsPage";
 import FacilitiesPage from "./components/Facilities/FacilitiesPage";
@@ -14,6 +13,7 @@ import FacilityDetailsPage from "./components/Facilities/FacilityDetailsPage";
 import CareersPage from "./components/CareersPage";
 import ProjectsPage from "./components/Projects/ProjectsPage";
 import ProjectDetailPage from "./components/Projects/ProjectDetailPage";
+import AboutUsPage from "./components/About/AboutUsPage";
 
 const AppLayout = () => {
   return (

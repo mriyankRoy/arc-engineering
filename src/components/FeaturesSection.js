@@ -7,7 +7,6 @@ import {
   Activity
 } from "lucide-react";
 import { useNavigate } from "react-router";
-// 1. Import your products data instead of features
 import { products } from "../utils/products"; 
 
 export default function FeaturesSection() {
