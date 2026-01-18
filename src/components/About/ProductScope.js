@@ -6,7 +6,7 @@ const ProductScope = () => {
     <div className="mt-20 pt-20 border-t border-gray-100 bg-white p-8 md:p-12 rounded-2xl shadow-xl border">
       <div className="flex items-center justify-between mb-10">
         <div className="flex items-center gap-4">
-          <div className="h-10 w-1.5 bg-[#BF092F]" />
+          <div className="h-8 w-1 bg-[#BF092F]" />
           <h2 className="text-sm text-[#44444E] uppercase font-bold">
             Our Product Scope
           </h2>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { skills } from "../../utils/skills";
 import {
-  Cpu,
-  Factory,
   ShieldCheck,
   ArrowRight,
   Layers,
@@ -63,7 +61,7 @@ export default function SkillsShowcase() {
   );
 
   return (
-    <section className="relative py-12 bg-transparent">
+    <section className="relative py-12 bg-transparent mt-20 pt-20 border-t border-gray-100">
       <div className="relative mx-auto w-full">
         {/* --- HEADER SECTION: Matched to AboutUsPage Manifesto style --- */}
         <div className="mb-12">
@@ -72,6 +70,7 @@ export default function SkillsShowcase() {
             <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">
               Technical Capabilities
             </h2>
+            <div className="hidden md:block h-px flex-grow ml-8 bg-gray-100" />
           </div>
           <h3 className="text-2xl md:text-4xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight">
             Engineering <span className="text-[#BF092F]">Toolkit</span> &

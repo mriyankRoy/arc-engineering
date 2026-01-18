@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { partners } from "../utils/partners";
 import { Activity, ShieldCheck, Box, Zap } from "lucide-react";
 
 export default function TrustedPartners() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation on mount
+    setIsVisible(true);
+  }, []);
+
+  // Shared Animation Logic (Matching previous components)
+  const revealClass = (visible, delay = "duration-1000") => 
+    `transition-all ${delay} ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+    }`;
+
   return (
     <section className="relative w-full py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
+        
         {/* 🏗️ INDUSTRIAL HEADER */}
-        <div className="mb-16">
+        <div className={`mb-16 ${revealClass(isVisible)}`}>
           <div className="flex items-center gap-4 mb-6">
             <div className="h-8 w-1 bg-[#BF092F]" />
             <Activity size={14} className="text-[#BF092F] animate-pulse" />
@@ -27,7 +41,7 @@ export default function TrustedPartners() {
         </div>
 
         {/* 2. LOGO GRID CHASSIS */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className={`grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden ${revealClass(isVisible, "duration-[1200ms] delay-300")}`}>
           {partners.map((partner, index) => (
             <div
               key={index}

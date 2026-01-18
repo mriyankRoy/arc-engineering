@@ -3,18 +3,18 @@ import CompanyVideoSection from "./CompanyVideoSection";
 import FeaturesSection from "./FeaturesSection";
 import AboutSection from "./AboutSection";
 import TrustedPartners from "./TrustedPartners";
-import GraphiteScrollingFeatures from "./FacilitiesPage";
+import FacilitiesPage from "./FacilitiesPage";
 
 const HomePage = () => {
   
   return (
     <div>
       <HomePageSection1 />
+      <AboutSection />
       <TrustedPartners />
       <CompanyVideoSection />
-      <GraphiteScrollingFeatures />
+      <FacilitiesPage />
       <FeaturesSection />
-      <AboutSection />
     </div>
   );
 };
