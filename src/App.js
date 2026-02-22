@@ -15,10 +15,12 @@ import ProjectsPage from "./components/Projects/ProjectsPage";
 import ProjectDetailPage from "./components/Projects/ProjectDetailPage";
 import AboutUsPage from "./components/About/AboutUsPage";
 import { inject } from "@vercel/analytics";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
 const AppLayout = () => {
-  
-  inject();
+
+  inject(); // For Analytics
+  injectSpeedInsights(); // For Speed Insights
 
   return (
     <div>
