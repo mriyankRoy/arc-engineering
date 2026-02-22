@@ -14,6 +14,7 @@ import CareersPage from "./components/CareersPage";
 import ProjectsPage from "./components/Projects/ProjectsPage";
 import ProjectDetailPage from "./components/Projects/ProjectDetailPage";
 import AboutUsPage from "./components/About/AboutUsPage";
+import { SpeedInsights } from "@vercel/speed-insights";
 
 const AppLayout = () => {
   return (
@@ -22,6 +23,7 @@ const AppLayout = () => {
       <ScrollToTop />
       <main>
         <Outlet />
+        <SpeedInsights />
       </main>
       <Footer />
     </div>
@@ -42,11 +44,11 @@ const appRouter = createBrowserRouter([
       },
       { path: "/contact", element: <ContactUsPage /> },
       { path: "/search/:query", element: <SearchResultsPage /> },
-      { path: "/facilities", element: <FacilitiesPage />},
-      { path: "/facilities/:id", element: <FacilityDetailsPage />},
-      { path: "/careers", element: <CareersPage />},
-      { path: "/projects", element: <ProjectsPage />},
-      { path: "/projects/:id", element: <ProjectDetailPage />}
+      { path: "/facilities", element: <FacilitiesPage /> },
+      { path: "/facilities/:id", element: <FacilityDetailsPage /> },
+      { path: "/careers", element: <CareersPage /> },
+      { path: "/projects", element: <ProjectsPage /> },
+      { path: "/projects/:id", element: <ProjectDetailPage /> },
     ],
   },
 ]);
