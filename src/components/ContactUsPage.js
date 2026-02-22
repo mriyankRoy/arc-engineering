@@ -176,7 +176,7 @@ export default function ContactUsPage() {
                   <div className="space-y-8">
                     <ContactRow icon={<Phone size={18} />} label="Direct Line" value="+44 7492 949230" href="tel:+447492949230" />
                     <ContactRow icon={<Mail size={18} />} label="Enquiries" value="info@artgpower.co.uk" href="mailto:info@artgpower.co.uk" />
-                    <ContactRow icon={<MapPin size={18} />} label="Address" value="19 Pelham Court, Hemel Hempstead, HP2 4UW, UK" />
+                    <ContactRow icon={<MapPin size={18} />} label="Address" value="Greenside House, 50 Station Rd, London, N22 7DE, UK" />
                   </div>
                 </div>
                 <div className="p-8 bg-black/20">
