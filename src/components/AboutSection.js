@@ -15,14 +15,22 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 
+/**
+ * AboutSection: Core Corporate Identity & Infrastructure Overview
+ * This component utilizes intersection observers for scroll-synced reveals
+ * and a high-fidelity industrial aesthetic.
+ */
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [showSpecs, setShowSpecs] = useState(false);
   const specsRef = useRef(null);
 
+  // --- INITIALIZATION & INTERSECTION OBSERVER ---
   useEffect(() => {
+    // Initial entrance animation trigger
     setIsVisible(true);
 
+    // Observer to trigger secondary animations when the user scrolls to the Technical Specs grid
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -39,7 +47,8 @@ export default function AboutSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Shared Animation Classes
+  // --- ANIMATION HELPER ---
+  // Generates transition classes based on visibility and custom delay/duration
   const revealClass = (visible, delay = "duration-1000") =>
     `transition-all ${delay} ease-[cubic-bezier(0.22,1,0.36,1)] ${
       visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
@@ -48,7 +57,7 @@ export default function AboutSection() {
   return (
     <div id="about" className="relative bg-white py-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* 🏗️ INDUSTRIAL HEADER */}
+        {/* 🏗️ INDUSTRIAL HEADER: Corporate Identity & Engineering Meta-data */}
         <div className={`mb-16 ${revealClass(isVisible)}`}>
           <div className="flex items-center gap-4 mb-6">
             <div className="h-8 w-1 bg-[#BF092F]" />
@@ -63,17 +72,18 @@ export default function AboutSection() {
               <br className="hidden md:block" /> & Engineering
             </h3>
             <p className="max-w-md text-gray-400 font-bold uppercase tracking-widest text-[10px] leading-relaxed pb-1 border-l-2 border-gray-100 pl-6 lg:ml-8">
-              System_Overview // AGP.UK.2026 // Delivering surgical precision
-              through global manufacturing scale.
+              Precision-fabricated power infrastructure for critical
+              applications.
             </p>
           </div>
         </div>
 
-        {/* 🏭 MISSION MANIFESTO CARD */}
+        {/* 🏭 MISSION MANIFESTO CARD: High-level summary and Core Deliverables grid */}
         <div
           className={`mb-12 ${revealClass(isVisible, "duration-[1200ms] delay-200")}`}
         >
           <div className="grid lg:grid-cols-12 gap-0 shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
+            {/* Left Content: Mission Text */}
             <div className="lg:col-span-8 bg-white p-10 md:p-16 border-r border-gray-50">
               <h3 className="text-[11px] font-black text-[#BF092F] uppercase tracking-[0.4em] mb-8">
                 Mission_Manifesto
@@ -92,6 +102,7 @@ export default function AboutSection() {
                 on delivering robust, site-ready solutions.
               </p>
 
+              {/* Quick-Stats Display */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <Stat label="FAT Tested" val="100%" />
                 <Stat label="Manufacturing" val="Global" />
@@ -100,6 +111,7 @@ export default function AboutSection() {
               </div>
             </div>
 
+            {/* Right Content: Tech Sidebar */}
             <div className="lg:col-span-4 bg-[#44444E] p-10 md:p-12 text-white flex flex-col justify-between relative overflow-hidden group">
               <ShieldCheck
                 size={200}
@@ -124,7 +136,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* 🛠️ CORE STRENGTHS: TECHNICAL SPECIFICATIONS GRID */}
+        {/* 🛠️ CORE STRENGTHS: Two-column grid highlighting specific build capabilities */}
         <div
           ref={specsRef}
           className={`grid lg:grid-cols-2 gap-8 items-stretch mb-8 ${revealClass(showSpecs, "duration-[1200ms]")}`}
@@ -148,8 +160,7 @@ export default function AboutSection() {
               <p className="text-gray-500 font-medium uppercase tracking-widest text-[11px] leading-loose mb-8 max-w-md">
                 We go beyond standard fabrication. Our bespoke generator
                 containers are engineered for maximum structural integrity and
-                acoustic performance. Whether for prime power or standby
-                emergency applications.
+                acoustic performance.
               </p>
               <div className="flex flex-wrap gap-2 pt-6 border-t border-gray-100">
                 {[
@@ -186,8 +197,7 @@ export default function AboutSection() {
               </h4>
               <p className="text-white/50 font-medium uppercase tracking-widest text-[11px] leading-loose mb-8 max-w-md">
                 Our pre-fabricated E-Houses (Electrical Power on Demand) offer a
-                fully integrated, "plug-and-play" solution. By manufacturing
-                units in a controlled environment, we reduce risk.
+                fully integrated, "plug-and-play" solution.
               </p>
               <div className="flex flex-wrap gap-2 pt-6 border-t border-white/10">
                 {[
@@ -207,12 +217,13 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* 🛠️ SUPPLY CAPABILITIES: ENGINEERING DASHBOARD */}
+        {/* 🛠️ SUPPLY CAPABILITIES: Engineering Dashboard for Ancillary Supply Chain */}
         <div
           className={`mb-24 ${revealClass(showSpecs, "duration-[1200ms] delay-200")}`}
         >
           <div className="relative group overflow-hidden rounded-[2rem] border border-gray-100 shadow-2xl bg-[#44444E]">
             <div className="relative z-10 grid lg:grid-cols-12">
+              {/* Supply Chain Red Sidebar */}
               <div className="lg:col-span-4 p-12 md:p-16 bg-[#BF092F] text-white flex flex-col justify-between relative overflow-hidden">
                 <div
                   className="absolute inset-0 opacity-10 pointer-events-none"
@@ -238,25 +249,28 @@ export default function AboutSection() {
                 </div>
                 <div className="relative z-10 space-y-8">
                   <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/70 leading-relaxed max-w-xs">
-                    At Art GenPower Solutions Limited, we understand that a
-                    high-performance power system is only as reliable as its
-                    smallest component. Alongside our heavy manufacturing
-                    capabilities, we are a trusted supplier of specialist
-                    instrumentation and ancillaries for the power generation
-                    industry.
+                    A trustworthy global supplier of specialist instrumentation
+                    and high-performance ancillaries, engineered to meet the
+                    rigorous demands and precision standards of the modern power
+                    generation industry.
                   </p>
-                  <button className="flex items-center gap-6 px-8 py-5 bg-white text-[#BF092F] rounded-xl font-black text-[10px] uppercase tracking-[0.4em] hover:bg-[#44444E] hover:text-white transition-all duration-500 group/btn shadow-xl">
-                    Download Registry{" "}
+                  <Link
+                    to="/products"
+                    className="inline-flex items-center justify-center gap-6 px-8 py-5 bg-white text-[#BF092F] rounded-xl font-black text-[10px] uppercase tracking-[0.4em] hover:bg-[#44444E] hover:text-white transition-all duration-500 group/btn shadow-xl w-fit"
+                  >
+                    View Products{" "}
                     <ArrowRight
                       size={14}
                       className="group-hover/btn:translate-x-2 transition-transform"
                     />
-                  </button>
+                  </Link>
                 </div>
               </div>
 
+              {/* Main Supply Grid: Fuel and Build Components */}
               <div className="lg:col-span-8 p-12 md:p-16 relative bg-[#44444E]">
                 <div className="grid md:grid-cols-2 gap-12 relative z-10">
+                  {/* Category: Fuel Management */}
                   <div className="space-y-6">
                     <div>
                       <div className="inline-flex items-center gap-4 py-2 px-4 bg-white/5 border border-white/10 rounded-lg mb-7">
@@ -266,10 +280,8 @@ export default function AboutSection() {
                         </h5>
                       </div>
                       <p className="text-[10px] text-white/40 font-medium uppercase tracking-[0.15em] leading-relaxed">
-                        We supply high-precision instruments designed to ensure
-                        the safety and efficiency of fuel storage systems. From
-                        bulk fuel tanks to day tanks, our range ensures accurate
-                        monitoring and environmental compliance.
+                        High-precision instruments for safety and efficiency of
+                        fuel storage systems.
                       </p>
                     </div>
                     <ul className="space-y-2">
@@ -293,6 +305,7 @@ export default function AboutSection() {
                     </ul>
                   </div>
 
+                  {/* Category: Build Ancillaries */}
                   <div className="space-y-6">
                     <div>
                       <div className="inline-flex items-center gap-4 py-2 px-4 bg-white/5 border border-white/10 rounded-lg mb-7">
@@ -302,17 +315,15 @@ export default function AboutSection() {
                         </h5>
                       </div>
                       <p className="text-[10px] text-white/40 font-medium uppercase tracking-[0.15em] leading-relaxed">
-                        Leveraging our manufacturing expertise, we supply the
-                        exact same heavy-duty components we use in our own
-                        builds. We provide everything required to outfit a
-                        generator container to global standards.{" "}
+                        Heavy-duty components required to outfit generator
+                        containers to global standards.
                       </p>
                     </div>
                     <ul className="space-y-2">
                       {[
-                        { name: "Vibration Isolators", code: "VB-88" },
-                        { name: "Exhaust Insulation", code: "EX-HT" },
-                        { name: "Air Handling Louvres", code: "AH-LV" },
+                        { name: "Vibration Isolators" },
+                        { name: "Exhaust Insulation" },
+                        { name: "Air Handling Louvres" },
                       ].map((item) => (
                         <li
                           key={item.name}
@@ -329,13 +340,15 @@ export default function AboutSection() {
                     </ul>
                   </div>
                 </div>
+
+                {/* Dashboard Meta Footer */}
                 <div className="mt-16 pt-8 border-t border-white/5 flex flex-wrap gap-10">
                   <div className="flex flex-col gap-1">
                     <span className="text-[8px] text-white/30 uppercase tracking-widest font-black">
                       Quality Protocol
                     </span>
                     <span className="text-[10px] text-white/60 uppercase font-bold tracking-widest underline decoration-[#BF092F] decoration-2 underline-offset-4">
-                      ISO 9001:2026
+                      PRECISION ENGINEERED
                     </span>
                   </div>
                   <div className="flex flex-col gap-1">
@@ -352,7 +365,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* 🏗️ MANUFACTURING PARTNERSHIP STRIP */}
+        {/* 🏗️ MANUFACTURING PARTNERSHIP STRIP: Geographical & Quality assurance validation */}
         <div
           className={`grid md:grid-cols-2 gap-6 ${revealClass(showSpecs, "duration-[1200ms] delay-500")}`}
         >
@@ -384,7 +397,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* EPIC CTA SECTION */}
+        {/* EPIC CTA SECTION: Final Call to Action with Link Navigation */}
         <div
           className={`mt-16 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-gray-100 pt-12 ${revealClass(showSpecs, "delay-700")}`}
         >
@@ -411,6 +424,11 @@ export default function AboutSection() {
   );
 }
 
+// --- SUB-COMPONENTS ---
+
+/**
+ * Stat: Visual pill showing a metric value and a descriptive label
+ */
 function Stat({ label, val }) {
   return (
     <div className="bg-gray-50 p-5 border border-gray-100 rounded-xl group hover:bg-white hover:shadow-lg transition-all text-center">
@@ -424,6 +442,9 @@ function Stat({ label, val }) {
   );
 }
 
+/**
+ * TechItem: List item with a themed icon and bold tracking text
+ */
 function TechItem({ icon: Icon, text }) {
   return (
     <li className="flex items-center gap-4 group/item">
