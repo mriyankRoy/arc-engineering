@@ -47,7 +47,7 @@ const HomePageSection1 = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-100"
             >
               <source
-                src="https://res.cloudinary.com/dc912sjxj/video/upload/q_auto:best,f_auto/v1768234812/Art_Genpower_Solutions_Ltd_Video_ulntoz.mp4"
+                src="https://res.cloudinary.com/dc912sjxj/video/upload/v1771862749/Art_Genpower_Solutions_Ltd_Video_fci4vz.mp4"
                 type="video/mp4"
               />
             </video>
