@@ -72,12 +72,6 @@ export default function ProjectsPage() {
               }
               className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
             >
-              <div className="absolute top-4 right-4 z-20">
-                <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
-                  LOG: {500 + idx}
-                </span>
-              </div>
-
               <div className="h-48 bg-[#44444E] relative overflow-hidden">
                 {/* Category Image Replacement */}
                 <img
@@ -91,13 +85,6 @@ export default function ProjectsPage() {
 
                 {/* Industrial Accent Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#BF092F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                {/* Keep the LOG number visible over the image */}
-                <div className="absolute top-4 right-4 z-20">
-                  <span className="text-[10px] font-mono font-bold text-white/50 group-hover:text-white transition-colors tracking-widest uppercase">
-                    LOG: {500 + idx}
-                  </span>
-                </div>
               </div>
 
               <div className="p-8 flex flex-col justify-between flex-grow">
@@ -156,7 +143,7 @@ export default function ProjectsPage() {
                 onClick={() => navigate("/projects")}
                 className={`text-[10px] md:text-xs tracking-widest uppercase transition-all duration-300 ${
                   isGeneralOverview
-                    ? "bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold"
+                    ? "bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20"
                     : "cursor-pointer text-white/50 hover:text-white"
                 }`}
               >
@@ -165,7 +152,7 @@ export default function ProjectsPage() {
               {!isGeneralOverview && (
                 <>
                   <span className="text-white/20 text-xs font-mono">{">"}</span>
-                  <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold">
+                  <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
                     {selectedType}
                   </button>
                 </>
@@ -235,13 +222,6 @@ export default function ProjectsPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="p-8 bg-black/20">
-                  <LayoutGrid size={24} className="text-[#BF092F] mb-4" />
-                  <p className="text-[10px] text-white/30 uppercase tracking-[0.3em] leading-relaxed font-bold">
-                    Historical deployments are verified against ISO quality
-                    protocols.
-                  </p>
                 </div>
               </div>
             </aside>

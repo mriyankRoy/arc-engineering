@@ -1,28 +1,31 @@
 import React, { useRef, useEffect, useState } from "react";
-import { PRODUCT_SCOPE } from "../../utils/constants";
+import { products } from "../../utils/products";
+import ProductCard from "../Products/ProductCard";
 
+/**
+ * ProductScope Component
+ * Integrated into 'About Us' to showcase Category 1 (Generator Systems) capabilities.
+ */
 const ProductScope = () => {
   const sectionRef = useRef(null);
   const [hasRevealed, setHasRevealed] = useState(false);
 
+  // Focus specifically on Category 1 (Generator Enclosures, etc.)
+  const categoryData = products[0];
+  const scopeItems = categoryData?.items || [];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasRevealed(true);
-        }
+        if (entry.isIntersecting) setHasRevealed(true);
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Search-friendly reveal logic
+  // Standard reveal animation to match CorporateProfile style
   const revealClass = (active, delay = "duration-1000") =>
     `transition-all ${delay} ease-[cubic-bezier(0.22,1,0.36,1)] ${
       active ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
@@ -31,55 +34,39 @@ const ProductScope = () => {
   return (
     <div 
       ref={sectionRef}
-      className="mt-20 pt-20 border-t border-gray-100 bg-white p-8 md:p-12 rounded-2xl shadow-xl border"
+      className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 mt-20"
     >
-      {/* SECTION HEADER - Animated */}
-      <div className={`flex items-center justify-between mb-10 ${revealClass(hasRevealed)}`}>
-        <div className="flex items-center gap-4">
-          <div className="h-8 w-1 bg-[#BF092F]" />
-          <h2 className="text-sm text-[#44444E] uppercase font-bold">
-            Our Product Scope
-          </h2>
-        </div>
+      {/* SECTION HEADER: Red accent bar and upper-case breadcrumb */}
+      <div className={`flex items-center gap-4 mb-8 ${revealClass(hasRevealed)}`}>
+        <div className="h-8 w-1 bg-[#BF092F]" />
+        <h2 className="text-sm text-[#44444E] uppercase font-bold">
+          Our Product Scope
+        </h2>
         <div className="hidden md:block h-px flex-grow ml-8 bg-gray-100" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {PRODUCT_SCOPE.map((item, index) => (
-          <div
-            key={index}
-            className={`group relative flex flex-col h-[500px] rounded-2xl overflow-hidden bg-white shadow-2xl transition-all duration-500 hover:-translate-y-3 ${revealClass(hasRevealed)}`}
-            style={{ transitionDelay: `${index * 150}ms` }}
+      {/* SUB-HEADER: Large-scale typography for clear section transition */}
+      <p className={`text-2xl md:text-4xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight mb-12 ${revealClass(hasRevealed, "duration-1000 delay-100")}`}>
+        Precision Manufactured <br className="hidden md:block" />{" "}
+        {categoryData?.category}.
+      </p>
+
+      {/* PRODUCT LIST: 
+          - flex-wrap: allows wrapping to next line
+          - justify-center: horizontally centers items (including orphans like the 4th card)
+      */}
+      <div className={`flex flex-wrap justify-center gap-8 ${revealClass(hasRevealed, "duration-1000 delay-200")}`}>
+        {scopeItems.map((item, index) => (
+          <div 
+            key={item.id || index}
+            // Width Logic: Mobile (100%), Tablet (50%), Desktop (33%)
+            className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-[400px]"
           >
-            <div className="relative h-[65%] overflow-hidden bg-[#44444E]">
-              <img
-                src={item.img}
-                alt={item.title}
-                className="h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
-              />
-              <div className="absolute top-6 right-6 p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-                <item.icon
-                  className="text-white group-hover:text-[#BF092F] transition-colors"
-                  size={20}
-                />
-              </div>
-            </div>
-            <div className="relative flex-grow p-8 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] text-[#BF092F] font-black uppercase tracking-[0.3em] mb-2 block">
-                  Engineering Excellence
-                </span>
-                <h4 className="text-xl font-bold text-[#44444E] uppercase leading-tight group-hover:text-[#BF092F]">
-                  {item.title}
-                </h4>
-              </div>
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-                <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
-                  {item.subtitle}
-                </p>
-              </div>
-              <div className="absolute bottom-0 left-0 h-1.5 bg-[#BF092F] w-0 group-hover:w-full transition-all duration-700" />
-            </div>
+            {/* Direct use of shared ProductCard for design parity across the site */}
+            <ProductCard 
+              product={item} 
+              categorySlug={categoryData.slug} 
+            />
           </div>
         ))}
       </div>

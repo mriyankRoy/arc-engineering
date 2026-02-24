@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { facilities } from "../utils/facilities";
+import { facilities } from "../../utils/facilities";
 import { ShieldCheck, Activity, Crosshair, Box, MapPin, Maximize, Zap, CheckCircle2, ChevronRight } from "lucide-react";
 import { Link } from "react-router";
 
@@ -50,7 +50,6 @@ export default function FacilitiesPage() {
               The <span className="text-[#BF092F]">Engine</span> <br className="hidden md:block" /> of Production
             </h3>
             <p className="max-w-md text-gray-400 font-bold uppercase tracking-widest text-[10px] leading-relaxed pb-1 border-l-2 border-gray-100 pl-6 lg:ml-8">
-              Deployment Log // 2025.Q4 <br />
               Precision manufacturing via ISO-certified high-capacity terminals.
             </p>
           </div>
@@ -64,15 +63,6 @@ export default function FacilitiesPage() {
               
               {/* LEFT VIEWPORT */}
               <div className="flex-[0.8] md:flex-[1.2] bg-[#1A1A1E] p-4 md:p-8 flex flex-col relative overflow-hidden">
-                <div className="absolute top-8 left-8 right-8 flex justify-between items-start z-30">
-                  <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-[#BF092F] animate-ping" />
-                      <span className="text-[10px] font-mono text-white uppercase tracking-widest">Live_Terminal_Feed</span>
-                    </div>
-                  </div>
-                  <Crosshair size={20} className="text-white/20" />
-                </div>
 
                 <div className="relative flex-grow bg-black rounded-2xl overflow-hidden border border-white/5 group">
                   {facilities.map((c, i) => (
@@ -147,13 +137,6 @@ export default function FacilitiesPage() {
                             )}
                           </div>
                         </div>
-
-                        <div className="flex items-center justify-between mb-4">
-                          <span className={`text-[10px] font-mono font-bold px-3 py-1 rounded-full border ${isActive ? "text-[#BF092F] border-[#BF092F]/20 bg-[#BF092F]/5" : "text-gray-400 border-gray-100"}`}>
-                            {isActive ? "SYSTEM_ONLINE" : "STANDBY"}
-                          </span>
-                          <span className="text-[10px] font-black text-gray-300">NODE_0{i + 1}</span>
-                        </div>
                         
                         <h4 className="text-2xl font-bold text-[#44444E] uppercase tracking-tighter mb-2">
                           {c.title}
@@ -193,7 +176,7 @@ export default function FacilitiesPage() {
                         )}
 
                         <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-50">
-                          <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.2em]">Explore Analytics</span>
+                          <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.2em]">Explore Facility</span>
                           <ChevronRight size={16} className={`transition-transform duration-300 ${isActive ? "translate-x-0 text-[#BF092F]" : "-translate-x-4 opacity-0"}`} />
                         </div>
                       </Link>
@@ -204,13 +187,7 @@ export default function FacilitiesPage() {
                 <div className="p-6 bg-[#1A1A1E] text-white flex items-center justify-between">
                    <div className="flex items-center gap-2">
                       <ShieldCheck size={14} className="text-[#BF092F]" />
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">Verified Infrastructure</span>
-                   </div>
-                   <div className="flex items-center gap-4">
-                      <div className="h-1 w-8 bg-white/5 rounded-full overflow-hidden">
-                        <div className="h-full bg-[#BF092F] animate-progress" style={{ width: '65%' }} />
-                      </div>
-                      <span className="text-[10px] font-mono text-white/20 tracking-tighter">AGP.SYS.04</span>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">Facility Directory</span>
                    </div>
                 </div>
               </div>

@@ -66,12 +66,12 @@ export default function AboutUsPage() {
                 className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase text-white">
+                <span className="text-[10px] md:text-xs tracking-widest uppercase">
                   Home
                 </span>
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
-              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold">
+              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
                 About Art GenPower
               </button>
             </nav>
@@ -138,12 +138,6 @@ export default function AboutUsPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="p-8 bg-black/20">
-                <p className="text-[10px] text-white/30 uppercase tracking-[0.3em] leading-relaxed font-bold">
-                  Mission-critical power modules for the world's most demanding
-                  sectors.
-                </p>
               </div>
             </div>
           </aside>

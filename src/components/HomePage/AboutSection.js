@@ -129,8 +129,7 @@ export default function AboutSection() {
                 </ul>
               </div>
               <div className="relative z-10 mt-12 pt-8 border-t border-white/10 text-[9px] font-mono text-white/40 uppercase tracking-[0.3em]">
-                Registry_Ref: AGP_UK_STATUS_ELITE <br /> Verified:
-                2026_PROTOCOLS
+                Quality Assured Engineering: From initial CAD design to final FAT testing.
               </div>
             </div>
           </div>
@@ -395,30 +394,7 @@ export default function AboutSection() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* EPIC CTA SECTION: Final Call to Action with Link Navigation */}
-        <div
-          className={`mt-16 flex flex-col md:flex-row items-center justify-between gap-8 border-t border-gray-100 pt-12 ${revealClass(showSpecs, "delay-700")}`}
-        >
-          <div className="flex gap-2">
-            <div className="w-2 h-2 bg-[#BF092F]" />
-            <div className="w-2 h-2 bg-[#44444E]" />
-            <div className="w-2 h-2 bg-gray-200" />
-          </div>
-          <Link
-            to={"/about"}
-            className="group flex items-center gap-6 px-10 py-5 bg-[#BF092F] text-white rounded-xl shadow-lg shadow-[#BF092F]/20 hover:bg-[#44444E] transition-all duration-500"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.4em]">
-              Explore Corporate Profile
-            </span>
-            <ArrowRight
-              className="group-hover:translate-x-3 transition-transform"
-              size={18}
-            />
-          </Link>
-        </div>
+        </div>       
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ const CorporateProfile = () => {
         <div className="hidden md:block h-px flex-grow ml-8 bg-gray-100" />
       </div>
 
-      <p className={`text-3xl md:text-4xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight mb-8 ${revealClass(hasRevealed, "duration-1000 delay-100")}`}>
+      <p className={`text-2xl md:text-4xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight mb-8 ${revealClass(hasRevealed, "duration-1000 delay-100")}`}>
         Bridging the Gap Between Engineering <br className="hidden md:block" />{" "}
         Excellence and Global Delivery.
       </p>

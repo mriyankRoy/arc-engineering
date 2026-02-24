@@ -7,11 +7,12 @@ import {
   Activity
 } from "lucide-react";
 import { useNavigate } from "react-router";
-import { products } from "../utils/products"; 
+import { products } from "../../utils/products"; 
 
 export default function FeaturesSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -104,11 +105,8 @@ export default function FeaturesSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-               <button className="px-10 py-4 bg-[#BF092F] text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white hover:text-[#44444E] transition-all duration-500 shadow-lg shadow-[#BF092F]/20">
-                  Request Specs
-               </button>
-               <button className="px-10 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white/10 transition-all duration-500">
-                  Catalog_2025.PDF
+               <button onClick={() => navigate("/contact")} className="px-10 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white/10 transition-all duration-500 hover:cursor-pointer">
+                  Contact Us
                </button>
             </div>
           </div>
@@ -132,12 +130,6 @@ function FeatureCard({ category, index, isVisible }) {
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="absolute top-4 right-4 z-20">
-        <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
-          ID: {category.categoryId}
-        </span>
-      </div>
-
       <div className="h-56 relative overflow-hidden bg-gray-50">
         <img
           src={category.image.url}

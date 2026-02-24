@@ -46,7 +46,7 @@ const HomePageSection1 = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-100"
             >
               <source
-                src="https://res.cloudinary.com/dc912sjxj/video/upload/v1771862749/Art_Genpower_Solutions_Ltd_Video_fci4vz.mp4"
+                src="https://res.cloudinary.com/dc912sjxj/video/upload/v1771941200/Art_Genpower_Solutions_Ltd_Video_q9curf.mp4"
                 type="video/mp4"
               />
             </video>
@@ -84,21 +84,7 @@ const HomePageSection1 = () => {
           />
 
           {/* LAYER 5: MAIN CONTENT INTERFACE */}
-          <div className="container mx-auto px-6 md:px-12 relative z-30">
-            
-            {/* Engineering Status Indicators */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg flex items-center gap-2">
-                <Activity size={14} className="animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-[0.3em]">
-                  Operational_Ready
-                </span>
-              </div>
-              <div className="h-4 w-px bg-white/20 mx-2 hidden sm:block" />
-              <span className="text-white/40 text-[10px] uppercase tracking-[0.4em] font-medium hidden sm:block">
-                Heavy_Engineering_Systems
-              </span>
-            </div>
+          <div className="container mx-auto px-6 md:px-12 relative z-30">            
 
             {/* Headline Section (Animated Transitions) */}
             <div className="relative w-full h-[150px] sm:h-[200px] lg:h-[260px] flex items-center mb-6">

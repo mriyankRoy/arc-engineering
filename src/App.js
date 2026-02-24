@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/HomePage/HomePage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import ProductPage from "./components/Products/ProductsPage";
 import ProductDetailPage from "./components/Products/ProductDetailPage"; // <-- import

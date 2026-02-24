@@ -202,30 +202,6 @@ export default function SkillsShowcase() {
           </div>
         ))}
       </div>
-
-      {/* QUALITY PROVEN CTA */}
-      <div className={`bg-[#44444E] p-12 rounded-2xl text-white relative overflow-hidden group ${revealClass(hasRevealed, "duration-1000 delay-500")}`}>
-        <ShieldCheck
-          size={180}
-          className="absolute -right-10 -bottom-10 text-white/5 rotate-12 transition-transform group-hover:rotate-0 duration-700"
-        />
-        <div className="relative z-10 max-w-2xl">
-          <h3 className="text-3xl font-black uppercase italic text-[#BF092F] mb-4">
-            Quality Proven
-          </h3>
-          <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest leading-loose">
-            Every Art GenPower project is backed by technical excellence. We
-            maintain 100% control over engineering protocols, meeting our
-            'Zero-Tolerance' failure policy.
-          </p>
-          <button
-            onClick={() => navigate("/projects")}
-            className="cursor-pointer mt-8 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-white hover:text-[#BF092F] transition-colors"
-          >
-            View Standards <ArrowRight size={14} />
-          </button>
-        </div>
-      </div>
     </section>
   );
 }

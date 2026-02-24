@@ -124,12 +124,6 @@ const ProductPage = () => {
             onClick={() => navigate(`/products?category=${category.slug}`)}
             className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
           >
-            <div className="absolute top-4 right-4 z-20">
-              <span className="text-[10px] font-mono font-bold text-gray-300 group-hover:text-[#BF092F] transition-colors tracking-widest uppercase">
-                ID: {200 + idx}
-              </span>
-            </div>
-
             <div className="h-56 relative overflow-hidden bg-gray-50">
               {category.image && (
                 <img
@@ -192,7 +186,7 @@ const ProductPage = () => {
               {!isGeneralOverview && (
                 <>
                   <span className="text-white/20 text-xs font-mono">{">"}</span>
-                  <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg font-bold">
+                  <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg">
                     {currentCategory.category}
                   </button>
                 </>

@@ -39,7 +39,7 @@ export default function CareersPage() {
               <span className="text-white/20 text-xs font-mono">{">"}</span>
 
               {/* ACTIVE PAGE: RED PILL DESIGN */}
-              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold">
+              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
                 Careers
               </button>
             </nav>

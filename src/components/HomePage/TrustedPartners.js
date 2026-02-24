@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { partners } from "../utils/partners";
+import { partners } from "../../utils/partners";
 import { Activity, ShieldCheck, Box, Zap } from "lucide-react";
 
 export default function TrustedPartners() {

@@ -149,7 +149,7 @@ export default function ContactUsPage() {
                 <span className="text-[10px] md:text-xs tracking-widest uppercase">Home</span>
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
-              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20 font-bold">
+              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
                 Contact Us
               </button>
             </nav>

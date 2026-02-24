@@ -68,7 +68,7 @@ export default function ProjectCard({ project }) {
           </div>
           
           <div className="flex items-center gap-2 text-[#BF092F] font-bold text-[11px] uppercase tracking-[0.2em] group-hover:translate-x-1 transition-transform">
-            View Log
+            View Project
             <ArrowRight size={16} />
           </div>
         </div>

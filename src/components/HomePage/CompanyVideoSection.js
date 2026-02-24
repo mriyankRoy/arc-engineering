@@ -7,7 +7,7 @@ import { Play, Pause, Activity, Maximize2, X } from "lucide-react";
  * scroll-based reveal animations, and a responsive HTML5 video chassis.
  */
 const CompanyVideoSection = ({
-  videoSrc = "https://res.cloudinary.com/dc912sjxj/video/upload/v1771862749/Art_Genpower_Solutions_Ltd_Video_fci4vz.mp4",
+  videoSrc = "https://res.cloudinary.com/dc912sjxj/video/upload/v1771941200/Art_Genpower_Solutions_Ltd_Video_q9curf.mp4",
   title = "Operational Excellence",
   tagline = "Visualizing the future of power infrastructure and strategic assembly.",
 }) => {
