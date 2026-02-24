@@ -95,10 +95,10 @@ export default function ProjectDetailPage() {
   };
 
   const specs = [
-    { label: "Client", value: project.name, icon: <FileText size={16} /> },
-    { label: "Category", value: project.type, icon: <Tag size={16} /> },
-    { label: "Location", value: project.location, icon: <MapPin size={16} /> },
-    { label: "Log ID", value: project.id, icon: <Calendar size={16} /> },
+    { label: "Client", value: project?.client, icon: <FileText size={16} /> },
+    { label: "Category", value: project?.type, icon: <Tag size={16} /> },
+    { label: "Location", value: project?.location, icon: <MapPin size={16} /> },
+    { label: "Log ID", value: project?.id, icon: <Calendar size={16} /> },
   ];
 
   return (

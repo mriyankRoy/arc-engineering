@@ -9,7 +9,8 @@ export const projects = [
     projects: [
       {
         id: "ENC-001",
-        name: "Cummins Arabia",
+        name: "20ft Custom Enclosure for C1100D5B",
+        client: "Cummins Arabia",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -22,7 +23,8 @@ export const projects = [
       },
       {
         id: "ENC-002",
-        name: "ADNOC",
+        name: "Multi-Capacity Genset Enclosure Series",
+        client: "ADNOC",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -61,7 +63,8 @@ export const projects = [
       },
       {
         id: "ENC-003",
-        name: "ENERGIA MTC LLC",
+        name: "1250KVA (KTA50G3) High-Acoustic Packaging",
+        client: "ENERGIA MTC LLC",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -74,7 +77,8 @@ export const projects = [
       },
       {
         id: "ENC-004",
-        name: "Cummins",
+        name: "40ft ISO Containerized Enclosure (C1400D5)",
+        client: "Cummins",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -89,7 +93,8 @@ export const projects = [
       },
       {
         id: "ENC-005",
-        name: "Orange Container",
+        name: "20ft Modified Enclosure & Underbelly Tank",
+        client: "KGL Kuwait (Orange Container)",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -103,7 +108,8 @@ export const projects = [
       },
       {
         id: "ENC-006",
-        name: "Cummins",
+        name: "Oil & Gas Custom Enclosure (C1100D5B)",
+        client: "Cummins",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -119,7 +125,8 @@ export const projects = [
       },
       {
         id: "ENC-007",
-        name: "White Container",
+        name: "20ft ISO Containerized C900D5 System",
+        client: "White Container",
         type: "Enclosure",
         location: "Sajja",
         description: [
@@ -133,7 +140,8 @@ export const projects = [
       },
       {
         id: "ENC-008",
-        name: "Energia - webuild",
+        name: "20ft High Cube Containerized 700KVA",
+        client: "Energia - webuild",
         type: "Enclosure",
         location: "Hamriyah",
         description: [
@@ -151,7 +159,8 @@ export const projects = [
       },
       {
         id: "ENC-009",
-        name: "Engginium - Cummins Genset",
+        name: "Dual Cummins C1250D5A Packaging",
+        client: "Engginium",
         type: "Enclosure",
         location: "Hamriyah",
         description: [
@@ -164,7 +173,8 @@ export const projects = [
       },
       {
         id: "ENC-010",
-        name: "ACE CRANE",
+        name: "40ft Fire-Rated Storage & Rack System",
+        client: "ACE CRANE",
         type: "Enclosure",
         location: "Hamriyah",
         description: [
@@ -177,7 +187,8 @@ export const projects = [
       },
       {
         id: "ENC-011",
-        name: "Car and General (U) Ltd",
+        name: "40ft HC Container for C1400D5",
+        client: "Car and General (U) Ltd",
         type: "Enclosure",
         location: "Hamriyah",
         description: [
@@ -190,7 +201,8 @@ export const projects = [
       },
       {
         id: "ENC-012",
-        name: "JAKSON ENERGY SOLUTIONS LLC",
+        name: "Offshore Mud Skips & Acid Transporters",
+        client: "JAKSON ENERGY SOLUTIONS LLC",
         type: "Enclosure",
         location: "Hamriyah",
         description: [
@@ -213,7 +225,8 @@ export const projects = [
     projects: [
       {
         id: "EHS-001",
-        name: "EXPRO",
+        name: "Modular Industrial E-House Solution",
+        client: "EXPRO",
         type: "E-House",
         location: "Sajja",
         description: [
@@ -236,7 +249,8 @@ export const projects = [
     projects: [
       {
         id: "PPK-001",
-        name: "Power Pack – Rental Container",
+        name: "Rental Container for KTA 38/50 Series",
+        client: "Power Pack",
         type: "Power-Pack",
         location: "Sajja",
         description: [
@@ -263,7 +277,8 @@ export const projects = [
     projects: [
       {
         id: "CSL-001",
-        name: "Dubai Petroleum",
+        name: "Active Cooling Shelter with F&G Safety",
+        client: "Dubai Petroleum",
         type: "Cooling-Shelter",
         location: "Sajja",
         description: [
