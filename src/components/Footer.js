@@ -1,5 +1,7 @@
 import { Facebook, Twitter, Linkedin, MapPin, Mail, Phone, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+// Import the same products data used in the Header
+import { products } from "../utils/products";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,15 +14,6 @@ const Footer = () => {
     { name: "Projects", path: "/projects" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
-  ];
-
-  // Mapping Specializations to your specific Product Category Slugs
-  const specializationLinks = [
-    { name: "Generator Enclosures", path: "/products/mechanical-items-accessories" },
-    { name: "E-House / E-POD Units", path: "/products/electrical-items-accessories" },
-    { name: "Pump Skid Packages", path: "/products/mechanical-items-accessories" },
-    { name: "Instrument Accessories", path: "/products/instrument-generator-accessories" },
-    { name: "Cooling Shelters", path: "/products/electrical-items-accessories" },
   ];
 
   return (
@@ -84,18 +77,19 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* UPDATED SOLUTIONS SECTION */}
+            {/* PRODUCT CATEGORIES SECTION (Synced with Header) */}
             <div className="lg:col-span-3">
-              <h3 className="text-[10px] font-black text-white/30 uppercase tracking-[0.5em] mb-10">Specializations</h3>
+              <h3 className="text-[10px] font-black text-white/30 uppercase tracking-[0.5em] mb-10">Product_Scope</h3>
               <ul className="space-y-5">
-                {specializationLinks.map((item) => (
-                  <li key={item.name}>
+                {/* Dynamically mapping from your products.js data */}
+                {products.map((category) => (
+                  <li key={category.slug}>
                     <Link 
-                      to={item.path}
+                      to={`/products?category=${category.slug}`}
                       className="text-[11px] font-bold text-white uppercase tracking-[0.2em] opacity-90 hover:opacity-100 hover:text-white transition-all flex items-center gap-2 group"
                     >
                       <span className="w-0 h-[1px] bg-[#BF092F] group-hover:w-3 transition-all duration-300" />
-                      {item.name}
+                      {category.category}
                     </Link>
                   </li>
                 ))}
@@ -104,7 +98,7 @@ const Footer = () => {
 
             {/* CONTACT SECTION */}
             <div className="lg:col-span-3">
-              <h3 className="text-[10px] font-black text-white/30 uppercase tracking-[0.5em] mb-10">Terminal_Access</h3>
+              <h3 className="text-[10px] font-black text-white/30 uppercase tracking-[0.5em] mb-10">Contact_Us</h3>
               <div className="space-y-7">
                 <div className="flex items-start gap-4 group">
                   <MapPin className="text-white/40 group-hover:text-white transition-colors shrink-0" size={16} />

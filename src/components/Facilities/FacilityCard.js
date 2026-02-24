@@ -80,7 +80,7 @@ export default function FacilityCard({ facility }) {
 
         {/* 5. HIGHLIGHTS PREVIEW */}
         <div className="space-y-2 mb-8">
-          {facility.highlights.slice(0, 2).map((item, i) => (
+          {facility.highlights?.map((item, i) => (
             <div key={i} className="flex items-start gap-2">
               <div className="mt-1.5 w-1 h-1 bg-[#BF092F] shrink-0" />
               <p className="text-[12px] text-gray-500 leading-tight">
@@ -92,12 +92,6 @@ export default function FacilityCard({ facility }) {
 
         {/* 6. ACTION FOOTER */}
         <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
-          {/* <div className="flex items-center gap-2">
-            <ShieldCheck size={14} className="text-[#BF092F]" />
-            <span className="text-[10px] font-black text-[#44444E] uppercase tracking-[0.2em]">
-              Verified Terminal
-            </span>
-          </div> */}
 
           <div className="flex items-center gap-2 text-[#BF092F] font-black text-[10px] uppercase tracking-[0.2em] group-hover:translate-x-1 transition-transform">
             More Details
