@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/defaultsite/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
