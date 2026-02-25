@@ -47,13 +47,13 @@ const ErrorPage = () => {
             <div className="h-[2px] w-8 bg-[#BF092F] rounded-full" />
           </div>
 
-          <h2 className="text-6xl md:text-8xl font-bold text-[#44444E] uppercase tracking-tighter mb-6 leading-none">
-            DATA <span className="text-[#BF092F]">VOID</span>
+          <h2 className="text-4xl md:text-6xl font-semibold text-[#44444E] uppercase tracking-tighter mb-6 leading-none">
+            404 <span className="text-[#BF092F]">NOT FOUND</span>
           </h2>
 
           <div className="flex justify-center mb-10">
              <p className="text-gray-400 uppercase tracking-widest text-[11px] font-bold leading-relaxed max-w-xs border-l-2 border-gray-100 pl-6 text-left">
-              The operational coordinate you are looking for is currently unreachable or does not exist in the infrastructure.
+              The URL you are looking for is currently unreachable or does not exist in the infrastructure.
             </p>
           </div>
 
