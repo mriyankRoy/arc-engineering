@@ -54,7 +54,7 @@ const HomePageSection1 = () => {
 
           {/* LAYER 2: MOBILE-ONLY BACKGROUND OVERLAY (Top-to-Bottom Shadow)
               This replicates the shadow requested specifically for mobile screens. */}
-          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/90 via-black/20 to-transparent z-10 pointer-events-none" />
+          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent z-10 pointer-events-none" />
 
           {/* LAYER 3: DESKTOP-ONLY SLANTS (Hidden on Mobile) */}
           <div
