@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import HomePage from "./components/HomePage/HomePage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import ProductPage from "./components/Products/ProductsPage";
-import ProductDetailPage from "./components/Products/ProductDetailPage"; // <-- import
+import ProductDetailPage from "./components/Products/ProductDetailPage"; 
 import ContactUsPage from "./components/ContactUsPage";
 import ScrollToTop from "./components/ScrollToTop";
 import SearchResultsPage from "./components/Header/SearchResultsPage";
@@ -19,9 +19,8 @@ import { injectSpeedInsights } from "@vercel/speed-insights";
 import ErrorPage from "./components/ErrorPage";
 
 const AppLayout = () => {
-
-  inject(); // For Analytics
-  injectSpeedInsights(); // For Speed Insights
+  inject(); 
+  injectSpeedInsights();
 
   return (
     <div>
@@ -44,10 +43,16 @@ const appRouter = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/about", element: <AboutUsPage /> },
       { path: "/products", element: <ProductPage /> },
+      
+      /* MATCHING FIX: This route now perfectly matches the 
+         navigate(`/products/${slug}/${productNameEncoded}`) 
+         call in your ProductCard.js
+      */
       {
         path: "/products/:categorySlug/:productName",
         element: <ProductDetailPage />,
       },
+
       { path: "/contact", element: <ContactUsPage /> },
       { path: "/search/:query", element: <SearchResultsPage /> },
       { path: "/facilities", element: <FacilitiesPage /> },
