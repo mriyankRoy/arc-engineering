@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 export default function FacilitiesPage() {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const visibleFacilities = facilities.slice(0, 2);
+  const visibleFacilities = facilities;
 
   useEffect(() => {
     setIsVisible(true);
@@ -74,7 +74,7 @@ export default function FacilitiesPage() {
           </div>
 
           <div
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 transition-all duration-1000 delay-300 ${
+            className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
