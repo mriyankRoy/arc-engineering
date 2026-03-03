@@ -6,6 +6,8 @@ import {
   Outlet,
   useLocation,
 } from "react-router";
+
+// Component Imports
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage/HomePage";
@@ -22,10 +24,16 @@ import ProjectDetailPage from "./components/Projects/ProjectDetailPage";
 import AboutUsPage from "./components/About/AboutUsPage";
 import DigitalBusinessCard from "./components/People/DigitalBusinessCard";
 import ErrorPage from "./components/ErrorPage";
+
+// Utility & Analytics Imports
 import { inject } from "@vercel/analytics";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 
-// 1. GLOBAL ROOT COMPONENT: Handles logic for the entire app (Chat, Analytics)
+/**
+ * Root Component
+ * Acts as the global controller for the application.
+ * Handles: Vercel Analytics, Speed Insights, and Tawk.to widget visibility.
+ */
 const Root = () => {
   const location = useLocation();
 
@@ -34,8 +42,11 @@ const Root = () => {
     injectSpeedInsights();
   }, []);
 
-  // Tawk.to Logic: This runs on every URL change across the whole site
-  // Inside your Root component
+  /**
+   * Tawk.to Visibility Logic
+   * Ensures the chat widget is hidden on Digital Business Card pages (/people/*)
+   * and visible on all other company website pages.
+   */
   useEffect(() => {
     const isDigitalCardPage = location.pathname.startsWith("/people/");
 
@@ -49,24 +60,27 @@ const Root = () => {
       }
     };
 
-    // 1. Try immediately
+    // 1. Initial attempt
     handleWidgetVisibility();
 
-    // 2. Set the onLoad callback in case it hasn't loaded yet
+    // 2. Event listener for late script loading
     if (window.Tawk_API) {
       window.Tawk_API.onLoad = handleWidgetVisibility;
     }
 
-    // 3. Optional: A small timeout to catch any edge cases on slow mobile connections
-    const timer = setTimeout(handleWidgetVisibility, 1000);
+    // 3. Timeout fallback for slow mobile connections
+    const timer = setTimeout(handleWidgetVisibility, 200);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  return <Outlet />; // Renders either AppLayout OR DigitalBusinessCard
+  return <Outlet />;
 };
 
-// 2. MAIN WEBSITE LAYOUT: Header, Footer, and Scroll Management
+/**
+ * AppLayout Component
+ * Provides the standard UI wrap (Header and Footer) for main website pages.
+ */
 const AppLayout = () => {
   return (
     <div>
@@ -80,15 +94,19 @@ const AppLayout = () => {
   );
 };
 
-// 3. UPDATED ROUTER CONFIGURATION
+/**
+ * Router Configuration
+ * Nested structure allows Root logic to run on all paths while 
+ * AppLayout only wraps standard company pages.
+ */
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Root />, // Logic manager at the top
+    element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      // Routes WITH Header & Footer
       {
+        // Wrapper for standard pages (With Header/Footer)
         element: <AppLayout />,
         children: [
           { path: "/", element: <HomePage /> },
@@ -107,8 +125,8 @@ const appRouter = createBrowserRouter([
           { path: "/projects/:id", element: <ProjectDetailPage /> },
         ],
       },
-      // Route WITHOUT Header & Footer
       {
+        // Standalone profile page (No Header/Footer)
         path: "people/:username",
         element: <DigitalBusinessCard />,
       },
@@ -116,5 +134,6 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
+// Root Mounting
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
