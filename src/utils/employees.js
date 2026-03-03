@@ -5,12 +5,26 @@ export const employees = {
     company: "Art Genpower Solutions Ltd",
     id: "AGP-101-AM", // Unique Industrial ID
     phone: "+44 7492949230", // Placeholder - replace with actual
-    email: "arunava@artgpower.co.uk",
+    email: "arun@artgpower.co.uk",
     website: "https://www.artgpower.co.uk/",
     linkedin: "www.linkedin.com/in/arunava-maity-6236a017/", // Placeholder - replace with actual
     whatsapp: "447492949230", // Placeholder - replace with actual
-    profileImage: "https://res.cloudinary.com/dc912sjxj/image/upload/v1772482777/Gemini_Generated_Image_d7pmp6d7pmp6d7pm_fmwpar.png", // Replace with his professional headshot
+    profileImage:
+      "https://res.cloudinary.com/dc912sjxj/image/upload/v1772482777/Gemini_Generated_Image_d7pmp6d7pmp6d7pm_fmwpar.png", // Replace with his professional headshot
     bio: "MBA, PMP | 20+ Years Executive Experience in high-value power generation. Former leadership at Cummins, Caterpillar, AVK, and Kohler.",
+  },
+  "m-lalan": {
+    name: "M. Lalan",
+    role: "Head of Sales and BD, UK",
+    company: "Art Genpower Solutions Ltd",
+    id: "AGP-102-ML", // Generated based on pattern
+    phone: "+44 7743977718", // Placeholder
+    email: "lalan@artgpower.co.uk", // Placeholder
+    website: "https://www.artgpower.co.uk/",
+    linkedin: "https://www.linkedin.com/in/mlalan/", // Placeholder
+    whatsapp: "447743977718", // Placeholder
+    profileImage: "https://via.placeholder.com/200", // Replace with professional headshot
+    bio: "MBA | 25+ Years Executive Experience in energy, power generation, and grid automation. Global track record across Middle East & UK with leadership at Hitachi Energy, ABB, and International Power.",
   },
   "mriyank-roy": {
     name: "Mriyank Roy",
