@@ -10,7 +10,7 @@ export const employees = {
     linkedin: "www.linkedin.com/in/arunava-maity-6236a017/", // Placeholder - replace with actual
     whatsapp: "447492949230", // Placeholder - replace with actual
     profileImage:
-      "https://res.cloudinary.com/dc912sjxj/image/upload/v1772482777/Gemini_Generated_Image_d7pmp6d7pmp6d7pm_fmwpar.png", // Replace with his professional headshot
+      "https://res.cloudinary.com/dc912sjxj/image/upload/c_fill,g_face,w_400,h_400,f_auto,q_auto/v1772547762/maity-arunava_AGP_People_quyu6u.webp", // Replace with his professional headshot
     bio: "MBA, PMP | 20+ Years Executive Experience in high-value power generation. Former leadership at Cummins, Caterpillar, AVK, and Kohler.",
   },
   "m-lalan": {
@@ -23,7 +23,7 @@ export const employees = {
     website: "https://www.artgpower.co.uk/",
     linkedin: "https://www.linkedin.com/in/mlalan/", // Placeholder
     whatsapp: "447743977718", // Placeholder
-    profileImage: "https://via.placeholder.com/200", // Replace with professional headshot
+    profileImage: "https://res.cloudinary.com/dc912sjxj/image/upload/c_fill,g_face,w_400,h_400,f_auto,q_auto/v1772547529/lalan-m_AGP_People_uztnoc.webp",
     bio: "MBA | 25+ Years Executive Experience in energy, power generation, and grid automation. Global track record across Middle East & UK with leadership at Hitachi Energy, ABB, and International Power.",
   },
   "mriyank-roy": {
