@@ -73,31 +73,32 @@ const Header = () => {
         />
 
         <div className="container mx-auto px-6">
-          {/* Responsive Grid: Logo | Name | Nav/Search */}
-          <div className="grid grid-cols-2 md:grid-cols-[auto_1fr_auto] h-18 md:h-20 items-center gap-4">
+          {/* Responsive Grid: Logo+Name(Left) | MobileName(Center) | Menu(Right) */}
+          <div className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[auto_1fr_auto] h-18 md:h-20 items-center gap-4">
             
-            {/* LOGO */}
+            {/* LOGO + DESKTOP NAME (Left side) */}
             <div className="flex justify-start items-center">
-              <Link to="/" className="flex-shrink-0 group/logo">
+              <Link to="/" className="flex-shrink-0 group/logo flex items-center">
                 <img
                   src="https://res.cloudinary.com/dc912sjxj/image/upload/v1772287992/Gemini_Generated_Image_tler0wtler0wtler-removebg-preview_zhmv2k.png"
                   alt="AGP Logo"
                   className="h-10 sm:h-12 md:h-16 w-auto transition-transform duration-500 group-hover/logo:scale-110"
                 />
+                {/* Desktop Name: Appended to logo flex-container */}
+                <div className="hidden md:flex flex-col border-l border-white/10 pl-4 ml-4">
+                  <span className="text-white text-[14px] font-black tracking-[0.2em] uppercase whitespace-nowrap">Art Genpower</span>
+                  <span className="text-white/60 text-[9px] font-bold tracking-[0.3em] uppercase">Solutions Ltd.</span>
+                </div>
               </Link>
             </div>
 
-            {/* COMPANY NAME: Centered on mobile, Left-Aligned on Desktop */}
-            <div className="flex flex-col justify-center border-l border-white/10 pl-6">
-              <span className="text-white text-[10px] md:text-[14px] font-black tracking-[0.2em] uppercase whitespace-nowrap">
-                Art Genpower
-              </span>
-              <span className="text-white/60 text-[7px] md:text-[9px] font-bold tracking-[0.3em] uppercase whitespace-nowrap pt-0.5">
-                Solutions Ltd.
-              </span>
+            {/* MOBILE NAME ONLY (Centered independently) */}
+            <div className="md:hidden flex flex-col items-center justify-center text-center">
+              <span className="text-white text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap">Art Genpower</span>
+              <span className="text-white/60 text-[7px] font-bold tracking-[0.3em] uppercase border-t border-white/10 pt-0.5">Solutions Ltd.</span>
             </div>
 
-            {/* DESKTOP NAV / MOBILE BUTTON */}
+            {/* NAV / MENU BUTTON */}
             <div className="flex items-center justify-end">
               <nav className="hidden md:flex items-center justify-end gap-x-2">
                 <Link to="/about" className={navLinkStyles}><HoverEffect /><span>About</span></Link>
@@ -153,13 +154,6 @@ const Header = () => {
               </button>
             ))}
           </nav>
-
-          <div className="mt-auto pb-12">
-            <div className="border-l-2 border-[#BF092F] pl-6">
-              <h4 className="text-white text-sm font-black tracking-widest">ART GENPOWER</h4>
-              <p className="text-white/40 text-[9px] font-bold tracking-[0.2em] uppercase mt-1">Infrastructure Excellence</p>
-            </div>
-          </div>
         </div>
       </div>
     </header>
