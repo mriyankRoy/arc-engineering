@@ -32,7 +32,7 @@ const Header = () => {
     e.preventDefault();
     if (searchQuery.trim()) {
       setMobileMenuOpen(false); 
-      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      navigate(`/search/${encodeURIComponent(searchQuery)}`);
       setSearchQuery("");
     }
   };
@@ -73,10 +73,8 @@ const Header = () => {
         />
 
         <div className="container mx-auto px-6">
-          {/* Responsive Grid: Logo+Name(Left) | MobileName(Center) | Menu(Right) */}
           <div className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[auto_1fr_auto] h-18 md:h-20 items-center gap-4">
             
-            {/* LOGO + DESKTOP NAME (Left side) */}
             <div className="flex justify-start items-center">
               <Link to="/" className="flex-shrink-0 group/logo flex items-center">
                 <img
@@ -84,7 +82,6 @@ const Header = () => {
                   alt="AGP Logo"
                   className="h-10 sm:h-12 md:h-16 w-auto transition-transform duration-500 group-hover/logo:scale-110"
                 />
-                {/* Desktop Name: Appended to logo flex-container */}
                 <div className="hidden md:flex flex-col border-l border-white/10 pl-4 ml-4">
                   <span className="text-white text-[14px] font-black tracking-[0.2em] uppercase whitespace-nowrap">Art Genpower</span>
                   <span className="text-white/60 text-[9px] font-bold tracking-[0.3em] uppercase">Solutions Ltd.</span>
@@ -92,13 +89,11 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* MOBILE NAME ONLY (Centered independently) */}
             <div className="md:hidden flex flex-col items-center justify-center text-center">
               <span className="text-white text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap">Art Genpower</span>
               <span className="text-white/60 text-[7px] font-bold tracking-[0.3em] uppercase border-t border-white/10 pt-0.5">Solutions Ltd.</span>
             </div>
 
-            {/* NAV / MENU BUTTON */}
             <div className="flex items-center justify-end">
               <nav className="hidden md:flex items-center justify-end gap-x-2">
                 <Link to="/about" className={navLinkStyles}><HoverEffect /><span>About</span></Link>
@@ -120,7 +115,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU OVERLAY */}
       <div className={`fixed inset-0 bg-[#44444E] z-[105] transition-all duration-500 ease-in-out md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="absolute top-0 right-0 w-1.5 h-full bg-[#BF092F]" />
         <div className="flex flex-col h-full pt-32 px-10">

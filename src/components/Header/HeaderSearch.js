@@ -108,7 +108,7 @@ const HeaderSearch = () => {
                 className={`px-4 py-3 cursor-pointer transition-all duration-300 flex flex-col group ${
                   highlightedIndex === index 
                     ? "bg-[#BF092F] text-white" 
-                    : "hover:bg-gray-50 text-[#44444E]"
+                    : "hover:bg-gray-200 text-[#44444E]"
                 }`}
               >
                 <span className={`text-xs font-bold uppercase tracking-wider ${highlightedIndex === index ? "text-white" : "text-[#BF092F]"}`}>
