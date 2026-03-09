@@ -41,44 +41,60 @@ const SearchResultsPage = () => {
     window.scrollTo({ top: 400, behavior: "smooth" });
   };
 
-  // Reusable Boxed Pagination Logic
-  const BoxedPagination = () => (
-    <div className="flex items-center gap-2">
-      <button 
-        onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="p-2.5 cursor-pointer rounded-xl border border-gray-200 text-[#44444E] disabled:opacity-20 hover:border-[#BF092F] transition-all"
-      >
-        <ChevronLeft size={16} />
-      </button>
-      <div className="flex items-center gap-1.5">
-        {[...Array(totalPages)].map((_, i) => (
-          <button
-            key={i}
-            onClick={() => handlePageChange(i + 1)}
-            className={`w-9 h-9 rounded-lg text-[10px] font-bold transition-all ${currentPage === i + 1 ? "bg-[#BF092F] text-white shadow-lg" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}
-          >
-            {String(i + 1).padStart(2, "0")}
-          </button>
-        ))}
+const BoxedPagination = () => {
+    // Define how many buttons to show at once (adjust as needed)
+    const displayLimit = 4;
+    const [startIndex, setStartIndex] = useState(0);
+
+    const handlePrev = () => {
+      if (startIndex > 0) setStartIndex(startIndex - 1);
+    };
+
+    const handleNext = () => {
+      if (startIndex + displayLimit < totalPages) setStartIndex(startIndex + 1);
+    };
+
+    return (
+      <div className="flex items-center gap-2">
+        <button 
+          onClick={() => { handlePageChange(currentPage - 1); if (currentPage - 1 <= startIndex && startIndex > 0) setStartIndex(startIndex - 1); }}
+          disabled={currentPage === 1}
+          className="p-2.5 cursor-pointer rounded-xl border border-gray-200 text-[#44444E] disabled:opacity-20 hover:border-[#BF092F] transition-all"
+        >
+          <ChevronLeft size={16} />
+        </button>
+
+        <div className="flex items-center gap-1.5">
+          {[...Array(totalPages)].slice(startIndex, startIndex + displayLimit).map((_, i) => {
+            const pageNumber = startIndex + i + 1;
+            return (
+              <button
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+                className={`w-9 h-9 rounded-lg text-[10px] font-bold transition-all ${currentPage === pageNumber ? "bg-[#BF092F] text-white shadow-lg" : "bg-gray-50 text-gray-400 hover:bg-gray-100"}`}
+              >
+                {String(pageNumber).padStart(2, "0")}
+              </button>
+            );
+          })}
+        </div>
+
+        <button 
+          onClick={() => { handlePageChange(currentPage + 1); if (currentPage + 1 > startIndex + displayLimit) setStartIndex(startIndex + 1); }}
+          disabled={currentPage === totalPages}
+          className="p-2.5 cursor-pointer rounded-xl border border-gray-200 text-[#44444E] disabled:opacity-20 hover:border-[#BF092F] transition-all"
+        >
+          <ChevronRight size={16} />
+        </button>
       </div>
-      <button 
-        onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="p-2.5 cursor-pointer rounded-xl border border-gray-200 text-[#44444E] disabled:opacity-20 hover:border-[#BF092F] transition-all"
-      >
-        <ChevronRight size={16} />
-      </button>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
-      {/* 🏗️ FLOATING HERO SECTION (Unchanged) */}
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
-          <div className="absolute top-0 right-0 p-4 opacity-10 z-10"><PackageSearch size={450} className="text-white" /></div>
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#BF092F] to-transparent animate-pulse" />
             <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent animate-pulse delay-700" />
@@ -107,7 +123,6 @@ const SearchResultsPage = () => {
 
       <main className="container mx-auto py-7 relative z-30 px-4">
         <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100 min-h-[600px] flex flex-col">
-          {/* Top Pagination (Boxed Style) */}
           <div className="flex items-center justify-between mb-12 border-b border-gray-100 pb-8">
             <div className="flex items-center gap-4">
               <div className="h-6 w-1 bg-[#BF092F]" />
@@ -136,9 +151,8 @@ const SearchResultsPage = () => {
                 ))}
               </div>
 
-              {/* Bottom Pagination (Boxed Style) */}
               {totalPages > 1 && (
-                <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col items-center gap-6">
+                <div className="mt-12 pt-8 border-t border-gray-100 flex justify-center">
                   <BoxedPagination />
                 </div>
               )}
