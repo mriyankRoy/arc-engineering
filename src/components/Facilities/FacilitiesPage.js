@@ -16,17 +16,10 @@ export default function FacilitiesPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
-      
       {/* 🏗️ MATCHED FLOATING HERO SECTION */}
       <div className="pt-22 px-2 md:px-2">
         <header className="relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl shadow-xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
-
-          {/* Animated Red Beams */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#BF092F] to-transparent animate-pulse" />
-            <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent animate-pulse delay-700" />
-          </div>
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
             {/* 🧭 ENHANCED HIERARCHICAL BREADCRUMB */}
@@ -36,7 +29,9 @@ export default function FacilitiesPage() {
                 className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase">Home</span>
+                <span className="text-[10px] md:text-xs tracking-widest uppercase">
+                  Home
+                </span>
               </button>
 
               <span className="text-white/20 text-xs font-mono">{">"}</span>
@@ -92,7 +87,9 @@ export default function FacilitiesPage() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-200 pt-12 pb-12 px-4 md:px-6">
           <div className="rounded-2xl flex flex-col gap-3">
             <Factory className="text-[#BF092F]" size={32} />
-            <h3 className="text-xl text-[#44444E] font-bold">PRECISION SCALE</h3>
+            <h3 className="text-xl text-[#44444E] font-bold">
+              PRECISION SCALE
+            </h3>
             <p className="text-sm text-gray-500 leading-relaxed">
               Integrated manufacturing processes ensuring high-volume output
               with surgical accuracy across all units.
