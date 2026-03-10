@@ -64,10 +64,10 @@ const Header = () => {
             <div className="flex justify-start items-center">
               <Link to="/" className="flex-shrink-0 group/logo flex items-center">
                 <img src="https://res.cloudinary.com/dc912sjxj/image/upload/v1772287992/Gemini_Generated_Image_tler0wtler0wtler-removebg-preview_zhmv2k.png" alt="AGP Logo" className="h-10 sm:h-12 md:h-16 w-auto transition-transform duration-500 group-hover/logo:scale-110" />
-                <div className="hidden md:flex flex-col border-l border-white/10 pl-4 ml-4">
-                  <span className="text-white text-[14px] font-black tracking-[0.2em] uppercase whitespace-nowrap">Art Genpower</span>
-                  <span className="text-white/60 text-[9px] font-bold tracking-[0.3em] uppercase">Solutions Ltd.</span>
-                </div>
+                {/* <div className="hidden md:flex flex-col border-l border-white/10 pl-4 ml-4">
+                  <span className="text-white text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap">Art Genpower</span>
+                  <span className="text-white/60 text-[6px] font-bold tracking-[0.3em] uppercase">Solutions Ltd.</span>
+                </div> */}
               </Link>
             </div>
 

@@ -122,7 +122,6 @@ export default function ProjectsPage() {
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
-          
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
             <nav className="flex items-center flex-wrap gap-3 mb-6">
@@ -189,14 +188,37 @@ export default function ProjectsPage() {
           <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
             <aside className="lg:col-span-3 space-y-8 h-full">
               <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
-                <div className="p-8 border-b border-white/10">
+                <div className="p-8">
                   <div className="flex items-center gap-3 mb-8">
                     <Filter size={16} className="text-[#BF092F]" />
                     <h2 className="text-[12px] text-white tracking-[0.4em] uppercase">
                       Filter Logs
                     </h2>
                   </div>
-                  <ul className="space-y-2">
+
+                  {/* MOBILE ONLY: Dropdown */}
+                  <div className="lg:hidden relative">
+                    <select
+                      value={selectedType}
+                      onChange={(e) =>
+                        navigate(`/projects?type=${e.target.value}`)
+                      }
+                      className="w-full bg-white/5 border border-white/10 text-white text-[12px] uppercase tracking-[0.2em] px-4 py-4 rounded-xl cursor-pointer focus:outline-none focus:border-[#BF092F]"
+                    >
+                      {projectTypes.map((type) => (
+                        <option
+                          key={type}
+                          value={type}
+                          className="bg-[#44444E]"
+                        >
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* DESKTOP ONLY: Original List */}
+                  <ul className="hidden lg:block space-y-2">
                     {projectTypes.map((type, idx) => (
                       <li
                         key={idx}

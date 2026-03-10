@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router";
 import { products } from "../../utils/products"; 
+import ProductCategoryCard from "../Products/ProductCategoryCard";
 
 export default function FeaturesSection() {
   const sectionRef = useRef(null);
@@ -16,35 +17,23 @@ export default function FeaturesSection() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Shared Animation Logic
   const revealClass = (visible, delay = "duration-1000") =>
     `transition-all ${delay} ease-[cubic-bezier(0.22,1,0.36,1)] ${
       visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
     }`;
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-24 bg-white overflow-hidden"
-    >
+    <section ref={sectionRef} className="relative py-24 bg-white overflow-hidden">
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         
-        {/* 🏗️ INDUSTRIAL HEADER - Animated */}
+        {/* INDUSTRIAL HEADER */}
         <div className={`mb-16 ${revealClass(isVisible)}`}>
           <div className="flex items-center gap-4 mb-6">
             <div className="h-8 w-1 bg-[#BF092F]" />
@@ -63,7 +52,7 @@ export default function FeaturesSection() {
           </div>
         </div>
 
-        {/* TECHNICAL METRICS STRIP - Animated with delay */}
+        {/* TECHNICAL METRICS STRIP */}
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-0 mb-20 rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-white ${revealClass(isVisible, "duration-[1200ms] delay-200")}`}>
           {[
             { value: "850+", label: "Units Delivered" },
@@ -78,22 +67,25 @@ export default function FeaturesSection() {
           ))}
         </div>
 
-        {/* 🛠️ CATEGORIES GRID */}
+        {/* 🛠️ CATEGORIES GRID using ProductCategoryCard */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-20">
           {products.map((category, index) => (
-            <FeatureCard
+            <div 
               key={index}
-              category={category}
-              index={index}
-              isVisible={isVisible}
-            />
+              className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <ProductCategoryCard 
+                category={category} 
+                onClick={() => navigate(`/products?category=${category.slug}`)} 
+              />
+            </div>
           ))}
         </div>
 
-        {/* INDUSTRIAL CTA CHASSIS - Animated with delay */}
+        {/* INDUSTRIAL CTA CHASSIS */}
         <div className={`relative group overflow-hidden rounded-2xl bg-[#44444E] p-10 md:p-14 shadow-2xl ${revealClass(isVisible, "duration-[1200ms] delay-500")}`}>
           <ShieldCheck size={200} className="absolute -right-10 -bottom-10 text-white/5 rotate-12 transition-transform group-hover:rotate-0 duration-1000" />
-          
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="text-center lg:text-left">
               <h2 className="text-3xl font-black uppercase italic text-[#BF092F] mb-4">
@@ -103,65 +95,12 @@ export default function FeaturesSection() {
                 Connect with our UK engineering hub for bespoke system architecture and mission-critical power deployment.
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-               <button onClick={() => navigate("/contact")} className="px-10 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white/10 transition-all duration-500 hover:cursor-pointer">
-                  Contact Us
-               </button>
-            </div>
+            <button onClick={() => navigate("/contact")} className="px-10 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white/10 transition-all duration-500 hover:cursor-pointer">
+              Contact Us
+            </button>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function FeatureCard({ category, index, isVisible }) {
-  const navigate = useNavigate();
-  
-  // Staggered delay for each card
-  const delay = index * 100;
-
-  return (
-    <div
-      onClick={() => navigate(`/products?category=${category.slug}`)}
-      className={`group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-2xl hover:-translate-y-2 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="h-56 relative overflow-hidden bg-gray-50">
-        <img
-          src={category.image.url}
-          alt={category.image.alt}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 opacity-90"
-        />
-        <div className="absolute -bottom-6 left-6 w-12 h-12 bg-[#BF092F] flex items-center justify-center text-white shadow-xl transition-transform duration-700 group-hover:rotate-[360deg]">
-          <Settings size={20} />
-        </div>
-      </div>
-
-      <div className="p-8 pt-10 flex flex-col justify-between flex-grow">
-        <div>
-          <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3">
-            {category.category}
-          </h3>
-          <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed line-clamp-2">
-            {category.description}
-          </p>
-        </div>
-
-        <div className="mt-8 flex justify-between items-center pt-6 border-t border-gray-100">
-           <div className="flex items-center gap-2">
-              <Layers size={14} className="text-[#BF092F]" />
-              <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">View Range</span>
-           </div>
-           <ArrowRight 
-             size={18} 
-             className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all" 
-           />
-        </div>
-      </div>
-    </div>
   );
 }

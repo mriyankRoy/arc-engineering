@@ -10,6 +10,7 @@ import {
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
+import ProductCategoryCard from "./ProductCategoryCard";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -129,46 +130,7 @@ const ProductPage = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {products.map((category, idx) => (
-          <div
-            key={idx}
-            onClick={() => navigate(`/products?category=${category.slug}`)}
-            className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
-          >
-            <div className="h-56 relative overflow-hidden bg-gray-50">
-              {category.image && (
-                <img
-                  src={category.image.url}
-                  alt={category.category}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 opacity-90"
-                />
-              )}
-            </div>
-            <div className="p-8 flex flex-col justify-between flex-grow">
-              <div>
-                <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3">
-                  {category.category}
-                </h3>
-                <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed line-clamp-2">
-                  {category.description ||
-                    `${category.items?.length || 0} Models Available.`}
-                </p>
-              </div>
-              <div className="mt-8 flex justify-between items-center pt-6 border-t border-gray-100">
-                <div className="flex items-center gap-2">
-                  <Layers size={14} className="text-[#BF092F]" />
-                  <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">
-                    {category.subCategories
-                      ? `${category.subCategories.length} Types`
-                      : `${category.items?.length || 0} Models`}
-                  </span>
-                </div>
-                <ArrowRight
-                  size={18}
-                  className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all"
-                />
-              </div>
-            </div>
-          </div>
+          <ProductCategoryCard key={idx} category={category} />
         ))}
       </div>
     </div>
@@ -332,44 +294,12 @@ const ProductPage = () => {
                       className="transition-all duration-500 hover:-translate-y-2"
                     >
                       {hasSubCategories ? (
-                        /* EXACT CLONE OF YOUR ORIGINAL CATEGORY DESIGN FOR SUBCATEGORIES */
-                        <div
+                        <ProductCategoryCard
+                          category={item}
                           onClick={() =>
                             navigate(`/products?category=${item.slug}`)
                           }
-                          className="group relative flex flex-col h-full bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
-                        >
-                          <div className="h-56 relative overflow-hidden bg-gray-50">
-                            <img
-                              src={item.image.url}
-                              alt={item.name}
-                              className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 opacity-90"
-                            />
-                          </div>
-                          <div className="p-8 flex flex-col justify-between flex-grow">
-                            <div>
-                              <h3 className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors mb-3">
-                                {item.name}
-                              </h3>
-                              <p className="text-[12px] text-gray-400 tracking-widest leading-relaxed line-clamp-2">
-                                {item.description ||
-                                  `${item.items?.length || 0} Models Available.`}
-                              </p>
-                            </div>
-                            <div className="mt-8 flex justify-between items-center pt-6 border-t border-gray-100">
-                              <div className="flex items-center gap-2">
-                                <Layers size={14} className="text-[#BF092F]" />
-                                <span className="text-[11px] font-bold text-[#44444E] uppercase tracking-widest">
-                                  {item.items?.length || 0} Models
-                                </span>
-                              </div>
-                              <ArrowRight
-                                size={18}
-                                className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all"
-                              />
-                            </div>
-                          </div>
-                        </div>
+                        />
                       ) : (
                         <ProductCard
                           product={item}
