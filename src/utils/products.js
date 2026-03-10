@@ -275,7 +275,7 @@ export const products = [
     type: "direct",
     categoryId: "CAT-FUEL-STORAGE",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/v1768234812/Acecube_Self_Bunded_Fuel_Tank_Main.webp",
+      url: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1773164178/agp-placeholder-logo_uke2bq.webp",
       alt: "Double-walled fuel storage tanks.",
     },
     description:
@@ -288,7 +288,7 @@ export const products = [
         AGPPartNumber: "AGP-FUEL-TANKS",
         Make: "Acecube / ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/v1768234812/Acecube_Self_Bunded_Fuel_Tank_Main.webp",
+          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1773164178/agp-placeholder-logo_uke2bq.webp",
         ],
         shortDescription:
           "Premium range of Acecube fuel tanks offering 110% self-bunded (double-walled) design for safe, compliant onsite fuel storage and transport in any environment.",
