@@ -19,8 +19,8 @@ export default function CareersPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            {/* 🧭 ENHANCED HIERARCHICAL BREADCRUMB */}
-            <nav className="flex items-center flex-wrap gap-3 mb-6">
+            {/* 🧭 ENHANCED HIERARCHICAL BREADCRUMB - HIDDEN ON MOBILE */}
+            <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
                 className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"

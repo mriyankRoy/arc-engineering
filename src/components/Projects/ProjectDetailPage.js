@@ -172,46 +172,54 @@ export default function ProjectDetailPage() {
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
+
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            <nav className="flex items-center gap-2 mb-6 overflow-x-auto whitespace-nowrap scrollbar-hide pb-2">
+            {/* 🧭 NAVIGATION: Matched to ProjectsPage style */}
+            <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
-                className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors px-2 py-1"
+                className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
-                <Home size={12} />
-                <span className="text-[9px] tracking-widest uppercase font-bold">
+                <Home size={14} />
+                <span className="text-[10px] md:text-xs tracking-widest uppercase">
                   Home
                 </span>
               </button>
 
-              <span className="text-white/20 text-[9px]">/</span>
+              <span className="text-white/20 text-xs font-mono">{">"}</span>
 
               <button
                 onClick={() => navigate("/projects")}
-                className="text-[9px] tracking-widest uppercase text-white/50 hover:text-white transition-colors px-2 py-1"
+                className="cursor-pointer text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
               >
-                Registry
+                Project Registry
               </button>
 
-              <span className="text-white/20 text-[9px]">/</span>
+              <span className="text-white/20 text-xs font-mono">{">"}</span>
 
               <button
                 onClick={() => navigate(`/projects?type=${project.type}`)}
-                className="text-[9px] tracking-widest uppercase text-white/50 hover:text-white transition-colors px-2 py-1"
+                className="cursor-pointer text-[10px] md:text-xs tracking-widest uppercase text-white/50 hover:text-white transition-colors"
               >
                 {project.type}
               </button>
 
-              <span className="text-white/20 text-[9px]">/</span>
+              <span className="text-white/20 text-xs font-mono">{">"}</span>
 
-              <span className="text-[9px] tracking-widest uppercase bg-[#BF092F] text-white px-3 py-1 rounded-full font-bold">
-                {project.name.length > 20
-                  ? `${project.name.substring(0, 20)}...`
+              {/* ACTIVE PAGE: RED PILL DESIGN */}
+              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
+                {project.name.length > 25
+                  ? `${project.name.substring(0, 25)}...`
                   : project.name}
-              </span>
+              </button>
             </nav>
+
             <h1
-              className={`font-semibold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-[-0.02em] max-w-4xl transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+              className={`font-semibold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-[-0.02em] max-w-4xl transition-all duration-1000 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
             >
               {project.name}
             </h1>
@@ -225,16 +233,63 @@ export default function ProjectDetailPage() {
       {/* 🏭 CONTENT AREA */}
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
+          {/* SIDEBAR: Expanded/Expandable Technical Specs */}
           <aside className="lg:col-span-4 space-y-8">
-            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
-              <div className="p-8 border-b border-white/10">
-                <div className="flex items-center gap-3 mb-8">
-                  <Layers size={16} className="text-[#BF092F]" />
-                  <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
-                    Technical Specs
-                  </h2>
+            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden transition-all duration-500">
+              {/* MOBILE TOGGLE HEADER */}
+              <div
+                className="p-6 lg:p-8 flex flex-col gap-4 cursor-pointer lg:cursor-default border-b border-white/10"
+                onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    const content = document.getElementById("specs-content");
+                    const preview = document.getElementById("mobile-preview");
+                    content.classList.toggle("hidden");
+                    preview.classList.toggle("hidden"); // Toggles the preview visibility
+                  }
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Layers size={16} className="text-[#BF092F]" />
+                    <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
+                      Technical Specs
+                    </h2>
+                  </div>
+                  <ChevronRight
+                    size={18}
+                    className="text-white/40 lg:hidden transform rotate-90"
+                  />
                 </div>
-                <div className="space-y-4">
+
+                {/* 📱 MOBILE ONLY PREVIEW: Wrapped in 'mobile-preview' id to toggle */}
+                <div
+                  id="mobile-preview"
+                  className="flex flex-col gap-3 lg:hidden border-t border-white/5 pt-4"
+                >
+                  <div className="flex items-center gap-2">
+                    <FileText size={12} className="text-[#BF092F]" />
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
+                      Client:
+                    </span>
+                    <span className="text-[10px] text-white font-bold">
+                      {project?.client}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Tag size={12} className="text-[#BF092F]" />
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
+                      Type:
+                    </span>
+                    <span className="text-[10px] text-white font-bold">
+                      {project?.type}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* SPECS CONTENT */}
+              <div id="specs-content" className="hidden lg:block">
+                <div className="p-8 space-y-4">
                   {specs.map((spec, i) => (
                     <div
                       key={i}
@@ -252,14 +307,15 @@ export default function ProjectDetailPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className="p-8 bg-black/20">
-                <button
-                  onClick={() => navigate(`/projects?type=${project.type}`)}
-                  className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-2 hover:bg-white hover:text-[#44444E] transition-all shadow-lg"
-                >
-                  <ArrowLeft size={14} /> Back to {project.type}
-                </button>
+
+                <div className="p-8 bg-black/20">
+                  <button
+                    onClick={() => navigate(`/projects?type=${project.type}`)}
+                    className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-2 hover:bg-white hover:text-[#44444E] transition-all shadow-lg"
+                  >
+                    <ArrowLeft size={14} /> Back to {project.type}
+                  </button>
+                </div>
               </div>
             </div>
           </aside>

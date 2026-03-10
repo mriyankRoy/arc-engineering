@@ -137,21 +137,19 @@ export default function ContactUsPage() {
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
-          
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            <nav className="flex items-center flex-wrap gap-3 mb-6">
+            {/* --- UPDATED NAV: HIDDEN ON MOBILE, FLEX ON MD+ --- */}
+            <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
                 className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase">
-                  Home
-                </span>
+                <span className="text-xs tracking-widest uppercase">Home</span>
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
-              <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
+              <button className="text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
                 Contact Us
               </button>
             </nav>
