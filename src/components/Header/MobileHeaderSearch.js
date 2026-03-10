@@ -49,6 +49,10 @@ const MobileHeaderSearch = ({ onSelect }) => {
 
   const handleSearchSubmit = () => {
     if (query.trim()) {
+      // 1. Force the keyboard to close by blurring the active element
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
       navigate(`/search/${encodeURIComponent(query)}`);
       setResults([]);
       if (onSelect) onSelect();

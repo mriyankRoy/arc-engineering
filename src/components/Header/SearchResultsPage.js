@@ -51,49 +51,51 @@ const SearchResultsPage = () => {
   };
 
   const BoxedPagination = () => {
-  // Calculations based on parent state
-  const startRange = (currentPage - 1) * itemsPerPage + 1;
-  const endRange = Math.min(currentPage * itemsPerPage, results.length);
-  const totalItems = results.length;
+    // Calculations based on parent state
+    const startRange = (currentPage - 1) * itemsPerPage + 1;
+    const endRange = Math.min(currentPage * itemsPerPage, results.length);
+    const totalItems = results.length;
 
-  return (
-    <div className="flex items-center gap-4 md:gap-6">
-      {/* Visibility: Removed hidden sm:flex to ensure text is visible */}
-      
-      <div className="flex items-center gap-3">
-        {/* Visibility: Changed hidden to block for mobile visibility */}
-        <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">
-          Page {currentPage} of {totalPages}
-        </span>
-        <div className="flex gap-1">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="p-1.5 cursor-pointer rounded-lg border border-gray-100 text-[#44444E] disabled:opacity-20 hover:bg-gray-50 hover:border-[#BF092F] hover:text-[#BF092F] transition-all"
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="p-1.5 cursor-pointer rounded-lg border border-gray-100 text-[#44444E] disabled:opacity-20 hover:bg-gray-50 hover:border-[#BF092F] hover:text-[#BF092F] transition-all"
-          >
-            <ChevronRight size={16} />
-          </button>
+    return (
+      <div className="flex items-center gap-4 md:gap-6">
+        {/* Visibility: Removed hidden sm:flex to ensure text is visible */}
+
+        <div className="flex items-center gap-3">
+          {/* Visibility: Changed hidden to block for mobile visibility */}
+          <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">
+            Page {currentPage} of {totalPages}
+          </span>
+          <div className="flex gap-1">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="p-1.5 cursor-pointer rounded-lg border border-gray-100 text-[#44444E] disabled:opacity-20 hover:bg-gray-50 hover:border-[#BF092F] hover:text-[#BF092F] transition-all"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="p-1.5 cursor-pointer rounded-lg border border-gray-100 text-[#44444E] disabled:opacity-20 hover:bg-gray-50 hover:border-[#BF092F] hover:text-[#BF092F] transition-all"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
+      {/* SEARCH RESULTS HERO SECTION */}
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            <nav className="flex items-center flex-wrap gap-3 mb-6">
+            {/* 🧭 NAVIGATION: Updated to 'hidden md:flex' to hide on mobile */}
+            <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
                 className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
@@ -115,6 +117,8 @@ const SearchResultsPage = () => {
                 Search Results
               </button>
             </nav>
+
+            {/* Rest of your header content remains the same */}
             <div>
               <h1
                 className={`font-semibold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-[-0.02em] max-w-4xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
