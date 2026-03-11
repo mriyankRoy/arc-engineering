@@ -370,20 +370,20 @@ export default function ProjectDetailPage() {
                 </div>
               </div>
 
-              {/* MAIN VIEWPORT: Large Scale Display */}
+              {/* MAIN VIEWPORT: Updated rounding from 2xl to xl/lg */}
               <div
                 className="relative bg-[#f8f8f8] overflow-hidden group flex items-center justify-center cursor-zoom-in rounded-xl h-[400px] md:h-[600px] border border-gray-100"
                 onClick={() => openLightbox(currentIndex)}
               >
-                <div className="rounded-xl">
+                <div className="rounded-lg overflow-hidden">
                   <img
                     src={project.imageUrls[currentIndex]}
-                    className="rounded-2xl max-h-full max-w-full object-contain p-4 md:p-7 transition-all duration-700 group-hover:scale-105 filter sepia-[0.2] brightness-[0.9] contrast-[1.05] group-hover:sepia-0 group-hover:brightness-100 group-hover:contrast-100"
+                    className="rounded-lg max-h-full max-w-full object-contain p-4 md:p-14 transition-all duration-700 group-hover:scale-105 filter sepia-[0.2] brightness-[0.9] contrast-[1.05] group-hover:sepia-0 group-hover:brightness-100 group-hover:contrast-100"
                     alt="Technical Field View"
                   />
                 </div>
 
-                {/* Navigation Controls */}
+                {/* Navigation Controls remains the same... */}
                 <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
                   <button
                     onClick={(e) => {
@@ -405,7 +405,6 @@ export default function ProjectDetailPage() {
                   </button>
                 </div>
               </div>
-
               {/* THUMBNAIL TRACK */}
               <div className="flex gap-3 overflow-x-auto p-2 bg-gray-50 rounded-xl scrollbar-hide">
                 {project.imageUrls.map((url, i) => (
