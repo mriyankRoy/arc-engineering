@@ -2,17 +2,16 @@ export const facilities = [
   {
     id: "blaby-leicester",
     title: "UK - Blaby Facility",
-    desc: "A modern, self-contained industrial hub newly constructed in 2021, featuring open-plan warehouse space and premium two-storey offices.",
+    desc: "A specialized assembly and integration hub focused on high-specification industrial enclosures and modular power solution configuration.",
     location: "W3 Winchester Avenue, Blaby, Leicester, LE8 4GZ, UK",
-    totalArea: "6,210 sq.ft ",
+    totalArea: "6,210 sq.ft",
     productionCapacity:
-      "High-capacity industrial unit with 3-phase electricity and 5.5m eaves height ",
+      "Up to 900 tons annually",
     highlights: [
-      "Newly constructed modern unit (2021) ",
-      "Strategic location near M1/M69 motorway junctions [cite: 9, 17]",
-      "Climate-controlled two-storey office suites [cite: 25, 27]",
-      "Large secure concrete yard with electric roller shutter loading [cite: 11, 29]",
-      "Energy-efficient high-level LED lighting and gas blower heating [cite: 26, 27]",
+      "Dedicated floor space for modular enclosure fit-outs and wiring",
+      "Specialized assembly bays for custom industrial equipment integration",
+      "Robust electrical infrastructure supporting testing of finished enclosure units",
+      "System-level testing capabilities for complex power and control assemblies",
     ],
     facilityImg: [
       "https://res.cloudinary.com/dc912sjxj/image/upload/v1772459282/WhatsApp_Image_2026-02-27_at_8.52.53_PM_1_wsvtjc.jpg",
@@ -21,14 +20,14 @@ export const facilities = [
     ],
     capabilityImg: [
       {
-        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767730372/Blaby_Capability_Power.webp",
-        title: "Industrial Power Systems",
-        desc: "Equipped with 3-phase electricity to support heavy-duty power solution assembly[cite: 26].",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1773164178/agp-placeholder-logo_uke2bq.webp",
+        title: "Enclosure Integration & Wiring",
+        desc: "Equipped for the precision installation of control systems, switchgear, and internal components within industrial enclosures.",
       },
       {
-        img: "https://res.cloudinary.com/dc912sjxj/image/upload/v1767730373/Blaby_Capability_Loading.webp",
-        title: "Secure Logistics & Loading",
-        desc: "Full-height electric roller shutter doors for seamless industrial equipment transport[cite: 29].",
+        img: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1773164178/agp-placeholder-logo_uke2bq.webp",
+        title: "System Testing & Final QC",
+        desc: "Designated area for rigorous electrical and functional testing of finished units prior to deployment.",
       },
     ],
   },
