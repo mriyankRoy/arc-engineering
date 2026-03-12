@@ -86,7 +86,7 @@ export default function TrustedPartners() {
                 <div className="flex items-center justify-center gap-1.5">
                   <span className="h-px w-3 bg-[#BF092F]/30" />
                   <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.3em]">
-                    Verified_Partner
+                    {partner.name}
                   </span>
                   <span className="h-px w-3 bg-[#BF092F]/30" />
                 </div>
