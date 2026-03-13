@@ -103,75 +103,77 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
- {/* 🔍 ENHANCED LIGHTBOX */}
-{/* 🔍 ENHANCED LIGHTBOX */}
-{lightboxOpen && (
-  <div
-    className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1A1A1E]/95 backdrop-blur-xl p-4"
-    onClick={closeLightbox}
-  >
-    <button
-      onClick={closeLightbox}
-      className="cursor-pointer absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
-    >
-      <X size={40} className="group-hover:rotate-90 transition-transform" />
-    </button>
-
-    {/* CONTAINER: flex-col, gap-2 for mobile tightness, gap-6 for desktop */}
-    <div
-      className="max-w-7xl w-full flex flex-col items-center gap-2 md:gap-6"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* IMAGE AREA: Restored original side-arrow structure */}
-      <div className="relative flex items-center justify-center group px-0 md:px-24">
-        <button
-          onClick={showPrev}
-          className="cursor-pointer absolute left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+      {/* 🔍 ENHANCED LIGHTBOX */}
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1A1A1E]/95 backdrop-blur-xl p-4"
+          onClick={closeLightbox}
         >
-          <ChevronLeft size={60} strokeWidth={1} />
-        </button>
-        
-        <div className="relative border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
-          <img
-            src={project.imageUrls[currentIndex]}
-            // max-h-[70vh] on mobile gives image space, original max-h-[65vh] for desktop
-            className="max-h-[70vh] md:max-h-[65vh] w-auto block select-none"
-            alt="Technical View"
-          />
-        </div>
+          <button
+            onClick={closeLightbox}
+            className="cursor-pointer absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
+          >
+            <X
+              size={40}
+              className="group-hover:rotate-90 transition-transform"
+            />
+          </button>
 
-        <button
-          onClick={showNext}
-          className="cursor-pointer absolute right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
-        >
-          <ChevronRight size={60} strokeWidth={1} />
-        </button>
-      </div>
+          {/* CONTAINER: flex-col, gap-2 for mobile tightness, gap-6 for desktop */}
+          <div
+            className="max-w-7xl w-full flex flex-col items-center gap-2 md:gap-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* IMAGE AREA: Restored original side-arrow structure */}
+            <div className="relative flex items-center justify-center group px-0 md:px-24">
+              <button
+                onClick={showPrev}
+                className="cursor-pointer absolute left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+              >
+                <ChevronLeft size={60} strokeWidth={1} />
+              </button>
 
-      {/* TEXT SECTION: Mobile tight, Desktop original */}
-      <div className="w-full max-w-4xl bg-[#44444E] border border-white/10 p-3 md:p-6 rounded-2xl shadow-2xl shrink-0">
-        <div className="flex items-start justify-between gap-4 md:gap-8">
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-1 md:mb-2">
-              <div className="h-4 w-1 bg-[#BF092F]" />
-              <h4 className="text-white font-black uppercase tracking-widest text-[10px] md:text-sm">
-                Field Documentation View
-              </h4>
+              <div className="relative border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
+                <img
+                  src={project.imageUrls[currentIndex]}
+                  // max-h-[70vh] on mobile gives image space, original max-h-[65vh] for desktop
+                  className="max-h-[70vh] md:max-h-[65vh] w-auto block select-none"
+                  alt="Technical View"
+                />
+              </div>
+
+              <button
+                onClick={showNext}
+                className="cursor-pointer absolute right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+              >
+                <ChevronRight size={60} strokeWidth={1} />
+              </button>
             </div>
-            <p className="text-white/60 leading-relaxed text-[11px] md:text-base">
-              Project: {project.name}
-            </p>
-          </div>
-          <div className="text-right shrink-0">
-            <span className="text-white/40 text-[10px] md:text-[12px] tracking-tighter">
-              {currentIndex + 1} / {project.imageUrls.length}
-            </span>
+
+            {/* TEXT SECTION: Mobile tight, Desktop original */}
+            <div className="w-full max-w-4xl bg-[#44444E] border border-white/10 p-3 md:p-6 rounded-2xl shadow-2xl shrink-0">
+              <div className="flex items-start justify-between gap-4 md:gap-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-1 md:mb-2">
+                    <div className="h-4 w-1 bg-[#BF092F]" />
+                    <h4 className="text-white font-black uppercase tracking-widest text-[10px] md:text-sm">
+                      Field Documentation View
+                    </h4>
+                  </div>
+                  <p className="text-white/60 leading-relaxed text-[11px] md:text-base">
+                    Project: {project.name}
+                  </p>
+                </div>
+                <div className="text-right shrink-0">
+                  <span className="text-white/40 text-[10px] md:text-[12px] tracking-tighter">
+                    {currentIndex + 1} / {project.imageUrls.length}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
       {/* 🏗️ HERO SECTION */}
       <div className="pt-22 px-2 md:px-2">
