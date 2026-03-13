@@ -86,7 +86,7 @@ const HeaderSearch = () => {
         <input
           type="text"
           placeholder="Search products..."
-          className="pl-4 pr-10 py-2 bg-white/10 text-white placeholder-white/50 rounded-full border border-white/20 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#BF092F] focus:bg-white focus:text-[#44444E] transition-all duration-300 w-28 lg:w-48 xl:w-90"
+          className="pl-4 pr-10 py-2 bg-white/20 text-white placeholder-white/50 rounded-full border border-white/20 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#BF092F] focus:bg-white focus:text-[#44444E] transition-all duration-300 w-28 lg:w-48 xl:w-90 hover:bg-white/20 hover:border-white/40"
           value={query}
           onChange={handleSearchChange}
           onKeyDown={handleKeyDown}
