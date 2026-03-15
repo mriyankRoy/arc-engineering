@@ -75,7 +75,13 @@ const HeaderProductsDropDown = () => {
               {products.map((cat) => (
                 <button
                   key={cat.slug}
+                  // Keep onMouseEnter for the "hover to preview" feel
                   onMouseEnter={() => setActiveCategorySlug(cat.slug)}
+                  // ADD THIS onClick TO MAKE IT CLICKABLE
+                  onClick={() => {
+                    setActiveCategorySlug(cat.slug);
+                    navigate(`/products?category=${cat.slug}`);
+                  }}
                   className={`cursor-pointer w-full px-6 py-4 text-left transition-all relative ${
                     activeCategorySlug === cat.slug
                       ? "bg-white text-[#44444E]"
