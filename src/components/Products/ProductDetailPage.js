@@ -34,10 +34,28 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     setActiveIndex(0);
-  }, [id]); // Dependency updated to 'id'
+  }, [id]); // Dependency updated to 'id
+
 
   const handleCloseModal = () => setIsModalOpen(false);
   const handleOpenModal = () => setIsModalOpen(true);
+
+  useEffect(() => {
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      handleCloseModal();
+    }
+  };
+
+  if (isModalOpen) {
+    window.addEventListener("keydown", handleKeyDown);
+  }
+
+  // Cleanup the listener when the modal closes or component unmounts
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [isModalOpen]);
 
   // --- UPDATED LOOKUP LOGIC ---
   const getProductData = () => {
