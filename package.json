@@ -1,5 +1,5 @@
 {
-  "name": "agp-solutions",
+  "name": "arc-engineering",
   "version": "1.0.0",
   "description": "Art Genpower Solutions Ltd Website",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mriyankRoy/agp-solutions.git"
+    "url": "git+https://github.com/mriyankRoy/arc-engineering.git"
   },
   "keywords": [],
   "author": "Mriyank Roy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mriyankRoy/agp-solutions/issues"
+    "url": "https://github.com/mriyankRoy/arc-engineering/issues"
   },
-  "homepage": "https://github.com/mriyankRoy/agp-solutions#readme",
+  "homepage": "https://github.com/mriyankRoy/arc-engineering#readme",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.10",
     "parcel": "^2.15.2",
