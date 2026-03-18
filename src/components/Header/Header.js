@@ -82,7 +82,7 @@ const Header = () => {
 
             <div className="md:hidden flex flex-col items-center justify-center text-center">
               <span className="text-white text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap">
-                Art Genpower
+                Arc Engineering
               </span>
               <span className="text-white/60 text-[7px] font-bold tracking-[0.3em] uppercase border-t border-white/10 pt-0.5">
                 Solutions Ltd.

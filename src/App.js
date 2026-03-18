@@ -25,27 +25,17 @@ import AboutUsPage from "./components/About/AboutUsPage";
 import DigitalBusinessCard from "./components/People/DigitalBusinessCard";
 import ErrorPage from "./components/ErrorPage";
 
-// Utility & Analytics Imports
-import { inject } from "@vercel/analytics";
-import { injectSpeedInsights } from "@vercel/speed-insights";
-import { Analytics } from "@vercel/analytics/react"
+// Vercel Analytics & Speed Insights
+
 /**
  * Root Component
  * Acts as the global controller for the application.
- * Handles: Vercel Analytics, Speed Insights, and Tawk.to widget visibility.
  */
 const Root = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    inject();
-    injectSpeedInsights();
-  }, []);
-
   /**
    * Tawk.to Visibility Logic
-   * Ensures the chat widget is hidden on Digital Business Card pages (/people/*)
-   * and visible on all other company website pages.
    */
   useEffect(() => {
     const isDigitalCardPage = location.pathname.startsWith("/people/");
@@ -60,26 +50,25 @@ const Root = () => {
       }
     };
 
-    // 1. Initial attempt
     handleWidgetVisibility();
 
-    // 2. Event listener for late script loading
     if (window.Tawk_API) {
       window.Tawk_API.onLoad = handleWidgetVisibility;
     }
 
-    // 3. Timeout fallback for slow mobile connections
     const timer = setTimeout(handleWidgetVisibility, 200);
-
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />  
+    </>
+  );
 };
 
 /**
  * AppLayout Component
- * Provides the standard UI wrap (Header and Footer) for main website pages.
  */
 const AppLayout = () => {
   return (
@@ -96,8 +85,6 @@ const AppLayout = () => {
 
 /**
  * Router Configuration
- * Nested structure allows Root logic to run on all paths while
- * AppLayout only wraps standard company pages.
  */
 const appRouter = createBrowserRouter([
   {
@@ -106,15 +93,13 @@ const appRouter = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        // Wrapper for standard pages (With Header/Footer)
         element: <AppLayout />,
         children: [
           { path: "/", element: <HomePage /> },
           { path: "/about", element: <AboutUsPage /> },
           { path: "/products", element: <ProductPage /> },
-          // Inside your appRouter configuration
           {
-            path: "/products/:categorySlug/:id", // Updated from :productName to :id
+            path: "/products/:categorySlug/:id",
             element: <ProductDetailPage />,
           },
           { path: "/contact", element: <ContactUsPage /> },
@@ -127,7 +112,6 @@ const appRouter = createBrowserRouter([
         ],
       },
       {
-        // Standalone profile page (No Header/Footer)
         path: "people/:username",
         element: <DigitalBusinessCard />,
       },
@@ -135,6 +119,5 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-// Root Mounting
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
