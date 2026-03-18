@@ -28,7 +28,7 @@ import ErrorPage from "./components/ErrorPage";
 // Utility & Analytics Imports
 import { inject } from "@vercel/analytics";
 import { injectSpeedInsights } from "@vercel/speed-insights";
-
+import { Analytics } from "@vercel/analytics/react"
 /**
  * Root Component
  * Acts as the global controller for the application.
