@@ -307,8 +307,8 @@ export default function ContactUsPage() {
                     <ContactRow
                       icon={<Mail size={18} />}
                       label="Enquiries"
-                      value="bandana@artgpower.co.uk"
-                      href="mailto:bandana@artgpower.co.uk"
+                      value="info@arcengltd.com"
+                      href="mailto:info@arcengltd.com"
                     />
                     <ContactRow
                       icon={<MapPin size={18} />}
