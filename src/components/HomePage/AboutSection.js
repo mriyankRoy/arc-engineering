@@ -96,7 +96,7 @@ export default function AboutSection() {
                 </span>
               </p>
               <p className="text-gray-500 uppercase tracking-widest text-[11px] font-medium leading-loose mb-10 max-w-2xl">
-                At Art GenPower Solution Ltd, we specialize in the design,
+                At Arc Engineering Solutions Ltd, we specialize in the design,
                 fabrication, and integration of heavy-duty Generator Containers
                 and E-House/EPOD power infrastructure. Our reputation is built
                 on delivering robust, site-ready solutions.

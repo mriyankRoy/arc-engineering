@@ -228,7 +228,7 @@ const DigitalBusinessCard = () => {
                   {
                     icon: <Globe size={16} />,
                     label: "Portfolio",
-                    val: "artgpower.co.uk",
+                    val: "arcengltd.com",
                     link: data.website,
                   },
                   // {
