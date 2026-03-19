@@ -52,7 +52,7 @@ const CorporateProfile = () => {
         <div className={`lg:col-span-2 space-y-6 ${revealClass(hasRevealed, "duration-1000 delay-200")}`}>
           <div className="space-y-4 text-gray-500 leading-loose text-sm">
             <p>
-              Art GenPower Solutions Limited is a premier provider of heavy
+              Arc Engineering Solutions Ltd is a premier provider of heavy
               engineering infrastructure for the power generation, data center
               sectors and in oil & Gas sector. We specialize in the design,
               manufacture, and supply of mission-critical acoustic enclosures,

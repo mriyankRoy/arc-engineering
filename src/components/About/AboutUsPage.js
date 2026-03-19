@@ -69,7 +69,7 @@ export default function AboutUsPage() {
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
               <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
-                About Art GenPower
+                About Arc Engineering
               </button>
             </nav>
 
@@ -85,7 +85,7 @@ export default function AboutUsPage() {
               Manufacturing <span className="text-[#BF092F]">Precision.</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl tracking-wide leading-relaxed mt-4 max-w-3xl">
-              Art GenPower Solutions Ltd - Bridging the gap between heavy-scale
+              Arc Engineering Solutions Ltd - Bridging the gap between heavy-scale
               production and bespoke engineering.
             </p>
           </div>

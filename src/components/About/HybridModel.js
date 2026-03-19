@@ -65,7 +65,7 @@ const HybridModel = () => {
 
               <p className="text-white/50 text-sm leading-loose mb-8">
                 In an industry where capacity and cost often conflict with
-                quality, Art GenPower Solutions Limited eliminates the
+                quality, Arc Engineering Solutions Ltd eliminates the
                 compromise. Through our strategic partnership with Engineering
                 Services International{" "}
                 <span className="text-white font-bold italic text-base">
