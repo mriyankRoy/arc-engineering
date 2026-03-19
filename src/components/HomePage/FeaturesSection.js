@@ -7,6 +7,7 @@ import {
   Activity
 } from "lucide-react";
 import { useNavigate } from "react-router";
+import { Helmet } from "react-helmet-async"; // SEO: Added Helmet
 import { products } from "../../utils/products"; 
 import ProductCategoryCard from "../Products/ProductCategoryCard";
 
@@ -14,6 +15,19 @@ export default function FeaturesSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+
+  // SEO: Create a list of product categories for Schema
+  const productListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Arc Engineering Product Categories",
+    "itemListElement": products.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": product.title || product.name,
+      "url": `https://arcengltd.com/products?category=${product.slug}`
+    }))
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,30 +44,44 @@ export default function FeaturesSection() {
     }`;
 
   return (
-    <section ref={sectionRef} className="relative py-24 bg-white overflow-hidden">
+    <section 
+      ref={sectionRef} 
+      className="relative py-24 bg-white overflow-hidden"
+      aria-labelledby="features-heading"
+    >
+      {/* SEO: Metadata for product clusters */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(productListSchema)}
+        </script>
+      </Helmet>
+
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         
         {/* INDUSTRIAL HEADER */}
-        <div className={`mb-16 ${revealClass(isVisible)}`}>
+        <header className={`mb-16 ${revealClass(isVisible)}`}>
           <div className="flex items-center gap-4 mb-6">
-            <div className="h-8 w-1 bg-[#BF092F]" />
-            <Activity size={14} className="text-[#BF092F] animate-pulse" />
+            <div className="h-8 w-1 bg-[#BF092F]" aria-hidden="true" />
+            <Activity size={14} className="text-[#BF092F] animate-pulse" aria-hidden="true" />
             <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-[0.4em]">
               Engineering Excellence
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <h3 className="text-3xl md:text-5xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight">
+            <h3 id="features-heading" className="text-3xl md:text-5xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight">
               Surgical <span className="text-[#BF092F]">Precision</span> <br className="hidden md:block"/> Global Scale
             </h3>
             <p className="max-w-md text-gray-400 font-bold uppercase tracking-widest text-[10px] leading-relaxed pb-1 border-l-2 border-gray-100 pl-6 lg:ml-8">
-              Delivering high-performance power modules and bespoke industrial enclosures through ISO-certified technical protocols.
+              Delivering high-performance <strong>power modules</strong> and bespoke <strong>industrial enclosures</strong> through ISO-certified technical protocols.
             </p>
           </div>
-        </div>
+        </header>
 
-        {/* TECHNICAL METRICS STRIP */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-0 mb-20 rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-white ${revealClass(isVisible, "duration-[1200ms] delay-200")}`}>
+        {/* TECHNICAL METRICS STRIP - Semantic aside for supporting data */}
+        <aside 
+          className={`grid grid-cols-2 md:grid-cols-4 gap-0 mb-20 rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-white ${revealClass(isVisible, "duration-[1200ms] delay-200")}`}
+          aria-label="Operational Statistics"
+        >
           {[
             { value: "850+", label: "Units Delivered" },
             { value: "UAE", label: "Production Hubs" },
@@ -65,12 +93,12 @@ export default function FeaturesSection() {
                <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.3em] mt-2">{stat.label}</span>
             </div>
           ))}
-        </div>
+        </aside>
 
-        {/* 🛠️ CATEGORIES GRID using ProductCategoryCard */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 mb-20">
+        {/* 🛠️ CATEGORIES GRID - Main Content Area */}
+        <nav className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 mb-20" aria-label="Product Categories">
           {products.map((category, index) => (
-            <div 
+            <article 
               key={index}
               className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -79,27 +107,31 @@ export default function FeaturesSection() {
                 category={category} 
                 onClick={() => navigate(`/products?category=${category.slug}`)} 
               />
-            </div>
+            </article>
           ))}
-        </div>
+        </nav>
 
-        {/* INDUSTRIAL CTA CHASSIS */}
-        <div className={`relative group overflow-hidden rounded-2xl bg-[#44444E] p-10 md:p-14 shadow-2xl ${revealClass(isVisible, "duration-[1200ms] delay-500")}`}>
-          <ShieldCheck size={200} className="absolute -right-10 -bottom-10 text-white/5 rotate-12 transition-transform group-hover:rotate-0 duration-1000" />
+        {/* INDUSTRIAL CTA CHASSIS - Footer of the section */}
+        <footer className={`relative group overflow-hidden rounded-2xl bg-[#44444E] p-10 md:p-14 shadow-2xl ${revealClass(isVisible, "duration-[1200ms] delay-500")}`}>
+          <ShieldCheck size={200} className="absolute -right-10 -bottom-10 text-white/5 rotate-12 transition-transform group-hover:rotate-0 duration-1000" aria-hidden="true" />
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="text-center lg:text-left">
-              <h2 className="text-3xl font-black uppercase italic text-[#BF092F] mb-4">
+              <h4 className="text-3xl font-black uppercase italic text-[#BF092F] mb-4">
                 Initiate Technical Consultancy
-              </h2>
+              </h4>
               <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest leading-loose max-w-xl">
-                Connect with our UK engineering hub for bespoke system architecture and mission-critical power deployment.
+                Connect with our <strong>UK engineering hub</strong> for bespoke system architecture and mission-critical power deployment.
               </p>
             </div>
-            <button onClick={() => navigate("/contact")} className="px-10 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white/10 transition-all duration-500 hover:cursor-pointer">
+            <button 
+              onClick={() => navigate("/contact")} 
+              aria-label="Contact Arc Engineering for Technical Consultancy"
+              className="px-10 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-xl hover:bg-white/10 transition-all duration-500 hover:cursor-pointer"
+            >
               Contact Us
             </button>
           </div>
-        </div>
+        </footer>
       </div>
     </section>
   );

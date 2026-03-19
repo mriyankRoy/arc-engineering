@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
+import { hydrateRoot, createRoot } from "react-dom/client"; // Use both for hydration logic
 import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
   useLocation,
 } from "react-router";
+import { HelmetProvider, Helmet } from "react-helmet-async"; // SEO Meta management
 
 // Component Imports
 import Header from "./components/Header/Header";
@@ -25,8 +26,6 @@ import AboutUsPage from "./components/About/AboutUsPage";
 import DigitalBusinessCard from "./components/People/DigitalBusinessCard";
 import ErrorPage from "./components/ErrorPage";
 
-// Vercel Analytics & Speed Insights
-
 /**
  * Root Component
  * Acts as the global controller for the application.
@@ -34,12 +33,8 @@ import ErrorPage from "./components/ErrorPage";
 const Root = () => {
   const location = useLocation();
 
-  /**
-   * Tawk.to Visibility Logic
-   */
   useEffect(() => {
     const isDigitalCardPage = location.pathname.startsWith("/people/");
-
     const handleWidgetVisibility = () => {
       if (window.Tawk_API && typeof window.Tawk_API.hideWidget === "function") {
         if (isDigitalCardPage) {
@@ -51,25 +46,26 @@ const Root = () => {
     };
 
     handleWidgetVisibility();
-
-    if (window.Tawk_API) {
-      window.Tawk_API.onLoad = handleWidgetVisibility;
-    }
+    if (window.Tawk_API) window.Tawk_API.onLoad = handleWidgetVisibility;
 
     const timer = setTimeout(handleWidgetVisibility, 200);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
-    <>
-      <Outlet />  
-    </>
+    <HelmetProvider>
+      {/* Default Global SEO - These are overridden by specific pages */}
+      <Helmet>
+        <title>Arc Engineering | Structural & Civil Solutions</title>
+        <meta name="description" content="Arc Engineering provides world-class engineering, architectural, and facility management services." />
+        <meta property="og:type" content="website" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+      <Outlet />
+    </HelmetProvider>
   );
 };
 
-/**
- * AppLayout Component
- */
 const AppLayout = () => {
   return (
     <div>
@@ -83,9 +79,6 @@ const AppLayout = () => {
   );
 };
 
-/**
- * Router Configuration
- */
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -98,10 +91,7 @@ const appRouter = createBrowserRouter([
           { path: "/", element: <HomePage /> },
           { path: "/about", element: <AboutUsPage /> },
           { path: "/products", element: <ProductPage /> },
-          {
-            path: "/products/:categorySlug/:id",
-            element: <ProductDetailPage />,
-          },
+          { path: "/products/:categorySlug/:id", element: <ProductDetailPage /> },
           { path: "/contact", element: <ContactUsPage /> },
           { path: "/search/:query", element: <SearchResultsPage /> },
           { path: "/facilities", element: <FacilitiesPage /> },
@@ -119,5 +109,14 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter} />);
+// --- SEO HYDRATION LOGIC ---
+const container = document.getElementById("root");
+const AppRoot = <RouterProvider router={appRouter} />;
+
+// If the container has child nodes, it means react-snap pre-rendered the page.
+// We use hydrateRoot to preserve that HTML and attach React events to it.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, AppRoot);
+} else {
+  createRoot(container).render(AppRoot);
+}
