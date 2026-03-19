@@ -41,7 +41,7 @@ export default function ContactUsPage() {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!captchaToken) {
@@ -55,9 +55,10 @@ export default function ContactUsPage() {
       ...formData,
       // Pass the token to Web3Forms
       "h-captcha-response": captchaToken,
-      access_key: "d6efad2a-df02-4c2c-8ce2-77e9b47e8082",
+      // UPDATED ACCESS KEY
+      access_key: "924ccab0-0d44-4ee7-9b26-dbd417a45269",
       subject: `New Contact Form Submission from ${formData.name}`,
-      from_name: "Art Genpower Solutions Ltd",
+      from_name: "Arc Engineering Solutions Ltd",
     };
 
     const json = JSON.stringify(object);

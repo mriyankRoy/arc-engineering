@@ -42,10 +42,10 @@ export default function AboutUsPage() {
 
   const sidebarLinks = [
     { label: "Corporate Profile", id: "corp-profile", icon: Info },
+    { label: "Engineering Skills", id: "engineering-skills", icon: Cpu },
     { label: "Hybrid Model", id: "hybrid-model", icon: Globe },
     { label: "Manufacturing Scale", id: "manufacturing-scale", icon: Factory },
     { label: "Product Scope", id: "product-scope", icon: PackageSearch },
-    { label: "Engineering Skills", id: "engineering-skills", icon: Cpu },
   ];
 
   return (
@@ -146,6 +146,10 @@ export default function AboutUsPage() {
               <CorporateProfile />
             </div>
 
+            <div id="engineering-skills" className="scroll-mt-32">
+              <SkillsShowcase />
+            </div>
+
             {/* 2. HYBRID MODEL */}
             <div id="hybrid-model" className="scroll-mt-32">
               <HybridModel />
@@ -161,9 +165,6 @@ export default function AboutUsPage() {
               <ProductScope />
             </div>
 
-            <div id="engineering-skills" className="scroll-mt-32">
-              <SkillsShowcase />
-            </div>
           </section>
         </div>
       </main>

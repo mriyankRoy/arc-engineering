@@ -24,10 +24,11 @@ export default function SkillsShowcase() {
     return () => clearTimeout(timer);
   }, [selected]);
 
-  const revealClass = (active, delay = "duration-1000") =>
-    `transition-all ${delay} ease-[cubic-bezier(0.22,1,0.36,1)] ${
-      active ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-    }`;
+  const reveal = (isVisible, delay = "0ms") => ({
+    transform: isVisible ? "translateY(0)" : "translateY(40px)",
+    opacity: isVisible ? 1 : 0,
+    transition: `all 1000ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}`,
+  });
 
   const firstHalf = skills.slice(0, 5);
   const secondHalf = skills.slice(5);
@@ -54,21 +55,40 @@ export default function SkillsShowcase() {
   );
 
   return (
-    <section ref={sectionRef} className="relative py-12 bg-transparent mt-10 md:mt-20 border-t border-gray-100">
-      <div className="relative mx-auto w-full px-4 md:px-0">
+    <section 
+      ref={sectionRef} 
+      className="relative bg-white py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
+    >
+      {/* BACKGROUND DECOR: Ghost "TECH" text matched to previous sections */}
+      <div className="absolute top-10 right-[-2%] text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none">
+        TECH
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* --- HEADER --- */}
-        <div className={`mb-8 md:mb-12 ${revealClass(hasRevealed)}`}>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-8 w-1 bg-[#BF092F]" />
-            <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">Technical Capabilities</h2>
+        {/* TOP HEADER: Now perfectly matched to CorporateProfile (Sentence Case) */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div style={reveal(hasRevealed)}>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-12 h-[2px] bg-[#BF092F]" />
+              <span className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
+                Technical Capabilities
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold text-[#44444E] leading-[1.1] tracking-tight">
+              Engineering <span className="text-[#BF092F]">Toolkit.</span>
+            </h2>
           </div>
-          <h3 className="text-2xl md:text-4xl font-semibold text-[#44444E] uppercase">
-            Engineering <span className="text-[#BF092F]">Toolkit</span>
-          </h3>
+          
+          <div className="md:max-w-xs" style={reveal(hasRevealed, "200ms")}>
+            <p className="text-xs text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6">
+              Advanced technical proficiency across design, manufacturing, and 
+              mission-critical system integration.
+            </p>
+          </div>
         </div>
 
-        {/* --- MOBILE ONLY TABS --- */}
+        {/* MOBILE ONLY TABS */}
         <div className="lg:hidden flex overflow-x-auto pb-4 mb-4 gap-2 scrollbar-hide snap-x">
           {skills.map((skill, idx) => (
             <button
@@ -83,10 +103,10 @@ export default function SkillsShowcase() {
           ))}
         </div>
 
-        {/* --- MAIN CHASSIS --- */}
-        <div className={`grid grid-cols-1 lg:grid-cols-12 shadow-2xl rounded-2xl md:rounded-3xl overflow-hidden border border-gray-100 bg-[#44444E] ${revealClass(hasRevealed, "delay-200")}`}>
+        {/* --- MAIN CHASSIS (Table Design Unchanged) --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 shadow-2xl rounded-2xl md:rounded-3xl overflow-hidden border border-gray-100 bg-[#44444E]" style={reveal(hasRevealed, "400ms")}>
           
-          {/* LEFT TERMINAL (Desktop Only) */}
+          {/* LEFT TERMINAL */}
           <div className="hidden lg:flex lg:col-span-3 bg-[#44444E] flex-col border-r border-white/5">
             <div className="p-6 border-b border-white/10 bg-black/20">
               <h4 className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Index A</h4>
@@ -94,7 +114,7 @@ export default function SkillsShowcase() {
             {firstHalf.map((skill, index) => renderTab(skill, index))}
           </div>
 
-          {/* CENTER VIEWPORT (Adaptive) */}
+          {/* CENTER VIEWPORT */}
           <div className="lg:col-span-6 relative aspect-[4/5] md:aspect-video lg:aspect-auto lg:h-[600px] bg-[#1A1A1E]">
             <img
               src={skills[selected].image}
@@ -112,7 +132,7 @@ export default function SkillsShowcase() {
             </div>
           </div>
 
-          {/* RIGHT TERMINAL (Desktop Only) */}
+          {/* RIGHT TERMINAL */}
           <div className="hidden lg:flex lg:col-span-3 bg-[#44444E] flex-col">
             <div className="p-6 border-b border-white/10 bg-black/20">
               <h4 className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em]">Index B</h4>
@@ -128,14 +148,14 @@ export default function SkillsShowcase() {
           </div>
         </div>
 
-        {/* --- CORE TENETS (Mobile Adaptive) --- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 md:mt-12">
+        {/* --- CORE TENETS (Matching the 3-Column Grid Style) --- */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16" style={reveal(hasRevealed, "600ms")}>
           {CORE_TENETS.map((tenet, idx) => (
-            <div key={idx} className={`bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-100 flex md:block items-center gap-4 ${revealClass(hasRevealed)}`} style={{ transitionDelay: `${idx * 150}ms` }}>
-              <tenet.icon className="text-[#BF092F] mb-0 md:mb-6 shrink-0" size={24} />
+            <div key={idx} className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 transition-all hover:border-[#BF092F]/20">
+              <tenet.icon className="text-[#BF092F] mb-6" size={32} />
               <div>
-                <h4 className="text-xs md:text-sm font-bold text-[#44444E] uppercase mb-1 md:mb-4">{tenet.title}</h4>
-                <p className="text-[9px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest">{tenet.desc}</p>
+                <h4 className="text-sm font-bold text-[#44444E] uppercase mb-4 tracking-widest">{tenet.title}</h4>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] leading-loose">{tenet.desc}</p>
               </div>
             </div>
           ))}

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Zap, Globe, ShieldCheck, Activity } from "lucide-react";
+import { Zap, Globe, ShieldCheck, Activity, ArrowRight } from "lucide-react";
 
 const HybridModel = () => {
   const sectionRef = useRef(null);
@@ -8,155 +8,125 @@ const HybridModel = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasRevealed(true);
-        }
+        if (entry.isIntersecting) setHasRevealed(true);
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // Search-friendly reveal logic: uses opacity-0 to translate-y for a clean reveal
-  // but keeps text indexable by the browser's search function.
-  const revealClass = (active, delay = "duration-1000") =>
-    `transition-all ${delay} ease-[cubic-bezier(0.22,1,0.36,1)] ${
-      active ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-    }`;
+  const reveal = (isVisible, delay = "0ms") => ({
+    transform: isVisible ? "translateY(0)" : "translateY(40px)",
+    opacity: isVisible ? 1 : 0,
+    transition: `all 1000ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}`,
+  });
 
   return (
-    <div 
+    <section 
       ref={sectionRef}
-      className="mt-20 pt-20 border-t border-gray-100"
+      className="relative bg-white py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
     >
-      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-center">
+      {/* BACKGROUND DECOR */}
+      <div className="absolute top-10 left-[-5%] text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none">
+        HUB
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* LEFT COLUMN: THE CONCEPT BOX - Animated */}
-        <div className={`lg:col-span-5 relative group h-full ${revealClass(hasRevealed)}`}>
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#BF092F] to-[#44444E] rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+        {/* TOP HEADER: Now perfectly matches CorporateProfile */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div style={reveal(hasRevealed)}>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-12 h-[2px] bg-[#BF092F]" />
+              <span className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
+                Strategic Framework
+              </span>
+            </div>
+            {/* REMOVED 'uppercase' - Now matches CorporateProfile precisely */}
+            <h2 className="text-4xl md:text-6xl font-bold text-[#44444E] leading-[1.1] tracking-tight">
+              The <span className="text-gray-300">Hybrid</span> <br /> 
+              Supply <span className="text-[#BF092F]">Model.</span>
+            </h2>
+          </div>
+          
+          <div className="md:max-w-xs" style={reveal(hasRevealed, "200ms")}>
+            <p className="text-xs text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6">
+              Eliminating the compromise between capacity and cost through a 
+              seamless UK-UAE supply chain partnership.
+            </p>
+          </div>
+        </div>
 
-          <div className="relative h-full bg-[#44444E] p-10 rounded-2xl text-white shadow-2xl overflow-hidden flex flex-col justify-center">
-            <Globe
-              className="absolute -right-12 -bottom-12 text-white/5 group-hover:text-[#BF092F]/10 transition-colors duration-700"
-              size={280}
-            />
-
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-6 w-1 bg-[#BF092F]" />
-                <h2 className="text-[10px] uppercase font-black tracking-[0.4em] text-white/60">
-                  Strategic Framework
-                </h2>
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          
+          {/* LEFT: THE ANCHOR (UK Leadership) */}
+          <div className="lg:col-span-5 space-y-12" style={reveal(hasRevealed, "400ms")}>
+            <div className="group relative bg-[#44444E] p-10 rounded-2xl text-white shadow-2xl overflow-hidden aspect-[4/5] flex flex-col justify-between">
+              <Globe className="absolute -right-16 -bottom-16 text-white/5 group-hover:text-[#BF092F]/10 transition-all duration-1000" size={350} />
+              
+              <div className="relative z-10">
+                <ShieldCheck className="text-[#BF092F] mb-6" size={40} />
+                <h3 className="text-3xl font-bold uppercase tracking-tight leading-none mb-6">
+                  UK Commercial <br /> Leadership
+                </h3>
+                <p className="text-white/50 text-sm leading-relaxed max-w-sm">
+                  Strategic project management and commercial governance driven 
+                  from our Leicester headquarters, ensuring British engineering 
+                  standards for every contract.
+                </p>
               </div>
 
-              <h4 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-none mb-6">
-                The{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
-                  Hybrid
-                </span>{" "}
-                <br />
-                <span className="text-[#BF092F]">Supply</span> Model
-              </h4>
-
-              <p className="text-white/50 text-sm leading-loose mb-8">
-                In an industry where capacity and cost often conflict with
-                quality, Arc Engineering Solutions Ltd eliminates the
-                compromise. Through our strategic partnership with Engineering
-                Services International{" "}
-                <span className="text-white font-bold italic text-base">
-                  ESI
-                </span>
-                , we operate a seamless supply chain that serves clients across
-                Europe, Africa, and the Middle East (EAME).
-              </p>
-
-              <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+              <div className="relative z-10 flex items-center gap-4 pt-8 border-t border-white/10">
                 <Activity className="text-[#BF092F] animate-pulse" size={18} />
-                <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 leading-tight">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/40">
                   Efficiency Optimized
                 </p>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT COLUMN: THE DUAL TERMINALS */}
-        <div className="lg:col-span-7 flex flex-col justify-center gap-6">
-          
-          {/* UK TERMINAL - Animated with delay */}
-          <div className={`group relative bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#BF092F]/20 transition-all duration-500 overflow-hidden ${revealClass(hasRevealed, "duration-1000 delay-200")}`}>
-            <div className="absolute top-0 right-0 p-8 text-gray-50 group-hover:text-[#BF092F]/5 transition-colors">
-              <ShieldCheck size={120} />
-            </div>
-
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-              <div className="p-5 bg-gray-50 rounded-2xl group-hover:bg-[#BF092F] transition-colors duration-500">
-                <ShieldCheck
-                  className="text-[#44444E] group-hover:text-white"
-                  size={32}
-                />
-              </div>
-              <div className="flex-grow">
-                <h5 className="text-lg font-black text-[#44444E] uppercase tracking-tight mb-2">
-                  UK Commercial Leadership
-                </h5>
-                <p className="text-[11px] text-gray-500 font-bold uppercase leading-relaxed tracking-wider max-w-md">
-                  Our Leicester headquarters drives project management,
-                  commercial strategy, and client support, ensuring you deal
-                  with a
-                  <span className="text-[#44444E]">
-                    {" "}
-                    UK entity governed by British engineering standards.
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* GLOBAL TERMINAL - Animated with further delay */}
-          <div className={`group relative bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#BF092F]/20 transition-all duration-500 overflow-hidden ${revealClass(hasRevealed, "duration-1000 delay-400")}`}>
-            <div className="absolute top-0 right-0 p-8 text-gray-50 group-hover:text-[#BF092F]/5 transition-colors">
-              <Zap size={120} />
-            </div>
-
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-              <div className="p-5 bg-gray-50 rounded-2xl group-hover:bg-[#BF092F] transition-colors duration-500">
-                <Zap
-                  className="text-[#44444E] group-hover:text-white"
-                  size={32}
-                />
-              </div>
-              <div className="flex-grow">
-                <h5 className="text-lg font-black text-[#44444E] uppercase tracking-tight mb-2">
-                  UAE Production Scale
-                </h5>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-2xl font-black text-[#BF092F]">
-                    41,000
-                  </span>
-                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
-                    SQM Footprint
-                  </span>
+          {/* RIGHT: THE ENGINE (UAE Production) */}
+          <div className="lg:col-span-7 flex flex-col justify-between">
+            <div className="space-y-8" style={reveal(hasRevealed, "600ms")}>
+              <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 group hover:border-[#BF092F]/30 transition-colors">
+                <div className="flex items-center gap-4 mb-6">
+                   <Zap className="text-[#BF092F]" size={32} />
+                   <h4 className="text-xl font-bold text-[#44444E] uppercase tracking-tight">UAE Production Scale</h4>
                 </div>
-                <p className="text-[11px] text-gray-500 font-bold uppercase leading-relaxed tracking-wider max-w-md">
-                  We leverage strategic industrial hubs at{" "}
-                  <span className="text-[#44444E]">
-                    Hamriyah, Sajja, and Jebel Ali
-                  </span>{" "}
-                  to handle hyperscale projects with rapid
-                  turnaround times.
+                
+                <div className="flex items-baseline gap-3 mb-6">
+                  <span className="text-6xl font-black text-[#44444E] tracking-tighter">41,000</span>
+                  <span className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">SQM Floor</span>
+                </div>
+
+                <p className="text-sm text-gray-500 leading-loose">
+                  Utilizing strategic industrial hubs in <span className="text-[#44444E] font-bold">Hamriyah and Sajja</span> to handle hyperscale projects. 
+                  This partnership allows us to serve Europe, Africa, and the Middle East with 
+                  unmatched turnaround times.
                 </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={reveal(hasRevealed, "800ms")}>
+                <div className="p-8 border border-gray-100 rounded-2xl">
+                    <h5 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#BF092F] mb-4">Engineering ESI</h5>
+                    <p className="text-[12px] text-gray-500 leading-relaxed font-medium">
+                        Seamless supply chain integration ensuring raw material access and manufacturing agility.
+                    </p>
+                </div>
+                <div className="p-8 border border-gray-100 rounded-2xl">
+                    <h5 className="text-[10px] font-black uppercase tracking-[0.2em] text-[#BF092F] mb-4">Global Reach</h5>
+                    <p className="text-[12px] text-gray-500 leading-relaxed font-medium">
+                        Logistics-optimized manufacturing for rapid delivery across EAME infrastructure sectors.
+                    </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

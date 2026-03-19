@@ -124,7 +124,7 @@ const ProductDetailPage = () => {
                 className="group flex items-center gap-1 text-white/50 hover:text-white transition-colors px-2"
               >
                 <Home size={12} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase font-bold">
+                <span className="text-[10px] md:text-xs tracking-widest uppercase">
                   Home
                 </span>
               </button>
