@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { hydrateRoot, createRoot } from "react-dom/client"; // Use both for hydration logic
+import { createRoot } from "react-dom/client"; 
 import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
   useLocation,
 } from "react-router";
-import { HelmetProvider, Helmet } from "react-helmet-async"; // SEO Meta management
+import { HelmetProvider, Helmet } from "react-helmet-async";
 
 // Component Imports
 import Header from "./components/Header/Header";
@@ -54,7 +54,6 @@ const Root = () => {
 
   return (
     <HelmetProvider>
-      {/* Default Global SEO - These are overridden by specific pages */}
       <Helmet>
         <title>Arc Engineering | Structural & Civil Solutions</title>
         <meta name="description" content="Arc Engineering provides world-class engineering, architectural, and facility management services." />
@@ -109,14 +108,8 @@ const appRouter = createBrowserRouter([
   },
 ]);
 
-// --- SEO HYDRATION LOGIC ---
+// --- MODERN REACT 18 INITIALIZATION ---
+// Removed hydrateRoot logic to prevent Vercel/Puppeteer build errors.
 const container = document.getElementById("root");
-const AppRoot = <RouterProvider router={appRouter} />;
-
-// If the container has child nodes, it means react-snap pre-rendered the page.
-// We use hydrateRoot to preserve that HTML and attach React events to it.
-if (container.hasChildNodes()) {
-  hydrateRoot(container, AppRoot);
-} else {
-  createRoot(container).render(AppRoot);
-}
+const root = createRoot(container);
+root.render(<RouterProvider router={appRouter} />);
