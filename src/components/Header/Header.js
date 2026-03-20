@@ -203,7 +203,7 @@ const Header = () => {
           <footer className="mt-12 flex flex-col items-center gap-4">
             <div className="w-12 h-[1px] bg-[#BF092F]/50" aria-hidden="true" />
             <p className="text-white text-[10px] font-bold tracking-[0.4em] uppercase">
-              Arc Engineering Solutions Lt.
+              Arc Engineering Solutions Ltd.
             </p>
           </footer>
           

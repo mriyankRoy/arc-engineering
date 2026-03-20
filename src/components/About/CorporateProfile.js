@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Globe, Factory, Building2, HardHat } from "lucide-react";
 
 const CorporateProfile = () => {
   const sectionRef = useRef(null);
@@ -17,128 +17,153 @@ const CorporateProfile = () => {
   }, []);
 
   const reveal = (isVisible, delay = "0ms") => ({
-    transform: isVisible ? "translateY(0)" : "translateY(40px)",
+    transform: isVisible ? "translateY(0)" : "translateY(30px)",
     opacity: isVisible ? 1 : 0,
-    transition: `all 1000-ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}`,
+    transition: `all 1000ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}`,
   });
 
   return (
     <section 
       ref={sectionRef}
-      className="relative bg-white py-24 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="relative bg-white py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
+      aria-labelledby="corporate-heading"
     >
-      {/* BACKGROUND DECOR: Ghost industrial numbers/text for "Elegant Engineering" feel */}
-      <div className="absolute top-10 right-[-5%] text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none">
+      {/* SEO & ACCESSIBILITY: GHOST DECOR */}
+      <div 
+        className="absolute top-10 right-[-5%] md:right-[-2%] text-[8rem] sm:text-[12rem] md:text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none z-0"
+        aria-hidden="true"
+      >
         ARC
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* TOP HEADER: Clean & Minimal */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        {/* HEADER SECTION: Responsive alignment & SEO Heading */}
+        <header className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8">
           <div style={reveal(hasRevealed)}>
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-[2px] bg-[#BF092F]" />
-              <span className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
+              <p className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
                 Corporate Identity
-              </span>
+              </p>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-[#44444E] leading-[1.1] tracking-tight">
-              Engineering <span className="text-gray-300">without</span> <br /> 
+            <h2 id="corporate-heading" className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#44444E] leading-[1.1] tracking-tight">
+              Engineering <span className="text-gray-300 font-light">without</span> <br className="hidden sm:block" /> 
               Boundaries.
             </h2>
           </div>
           
-          <div className="md:max-w-xs" style={reveal(hasRevealed, "200ms")}>
-            <p className="text-xs text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6">
+          <div className="max-w-sm" style={reveal(hasRevealed, "200ms")}>
+            <p className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6 py-1">
               Strategic manufacturing operations across the UK and UAE, delivering 
-              cost-efficient, mission-critical infrastructure.
+              cost-efficient infrastructure for global power requirements.
             </p>
           </div>
-        </div>
+        </header>
 
-        {/* MAIN GRID: Asymmetrical Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        {/* MAIN CONTENT GRID: 5/7 Split with Mobile Stacking */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* LEFT: The "Technical" Column */}
-          <div className="lg:col-span-5 space-y-12" style={reveal(hasRevealed, "400ms")}>
-            <div className="relative group">
-              <div className="overflow-hidden rounded-2xl bg-gray-100 aspect-[4/5]">
-                <img
-                  src="https://res.cloudinary.com/dc912sjxj/image/upload/v1767730757/Hamriyah_Facility_03_z6hmoe.webp"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
-                  alt="Engineering Detail"
-                />
+          {/* LEFT: SEO-Optimized Text Content */}
+          <article className="lg:col-span-5 space-y-8 order-2 lg:order-1" style={reveal(hasRevealed, "400ms")}>
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="text-[#BF092F]" size={28} />
+                <h3 className="text-xl md:text-2xl font-bold text-[#44444E]">Industrial Excellence</h3>
               </div>
-              {/* Floating Stat or Label */}
-              <div className="absolute -bottom-6 -right-6 bg-[#44444E] p-8 text-white rounded-xl shadow-2xl hidden md:block">
-                <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Global Reach</p>
-                <p className="text-xl font-bold">UK & UAE HUB</p>
+              
+              <div className="space-y-4 text-gray-600">
+                <p className="leading-loose text-base md:text-lg">
+                  Arc Engineering Solutions Ltd specializes in the manufacture of metal structures and precision-engineered parts. We bridge the gap between British quality standards and Middle Eastern manufacturing scale.
+                </p>
+                <p className="text-sm leading-relaxed text-gray-500">
+                  Our core expertise extends to the production of specialized industrial tanks, reservoirs, and metal containers, alongside the professional installation of industrial machinery and equipment.
+                </p>
               </div>
             </div>
 
-            <div className="space-y-6 pt-4">
-               <p className="text-lg text-[#44444E] font-medium leading-relaxed italic border-l-4 border-[#BF092F] pl-6">
-                "We provide British engineering quality with the scale and cost-efficiency of Middle Eastern manufacturing."
-              </p>
-              <p className="text-sm text-gray-500 leading-loose max-w-md">
-                Arc Engineering Solutions Ltd specializes in the design, manufacture, 
-                and supply of mission-critical acoustic enclosures, E-Houses, 
-                and fuel systems for the world's most demanding sectors.
-              </p>
-            </div>
-          </div>
-
-          {/* RIGHT: The "Visual" Column */}
-          <div className="lg:col-span-7 flex flex-col justify-between">
-            
-            {/* Image Cluster */}
-            <div className="grid grid-cols-2 gap-6 items-start">
-              <div className="space-y-6" style={reveal(hasRevealed, "600ms")}>
-                <img
-                  src="https://res.cloudinary.com/dc912sjxj/image/upload/v1767730365/Hamriyah_Facility_05_fyuzwt.webp"
-                  className="w-full aspect-square object-cover rounded-2xl shadow-lg"
-                  alt="Facility"
-                />
-                <div className="bg-[#BF092F] p-8 rounded-2xl text-white">
-                    <h4 className="text-xs uppercase tracking-[0.2em] font-bold mb-4">Core Sectors</h4>
-                    <ul className="text-[11px] space-y-2 opacity-90 font-medium">
-                        <li>• DATA CENTERS</li>
-                        <li>• OIL & GAS</li>
-                        <li>• POWER GENERATION</li>
-                    </ul>
+            {/* SECTOR CHIPS: Mobile-friendly flex layout */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Data Centers", icon: <Globe size={14} /> },
+                { label: "Power Gen", icon: <Building2 size={14} /> },
+                { label: "Installation", icon: <HardHat size={14} /> }
+              ].map((sector, i) => (
+                <div key={i} className="flex items-center gap-3 px-4 py-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-[#BF092F]/20 transition-all">
+                  <span className="text-[#BF092F]">{sector.icon}</span>
+                  <span className="text-[10px] font-black text-[#44444E] uppercase tracking-widest">{sector.label}</span>
                 </div>
-              </div>
-              <div style={reveal(hasRevealed, "800ms")}>
-                <img
-                  src="https://res.cloudinary.com/dc912sjxj/image/upload/v1767792069/AGP_Project_Sajja_PowerPack_04_cb755l.webp"
-                  className="w-full aspect-[3/4] object-cover rounded-2xl shadow-lg"
-                  alt="Project"
-                />
-              </div>
+              ))}
             </div>
+          </article>
 
-            {/* DOWNLOAD CTA: Modern minimalist style */}
-            <div className="mt-12 lg:mt-0 flex flex-col sm:flex-row items-center gap-8 border-t border-gray-100 pt-12" style={reveal(hasRevealed, "1000ms")}>
-               <a
-                href="https://res.cloudinary.com/dc912sjxj/image/upload/v1767916702/Art_Genpower_Solutions_Ltd_AGP_Profile_tpmncv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center justify-center w-20 h-20 rounded-full bg-[#BF092F] text-white transition-transform hover:scale-110"
-              >
-                <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                <span className="absolute -bottom-8 whitespace-nowrap text-[9px] font-black uppercase tracking-widest text-[#44444E]">
-                  Full Profile
-                </span>
-              </a>
-              <div className="text-left">
-                <h4 className="text-xl font-bold text-[#44444E]">Ready to scale?</h4>
-                <p className="text-sm text-gray-400">Review our global infrastructure and full technical capabilities.</p>
-              </div>
+          {/* RIGHT: MASONRY IMAGERY (Collapses to single column on mobile) */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-4 order-1 lg:order-2" style={reveal(hasRevealed, "600ms")}>
+            
+            {/* Primary Image Card */}
+            <figure className="md:col-span-8 overflow-hidden rounded-3xl shadow-xl relative group h-[280px] sm:h-[350px] md:h-[450px]">
+              <img
+                src="https://res.cloudinary.com/dc912sjxj/image/upload/v1767730757/Hamriyah_Facility_03_z6hmoe.webp"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                alt="Arc Engineering's strategic manufacturing hub in Hamriyah Free Zone"
+                loading="lazy"
+              />
+              <figcaption className="absolute bottom-4 left-4 right-4 p-4 md:p-6 bg-white/95 backdrop-blur-sm rounded-2xl flex items-center justify-between border border-white/20">
+                <div>
+                  <p className="text-[9px] font-bold text-[#BF092F] uppercase tracking-[0.2em]">Primary Hub</p>
+                  <p className="text-xs md:text-sm font-bold text-[#44444E]">Hamriyah Free Zone Facility</p>
+                </div>
+                <Globe size={18} className="text-gray-400" />
+              </figcaption>
+            </figure>
+
+            {/* Secondary Stack (Visible on Tablet/Desktop) */}
+            <div className="hidden md:flex md:col-span-4 flex-col gap-4">
+               <div className="h-[210px] rounded-3xl overflow-hidden shadow-lg border-2 border-white">
+                  <img
+                    src="https://res.cloudinary.com/dc912sjxj/image/upload/v1767792069/AGP_Project_Sajja_PowerPack_04_cb755l.webp"
+                    className="w-full h-full object-cover"
+                    alt="Bespoke Power Solution Project"
+                    loading="lazy"
+                  />
+               </div>
+               <div className="bg-[#44444E] flex-grow rounded-3xl p-6 flex flex-col justify-between text-white shadow-xl relative overflow-hidden group">
+                  <div className="h-8 w-8 bg-[#BF092F] rounded-lg flex items-center justify-center relative z-10">
+                    <ArrowUpRight size={18} />
+                  </div>
+                  <div className="relative z-10">
+                    <p className="text-sm font-bold uppercase tracking-tight">Professional Delivery</p>
+                    <p className="text-[9px] uppercase tracking-widest opacity-50 mt-1">Standard Business Hours</p>
+                  </div>
+                  {/* Subtle Background Accent */}
+                  <Factory className="absolute -right-4 -bottom-4 text-white/5 group-hover:text-white/10 transition-colors" size={100} />
+               </div>
             </div>
-
           </div>
         </div>
+
+        {/* FOOTER CTA: Mobile responsive flexbox */}
+        <footer className="mt-16 md:mt-24 p-6 md:p-10 bg-gray-50 rounded-[2rem] border border-gray-100 flex flex-col lg:flex-row items-center justify-between gap-8" style={reveal(hasRevealed, "800ms")}>
+          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+            <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center flex-shrink-0">
+               <Factory className="text-[#BF092F]" size={28} />
+            </div>
+            <div>
+              <h4 className="text-lg md:text-xl font-bold text-[#44444E]">Technical Specifications</h4>
+              <p className="text-xs text-gray-400 max-w-sm">Detailed infrastructure and sector capabilities are available in our official corporate profile.</p>
+            </div>
+          </div>
+
+          <a
+            href="https://res.cloudinary.com/dc912sjxj/image/upload/v1767916702/Art_Genpower_Solutions_Ltd_AGP_Profile_tpmncv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full lg:w-auto group flex items-center justify-center gap-4 px-10 py-5 bg-[#BF092F] text-white rounded-2xl hover:bg-[#44444E] transition-all shadow-lg active:scale-95"
+          >
+            <span className="text-[10px] font-black uppercase tracking-[0.2em]">View Full Profile</span>
+            <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
+          </a>
+        </footer>
       </div>
     </section>
   );

@@ -17,7 +17,7 @@ const HybridModel = () => {
   }, []);
 
   const reveal = (isVisible, delay = "0ms") => ({
-    transform: isVisible ? "translateY(0)" : "translateY(40px)",
+    transform: isVisible ? "translateY(0)" : "translateY(30px)",
     opacity: isVisible ? 1 : 0,
     transition: `all 1000ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}`,
   });
@@ -25,38 +25,41 @@ const HybridModel = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative bg-white py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
+      className="relative bg-white py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
+      aria-labelledby="hybrid-heading"
     >
-      {/* BACKGROUND DECOR */}
-      <div className="absolute top-10 left-[-5%] text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none">
+      {/* BACKGROUND DECOR: Aligned to Right to match CorporateProfile */}
+      <div 
+        className="absolute top-10 right-[-5%] md:right-[-2%] text-[8rem] sm:text-[12rem] md:text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none z-0"
+        aria-hidden="true"
+      >
         HUB
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* TOP HEADER: Now perfectly matches CorporateProfile */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        {/* TOP HEADER: Perfectly Aligned */}
+        <header className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8">
           <div style={reveal(hasRevealed)}>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-12 h-[2px] bg-[#BF092F]" />
-              <span className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
+              <span className="w-12 h-[2px] bg-[#BF092F]" aria-hidden="true" />
+              <p className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
                 Strategic Framework
-              </span>
+              </p>
             </div>
-            {/* REMOVED 'uppercase' - Now matches CorporateProfile precisely */}
-            <h2 className="text-4xl md:text-6xl font-bold text-[#44444E] leading-[1.1] tracking-tight">
-              The <span className="text-gray-300">Hybrid</span> <br /> 
+            <h2 id="hybrid-heading" className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#44444E] leading-[1.1] tracking-tight">
+              The <span className="text-gray-300 font-light">Hybrid</span> <br className="hidden sm:block" /> 
               Supply <span className="text-[#BF092F]">Model.</span>
             </h2>
           </div>
           
-          <div className="md:max-w-xs" style={reveal(hasRevealed, "200ms")}>
-            <p className="text-xs text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6">
+          <div className="max-w-sm" style={reveal(hasRevealed, "200ms")}>
+            <p className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6 py-1">
               Eliminating the compromise between capacity and cost through a 
               seamless UK-UAE supply chain partnership.
             </p>
           </div>
-        </div>
+        </header>
 
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -97,7 +100,7 @@ const HybridModel = () => {
                 </div>
                 
                 <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-6xl font-black text-[#44444E] tracking-tighter">41,000</span>
+                  <span className="text-5xl sm:text-6xl font-black text-[#44444E] tracking-tighter">41,000</span>
                   <span className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">SQM Floor</span>
                 </div>
 
