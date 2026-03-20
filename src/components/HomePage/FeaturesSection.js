@@ -7,7 +7,7 @@ import {
   Activity
 } from "lucide-react";
 import { useNavigate } from "react-router";
-import { Helmet } from "react-helmet-async"; // SEO: Added Helmet
+import { Helmet } from "react-helmet-async";
 import { products } from "../../utils/products"; 
 import ProductCategoryCard from "../Products/ProductCategoryCard";
 
@@ -16,11 +16,12 @@ export default function FeaturesSection() {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
-  // SEO: Create a list of product categories for Schema
+  // SEO: Schema.org ItemList for industrial product categories
   const productListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Arc Engineering Product Categories",
+    "name": "Arc Engineering Ltd Product Range",
+    "description": "UK-engineered generator enclosures, E-Houses, and power infrastructure.",
     "itemListElement": products.map((product, index) => ({
       "@type": "ListItem",
       "position": index + 1,
@@ -49,7 +50,6 @@ export default function FeaturesSection() {
       className="relative py-24 bg-white overflow-hidden"
       aria-labelledby="features-heading"
     >
-      {/* SEO: Metadata for product clusters */}
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(productListSchema)}
@@ -64,29 +64,29 @@ export default function FeaturesSection() {
             <div className="h-8 w-1 bg-[#BF092F]" aria-hidden="true" />
             <Activity size={14} className="text-[#BF092F] animate-pulse" aria-hidden="true" />
             <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-[0.4em]">
-              Engineering Excellence
+              Technical Capability
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <h3 id="features-heading" className="text-3xl md:text-5xl font-semibold text-[#44444E] leading-tight uppercase tracking-tight">
-              Surgical <span className="text-[#BF092F]">Precision</span> <br className="hidden md:block"/> Global Scale
+              UK <span className="text-[#BF092F]">Precision</span> <br className="hidden md:block"/> Global <span className="text-gray-300">Scale.</span>
             </h3>
             <p className="max-w-md text-gray-400 font-bold uppercase tracking-widest text-[10px] leading-relaxed pb-1 border-l-2 border-gray-100 pl-6 lg:ml-8">
-              Delivering high-performance <strong>power modules</strong> and bespoke <strong>industrial enclosures</strong> through ISO-certified technical protocols.
+              Delivering high-performance <strong>power modules</strong> and bespoke <strong>BS EN compliant enclosures</strong> through UK-governed technical protocols.
             </p>
           </div>
         </header>
 
-        {/* TECHNICAL METRICS STRIP - Semantic aside for supporting data */}
+        {/* TECHNICAL METRICS STRIP */}
         <aside 
           className={`grid grid-cols-2 md:grid-cols-4 gap-0 mb-20 rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-white ${revealClass(isVisible, "duration-[1200ms] delay-200")}`}
           aria-label="Operational Statistics"
         >
           {[
-            { value: "850+", label: "Units Delivered" },
-            { value: "UAE", label: "Production Hubs" },
+            { value: "41k", label: "SQM Facilities" },
+            { value: "UKCA", label: "Compliance" },
             { value: "100%", label: "FAT Certified" },
-            { value: "ISO", label: "Quality Standards" },
+            { value: "ISO", label: "Quality Hub" },
           ].map((stat, i) => (
             <div key={i} className="p-8 border-r last:border-r-0 border-gray-100 flex flex-col items-center md:items-start group hover:bg-[#44444E] transition-all duration-500">
                <span className="text-3xl font-bold text-[#44444E] group-hover:text-white transition-colors tracking-tighter">{stat.value}</span>
@@ -95,7 +95,7 @@ export default function FeaturesSection() {
           ))}
         </aside>
 
-        {/* 🛠️ CATEGORIES GRID - Main Content Area */}
+        {/* 🛠️ CATEGORIES GRID */}
         <nav className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 mb-20" aria-label="Product Categories">
           {products.map((category, index) => (
             <article 
@@ -111,16 +111,16 @@ export default function FeaturesSection() {
           ))}
         </nav>
 
-        {/* INDUSTRIAL CTA CHASSIS - Footer of the section */}
+        {/* INDUSTRIAL CTA CHASSIS */}
         <footer className={`relative group overflow-hidden rounded-2xl bg-[#44444E] p-10 md:p-14 shadow-2xl ${revealClass(isVisible, "duration-[1200ms] delay-500")}`}>
           <ShieldCheck size={200} className="absolute -right-10 -bottom-10 text-white/5 rotate-12 transition-transform group-hover:rotate-0 duration-1000" aria-hidden="true" />
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="text-center lg:text-left">
               <h4 className="text-3xl font-black uppercase italic text-[#BF092F] mb-4">
-                Initiate Technical Consultancy
+                Technical Consultancy
               </h4>
               <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest leading-loose max-w-xl">
-                Connect with our <strong>UK engineering hub</strong> for bespoke system architecture and mission-critical power deployment.
+                Engage with our <strong>Leicester-based engineering team</strong> for bespoke system architecture and worldwide infrastructure deployment.
               </p>
             </div>
             <button 

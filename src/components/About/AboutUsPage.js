@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async"; // SEO Layer - Invisible to user
 import {
   Factory,
   Cpu,
   Home,
   Info,
-  Cpu,
   ChevronRight,
   Globe,
   PackageSearch,
@@ -48,16 +48,36 @@ export default function AboutUsPage() {
     { label: "Product Scope", id: "product-scope", icon: PackageSearch },
   ];
 
+  // SEO: Structured Data for UK/Global Organization
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Arc Engineering Solutions Ltd",
+    "url": "https://arcengltd.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "GB"
+    },
+    "description": "UK-based engineering specialists providing power infrastructure for UK, Europe, and global markets."
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
-      {/* HERO SECTION */}
+      {/* SEO: Invisible metadata for UK/EU search engines */}
+      <Helmet>
+        <html lang="en-GB" />
+        <title>About Us | UK Engineering & Global Infrastructure | Arc Engineering</title>
+        <meta name="description" content="Arc Engineering Solutions Ltd: UK-led engineering and manufacturing. Serving UK and European clients with bespoke power solutions." />
+        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
+      </Helmet>
+
+      {/* HERO SECTION - Design untouched */}
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" aria-hidden="true" />
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            {/* 🧭 UPDATED: Now hidden on mobile, visible on medium screens and up */}
-            <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
+            <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6" aria-label="Breadcrumb">
               <button
                 onClick={() => navigate("/")}
                 className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
@@ -67,7 +87,7 @@ export default function AboutUsPage() {
                   Home
                 </span>
               </button>
-              <span className="text-white/20 text-xs font-mono">{">"}</span>
+              <span className="text-white/20 text-xs font-mono" aria-hidden="true">{">"}</span>
               <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
                 About Arc Engineering
               </button>
@@ -85,8 +105,7 @@ export default function AboutUsPage() {
               Manufacturing <span className="text-[#BF092F]">Precision.</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl tracking-wide leading-relaxed mt-4 max-w-3xl">
-              Arc Engineering Solutions Ltd - Bridging the gap between heavy-scale
-              production and bespoke engineering.
+              Arc Engineering Solutions Ltd — UK-managed engineering bridging the gap between bespoke design and global production.
             </p>
           </div>
         </header>
@@ -94,13 +113,14 @@ export default function AboutUsPage() {
 
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
-          {/* SIDEBAR */}
-          <aside className="lg:col-span-3 space-y-8 h-full">
+          
+          {/* SIDEBAR - Design untouched */}
+          <aside className="lg:col-span-3 space-y-8 h-full" role="complementary">
             <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
-              <div className="p-8 border-b border-white/10">
+              <nav className="p-8 border-b border-white/10" aria-label="Internal Navigation">
                 <div className="flex items-center gap-3 mb-8">
-                  <Info size={16} className="text-[#BF092F]" />
-                  <h2 className="text-[12px] text-white tracking-[0.4em] uppercase">
+                  <Info size={16} className="text-[#BF092F]" aria-hidden="true" />
+                  <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
                     Corporate Registry
                   </h2>
                 </div>
@@ -121,6 +141,7 @@ export default function AboutUsPage() {
                           className={
                             activeSection === link.label ? "text-[#BF092F]" : ""
                           }
+                          aria-hidden="true"
                         />
                         {link.label}
                       </div>
@@ -131,45 +152,43 @@ export default function AboutUsPage() {
                             ? "text-[#BF092F] translate-x-1"
                             : "opacity-0 group-hover:opacity-100"
                         }`}
+                        aria-hidden="true"
                       />
                     </li>
                   ))}
                 </ul>
-              </div>
+              </nav>
             </div>
           </aside>
 
-          {/* MAIN CONTENT AREA */}
+          {/* MAIN CONTENT AREA - Semantic tags added only */}
           <section className="lg:col-span-9 space-y-12">
-            {/* 1. CORPORATE PROFILE */}
-            <div id="corp-profile" className="scroll-mt-32">
+            
+            <article id="corp-profile" className="scroll-mt-32">
               <CorporateProfile />
-            </div>
+            </article>
 
-            <div id="engineering-skills" className="scroll-mt-32">
+            <article id="engineering-skills" className="scroll-mt-32">
               <SkillsShowcase />
-            </div>
+            </article>
 
-            {/* 2. HYBRID MODEL */}
-            <div id="hybrid-model" className="scroll-mt-32">
+            <article id="hybrid-model" className="scroll-mt-32">
               <HybridModel />
-            </div>
+            </article>
 
-            {/* 3. MANUFACTURING SCALE */}
-            <div id="manufacturing-scale" className="scroll-mt-32">
+            <article id="manufacturing-scale" className="scroll-mt-32">
               <ManufacturingScale />
-            </div>
+            </article>
 
-            {/* PRODUCT SCOPE SECTION */}
-            <div id="product-scope" className="scroll-mt-32">
+            <article id="product-scope" className="scroll-mt-32">
               <ProductScope />
-            </div>
+            </article>
 
           </section>
         </div>
       </main>
 
-      <div className="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+      <div className="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" aria-hidden="true" />
     </div>
   );
 }

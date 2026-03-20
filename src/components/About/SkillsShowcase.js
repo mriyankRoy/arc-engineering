@@ -50,7 +50,7 @@ export default function SkillsShowcase() {
         <h3 className="text-[11px] font-bold uppercase tracking-[0.2em]">{skill.title}</h3>
       </div>
       <div className={`w-1.5 h-1.5 rounded-full transition-all ${selected === actualIndex ? "bg-[#BF092F] scale-125" : "bg-white/10"}`} />
-      {selected === actualIndex && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#BF092F]" />}
+      {selected === actualIndex && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#BF092F]" aria-hidden="true" />}
     </button>
   );
 
@@ -60,7 +60,7 @@ export default function SkillsShowcase() {
       className="relative bg-white py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
       aria-labelledby="skills-heading"
     >
-      {/* BACKGROUND DECOR: Ghost "TECH" aligned to the right like ARC, HUB, and SCALE */}
+      {/* BACKGROUND DECOR */}
       <div 
         className="absolute top-10 right-[-5%] md:right-[-2%] text-[8rem] sm:text-[12rem] md:text-[15rem] font-black text-gray-50 select-none pointer-events-none tracking-tighter uppercase leading-none z-0"
         aria-hidden="true"
@@ -70,7 +70,7 @@ export default function SkillsShowcase() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* TOP HEADER: Perfectly matched to CorporateProfile & HybridModel */}
+        {/* TOP HEADER */}
         <header className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8">
           <div style={reveal(hasRevealed)}>
             <div className="flex items-center gap-3 mb-4">
@@ -86,13 +86,13 @@ export default function SkillsShowcase() {
           
           <div className="max-w-sm" style={reveal(hasRevealed, "200ms")}>
             <p className="text-xs sm:text-sm text-gray-400 uppercase tracking-widest leading-relaxed border-l border-gray-100 pl-6 py-1">
-              Advanced technical proficiency across design, manufacturing, and 
-              mission-critical system integration.
+              BS EN compliant engineering proficiency across UK-standard design, 
+              precision manufacturing, and mission-critical systems.
             </p>
           </div>
         </header>
 
-        {/* MOBILE ONLY TABS: Enhanced for touch targets */}
+        {/* MOBILE ONLY TABS */}
         <nav className="lg:hidden flex overflow-x-auto pb-6 mb-4 gap-2 scrollbar-hide snap-x" aria-label="Skill categories mobile">
           {skills.map((skill, idx) => (
             <button
@@ -107,13 +107,13 @@ export default function SkillsShowcase() {
           ))}
         </nav>
 
-        {/* MAIN CHASSIS: Semantic layout for SEO */}
+        {/* MAIN CHASSIS */}
         <article className="grid grid-cols-1 lg:grid-cols-12 shadow-2xl rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-gray-100 bg-[#44444E]" style={reveal(hasRevealed, "400ms")}>
           
           {/* LEFT TERMINAL */}
-          <aside className="hidden lg:flex lg:col-span-3 bg-[#44444E] flex-col border-r border-white/5">
+          <aside className="hidden lg:flex lg:col-span-3 bg-[#44444E] flex-col border-r border-white/5" role="tablist">
             <div className="p-6 border-b border-white/10 bg-black/10">
-              <h4 className="text-[9px] font-black text-white/30 uppercase tracking-[0.4em]">Index Group A</h4>
+              <h4 className="text-[9px] font-black text-white/30 uppercase tracking-[0.4em]">Design & Integration</h4>
             </div>
             {firstHalf.map((skill, index) => renderTab(skill, index))}
           </aside>
@@ -122,13 +122,13 @@ export default function SkillsShowcase() {
           <figure className="lg:col-span-6 relative aspect-[4/5] md:aspect-video lg:aspect-auto lg:h-[650px] bg-[#1A1A1E] overflow-hidden">
             <img
               src={skills[selected].image}
-              alt={`${skills[selected].title} Engineering Skill`}
+              alt={`${skills[selected].title} Specialist Engineering Capability`}
               className={`w-full h-full object-cover transition-all duration-1000 ${imageLoaded ? "opacity-60 scale-100" : "opacity-0 scale-105"}`}
               loading="lazy"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black via-black/60 to-transparent">
               <div className="flex items-center gap-3 mb-4">
-                <Layers className="text-[#BF092F]" size={18} />
+                <Layers className="text-[#BF092F]" size={18} aria-hidden="true" />
                 <span className="text-[10px] font-black text-white uppercase tracking-[0.4em]">Active Module: {skills[selected].title}</span>
               </div>
               <p className="text-white text-sm md:text-lg font-medium leading-relaxed max-w-xl italic border-l-2 border-[#BF092F] pl-6">
@@ -138,27 +138,27 @@ export default function SkillsShowcase() {
           </figure>
 
           {/* RIGHT TERMINAL */}
-          <aside className="hidden lg:flex lg:col-span-3 bg-[#44444E] flex-col">
+          <aside className="hidden lg:flex lg:col-span-3 bg-[#44444E] flex-col" role="tablist">
             <div className="p-6 border-b border-white/10 bg-black/10">
-              <h4 className="text-[9px] font-black text-white/30 uppercase tracking-[0.4em]">Index Group B</h4>
+              <h4 className="text-[9px] font-black text-white/30 uppercase tracking-[0.4em]">Manufacturing & Scale</h4>
             </div>
             {secondHalf.map((skill, index) => renderTab(skill, index + 5))}
             <div className="mt-auto p-10 bg-black/20 border-t border-white/5">
               <div className="flex items-center gap-3 text-white/40 mb-3">
-                <ShieldCheck size={18} className="text-[#BF092F]" />
+                <ShieldCheck size={18} className="text-[#BF092F]" aria-hidden="true" />
                 <span className="text-[9px] font-black uppercase tracking-widest">Protocol Verified</span>
               </div>
-              <p className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em] leading-relaxed">Full compliance with international ISO manufacturing standards.</p>
+              <p className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em] leading-relaxed">Full compliance with BS EN, UKCA, and ISO manufacturing protocols.</p>
             </div>
           </aside>
         </article>
 
-        {/* CORE TENETS: Aligned to the site-wide card style */}
+        {/* CORE TENETS */}
         <footer className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-12 md:mt-16" style={reveal(hasRevealed, "600ms")}>
           {CORE_TENETS.map((tenet, idx) => (
             <div key={idx} className="bg-white p-8 lg:p-10 rounded-3xl shadow-xl border border-gray-50 transition-all hover:shadow-2xl hover:border-[#BF092F]/10 group">
               <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#BF092F]/5 transition-colors">
-                <tenet.icon className="text-[#BF092F]" size={32} />
+                <tenet.icon className="text-[#BF092F]" size={32} aria-hidden="true" />
               </div>
               <div>
                 <h4 className="text-sm font-black text-[#44444E] uppercase mb-4 tracking-widest">{tenet.title}</h4>
