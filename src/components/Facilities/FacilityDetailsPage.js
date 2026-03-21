@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router";
 import { useState, useEffect, useCallback } from "react";
-import { Helmet } from "react-helmet-async"; // SEO Layer
+import { Helmet } from "react-helmet-async"; 
 import { facilities } from "../../utils/facilities";
 import {
   MapPin,
@@ -29,11 +29,11 @@ export default function FacilityDetailsPage() {
     window.scrollTo(0, 0);
   }, [id]);
 
-  // SEO: Structured Data for the hub
+  // SEO: Industrial Hub Schema
   const hubSchema = facility ? {
     "@context": "https://schema.org",
     "@type": "IndustrialBusiness",
-    "name": `${facility.title} | Arc Engineering`,
+    "name": `${facility.title} | Arc Engineering Ltd`,
     "description": facility.desc,
     "address": {
       "@type": "PostalAddress",
@@ -46,7 +46,7 @@ export default function FacilityDetailsPage() {
     ? [
         ...facility.facilityImg.map((img) => ({
           img,
-          title: "Facility View",
+          title: "Infrastructure View",
           desc: facility.title,
         })),
         ...(facility.capabilityImg || []),
@@ -113,12 +113,11 @@ export default function FacilityDetailsPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
-      {/* SEO: Metadata Header */}
       <Helmet>
         <html lang="en-GB" />
         <title>{`${facility.title} | Infrastructure & Capabilities | Arc Engineering`}</title>
-        <meta name="description" content={`Explore ${facility.title} in ${facility.location}. High-capacity fabrication for Generator Enclosures and E-Houses to UK British Standards.`} />
-        <meta name="keywords" content={`Arc Engineering ${facility.location}, Industrial Fabrication ${facility.location}, E-House Manufacturing`} />
+        <meta name="description" content={`Technical specifications for ${facility.title} in ${facility.location}. High-capacity manufacturing for Generator Containers and E-Houses to British Standards.`} />
+        <meta name="keywords" content={`Arc Engineering ${facility.location}, Industrial Fabrication ${facility.location}, E-House Manufacturing, Generator Container Production`} />
         <script type="application/ld+json">{JSON.stringify(hubSchema)}</script>
       </Helmet>
 
@@ -144,7 +143,7 @@ export default function FacilityDetailsPage() {
                 <ChevronLeft size={60} strokeWidth={1} />
               </button>
 
-              <div className="relative border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
+              <div className="relative border border-white/10 shadow-2xl rounded-2xl overflow-hidden bg-black">
                 <img
                   src={currentData?.img}
                   className="max-h-[65vh] w-auto block select-none"
@@ -169,8 +168,8 @@ export default function FacilityDetailsPage() {
                       {currentData?.title || "Operational View"}
                     </h4>
                   </div>
-                  <p className="text-white/60 leading-relaxed font-light tracking-wide">
-                    {currentData?.desc || "Internal technical documentation for " + facility.title}
+                  <p className="text-white/60 leading-relaxed font-light tracking-wide italic">
+                    {currentData?.desc || "Technical documentation for " + facility.title}
                   </p>
                 </div>
                 <div className="text-right shrink-0">
@@ -264,7 +263,7 @@ export default function FacilityDetailsPage() {
                       id="unit-switch"
                       value={facility.id}
                       onChange={(e) => navigate(`/facilities/${e.target.value}`)}
-                      className="rounded-xl w-full bg-black/20 border border-white/10 p-3 text-white outline-none focus:border-[#BF092F] cursor-pointer text-sm"
+                      className="rounded-xl w-full bg-black/20 border border-white/10 p-3 text-white outline-none focus:border-[#BF092F] cursor-pointer text-sm font-bold"
                     >
                       {facilities.map((f) => <option key={f.id} value={f.id} className="bg-[#44444E]">{f.title}</option>)}
                     </select>
@@ -273,7 +272,7 @@ export default function FacilityDetailsPage() {
 
                 <div className="p-8 bg-black/20">
                   <button onClick={() => navigate("/facilities")} className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl shadow-lg hover:bg-white hover:text-[#44444E] transition-all flex items-center justify-center gap-2">
-                    <ArrowLeft size={14} /> Back to Facilities
+                    <ArrowLeft size={14} /> Back to Registry
                   </button>
                 </div>
               </div>
@@ -333,7 +332,7 @@ export default function FacilityDetailsPage() {
                       </div>
                       <div className="py-6">
                         <h4 className="text-xl font-bold text-[#44444E] mb-2 group-hover:text-[#BF092F] transition-colors uppercase tracking-tight">{cap.title}</h4>
-                        <p className="text-gray-500 leading-relaxed text-sm font-light tracking-wide">{cap.desc}</p>
+                        <p className="text-gray-500 leading-relaxed text-sm font-light tracking-wide italic">{cap.desc}</p>
                       </div>
                     </article>
                   );

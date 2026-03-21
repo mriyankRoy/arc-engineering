@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// Import the new structure
+import { Helmet } from "react-helmet-async"; 
 import { projects } from "../../utils/projects";
 import { useLocation, useNavigate } from "react-router";
 import ProjectCard from "./ProjectCard";
@@ -9,10 +9,8 @@ import {
   ArrowRight,
   Activity,
   ChevronRight,
-  LayoutGrid,
 } from "lucide-react";
 
-// Get types dynamically from the new API
 const projectTypes = ["All", ...projects.map((cat) => cat.categoryName)];
 
 export default function ProjectsPage() {
@@ -25,6 +23,15 @@ export default function ProjectsPage() {
   const [selectedType, setSelectedType] = useState(typeQuery || "All");
   const [isVisible, setIsVisible] = useState(false);
 
+  // SEO: Structured Data Schema
+  const registrySchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Arc Engineering Project Registry",
+    "description": "Documenting global deployments and bespoke engineering solutions.",
+    "url": "https://arcengltd.com/projects"
+  };
+
   useEffect(() => {
     setIsVisible(true);
     window.scrollTo(0, 0);
@@ -35,22 +42,16 @@ export default function ProjectsPage() {
     }
   }, [typeQuery]);
 
-  // Logic to get the list of projects based on the new nested structure
   const getFilteredProjects = () => {
     if (selectedType === "All") {
-      // Flatten all projects from all categories into one list
       return projects.flatMap((cat) => cat.projects);
     }
-    // Find the specific category and return its projects
     const category = projects.find((cat) => cat.categoryName === selectedType);
     return category ? category.projects : [];
   };
 
   const filteredProjects = getFilteredProjects();
 
-  /**
-   * INDUSTRIAL OVERVIEW: Project Type Cards
-   */
   const AllProjectsOverview = () => (
     <div className="container mx-auto px-4 md:px-6 py-7 relative z-10">
       <div className="flex items-center gap-4 mb-8">
@@ -61,29 +62,21 @@ export default function ProjectsPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {projects.map((category, idx) => {
-          // Use the internal project count from the category
+        {projects.map((category) => {
           const count = category.projects.length;
           return (
             <div
               key={category.categoryId}
-              onClick={() =>
-                navigate(`/projects?type=${category.categoryName}`)
-              }
+              onClick={() => navigate(`/projects?type=${category.categoryName}`)}
               className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
             >
               <div className="h-48 bg-[#44444E] relative overflow-hidden">
-                {/* Category Image Replacement */}
                 <img
                   src={category.categoryImage}
                   alt={category.categoryName}
                   className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
                 />
-
-                {/* Overlay Gradient to ensure text/UI elements remain visible */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#44444E] via-transparent to-transparent opacity-60" />
-
-                {/* Industrial Accent Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#BF092F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
@@ -104,10 +97,7 @@ export default function ProjectsPage() {
                       {count} Projects
                     </span>
                   </div>
-                  <ArrowRight
-                    size={18}
-                    className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all"
-                  />
+                  <ArrowRight size={18} className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             </div>
@@ -119,12 +109,17 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
+      <Helmet>
+        <title>{isGeneralOverview ? "Engineering Logs | Arc Engineering" : `${selectedType} Series | Arc Engineering`}</title>
+        <meta name="description" content="Documenting global deployments and bespoke engineering solutions across critical power infrastructure." />
+        <script type="application/ld+json">{JSON.stringify(registrySchema)}</script>
+      </Helmet>
+
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
 
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            {/* 🧭 NAVIGATION: Updated to hide on mobile */}
             <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
@@ -197,7 +192,6 @@ export default function ProjectsPage() {
                     </h2>
                   </div>
 
-                  {/* MOBILE ONLY: Dropdown */}
                   <div className="lg:hidden relative">
                     <select
                       value={selectedType}
@@ -218,7 +212,6 @@ export default function ProjectsPage() {
                     </select>
                   </div>
 
-                  {/* DESKTOP ONLY: Original List */}
                   <ul className="hidden lg:block space-y-2">
                     {projectTypes.map((type, idx) => (
                       <li

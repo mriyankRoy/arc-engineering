@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async"; // SEO: Integrated for Meta Tags
+import { Helmet } from "react-helmet-async"; 
 import FacilityCard from "./FacilityCard";
 import { facilities } from "../../utils/facilities";
 import { Factory, Home } from "lucide-react";
@@ -77,7 +77,7 @@ export default function FacilitiesPage() {
         </header>
       </div>
 
-      {/* 🏭 MAIN CONTENT AREA (Changed div to main for SEO) */}
+      {/* 🏭 MAIN CONTENT AREA */}
       <main className="container mx-auto relative z-30">
         <div className="container mx-auto px-4 md:px-6 py-7 relative z-10">
           <div className="flex items-center gap-4 mb-8">
@@ -102,7 +102,7 @@ export default function FacilitiesPage() {
           </div>
         </div>
 
-        {/* Technical Footer Section (Changed div to section for SEO) */}
+        {/* Technical Footer Section */}
         <section className="container mx-auto px-4 md:px-6">
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-200 pt-12 pb-12">
             <div className="rounded-2xl flex flex-col gap-3">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async"; // SEO Layer
 import { products } from "../../utils/products";
 import ProductCard from "./ProductCard";
 import { useLocation, useNavigate } from "react-router";
@@ -21,7 +22,7 @@ const ProductPage = () => {
 
   const scrollTargetRef = useRef(null);
 
-  // --- RECURSIVE LOOKUP (Functionality) ---
+  // --- RECURSIVE LOOKUP (Functionality Preserved) ---
   const findCategoryRecursively = (items, slug) => {
     for (const item of items) {
       if (item.slug === slug) return item;
@@ -44,6 +45,17 @@ const ProductPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
+
+  // SEO: Structured Data for the Product Registry
+  const catalogSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": isGeneralOverview ? "Arc Engineering Product Registry" : `${selectedCategory} Catalog`,
+    "description": isGeneralOverview 
+      ? "Unified database for industrial generator systems and power infrastructure."
+      : currentCategory?.description,
+    "url": `https://arcengltd.com/products${categorySlug ? `?category=${categorySlug}` : ''}`
+  };
 
   useEffect(() => {
     setIsVisible(true);
@@ -138,11 +150,16 @@ const ProductPage = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
+      <Helmet>
+        <title>{isGeneralOverview ? "Industrial Product Registry | Arc Engineering" : `${selectedCategory} Systems | Arc Engineering`}</title>
+        <meta name="description" content={isGeneralOverview ? "Browse our unified database for generator systems and critical power infrastructure." : currentCategory?.description} />
+        <script type="application/ld+json">{JSON.stringify(catalogSchema)}</script>
+      </Helmet>
+
       <div className="pt-22 px-2 md:px-2">
         <header className="shadow-xl relative h-[28vh] min-h-[300px] w-full flex items-center bg-[#44444E] overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />
           <div className="container mx-auto px-4 md:px-6 relative z-20">
-            {/* 🧭 NAVIGATION: Added 'hidden md:flex' to hide on mobile */}
             <nav className="hidden md:flex items-center flex-wrap gap-3 mb-6">
               <button
                 onClick={() => navigate("/")}
@@ -209,7 +226,6 @@ const ProductPage = () => {
                   <ul className="space-y-2">
                     {products.map((cat, idx) => {
                       const catName = cat.category || cat.name;
-                      // Check if this category OR any of its subcategories are currently active
                       const isParentActive =
                         selectedCategory === catName ||
                         cat.subCategories?.some(
@@ -218,7 +234,6 @@ const ProductPage = () => {
 
                       return (
                         <li key={idx} className="space-y-2">
-                          {/* Main Category Item */}
                           <div
                             onClick={() =>
                               navigate(`/products?category=${cat.slug}`)
@@ -240,7 +255,6 @@ const ProductPage = () => {
                             />
                           </div>
 
-                          {/* Sub-categories List (Only visible if Parent is Active) */}
                           {isParentActive && cat.subCategories && (
                             <ul className="ml-4 pl-4 border-l border-white/5 space-y-1 pb-2">
                               {cat.subCategories.map((sub, sIdx) => {

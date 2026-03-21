@@ -15,7 +15,6 @@ export default function FacilityCard({ facility }) {
   const navigate = useNavigate();
 
   return (
-    // SEO: Changed root from <div> to <article> to define this as an independent piece of content
     <article
       className="group relative flex flex-col h-full bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
       onMouseEnter={() => setHover(true)}
@@ -27,7 +26,6 @@ export default function FacilityCard({ facility }) {
       <div className="h-56 relative overflow-hidden bg-[#44444E]">
         <img
           src={facility.facilityImg[0]}
-          /* SEO: Descriptive alt tags are critical for Image Search rankings */
           alt={`Arc Engineering ${facility.title} - ${facility.location} Manufacturing Hub`}
           className={`w-full h-full object-cover grayscale transition-all duration-1000 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105`}
           loading="lazy"
@@ -50,7 +48,6 @@ export default function FacilityCard({ facility }) {
               Manufacturing Hub
             </span>
           </div>
-          {/* SEO: ID linked to aria-labelledby for screen readers/crawlers */}
           <h3 
             id={`facility-title-${facility.id}`}
             className="text-xl font-bold text-[#44444E] tracking-tight group-hover:text-[#BF092F] transition-colors leading-tight mb-2"
@@ -59,7 +56,6 @@ export default function FacilityCard({ facility }) {
           </h3>
           <div className="flex items-center gap-2 text-gray-500">
             <MapPin size={12} className="text-[#BF092F]" aria-hidden="true" />
-            {/* SEO: Location text helps with "Near Me" or regional searches */}
             <address className="not-italic text-[10px] font-bold tracking-widest uppercase text-gray-400">
               {facility.location}
             </address>

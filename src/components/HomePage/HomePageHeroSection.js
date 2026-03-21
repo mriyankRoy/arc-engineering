@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 import { ArrowRight, Zap } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 const heroSentences = [
-  "UK-Led Global Engineering.",
-  "High-Performance Solutions.",
+  "Advanced Power & Global Infrastructure.",
+  "Precision Engineering for Critical Sites.",
+  "High-Performance UK Power Solutions.",
 ];
 
 const HomePageSection1 = () => {
@@ -14,7 +15,7 @@ const HomePageSection1 = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroSentences.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(interval);
   }, []);
 
@@ -26,27 +27,29 @@ const HomePageSection1 = () => {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <Helmet>
-        <title>Arc Engineering Ltd | UK-Led Global Solutions</title>
-        <meta name="description" content="UK-governed engineering for global infrastructure. Specializing in mission-critical power and container solutions." />
+        <title>
+          Arc Engineering Ltd | UK-Led Power & Infrastructure Solutions
+        </title>
+        <meta
+          name="description"
+          content="Arc Engineering Ltd delivers mission-critical power systems and UK-governed engineering solutions for global infrastructure."
+        />
         <link rel="canonical" href="https://arcengltd.com/" />
       </Helmet>
 
-      {/* SEO: Shorter, punchy H1 */}
       <h1 className="sr-only">
-        Arc Engineering Ltd: UK-Led Global Infrastructure
+        Arc Engineering Ltd: Global Leaders in Power Systems
       </h1>
 
       <div className="pt-22 px-2 pb-12">
-        <div className="relative min-h-[550px] md:h-[70vh] w-full flex items-center overflow-hidden rounded-2xl shadow-2xl bg-[#44444E]">
-          
+        <div className="relative min-h-[600px] md:h-[75vh] w-full flex items-center overflow-hidden rounded-2xl shadow-2xl bg-[#44444E]">
           <div className="absolute inset-0 z-0">
             <video
               autoPlay
               loop
               muted
               playsInline
-              title="Arc Engineering Manufacturing"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover opacity-50"
             >
               <source
                 src="https://res.cloudinary.com/dc912sjxj/video/upload/v1771941200/Art_Genpower_Solutions_Ltd_Video_q9curf.mp4"
@@ -55,92 +58,86 @@ const HomePageSection1 = () => {
             </video>
           </div>
 
-          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          {/* Design Strips */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent z-10" />
           <div
-            className="hidden md:block absolute inset-0 z-10 pointer-events-none"
-            aria-hidden="true"
+            className="hidden md:block absolute inset-0 z-10"
             style={{
-              background: `linear-gradient(${slantDegree}, 
-                #44444E ${firstGreyEnd}, 
-                transparent ${firstGreyEnd}, 
-                transparent ${redStripeEnd}, 
-                #44444E ${redStripeEnd},
-                #44444E ${secondGreyEnd},
-                transparent ${secondGreyEnd}
-              )`,
+              background: `linear-gradient(${slantDegree}, #44444E ${firstGreyEnd}, transparent ${firstGreyEnd}, transparent ${redStripeEnd}, #44444E ${redStripeEnd}, #44444E ${secondGreyEnd}, transparent ${secondGreyEnd})`,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-15 pointer-events-none" aria-hidden="true" />
           <div
-            className="hidden md:block absolute inset-0 z-20 pointer-events-none"
-            aria-hidden="true"
+            className="hidden md:block absolute inset-0 z-20"
             style={{
-              background: `linear-gradient(${slantDegree}, 
-                transparent ${firstGreyEnd}, 
-                #BF092F ${firstGreyEnd}, 
-                #BF092F ${redStripeEnd}, 
-                transparent ${redStripeEnd}
-              )`,
+              background: `linear-gradient(${slantDegree}, transparent ${firstGreyEnd}, #BF092F ${firstGreyEnd}, #BF092F ${redStripeEnd}, transparent ${redStripeEnd})`,
             }}
           />
 
-          <div className="container mx-auto px-6 md:px-12 relative z-30">            
+          <div className="container mx-auto px-6 md:px-12 relative z-30">
+            {/* Added internal vertical padding (py-16) to ensure content doesn't hit the top/bottom edges of the hero container */}
+            <div className="w-full md:max-w-[48%] lg:max-w-[45%] xl:max-w-[55%] py-12 md:py-16">
+              
+              {/* Headline Container: mb-8 for better separation from subheadline */}
+              <div className="relative h-[200px] md:h-[300px] lg:h-[380px] flex items-center">
+                {heroSentences.map((text, index) => (
+                  <h2
+                    key={index}
+                    className={`absolute left-0 transition-all duration-1000 ease-in-out font-semibold
+            text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+            text-white leading-[1.05] tracking-tighter ${
+              index === currentIndex
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+            }`}
+                  >
+                    {text.split(" ").map((word, i) => (
+                      <span
+                        key={i}
+                        className={
+                          word
+                            .toLowerCase()
+                            .match(/power|engineering|solutions/)
+                            ? "text-[#BF092F]"
+                            : ""
+                        }
+                      >
+                        {word}{" "}
+                      </span>
+                    ))}
+                  </h2>
+                ))}
+              </div>
 
-            {/* Headline Section: Shorter texts */}
-            <div className="relative w-full h-[120px] sm:h-[150px] lg:h-[200px] flex items-center mb-6">
-              {heroSentences.map((text, index) => (
-                <h2
-                  key={index}
-                  className={`absolute left-0 w-full transition-all duration-1000 ease-in-out font-semibold text-5xl lg:text-7xl xl:text-8xl text-white leading-[1.1] tracking-tight max-w-4xl ${
-                    index === currentIndex
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  }`}
+              {/* Subheadline: Increased pl-10 and adjusted tracking for a cleaner look */}
+              <p className="text-white/80 text-base md:text-xl lg:text-2xl tracking-tight leading-relaxed mb-12 border-l-4 border-[#BF092F] pl-10 max-w-[95%]">
+                Expertly engineered systems designed in the UK to power critical
+                infrastructure across Europe and the globe.
+              </p>
+
+              {/* Button Group: Added pb-4 to ensure breathing room at the bottom of the section */}
+              <div className="flex flex-wrap gap-6 pb-20">
+                <Link
+                  to="/products"
+                  className="rounded-xl group flex items-center gap-5 px-10 py-5 bg-[#BF092F] text-white transition-all hover:scale-105 hover:brightness-110 shadow-2xl shadow-[#BF092F]/20"
                 >
-                  {text.split(" ").map((word, i) => (
-                    <span
-                      key={i}
-                      className={
-                        word.toLowerCase().includes("engineering") ||
-                        word.toLowerCase().includes("solutions")
-                          ? "text-[#BF092F]" 
-                          : ""
-                      }
-                    >
-                      {word}{" "}
-                    </span>
-                  ))}
-                </h2>
-              ))}
-            </div>
-
-            <p className="text-white/60 text-sm md:text-xl tracking-wide leading-relaxed max-w-2xl mb-12 border-l-2 border-[#BF092F] pl-6 italic">
-              Delivering{" "}
-              <strong className="text-white font-bold not-italic">
-                high-performance power systems
-              </strong>{" "}
-              from our UK headquarters to the worldwide market.
-            </p>
-
-            <div className="flex flex-wrap gap-6">
-              <Link
-                to="/products"
-                className="rounded-2xl group relative flex items-center gap-8 px-10 py-5 bg-[#BF092F] text-white transition-all hover:scale-105 shadow-xl shadow-[#BF092F]/20"
-              >
-                <span className="text-[11px] font-black uppercase tracking-[0.3em]">
-                  Products
-                </span>
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
-              </Link>
-              <Link
-                to="/about"
-                className="rounded-2xl group flex items-center gap-8 px-10 py-5 border border-white/20 text-white transition-all hover:bg-white/10"
-              >
-                <span className="text-[11px] font-black uppercase tracking-[0.3em]">
-                  Company
-                </span>
-                <Zap size={16} className="text-[#BF092F]" />
-              </Link>
+                  <span className="text-[12px] font-black uppercase tracking-[0.2em]">
+                    View Products
+                  </span>
+                  <ArrowRight
+                    size={20}
+                    className="group-hover:translate-x-2 transition-transform"
+                  />
+                </Link>
+                <Link
+                  to="/about"
+                  className="rounded-xl flex items-center gap-5 px-10 py-5 border-2 border-white/40 text-white hover:bg-white/10 transition-all"
+                >
+                  <span className="text-[12px] font-black uppercase tracking-[0.2em]">
+                    Our Expertise
+                  </span>
+                  <Zap size={18} className="text-[#BF092F]" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
