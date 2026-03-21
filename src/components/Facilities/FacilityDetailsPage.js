@@ -33,7 +33,7 @@ export default function FacilityDetailsPage() {
   const hubSchema = facility ? {
     "@context": "https://schema.org",
     "@type": "IndustrialBusiness",
-    "name": `${facility.title} | Arc Engineering Ltd`,
+    "name": `${facility.title} | Arc Engineering Solutions Ltd`,
     "description": facility.desc,
     "address": {
       "@type": "PostalAddress",

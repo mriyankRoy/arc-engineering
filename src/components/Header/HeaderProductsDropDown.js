@@ -140,7 +140,7 @@ const HeaderProductsDropDown = () => {
                   <img
                     src={getPreviewImage()}
                     // SEO: Context-rich dynamic alt tags
-                    alt={`${activeSubOrItem?.name} - Arc Engineering Ltd industrial power equipment module`}
+                    alt={`${activeSubOrItem?.name} - Arc Engineering Solutions Ltd industrial power equipment module`}
                     loading="lazy"
                     width="250"
                     height="250"

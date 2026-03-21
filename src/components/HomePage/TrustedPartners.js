@@ -37,7 +37,7 @@ export default function TrustedPartners() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Arc Engineering Ltd",
+            "name": "Arc Engineering Solutions Ltd",
             "url": "https://arcengltd.com",
             "description": `Strategic partner to global energy and infrastructure leaders including ${fullPartnerList}.`,
             "brand": partners.map(p => ({ "@type": "Brand", "name": p.name }))

@@ -47,7 +47,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="relative bg-white py-24 overflow-hidden">
       <Helmet>
-        <title>Engineering Excellence | Arc Engineering Ltd</title>
+        <title>Engineering Excellence | Arc Engineering Solutions Ltd</title>
         <meta name="description" content="UK-governed engineering providing global scale for Generator Enclosures, E-Houses, and mission-critical power infrastructure." />
       </Helmet>
 
@@ -86,7 +86,7 @@ export default function AboutSection() {
                 </span>
               </p>
               <p className="text-gray-500 uppercase tracking-widest text-[11px] font-medium leading-loose mb-10 max-w-2xl">
-                Arc Engineering Ltd bridges the gap between massive production capacity and stringent UK engineering precision, specializing in mission-critical E-House and Generator infrastructure.
+                Arc Engineering Solutions Ltd bridges the gap between massive production capacity and stringent UK engineering precision, specializing in mission-critical E-House and Generator infrastructure.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

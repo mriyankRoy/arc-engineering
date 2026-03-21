@@ -28,17 +28,17 @@ const HomePageSection1 = () => {
     <section className="relative w-full overflow-hidden bg-white">
       <Helmet>
         <title>
-          Arc Engineering Ltd | UK-Led Power & Infrastructure Solutions
+          Arc Engineering Solutions Ltd | UK-Led Power & Infrastructure Solutions
         </title>
         <meta
           name="description"
-          content="Arc Engineering Ltd delivers mission-critical power systems and UK-governed engineering solutions for global infrastructure."
+          content="Arc Engineering Solutions Ltd delivers mission-critical power systems and UK-governed engineering solutions for global infrastructure."
         />
         <link rel="canonical" href="https://arcengltd.com/" />
       </Helmet>
 
       <h1 className="sr-only">
-        Arc Engineering Ltd: Global Leaders in Power Systems
+        Arc Engineering Solutions Ltd: Global Leaders in Power Systems
       </h1>
 
       <div className="pt-22 px-2 pb-12">

@@ -22,7 +22,7 @@ const CompanyVideoSection = ({
   const videoSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": "Arc Engineering Ltd | Global Manufacturing Scale",
+    "name": "Arc Engineering Solutions Ltd | Global Manufacturing Scale",
     "description": tagline,
     "thumbnailUrl": [
       "https://arcengltd.com/video-thumbnail.jpg" 
@@ -32,7 +32,7 @@ const CompanyVideoSection = ({
     "embedUrl": "https://arcengltd.com",
     "publisher": {
       "@type": "Organization",
-      "name": "Arc Engineering Ltd",
+      "name": "Arc Engineering Solutions Ltd",
       "logo": {
         "@type": "ImageObject",
         "url": "https://arcengltd.com/logo.png"
@@ -153,7 +153,7 @@ const CompanyVideoSection = ({
             <video
               ref={videoRef}
               src={videoSrc}
-              title="Arc Engineering Ltd | Global Infrastructure Video"
+              title="Arc Engineering Solutions Ltd | Global Infrastructure Video"
               className="w-full h-full object-cover"
               playsInline
               onClick={togglePlayPause}

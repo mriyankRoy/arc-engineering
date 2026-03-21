@@ -43,14 +43,14 @@ export default function ProjectDetailPage() {
         image: project.imageUrls,
         author: {
           "@type": "Organization",
-          name: "Arc Engineering Ltd",
+          name: "Arc Engineering Solutions Ltd",
         },
         description: Array.isArray(project.description[0])
           ? project.description[1]
           : project.description[0],
         publisher: {
           "@type": "Organization",
-          name: "Arc Engineering Ltd",
+          name: "Arc Engineering Solutions Ltd",
           logo: {
             "@type": "ImageObject",
             url: "https://arcengltd.com/logo.png",

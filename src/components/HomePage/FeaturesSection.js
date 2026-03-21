@@ -20,7 +20,7 @@ export default function FeaturesSection() {
   const productListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Arc Engineering Ltd Product Range",
+    "name": "Arc Engineering Solutions Ltd Product Range",
     "description": "UK-engineered generator enclosures, E-Houses, and power infrastructure.",
     "itemListElement": products.map((product, index) => ({
       "@type": "ListItem",
