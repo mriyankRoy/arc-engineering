@@ -50,11 +50,13 @@ const ProductPage = () => {
   const catalogSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": isGeneralOverview ? "Arc Engineering Product Registry" : `${selectedCategory} Catalog`,
-    "description": isGeneralOverview 
+    name: isGeneralOverview
+      ? "Arc Engineering Product Registry"
+      : `${selectedCategory} Catalog`,
+    description: isGeneralOverview
       ? "Unified database for industrial generator systems and power infrastructure."
       : currentCategory?.description,
-    "url": `https://arcengltd.com/products${categorySlug ? `?category=${categorySlug}` : ''}`
+    url: `https://arcengltd.com/products${categorySlug ? `?category=${categorySlug}` : ""}`,
   };
 
   useEffect(() => {
@@ -151,9 +153,22 @@ const ProductPage = () => {
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
       <Helmet>
-        <title>{isGeneralOverview ? "Industrial Product Registry | Arc Engineering" : `${selectedCategory} Systems | Arc Engineering`}</title>
-        <meta name="description" content={isGeneralOverview ? "Browse our unified database for generator systems and critical power infrastructure." : currentCategory?.description} />
-        <script type="application/ld+json">{JSON.stringify(catalogSchema)}</script>
+        <title>
+          {isGeneralOverview
+            ? "Industrial Product Registry | Arc Engineering"
+            : `${selectedCategory} Systems | Arc Engineering`}
+        </title>
+        <meta
+          name="description"
+          content={
+            isGeneralOverview
+              ? "Browse our unified database for generator systems and critical power infrastructure."
+              : currentCategory?.description
+          }
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(catalogSchema)}
+        </script>
       </Helmet>
 
       <div className="pt-22 px-2 md:px-2">
@@ -216,14 +231,57 @@ const ProductPage = () => {
           <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
             <aside className="lg:col-span-3 space-y-8 h-full">
               <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
-                <div className="p-8 border-b border-white/10">
+                <div className="p-8">
                   <div className="flex items-center gap-3 mb-8">
                     <Filter size={16} className="text-[#BF092F]" />
                     <h2 className="text-[12px] text-white tracking-[0.4em] uppercase">
                       Refine Registry
                     </h2>
                   </div>
-                  <ul className="space-y-2">
+
+                  {/* MOBILE DROPDOWN: Fixed for long category names */}
+                  <div className="lg:hidden relative">
+                    <select
+                      value={categorySlug || ""}
+                      onChange={(e) =>
+                        navigate(`/products?category=${e.target.value}`)
+                      }
+                      className="w-full bg-white/5 border border-white/10 text-white text-[12px] uppercase tracking-[0.2em] px-4 py-4 pr-10 rounded-xl cursor-pointer focus:outline-none focus:border-[#BF092F] appearance-none truncate"
+                      style={{ textOverflow: "ellipsis" }}
+                    >
+                      <option value="" className="bg-[#44444E]">
+                        All Products
+                      </option>
+                      {products.map((cat) => (
+                        <React.Fragment key={cat.slug}>
+                          <option
+                            value={cat.slug}
+                            className="bg-[#44444E] font-bold"
+                          >
+                            {cat.category || cat.name}
+                          </option>
+
+                          {cat.subCategories?.map((sub) => (
+                            <option
+                              key={sub.slug}
+                              value={sub.slug}
+                              className="bg-[#44444E] text-white/60"
+                            >
+                              &nbsp;&nbsp;— {sub.name}
+                            </option>
+                          ))}
+                        </React.Fragment>
+                      ))}
+                    </select>
+
+                    {/* The Visual Toggle: Absolute positioned so it never moves */}
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#BF092F]">
+                      <ChevronRight size={16} className="rotate-90" />
+                    </div>
+                  </div>
+
+                  {/* DESKTOP SIDEBAR: Preserves your recursive nesting UI */}
+                  <ul className="hidden lg:block space-y-2">
                     {products.map((cat, idx) => {
                       const catName = cat.category || cat.name;
                       const isParentActive =
