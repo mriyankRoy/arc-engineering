@@ -3,15 +3,17 @@ import { Link } from "react-router";
 import { 
   ChevronLeft, 
   ChevronDown, 
-  Briefcase, 
+  Folder, 
   CornerDownRight
 } from "lucide-react";
-import { projects } from "../../utils/projects";
+import { products } from "../../utils/products";
 
-const ProjectsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
+const ProductsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
   const [expandedCat, setExpandedCat] = useState(null);
 
-  // SEO: We keep the component in the DOM but hidden via CSS so bots can crawl the links
+  // SEO: Removed 'if (!isOpen) return null' 
+  // We use CSS classes to hide/show so the links remain in the DOM for crawlers.
+
   return (
     <div
       className={`fixed inset-0 z-[130] bg-[#44444E] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -19,7 +21,7 @@ const ProjectsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
       }`}
       role="dialog"
       aria-modal="true"
-      aria-label="Arc Engineering Projects Portfolio"
+      aria-label="Product Categories Menu"
     >
       <div className="h-full pt-28 flex flex-col relative">
         
@@ -34,42 +36,42 @@ const ProjectsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
 
           <div className="border-l-4 border-[#BF092F] pl-4">
             <h1 className="text-white text-2xl font-black uppercase tracking-tight">
-              Case Studies
+              Products
             </h1>
-            <p className="text-white/30 text-[9px] uppercase tracking-[0.2em]">Certified Engineering Projects</p>
+            <p className="text-white/30 text-[9px] uppercase tracking-[0.2em]">Arc Engineering Directory</p>
           </div>
         </div>
 
-        {/* NAVIGATION LIST */}
-        <nav className="flex-1 overflow-y-auto custom-scrollbar px-6 pb-20" aria-label="Project Categories">
+        {/* NAVIGATION LIST - SEO: Wrapped in <nav> and <ul> */}
+        <nav className="flex-1 overflow-y-auto custom-scrollbar px-6 pb-20" aria-label="Mobile Product Directory">
           <ul className="space-y-3">
-            {projects.map((cat) => {
-              const isActive = expandedCat === cat.categoryId;
+            {products.map((cat) => {
+              const isActive = expandedCat === cat.slug;
               
               return (
                 <li 
-                  key={cat.categoryId} 
+                  key={cat.slug} 
                   className={`rounded-2xl border transition-all duration-300 ${
                     isActive ? "bg-white/5 border-white/10 shadow-lg" : "bg-transparent border-transparent"
                   }`}
                 >
                   {/* CATEGORY TRIGGER */}
                   <button
-                    onClick={() => setExpandedCat(isActive ? null : cat.categoryId)}
+                    onClick={() => setExpandedCat(isActive ? null : cat.slug)}
                     aria-expanded={isActive}
-                    aria-controls={`project-submenu-${cat.categoryId}`}
+                    aria-controls={`submenu-${cat.slug}`}
                     className={`w-full flex items-center justify-between p-5 transition-all ${
                       isActive ? "text-white" : "text-white/60"
                     }`}
                   >
                     <div className="flex items-center gap-4">
-                      <Briefcase 
+                      <Folder 
                         size={18} 
                         className={`${isActive ? "text-[#BF092F]" : "text-white/20"} transition-colors`} 
                         aria-hidden="true"
                       />
                       <span className="text-[13px] font-bold uppercase tracking-wider">
-                        {cat.categoryName}
+                        {cat.category}
                       </span>
                     </div>
                     <ChevronDown 
@@ -79,43 +81,38 @@ const ProjectsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
                     />
                   </button>
 
-                  {/* SUB-PROJECTS PANEL */}
+                  {/* SUB-ITEMS PANEL - SEO: Hidden with height/opacity so content is crawlable */}
                   <div 
-                    id={`project-submenu-${cat.categoryId}`}
+                    id={`submenu-${cat.slug}`}
                     className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                      isActive ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+                      isActive ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0 lg:opacity-100"
                     }`}
                   >
                     <ul className="px-6 pb-6 flex flex-col gap-2 border-t border-white/5 mt-1 pt-4">
-                      {cat.projects.map((project) => (
-                        <li key={project.id}>
-                          {/* FIXED ROUTE: Ensure your App.js defines this route pattern */}
+                      {(cat.subCategories || cat.items || []).map((sub, idx) => (
+                        <li key={idx}>
                           <Link
-                            to={`/projects/${project.id}`} 
+                            to={cat.subCategories ? `/products?category=${sub.slug}` : `/products/${cat.slug}/${sub.id}`}
                             onClick={onCloseAll}
                             className="flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group"
+                            title={`View ${sub.name || sub.category}`}
                           >
                             <CornerDownRight size={14} className="text-[#BF092F]/40 group-hover:text-[#BF092F]" aria-hidden="true" />
-                            <div className="flex flex-col">
-                              <span className="text-white/80 group-hover:text-white text-[11px] font-bold tracking-wide transition-colors">
-                                {project.name}
-                              </span>
-                              <span className="text-[8px] text-white/20 uppercase font-black group-hover:text-[#BF092F] transition-colors">
-                                Client: {project.client}
-                              </span>
-                            </div>
+                            <span className="text-white/50 group-hover:text-white text-[11px] font-medium tracking-wide transition-colors">
+                              {sub.name || sub.category}
+                            </span>
                           </Link>
                         </li>
                       ))}
                       
-                      {/* SEO LANDING PAGE LINK */}
+                      {/* CATEGORY LANDING PAGE LINK - High SEO Value */}
                       <li>
                         <Link
-                          to={`/projects?filter=${cat.categoryId}`}
+                          to={`/products?category=${cat.slug}`}
                           onClick={onCloseAll}
-                          className="mt-4 block py-3 rounded-xl bg-[#BF092F]/10 text-[#BF092F] text-[9px] font-black uppercase tracking-widest text-center hover:bg-[#BF092F] hover:text-white transition-all shadow-sm"
+                          className="mt-4 block py-3 rounded-xl bg-[#BF092F]/10 text-[#BF092F] text-[9px] font-black uppercase tracking-widest text-center hover:bg-[#BF092F] hover:text-white transition-all"
                         >
-                          Explore {cat.categoryName} Portfolio
+                          Explore All {cat.category}
                         </Link>
                       </li>
                     </ul>
@@ -127,9 +124,9 @@ const ProjectsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
         </nav>
 
         {/* STICKY FOOTER */}
-        <footer className="mt-auto py-10 flex flex-col items-center gap-4 border-t border-white/5 bg-[#44444E]/90 backdrop-blur-md">
-          <div className="w-12 h-[1px] bg-[#BF092F]/30" aria-hidden="true" />
-          <p className="text-white text-[9px] font-black tracking-[0.5em] uppercase opacity-40">
+        <footer className="mt-auto py-10 flex flex-col items-center gap-4 border-t border-white/5 bg-[#44444E]/80 backdrop-blur-md">
+          <div className="w-12 h-[1px] bg-[#BF092F]/50" aria-hidden="true" />
+          <p className="text-white text-[10px] font-bold tracking-[0.4em] uppercase">
             Arc Engineering Solutions Ltd.
           </p>
         </footer>
@@ -143,4 +140,4 @@ const ProjectsMobileDrawer = ({ isOpen, onClose, onCloseAll }) => {
   );
 };
 
-export default ProjectsMobileDrawer;
+export default ProductsMobileDrawer;
