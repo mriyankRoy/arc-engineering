@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { products } from "../../utils/products";
-import { useNavigate } from "react-router";
-import { Search, X } from "lucide-react"; // Added icons for better UX
+import { useNavigate, Link } from "react-router"; 
+import { Search, X } from "lucide-react";
 
 const MobileHeaderSearch = ({ onSelect }) => {
   const [query, setQuery] = useState("");
@@ -27,14 +27,13 @@ const MobileHeaderSearch = ({ onSelect }) => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-    setActiveIndex(-1);
+    setActiveIndex(-1); // Reset highlight when typing
     
     if (value.trim().length < 1) {
       setResults([]);
       return;
     }
 
-    // Logic for finding items in both parent and standard categories
     const allItems = products.flatMap((c) =>
       c.type === "parent"
         ? c.subCategories.flatMap((s) =>
@@ -51,9 +50,27 @@ const MobileHeaderSearch = ({ onSelect }) => {
     setResults(filtered.slice(0, 5));
   };
 
+  // --- NEW KEYBOARD LOGIC ---
+  const handleKeyDown = (e) => {
+    if (results.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIndex((prev) => (prev > 0 ? prev - 1 : -1));
+    } else if (e.key === "Enter" && activeIndex !== -1) {
+      e.preventDefault();
+      handleSelect(results[activeIndex]);
+    }
+  };
+  // ---------------------------
+
   const handleSearchSubmit = (e) => {
-    if (e) e.preventDefault(); // Prevent accidental page refreshes
-    if (query.trim()) {
+    if (e) e.preventDefault();
+    // If user presses Enter without highlighting an item, perform general search
+    if (activeIndex === -1 && query.trim()) {
       if (document.activeElement instanceof HTMLElement) {
         document.activeElement.blur();
       }
@@ -72,15 +89,25 @@ const MobileHeaderSearch = ({ onSelect }) => {
 
   return (
     <div ref={searchRef} className="relative w-full">
-      {/* 1. SEMANTIC FORM: Critical for Mobile 'Search' button on keyboards */}
-      <form onSubmit={handleSearchSubmit} role="search" className="relative group">
-        <label htmlFor="mobile-search-input" className="sr-only">Search Generator Parts</label>
+      <form 
+        onSubmit={handleSearchSubmit} 
+        role="search" 
+        action="/search" 
+        method="get"
+        className="relative group"
+      >
+        <label htmlFor="mobile-search-input" className="sr-only">
+          Search Engineering Products & Parts
+        </label>
+        
         <div className="relative flex items-center">
           <input
             id="mobile-search-input"
-            type="search" // SEO/UX: Shows 'Search' button on mobile keyboards
+            name="q"
+            type="search"
             value={query}
             onChange={handleSearchChange}
+            onKeyDown={handleKeyDown} // Trigger arrow key logic here
             placeholder="SEARCH REGISTRY..."
             autoComplete="off"
             className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-white text-lg font-bold placeholder:text-white/20 focus:outline-none focus:border-[#BF092F] focus:bg-white/10 transition-all"
@@ -94,39 +121,48 @@ const MobileHeaderSearch = ({ onSelect }) => {
           {query && (
             <button 
               type="button" 
-              onClick={() => setQuery("")}
+              onClick={() => { setQuery(""); setResults([]); }}
               className="absolute right-4 p-2 text-white/40 hover:text-white"
-              aria-label="Clear search"
+              aria-label="Clear search input"
             >
-              <X size={20} />
+              <X size={20} aria-hidden="true" />
             </button>
           )}
         </div>
       </form>
 
-      {/* 2. ACCESSIBLE RESULTS LIST */}
       {results.length > 0 && (
         <ul 
           id="mobile-search-results"
           role="listbox"
-          className="absolute z-[120] w-full bg-[#2A2A32]/98 backdrop-blur-xl mt-3 rounded-2xl overflow-hidden border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-2"
+          className="absolute z-[120] w-full bg-[#2A2A32]/98 backdrop-blur-xl mt-3 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
         >
           {results.map((item, idx) => (
             <li
               key={item.id}
-              role="option"
-              aria-selected={activeIndex === idx}
-              onClick={() => handleSelect(item)}
-              className={`px-6 py-4 border-b border-white/5 cursor-pointer transition-all duration-300 active:bg-[#BF092F] ${
-                activeIndex === idx ? "bg-[#BF092F] text-white" : "text-white/70"
-              }`}
+              role="none"
+              className="border-b border-white/5 last:border-0"
             >
-              <div className="flex flex-col gap-0.5">
-                <span className={`block text-[9px] font-black tracking-[0.2em] uppercase ${activeIndex === idx ? "text-white" : "text-[#BF092F]"}`}>
-                  {item.manufacturerPartNumber}
-                </span>
-                <span className="text-sm font-bold leading-tight">{item.name}</span>
-              </div>
+              <Link
+                to={`/products/${item.categorySlug}/${item.id}`}
+                onClick={(e) => {
+                    e.preventDefault();
+                    handleSelect(item);
+                }}
+                className={`block px-6 py-4 cursor-pointer transition-all duration-300 ${
+                  activeIndex === idx ? "bg-[#BF092F] text-white" : "text-white/70"
+                }`}
+                role="option"
+                aria-selected={activeIndex === idx}
+                title={`View details for ${item.name}`}
+              >
+                <div className="flex flex-col gap-0.5 pointer-events-none">
+                  <span className={`block text-[9px] font-black tracking-[0.2em] uppercase ${activeIndex === idx ? "text-white" : "text-[#BF092F]"}`}>
+                    {item.manufacturerPartNumber}
+                  </span>
+                  <span className="text-sm font-bold leading-tight">{item.name}</span>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>

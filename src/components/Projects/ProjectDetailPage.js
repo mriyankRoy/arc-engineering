@@ -35,25 +35,29 @@ export default function ProjectDetailPage() {
   }, [id]);
 
   // SEO: Technical Log Schema
-  const technicalLogSchema = project ? {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": project.name,
-    "image": project.imageUrls,
-    "author": {
-      "@type": "Organization",
-      "name": "Arc Engineering Ltd"
-    },
-    "description": Array.isArray(project.description[0]) ? project.description[1] : project.description[0],
-    "publisher": {
-      "@type": "Organization",
-      "name": "Arc Engineering Ltd",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://arcengltd.com/logo.png"
+  const technicalLogSchema = project
+    ? {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        headline: project.name,
+        image: project.imageUrls,
+        author: {
+          "@type": "Organization",
+          name: "Arc Engineering Ltd",
+        },
+        description: Array.isArray(project.description[0])
+          ? project.description[1]
+          : project.description[0],
+        publisher: {
+          "@type": "Organization",
+          name: "Arc Engineering Ltd",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://arcengltd.com/logo.png",
+          },
+        },
       }
-    }
-  } : null;
+    : null;
 
   const showNext = useCallback(
     (e) => {
@@ -126,8 +130,13 @@ export default function ProjectDetailPage() {
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
       <Helmet>
         <title>{`${project.name} | Case Study | Arc Engineering`}</title>
-        <meta name="description" content={`Technical field log for ${project.name} in ${project.location}. Deployment of ${project.type} systems by Arc Engineering.`} />
-        <script type="application/ld+json">{JSON.stringify(technicalLogSchema)}</script>
+        <meta
+          name="description"
+          content={`Technical field log for ${project.name} in ${project.location}. Deployment of ${project.type} systems by Arc Engineering.`}
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(technicalLogSchema)}
+        </script>
       </Helmet>
 
       {/* 🔍 ENHANCED LIGHTBOX */}
@@ -140,10 +149,16 @@ export default function ProjectDetailPage() {
             onClick={closeLightbox}
             className="cursor-pointer absolute top-10 right-10 text-white/50 hover:text-[#BF092F] transition-all z-[110] group"
           >
-            <X size={40} className="group-hover:rotate-90 transition-transform" />
+            <X
+              size={40}
+              className="group-hover:rotate-90 transition-transform"
+            />
           </button>
 
-          <div className="max-w-7xl w-full flex flex-col items-center gap-2 md:gap-6" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="max-w-7xl w-full flex flex-col items-center gap-2 md:gap-6"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="relative flex items-center justify-center group px-0 md:px-24">
               <button
                 onClick={showPrev}
@@ -204,7 +219,9 @@ export default function ProjectDetailPage() {
                 className="cursor-pointer group flex items-center gap-1 text-white/50 hover:text-white transition-colors"
               >
                 <Home size={14} />
-                <span className="text-[10px] md:text-xs tracking-widest uppercase">Home</span>
+                <span className="text-[10px] md:text-xs tracking-widest uppercase">
+                  Home
+                </span>
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
               <button
@@ -222,11 +239,15 @@ export default function ProjectDetailPage() {
               </button>
               <span className="text-white/20 text-xs font-mono">{">"}</span>
               <button className="text-[10px] md:text-xs tracking-widest uppercase bg-[#BF092F] text-white px-4 py-1.5 rounded-2xl shadow-lg shadow-[#BF092F]/20">
-                {project.name.length > 25 ? `${project.name.substring(0, 25)}...` : project.name}
+                {project.name.length > 25
+                  ? `${project.name.substring(0, 25)}...`
+                  : project.name}
               </button>
             </nav>
 
-            <h1 className={`font-semibold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-[-0.02em] max-w-4xl transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
+            <h1
+              className={`font-semibold text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-[-0.02em] max-w-4xl transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            >
               {project.name}
             </h1>
             <p className="text-white/60 text-lg md:text-xl tracking-wide leading-relaxed mt-4 max-w-3xl font-medium">
@@ -255,29 +276,69 @@ export default function ProjectDetailPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <Layers size={16} className="text-[#BF092F]" />
-                    <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">Technical Specs</h2>
+                    <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
+                      Technical Specs
+                    </h2>
                   </div>
-                  <ChevronRight size={18} className="text-white/40 lg:hidden transform rotate-90" />
+                  <ChevronRight
+                    size={18}
+                    className="text-white/40 lg:hidden transform rotate-90"
+                  />
                 </div>
 
-                <div id="mobile-preview" className="flex flex-col gap-3 lg:hidden border-t border-white/5 pt-4">
-                  <div className="flex items-center gap-2">
-                    <FileText size={12} className="text-[#BF092F]" />
-                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Client:</span>
-                    <span className="text-[10px] text-white font-bold">{project?.client}</span>
-                  </div>
+                <div
+                  id="mobile-preview"
+                  className="flex flex-col gap-2 lg:hidden border-t border-white/5 pt-4"
+                >
+                  <dl className="flex flex-col gap-2">
+                    {" "}
+                    {/* dl = Definition List */}
+                    <div className="flex items-center gap-2">
+                      <FileText
+                        size={12}
+                        className="text-[#BF092F]"
+                        aria-hidden="true"
+                      />
+                      <dt className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
+                        Client:
+                      </dt>
+                      <dd className="text-[10px] text-white font-bold">
+                        {project?.client}
+                      </dd>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Tag
+                        size={12}
+                        className="text-[#BF092F]"
+                        aria-hidden="true"
+                      />
+                      <dt className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
+                        Category:
+                      </dt>
+                      <dd className="text-[10px] text-white font-bold">
+                        {project?.type}
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
               </div>
 
               <div id="specs-content" className="hidden lg:block">
                 <div className="p-8 space-y-4">
                   {specs.map((spec, i) => (
-                    <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-[#BF092F]/50 transition-colors">
+                    <div
+                      key={i}
+                      className="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-[#BF092F]/50 transition-colors"
+                    >
                       <div className="flex items-center gap-3 mb-1">
                         <span className="text-[#BF092F]">{spec.icon}</span>
-                        <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">{spec.label}</span>
+                        <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">
+                          {spec.label}
+                        </span>
                       </div>
-                      <p className="text-white font-bold tracking-wide">{spec.value}</p>
+                      <p className="text-white font-bold tracking-wide">
+                        {spec.value}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -298,21 +359,34 @@ export default function ProjectDetailPage() {
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-8 w-1 bg-[#BF092F]" />
-                <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">Project Brief</h2>
+                <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">
+                  Project Brief
+                </h2>
               </div>
               <div className="space-y-6">
                 {project.description.map((desc, idx) =>
                   Array.isArray(desc) ? (
-                    <div key={idx} className="grid grid-cols-1 gap-4 mt-8 bg-gray-50 p-8 rounded-2xl border-l-4 border-[#BF092F]">
+                    <div
+                      key={idx}
+                      className="grid grid-cols-1 gap-4 mt-8 bg-gray-50 p-8 rounded-2xl border-l-4 border-[#BF092F]"
+                    >
                       {desc.map((item, i) => (
                         <div key={i} className="flex gap-4 items-start">
-                          <ArrowRight size={18} className="text-[#BF092F] mt-1 shrink-0" />
-                          <p className="text-[#44444E] font-bold leading-relaxed">{item}</p>
+                          <ArrowRight
+                            size={18}
+                            className="text-[#BF092F] mt-1 shrink-0"
+                          />
+                          <p className="text-[#44444E] font-bold leading-relaxed">
+                            {item}
+                          </p>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <p key={idx} className="text-lg leading-relaxed text-gray-600 font-light tracking-wide">
+                    <p
+                      key={idx}
+                      className="text-lg leading-relaxed text-gray-600 font-light tracking-wide"
+                    >
                       {desc}
                     </p>
                   ),
@@ -324,7 +398,9 @@ export default function ProjectDetailPage() {
               <div className="flex items-center justify-between px-4 pt-4 mb-2">
                 <div className="flex items-center gap-3">
                   <div className="h-6 w-1 bg-[#BF092F]" />
-                  <h2 className="text-[#44444E] uppercase text-[12px] font-black tracking-widest">Field Documentation</h2>
+                  <h2 className="text-[#44444E] uppercase text-[12px] font-black tracking-widest">
+                    Field Documentation
+                  </h2>
                 </div>
               </div>
 
@@ -342,13 +418,19 @@ export default function ProjectDetailPage() {
 
                 <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
                   <button
-                    onClick={(e) => { e.stopPropagation(); showPrev(); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showPrev();
+                    }}
                     className="pointer-events-auto cursor-pointer p-3 bg-white/90 shadow-xl rounded-full transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:bg-[#BF092F] hover:text-white"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button
-                    onClick={(e) => { e.stopPropagation(); showNext(); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showNext();
+                    }}
                     className="pointer-events-auto cursor-pointer p-3 bg-white/90 shadow-xl rounded-full transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:bg-[#BF092F] hover:text-white"
                   >
                     <ChevronRight size={24} />
@@ -375,7 +457,10 @@ export default function ProjectDetailPage() {
           </section>
         </div>
       </main>
-      <div className="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" aria-hidden="true" />
+      <div
+        className="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"
+        aria-hidden="true"
+      />
     </div>
   );
 }

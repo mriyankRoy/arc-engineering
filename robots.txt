@@ -1,4 +1,43 @@
+# ------------------------------------------------------------
+# ROBOTS.TXT for Arc Engineering Solutions Ltd (arcengltd.com)
+# Optimized for UK, Europe, and Global Engineering Markets
+# ------------------------------------------------------------
+
 User-agent: *
+
+# Allow all primary content
+Allow: /
+Allow: /products/
+Allow: /projects/
+Allow: /facilities/
+Allow: /about
+Allow: /contact
+
+# Block search result pages to prevent "Thin Content" indexing
+# This prevents Google from indexing every random search query
+Disallow: /search/
+
+# Block private Digital Business Cards from general search (Optional)
+# Use this if you want /people/ pages to be private/direct link only
+# Disallow: /people/
+
+# Block common sensitive directories
+Disallow: /cgi-bin/
+Disallow: /private/
+Disallow: /config/
+
+# Host and Sitemap
+Host: https://arcengltd.com
+Sitemap: https://arcengltd.com/sitemap.xml
+
+# ------------------------------------------------------------
+# Specialized Crawlers
+# ------------------------------------------------------------
+
+# Allow specialized image bots to index your high-quality facility/product photos
+User-agent: Googlebot-Image
 Allow: /
 
-Sitemap: https://arcengltd.com/sitemap.xml
+# Prevent low-quality "Scraper" bots from slowing down your site (Optional)
+User-agent: GPTBot
+Disallow: /
