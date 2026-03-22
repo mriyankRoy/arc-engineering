@@ -155,7 +155,7 @@ const CompanyVideoSection = ({
               src={videoSrc}
               title="Arc Engineering Solutions Ltd | Global Infrastructure Video"
               className="w-full h-full object-cover"
-              autoPlay muted playsInline
+              playsInline
               onClick={togglePlayPause}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}

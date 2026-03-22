@@ -52,7 +52,7 @@ const HomePageSection1 = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-50"
             >
               <source
-                src="https://res.cloudinary.com/dc912sjxj/video/upload/v1771941200/Art_Genpower_Solutions_Ltd_Video_q9curf.mp4"
+                src="https://media.arcengltd.com/arc-videos/Arc_Engineering_Solutions_Ltd.mp4"
                 type="video/mp4"
               />
             </video>
