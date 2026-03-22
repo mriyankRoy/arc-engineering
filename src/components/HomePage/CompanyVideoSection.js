@@ -3,7 +3,7 @@ import { Play, Pause, Activity, Maximize2, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 const CompanyVideoSection = ({
-  videoSrc = "https://res.cloudinary.com/dc912sjxj/video/upload/v1771941200/Art_Genpower_Solutions_Ltd_Video_q9curf.mp4",
+  videoSrc = "https://media.arcengltd.com/arc-videos/Arc_Engineering_Solutions_Ltd.mp4",
   title = "Infrastructure Scale",
   tagline = "A visual overview of our 41,000 SQM manufacturing capacity and UK-led engineering protocols.",
 }) => {
@@ -155,7 +155,7 @@ const CompanyVideoSection = ({
               src={videoSrc}
               title="Arc Engineering Solutions Ltd | Global Infrastructure Video"
               className="w-full h-full object-cover"
-              playsInline
+              autoPlay muted playsInline
               onClick={togglePlayPause}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}

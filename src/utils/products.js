@@ -8,7 +8,7 @@ export const products = [
     type: "direct",
     categoryId: "CAT-CUST-ENCL",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768326360/Art_Genpower_Solutions_Ltd_ESI_Container_01_lufldh.webp",
+      url: "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container_ARC_ESI_01.webp",
       alt: "Custom-engineered acoustic and weatherproof containers.",
     },
     description:
@@ -21,14 +21,14 @@ export const products = [
         AGPPartNumber: "AGP-CONT-XXX",
         Make: "ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768326360/Art_Genpower_Solutions_Ltd_ESI_Container_01_lufldh.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768329341/Art_Genpower_Solutions_Ltd_ESI_Container_02_axoz6j.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768326359/Art_Genpower_Solutions_Ltd_ESI_Container_03_tkl9ds.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,r_20/v1768327794/Art_Genpower_Solutions_Ltd___ESI_Container_04_klp7lm.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,r_20/v1767730757/Hamriyah_Facility_03_z6hmoe.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,r_20/v1767730367/Sajja_Facility_02_t6limt.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768327414/Art_Genpower_Solutions_Ltd_ESI_Container_Layout_01_dquuzi.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768327414/Art_Genpower_Solutions_Ltd_ESI_Container_Layout_02_lveqwf.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container_ARC_ESI_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container_ARC_ESI_02.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container_ARC_ESI_03.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container_ARC_ESI_04.webp",
+          "https://media.arcengltd.com/facility-images/Hamriyah_Facility_03.webp",
+          "https://media.arcengltd.com/facility-images/Sajja_Facility_04.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container Layout_ARC_ESI_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Container Layout_ARC_ESI_02.webp",
         ],
         shortDescription:
           "Custom-engineered acoustic and weatherproof containers for data center standby power, rated for critical sound levels and hazardous environments.",
@@ -90,7 +90,7 @@ export const products = [
     type: "direct",
     categoryId: "CAT-EHOUSE",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768330245/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_01_l7dfol.webp",
+      url: "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/E-House E-Pod_ARC_ESI_01.webp",
       alt: "Prefabricated modular substation for power distribution.",
     },
     description:
@@ -103,10 +103,10 @@ export const products = [
         AGPPartNumber: "AGP-PWR-EHOUSE",
         Make: "ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768330245/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_01_l7dfol.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768330248/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_02_kq90fj.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto,r_20/v1768330571/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_03_sirvro.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/f_auto,q_auto/v1768330687/E-House_E-Pod_Art_Genpower_Solutions_Ltd_ESI_04_ebzsbb.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/E-House E-Pod_ARC_ESI_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/E-House E-Pod_ARC_ESI_02.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/E-House E-Pod_ARC_ESI_03.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/E-House E-Pod_ARC_ESI_04.webp",
         ],
         shortDescription:
           "A complete, plug-and-play power distribution center. Our customized E-House modules deliver reliable power infrastructure to the most remote and demanding locations.",
@@ -192,7 +192,7 @@ export const products = [
     type: "direct",
     categoryId: "CAT-PUMP-SKID",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768331209/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_01_jj0rdu.webp",
+      url: "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Pump Skids and Chemical Injection_ARC_ESI_01.webp",
       alt: "Modular pump skid for oil and gas intervention.",
     },
     description:
@@ -205,9 +205,9 @@ export const products = [
         AGPPartNumber: "AGP-FLUID-INJ",
         Make: "ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768331209/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_01_jj0rdu.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1768331658/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_02_eqgm8e.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,r_20/v1768331854/Pump_Skids_and_Chemical_Injection_Art_Genpower_Solutions_Ltd___ESI_03_jdh8w1.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Pump Skids and Chemical Injection_ARC_ESI_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Pump Skids and Chemical Injection_ARC_ESI_02.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/product-images/Pump Skids and Chemical Injection_ARC_ESI_03.webp",
         ],
         shortDescription:
           "Engineered for the demanding Oil & Gas sector, our modular Pump Skids and Injection Packages provide precise fluid delivery and well intervention solutions.",
@@ -275,7 +275,7 @@ export const products = [
     type: "direct",
     categoryId: "CAT-FUEL-STORAGE",
     image: {
-      url: "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1773164178/agp-placeholder-logo_uke2bq.webp",
+      url: "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/arc_placeholder.webp",
       alt: "Double-walled fuel storage tanks.",
     },
     description:
@@ -288,7 +288,7 @@ export const products = [
         AGPPartNumber: "AGP-FUEL-TANKS",
         Make: "Acecube / ESI-Art GenPower Solutions Ltd",
         images: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/b_white,f_auto,q_auto,c_pad,w_700,h_500/v1773164178/agp-placeholder-logo_uke2bq.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=700,height=500,fit=pad,background=white,format=auto,quality=auto/arc_placeholder.webp",
         ],
         shortDescription:
           "Premium range of Acecube fuel tanks offering 110% self-bunded (double-walled) design for safe, compliant onsite fuel storage and transport in any environment.",
