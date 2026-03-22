@@ -95,11 +95,11 @@ export default function CareersPage() {
                       Primary Recruitment Desk
                     </span>
                     <a
-                      href="mailto:info@artgenpower.com"
+                      href="mailto:info@arcengltd.com"
                       className="flex items-center gap-3 text-xl font-medium hover:text-[#BF092F] transition-colors"
                     >
                       <Mail size={20} className="text-[#BF092F]" />
-                      info@artgpower.co.uk
+                      info@arcengltd.com
                     </a>
                   </div>
                 </div>

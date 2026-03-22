@@ -408,10 +408,10 @@ export default function ProjectDetailPage() {
                 className="relative bg-[#f8f8f8] overflow-hidden group flex items-center justify-center cursor-zoom-in rounded-xl h-[400px] md:h-[600px] border border-gray-100"
                 onClick={() => openLightbox(currentIndex)}
               >
-                <div className="w-full h-full flex items-center justify-center p-2 md:p-14">
+                <div className="w-full h-full flex items-center justify-center p-2 md:p-7">
                   <img
                     src={project.imageUrls[currentIndex]}
-                    className="max-h-full max-w-full object-contain transition-all duration-700 group-hover:scale-105 filter sepia-[0.2] brightness-[0.9] contrast-[1.05] group-hover:sepia-0 group-hover:brightness-100 group-hover:contrast-100"
+                    className="rounded-[30px] max-h-full max-w-full object-contain transition-all duration-700 group-hover:scale-105 filter sepia-[0.2] brightness-[0.9] contrast-[1.05] group-hover:sepia-0 group-hover:brightness-100 group-hover:contrast-100"
                     alt={`Arc Engineering Field Documentation: ${project.name}`}
                   />
                 </div>

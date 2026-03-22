@@ -5,7 +5,7 @@ export const projects = [
     categoryDescription:
       "Custom-engineered acoustic and weather-proof enclosures designed for power generation and industrial equipment, featuring advanced noise attenuation and climate control.",
     categoryImage:
-      "https://res.cloudinary.com/dc912sjxj/image/upload/v1767732878/AGP_Enclosure_fkopvb.webp",
+      "https://media.arcengltd.com/project-images/ARC_Enclosure.webp",
     projects: [
       {
         id: "ENC-001",
@@ -17,7 +17,7 @@ export const projects = [
           "Design and Supply of 3 numbers of 20ft. Custom built Enclosure with 2,000 Ltr Single wall Base fuel Tank with instrumentation for C1100D5B Genset (Dimensions, L=6.058 m x W=2.438 m & H=2.890 m) (Noise Level: 85 dB (A) @ 3 m in a free field environment)",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792000/AGP_Project_Sajja_Cummins_Arabia_01_wqdbqx.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cummins Arabia_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -54,10 +54,10 @@ export const projects = [
           ],
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792841/AGP_Project_Sajja_ADNOC_01_vokpnc.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792842/AGP_Project_Sajja_ADNOC_02_nbwwz6.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792842/AGP_Project_Sajja_ADNOC_03_ilcxbh.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792843/AGP_Project_Sajja_ADNOC_04_qzgaxy.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_ADNOC_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_ADNOC_02.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_ADNOC_03.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_ADNOC_04.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -71,7 +71,7 @@ export const projects = [
           "Design, Supply and Packaging of 5 nos. of Custom-built Enclosure (L= 8.8 m X W= 2.7 m X H= 3.2 m)  for 1250KVA (KTA50G3) Gensets. Sound level to be achieved 85 dBA @ 1 meter, in free Field Environment with a special paint of C5M.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794904/AGP_Projects_Hamriyah_Energia_Webuild_01_ftawed.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Projects_Hamriyah_Energia Webuild_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -87,7 +87,7 @@ export const projects = [
           "Supply of 1750LTR single wall day fuel tank with instrumentation (Non Hazardous rated) along with internal piping",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792842/AGP_Project_Sajja_Cummins_01_dxwrob.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cummins_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -102,7 +102,7 @@ export const projects = [
           "Supply of 3000LTR single wall underbelly fuel tank with instrumentation (Non Hazardous rated) along with internal piping",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792843/AGP_Project_Sajja_Orange_Container_01_ye9sad.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Orange Container_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -116,10 +116,10 @@ export const projects = [
           " Project description: Supply of 6 nos. of Custom built Enclosure for C1100D5B Genset with 2000 ltr Base Fuel Tank Noise- 85 dB(A)@ 1 mtr for Oil and Gas Project",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767793375/AGP_Project_Sajja_Cummins_Enclosurer_01_ppgska.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767793374/AGP_Project_Sajja_Cummins_Enclosurer_02_r5jnkg.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767793376/AGP_Project_Sajja_Cummins_Enclosurer_03_a5fxuj.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767793375/AGP_Project_Sajja_Cummins_Enclosurer_04_pxlf4h.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cummins Enclosure_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cummins Enclosure_02.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cummins Enclosure_03.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cummins Enclosure_04.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -133,8 +133,8 @@ export const projects = [
           " Design, engineering, manufacturing, inspection, and installation of a C900D5 genset housed in a custom-built enclosure in a Standard 20ft ISO container. Noise level of 85 dB(A) at 3.0 meters. A 1650-liter single-wall base fuel tank is integrated into the design.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794262/AGP_Project_Sajja_White_Container_01_rk6aw9.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794263/AGP_Project_Sajja_White_Container_02_gm8aru.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_White Container_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_White Container_02.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -153,7 +153,7 @@ export const projects = [
           ],
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794904/AGP_Projects_Hamriyah_Energia_Webuild_01_ftawed.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Projects_Hamriyah_Energia Webuild_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -167,7 +167,7 @@ export const projects = [
           "We packaged 2 units of Cummins C1250D5A gensets in custom-built enclosures for Engginium, featuring custom design and enhanced acoustic performance.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794905/AGP_Projects_Hamriyah_Engginium_Cummins_01_m2npmk.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Projects_Hamriyah_Engginium Cummins_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -181,7 +181,7 @@ export const projects = [
           "40 ft. used container with a 1-hour fire-rated enclosure. Features 10mm thick hot-dip galvanized chequered plate flooring and customized storage racks.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792840/AGP_Project_Sajja_ACE_Cranes_01_qoculn.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_ACE Cranes_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -195,7 +195,7 @@ export const projects = [
           "40 ft High Cube (HC) container specifically designed to house the C1400D5 genset, optimized for space and durability.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794904/AGP_Projects_Hamriyah_Car_and_General_U_Ltd_01_bzizom.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Projects_Hamriyah_Car and General (U) Ltd_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -209,7 +209,7 @@ export const projects = [
           "Offshore equipment including Acid Transporters and Mud Skips for safe handling and transportation in offshore environments.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794906/AGP_Projects_Hamriyah_Jackson_Energy_Solutions_LLC_01_o1pztz.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Projects_Hamriyah_Jackson Energy Solutions LLC_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -221,7 +221,7 @@ export const projects = [
     categoryDescription:
       "Prefabricated, walk-in modular outdoor enclosures to house medium and low voltage switchgear, transformers, and auxiliary equipment.",
     categoryImage:
-      "https://res.cloudinary.com/dc912sjxj/image/upload/v1767732879/AGP_E-House_iabzvu.webp",
+      "https://media.arcengltd.com/project-images/ARC_E-House.webp",
     projects: [
       {
         id: "EHS-001",
@@ -233,7 +233,7 @@ export const projects = [
           "Our comprehensive E-House solution includes Engineering, Manufacturing, Supply, and Commissioning for industrial and infrastructure projects.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792842/AGP_Project_Sajja_EXPRO_01_yflefs.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_EXPRO_01.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -245,7 +245,7 @@ export const projects = [
     categoryDescription:
       "High-performance rental power solutions and specialized containerized engine units designed for rapid deployment and harsh environments.",
     categoryImage:
-      "https://res.cloudinary.com/dc912sjxj/image/upload/v1767732879/AGP_PowerPack_Systems_n2qhrp.webp",
+      "https://media.arcengltd.com/project-images/ARC_PowerPack_Systems.webp",
     projects: [
       {
         id: "PPK-001",
@@ -257,11 +257,11 @@ export const projects = [
           "Designed for KTA 38 and KTA 50 gensets, featuring noise reduction (85 dB) and durable construction for harsh environments.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792050/AGP_Project_Sajja_PowerPack_02_vp8q4f.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792009/AGP_Project_Sajja_PowerPack_01_gw00ra.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792069/AGP_Project_Sajja_PowerPack_04_cb755l.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792283/AGP_Project_Sajja_PowerPack_05_vxaqbz.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767792284/AGP_Project_Sajja_PowerPack_03_vaqjex.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_PowerPack_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_PowerPack_02.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_PowerPack_03.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_PowerPack_04.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_PowerPack_05.webp",
         ],
         color: "from-black-900 to-black-500",
       },
@@ -273,7 +273,7 @@ export const projects = [
     categoryDescription:
       "Custom-built active cooling shelters integrated with redundant communication and F&G safety systems for extreme temperatures.",
     categoryImage:
-      "https://res.cloudinary.com/dc912sjxj/image/upload/v1767732878/AGP_Colling-Systems_fvfjgr.webp",
+      "https://media.arcengltd.com/project-images/ARC_Colling-Systems.webp",
     projects: [
       {
         id: "CSL-001",
@@ -285,8 +285,8 @@ export const projects = [
           "Custom-engineered Active Cooling Shelters with integrated advanced Fire & Gas (F&G) safety systems and redundant communication protocols.",
         ],
         imageUrls: [
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794204/AGP_Project_Sajja_Cooling_Shelter_01_fmbsug.webp",
-          "https://res.cloudinary.com/dc912sjxj/image/upload/r_30/v1767794202/AGP_Project_Sajja_Cooling_Shelter_02_ejdxlh.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cooling Shelter_01.webp",
+          "https://media.arcengltd.com/cdn-cgi/image/width=1200,format=auto,quality=90/project-images/ARC_Project_Sajja_Cooling Shelter_02.webp",
         ],
         color: "from-black-900 to-black-500",
       },
