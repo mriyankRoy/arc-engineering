@@ -118,9 +118,9 @@ const HomePageSection1 = () => {
               <div className="flex flex-wrap gap-6 pb-20">
                 <Link
                   to="/products"
-                  className="rounded-xl group flex items-center gap-5 px-10 py-5 bg-[#BF092F] text-white transition-all hover:scale-105 hover:brightness-110 shadow-2xl shadow-[#BF092F]/20"
+                  className="rounded-2xl group relative flex items-center gap-8 px-10 py-5 bg-[#BF092F] text-white transition-all hover:scale-105 shadow-xl shadow-[#BF092F]/20"
                 >
-                  <span className="text-[12px] font-black uppercase tracking-[0.2em]">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">
                     View Products
                   </span>
                   <ArrowRight
@@ -130,9 +130,9 @@ const HomePageSection1 = () => {
                 </Link>
                 <Link
                   to="/about"
-                  className="rounded-xl flex items-center gap-5 px-10 py-5 border-2 border-white/40 text-white hover:bg-white/10 transition-all"
+                  className="rounded-2xl group flex items-center gap-8 px-10 py-5 border border-white/20 text-white transition-all hover:bg-white/10"
                 >
-                  <span className="text-[12px] font-black uppercase tracking-[0.2em]">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">
                     Our Expertise
                   </span>
                   <Zap size={18} className="text-[#BF092F]" />
