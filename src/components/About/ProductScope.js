@@ -105,7 +105,7 @@ const ProductScope = () => {
           
           <button 
             onClick={() => navigate('/products')}
-            className="w-full md:w-auto group flex items-center justify-center gap-6 px-10 py-5 bg-white border border-gray-100 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] text-[#44444E] hover:border-[#BF092F] hover:text-[#BF092F] transition-all shadow-sm hover:shadow-md active:scale-95"
+            className="cursor-pointer w-full md:w-auto group flex items-center justify-center gap-6 px-10 py-5 bg-white border border-gray-100 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] text-[#44444E] hover:border-[#BF092F] hover:text-[#BF092F] transition-all shadow-sm hover:shadow-md active:scale-95"
           >
             Explore Technical Range 
             <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" aria-hidden="true" />

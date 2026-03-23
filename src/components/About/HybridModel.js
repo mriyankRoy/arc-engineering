@@ -104,8 +104,8 @@ const HybridModel = () => {
                 </div>
 
                 <p className="text-sm text-gray-500 leading-loose">
-                  Utilizing high-capacity industrial hubs in **Hamriyah and Sajja** to handle hyperscale infrastructure. 
-                  This model allows Arc Engineering to serve the **UK and Europe** with the lead times of a local partner and the capacity of a global leader.
+                  Utilizing high-capacity industrial hubs in Hamriyah and Sajja to handle hyperscale infrastructure. 
+                  This model allows Arc Engineering to serve the UK and Europe with the lead times of a local partner and the capacity of a global leader.
                 </p>
               </div>
 

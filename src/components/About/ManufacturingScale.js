@@ -1,9 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Activity, MapPin, Factory, Users, Warehouse, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router";
 
 const ManufacturingScale = () => {
   const sectionRef = useRef(null);
   const [hasRevealed, setHasRevealed] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -138,7 +140,7 @@ const ManufacturingScale = () => {
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#BF092F]">Operation Mode</p>
                   <p className="text-[11px] text-white/40 uppercase font-bold">Parallel Delivery</p>
                 </div>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-[#BF092F] group-hover:border-[#BF092F] transition-all">
+                <div onClick={() => {navigate("/projects")}} className="cursor-pointer w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-[#BF092F] group-hover:border-[#BF092F] transition-all">
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </div>
               </div>
