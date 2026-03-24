@@ -160,7 +160,7 @@ const CompanyVideoSection = ({
                 <button onClick={(e) => { e.stopPropagation(); videoRef.current.muted = !isMuted; setIsMuted(!isMuted); }} className="text-white/60 hover:text-white transition-colors">
                   {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
                 </button>
-                <button onClick={handleFullScreen} className="text-white/60 hover:text-white transition-colors">
+                <button onClick={handleFullScreen} className="cursor-pointer text-white/60 hover:text-white transition-colors">
                   {isFullscreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
                 </button>
               </div>
