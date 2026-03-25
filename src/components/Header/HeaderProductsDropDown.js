@@ -78,7 +78,7 @@ const HeaderProductsDropDown = () => {
                       }`}
                       title={`Browse ${cat.category} Solutions`}
                     >
-                      <span className="text-[11px] font-bold tracking-widest uppercase leading-tight">
+                      <span className="text-[11px]  tracking-widest uppercase leading-tight">
                         {cat.category}
                       </span>
                       {activeCategorySlug === cat.slug && (

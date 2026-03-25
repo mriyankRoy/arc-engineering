@@ -71,7 +71,7 @@ const HeaderProjectsDropdown = () => {
                       }`}
                       title={`View ${type} Engineering Projects`}
                     >
-                      <span className="text-[11px] font-bold tracking-widest uppercase leading-tight">
+                      <span className="text-[11px]  tracking-widest uppercase leading-tight">
                         {type}
                       </span>
                       {activeType === type && (

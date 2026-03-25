@@ -60,7 +60,7 @@ const HeaderFacilitiesDropdown = () => {
                   }`}
                 >
                   <div className="flex flex-col">
-                    <span className="text-[11px] tracking-widest uppercase leading-tight font-medium">
+                    <span className="text-[11px] tracking-widest uppercase leading-tight">
                       {f.name || f.title}
                     </span>
                     <span className={`text-[9px] mt-1 ${activeFacilityId === f.id ? "text-gray-400" : "text-white/40"}`}>

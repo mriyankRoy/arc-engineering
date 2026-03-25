@@ -28,6 +28,12 @@ export default function ProjectDetailPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Find current category and projects (from previous step)
+  const currentCategory = projects.find((cat) =>
+    cat.projects.some((p) => String(p.id) === id),
+  );
 
   useEffect(() => {
     setIsVisible(true);
@@ -262,6 +268,99 @@ export default function ProjectDetailPage() {
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
           <aside className="lg:col-span-4 space-y-8">
             <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden transition-all duration-500">
+              {/* ✨ REFINED MODERN NAVIGATOR */}
+              <div className="p-6 border-b border-white/10 relative">
+                <label className="text-[10px] text-white/30 uppercase tracking-[0.3em] font-black block mb-4">
+                  Project Registry Navigation
+                </label>
+
+                <div className="relative">
+                  {/* Trigger Button */}
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="cursor-pointer w-full group flex items-center justify-between bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl transition-all duration-300 active:scale-[0.98]"
+                  >
+                    <div className="flex flex-col items-start overflow-hidden text-left">
+                      <span className="text-[10px] text-[#BF092F] font-bold uppercase tracking-tighter">
+                        Current: {currentCategory?.categoryName}
+                      </span>
+                      <span className="text-white font-medium truncate w-full max-w-[200px]">
+                        {project?.name}
+                      </span>
+                    </div>
+                    <ChevronRight
+                      size={18}
+                      className={`text-white/40 transition-transform duration-500 ${isDropdownOpen ? "rotate-90 text-[#BF092F]" : ""}`}
+                    />
+                  </button>
+
+                  {/* 📱 MOBILE & DESKTOP MENU */}
+                  {isDropdownOpen && (
+                    <>
+                      {/* Backdrop: Fixes the 'weirdness' on mobile by covering other elements */}
+                      <div
+                        className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md lg:absolute lg:inset-auto lg:top-full lg:left-0 lg:right-0 lg:z-50 lg:bg-transparent lg:backdrop-blur-none"
+                        onClick={() => setIsDropdownOpen(false)}
+                      />
+
+                      <div
+                        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-h-[70vh] z-[110] bg-[#1A1A1E] border border-white/10 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col
+                          lg:absolute lg:top-full lg:left-0 lg:right-0 lg:translate-x-0 lg:translate-y-0 lg:w-full lg:mt-2 lg:max-h-[350px]"
+                      >
+                        {/* Header inside the menu for better context */}
+                        <div className="p-4 bg-white/5 border-b border-white/10 flex items-center justify-between">
+                          <span className="text-[10px] text-white/40 uppercase font-black tracking-widest">
+                            Select Project
+                          </span>
+                          <X
+                            size={16}
+                            className="text-white/40 lg:hidden"
+                            onClick={() => setIsDropdownOpen(false)}
+                          />
+                        </div>
+
+                        <div className="overflow-y-auto custom-scrollbar p-2">
+                          {currentCategory?.projects.map((p) => (
+                            <button
+                              key={p.id}
+                              onClick={() => {
+                                navigate(`/projects/${p.id}`);
+                                setIsDropdownOpen(false);
+                              }}
+                              className={`w-full text-left p-4 rounded-xl transition-all flex items-center justify-between group/item mb-1
+                      ${
+                        p.id === id
+                          ? "bg-[#BF092F] text-white shadow-lg shadow-[#BF092F]/20"
+                          : "text-white/60 hover:bg-white/5 hover:text-white"
+                      }`}
+                            >
+                              <div className="flex flex-col pr-4 overflow-hidden">
+                                <span
+                                  className={`text-[9px] uppercase font-bold ${p.id === id ? "text-white/70" : "text-[#BF092F]"}`}
+                                >
+                                  ID: {p.id}
+                                </span>
+                                <span className="text-sm font-semibold truncate leading-tight">
+                                  {p.name}
+                                </span>
+                              </div>
+                              {p.id === id ? (
+                                <div className="h-2 w-2 rounded-full bg-white animate-pulse shrink-0" />
+                              ) : (
+                                <ArrowRight
+                                  size={14}
+                                  className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#BF092F]"
+                                />
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+
               <div
                 className="p-6 lg:p-8 flex flex-col gap-4 cursor-pointer lg:cursor-default border-b border-white/10"
                 onClick={() => {
