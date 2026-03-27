@@ -366,63 +366,90 @@ export default function FacilityDetailsPage() {
             </div>
           </aside>
 
-          <section className="lg:col-span-8 space-y-8">
-            <article className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-8 w-1 bg-[#BF092F]" aria-hidden="true" />
-                <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">
-                  Operational Overview
+          <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 pb-20 px-4 sm:px-6 lg:px-0">
+            {/* 01. OPERATIONAL INTELLIGENCE: OVERVIEW */}
+            <article className="relative">
+              <header className="mb-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-[1px] bg-[#BF092F]" />
+                  <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#BF092F]">
+                    Operational_Intelligence
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold text-[#44444E] tracking-tight leading-none mb-6">
+                  Infrastructure{" "}
+                  <span className="text-gray-300 font-light italic">
+                    Capabilities.
+                  </span>
                 </h2>
+              </header>
+
+              <div className="relative">
+                <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-4xl border-l-2 border-gray-100 pl-8 py-1">
+                  {facility.desc}
+                </p>
               </div>
-              <p className="text-lg leading-relaxed text-gray-600 font-light tracking-wide">
-                {facility.desc}
-              </p>
             </article>
 
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
-              <div className="flex items-center justify-between mb-12 border-b border-gray-100 pb-8">
-                <h3 className="tracking-widest border-l-4 border-[#BF092F] pl-4 text-[#44444E] uppercase text-sm font-bold">
-                  Infrastructure Gallery
+            {/* 02. VISUAL LOGS: SITE GALLERY */}
+            <article className="space-y-6">
+              <div className="flex items-end justify-between px-2">
+                <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">
+                  Site_Telemetry_Logs
                 </h3>
-                <span className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">
-                  COUNT: {facility.facilityImg.length}
-                </span>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-[9px] text-gray-400 uppercase tracking-widest hidden sm:block">
+                    Unit_ID: {facility.id}
+                  </span>
+                  <span className="text-[10px] font-black text-[#44444E] bg-gray-50 px-3 py-1 rounded-full">
+                    COUNT // {facility.facilityImg.length}
+                  </span>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* Modern Grid with refined spacing */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {facility.facilityImg.map((src, index) => (
                   <figure
                     key={index}
-                    className="group relative h-48 rounded-2xl overflow-hidden border border-gray-100 cursor-pointer"
+                    className="group relative aspect-square rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-sm cursor-zoom-in"
                     onClick={() => openLightbox(index)}
                   >
                     <img
                       src={src}
-                      className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
-                      alt={`${facility.title} technical infrastructure view ${index + 1}`}
+                      className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                      alt={`${facility.title} view ${index + 1}`}
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-[#44444E]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Maximize2
-                        className="text-white"
-                        size={24}
-                        aria-hidden="true"
-                      />
+                    <div className="absolute inset-0 bg-[#44444E]/40 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
+                      <div className="p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30">
+                        <Maximize2
+                          className="text-white"
+                          size={20}
+                          strokeWidth={1.5}
+                        />
+                      </div>
                     </div>
                   </figure>
                 ))}
               </div>
-            </div>
+            </article>
 
-            <section className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
-              <div className="flex items-center gap-4 mb-12">
-                <div className="h-8 w-1 bg-[#BF092F]" aria-hidden="true" />
-                <h3 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">
-                  Systems & Machinery
+            {/* 03. TECHNICAL REGISTRY: SYSTEMS & MACHINERY */}
+            <article className="pt-20 border-t border-gray-100">
+              <div className="mb-12">
+                <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
+                  Systems{" "}
+                  <span className="text-gray-300 font-light italic">
+                    & Machinery.
+                  </span>
                 </h3>
+                <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">
+                  Deployment of critical industrial assets
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {facility.capabilityImg?.map((cap, index) => {
                   const actualIndex = facility.facilityImg.length + index;
                   return (
@@ -431,22 +458,31 @@ export default function FacilityDetailsPage() {
                       onClick={() => openLightbox(actualIndex)}
                       className="group cursor-pointer"
                     >
-                      <div className="rounded-2xl h-56 overflow-hidden relative border border-gray-100 shadow-md">
+                      <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-1000 border border-gray-50">
                         <img
                           src={cap.img}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                           alt={cap.title}
                           loading="lazy"
                         />
-                        <div className="absolute bottom-0 left-0 bg-[#BF092F] text-white p-3 rounded-tr-2xl">
-                          <ShieldCheck size={18} aria-hidden="true" />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
+
+                        <div className="absolute bottom-0 left-0 bg-[#BF092F] text-white p-3 rounded-tr-2xl shadow-lg">
+                          <ShieldCheck size={18} strokeWidth={2} />
                         </div>
                       </div>
-                      <div className="py-6">
-                        <h4 className="text-xl font-bold text-[#44444E] mb-2 group-hover:text-[#BF092F] transition-colors uppercase tracking-tight">
+
+                      <div className="px-2">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em]">
+                            Asset_Ref_0{index + 1}
+                          </span>
+                          <div className="h-px flex-1 bg-gray-100" />
+                        </div>
+                        <h4 className="text-xl font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors mb-2">
                           {cap.title}
                         </h4>
-                        <p className="text-gray-500 leading-relaxed text-sm font-light tracking-wide italic">
+                        <p className="text-gray-500 leading-relaxed text-sm font-medium tracking-wide italic">
                           {cap.desc}
                         </p>
                       </div>
@@ -454,7 +490,7 @@ export default function FacilityDetailsPage() {
                   );
                 })}
               </div>
-            </section>
+            </article>
           </section>
         </div>
       </main>

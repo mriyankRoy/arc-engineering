@@ -97,7 +97,7 @@ const CorporateProfile = () => {
                 <p className="leading-loose text-base md:text-lg">
                   Arc Engineering Solutions Ltd specializes in the manufacture
                   of high-specification metal structures. We bridge the gap
-                  between **British engineering quality** and large-scale
+                  between British engineering quality and large-scale
                   manufacturing to serve the UK and European infrastructure
                   sectors.
                 </p>

@@ -14,6 +14,7 @@ import {
   Home,
   Maximize2,
   ArrowLeft,
+  Activity,
 } from "lucide-react";
 import { projects } from "../../utils/projects";
 
@@ -440,205 +441,149 @@ export default function ProjectDetailPage() {
             </div>
           </aside>
 
-          <section className="lg:col-span-8 space-y-8">
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-gray-100">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-8 w-1 bg-[#BF092F]" />
-                <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">
-                  Project Brief
-                </h2>
+         
+          <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 pb-20 px-4 sm:px-6 lg:px-0">
+  {/* 01. THE DOSSIER: MINIMALIST DESCRIPTION */}
+  <article className="relative">
+    <header className="mb-10">
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-10 h-[1px] bg-[#BF092F]" />
+        <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#BF092F]">
+          Technical_Summary
+        </span>
+      </div>
+      {/* Scaled down from 4xl/6xl to 3xl/5xl */}
+      <h2 className="text-3xl md:text-5xl font-bold text-[#44444E] tracking-tight leading-none mb-6">
+        Project <span className="text-gray-300 font-light italic">Brief.</span>
+      </h2>
+    </header>
+
+    <div className="grid grid-cols-1 gap-8">
+      {project.description.map((desc, idx) =>
+        Array.isArray(desc) ? (
+          <div key={idx} className="grid sm:grid-cols-2 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
+            {desc.map((item, i) => (
+              <div key={i} className="bg-white p-8 hover:bg-gray-50 transition-colors group">
+                <p className="text-[9px] font-black text-[#BF092F] mb-3 tracking-widest uppercase opacity-50 group-hover:opacity-100 transition-opacity">
+                  Feature_0{i + 1}
+                </p>
+                <p className="text-sm font-bold text-[#44444E] leading-relaxed uppercase tracking-normal">
+                  {item}
+                </p>
               </div>
-              <div className="space-y-6">
-                {project.description.map((desc, idx) =>
-                  Array.isArray(desc) ? (
-                    <div
-                      key={idx}
-                      className="grid grid-cols-1 gap-4 mt-8 bg-gray-50 p-8 rounded-2xl border-l-4 border-[#BF092F]"
-                    >
-                      {desc.map((item, i) => (
-                        <div key={i} className="flex gap-4 items-start">
-                          <ArrowRight
-                            size={18}
-                            className="text-[#BF092F] mt-1 shrink-0"
-                          />
-                          <p className="text-[#44444E] font-bold leading-relaxed">
-                            {item}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p
-                      key={idx}
-                      className="text-lg leading-relaxed text-gray-600 font-light tracking-wide"
-                    >
-                      {desc}
-                    </p>
-                  ),
-                )}
-              </div>
-            </div>
+            ))}
+          </div>
+        ) : (
+          <div key={idx} className="relative">
+            {/* Reduced from text-xl/2xl to text-lg/xl for better flow */}
+            <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-3xl">
+              {desc}
+            </p>
+          </div>
+        )
+      )}
+    </div>
+  </article>
 
-            <div className="bg-white p-3 md:p-4 rounded-2xl shadow-xl border border-gray-100 flex flex-col gap-4">
-              <div className="flex items-center justify-between px-4 pt-4 mb-2">
-                <div className="flex items-center gap-3">
-                  <div className="h-6 w-1 bg-[#BF092F]" />
-                  <h2 className="text-[#44444E] uppercase text-[12px] font-black tracking-widest">
-                    Field Documentation
-                  </h2>
-                </div>
-              </div>
+  {/* 02. THE STUDIO: CINEMATIC GALLERY */}
+  <article className="space-y-6">
+    <div className="flex items-end justify-between px-2">
+      <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">
+        Visual_Data_Logs
+      </h3>
+      <span className="font-mono text-[9px] text-gray-400">
+        IMG_REF // {currentIndex + 1}.0
+      </span>
+    </div>
 
-              <div
-                className="relative bg-[#f8f8f8] overflow-hidden group flex items-center justify-center cursor-zoom-in rounded-xl h-[400px] md:h-[600px] border border-gray-100"
-                onClick={() => openLightbox(currentIndex)}
-              >
-                <div className="w-full h-full flex items-center justify-center p-2 md:p-7">
-                  <img
-                    src={project.imageUrls[currentIndex]}
-                    className="rounded-[30px] max-h-full max-w-full object-contain transition-all duration-700 group-hover:scale-105 filter sepia-[0.2] brightness-[0.9] contrast-[1.05] group-hover:sepia-0 group-hover:brightness-100 group-hover:contrast-100"
-                    alt={`Arc Engineering Field Documentation: ${project.name}`}
-                  />
-                </div>
+    <div 
+      className="relative group aspect-[16/10] md:aspect-video rounded-[2.5rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-2xl cursor-zoom-in"
+      onClick={() => openLightbox(currentIndex)}
+    >
+      <img
+        src={project.imageUrls[currentIndex]}
+        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        alt="Technical View"
+      />
+      
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <button 
+          onClick={(e) => { e.stopPropagation(); showPrev(); }}
+          className="cursor-pointer p-4 text-white hover:text-[#BF092F] transition-colors"
+        >
+          <ChevronLeft size={32} strokeWidth={1} />
+        </button>
+      </div>
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <button 
+          onClick={(e) => { e.stopPropagation(); showNext(); }}
+          className="cursor-pointer p-4 text-white hover:text-[#BF092F] transition-colors"
+        >
+          <ChevronRight size={32} strokeWidth={1} />
+        </button>
+      </div>
 
-                <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      showPrev();
-                    }}
-                    className="pointer-events-auto cursor-pointer p-3 bg-white/90 shadow-xl rounded-full transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:bg-[#BF092F] hover:text-white"
-                  >
-                    <ChevronLeft size={24} />
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      showNext();
-                    }}
-                    className="pointer-events-auto cursor-pointer p-3 bg-white/90 shadow-xl rounded-full transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:bg-[#BF092F] hover:text-white"
-                  >
-                    <ChevronRight size={24} />
-                  </button>
-                </div>
-              </div>
+      <div className="absolute bottom-8 right-8 px-5 py-2.5 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center gap-3">
+        <Maximize2 size={14} className="text-[#BF092F]" />
+        <span className="text-[9px] font-black uppercase tracking-widest text-[#44444E]">Expand View</span>
+      </div>
+    </div>
 
-              <div className="flex gap-3 overflow-x-auto p-2 bg-gray-50 rounded-xl scrollbar-hide">
-                {project.imageUrls.map((url, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentIndex(i)}
-                    className={`cursor-pointer flex-shrink-0 w-20 h-20 border-2 transition-all rounded-lg overflow-hidden relative ${i === currentIndex ? "border-[#BF092F] ring-4 ring-[#BF092F]/10" : "border-transparent opacity-70 hover:opacity-100"}`}
-                  >
-                    <img
-                      src={url}
-                      className={`rounded-lg w-full h-full object-cover transition-all filter ${i === currentIndex ? "sepia-0 brightness-100" : "sepia-[0.3] brightness-[0.85]"} hover:sepia-0 hover:brightness-100`}
-                      alt="Thumbnail View"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-            {/* 🗄️ MATCHED PROJECT REGISTRY SECTION */}
-            <section className="mt-32 pb-20 overflow-hidden">
-              <div className="container mx-auto px-4 md:px-6 mb-10">
-                {/* Exact match to Project Brief header style */}
-                <div className="flex items-center justify-between items-end gap-6">
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="h-8 w-1 bg-[#BF092F]" />
-                      <h2 className="text-sm text-[#44444E] uppercase font-bold tracking-wider">
-                        Explore Other Logs
-                      </h2>
-                    </div>
-                    <p className="text-lg md:text-xl text-gray-500 font-medium max-w-2xl">
-                      Related field documentation and technical deployment
-                      records.
-                    </p>
-                  </div>
+    <div className="flex gap-4 overflow-x-auto py-4 scrollbar-hide px-2">
+      {project.imageUrls.map((url, i) => (
+        <button
+          key={i}
+          onClick={() => setCurrentIndex(i)}
+          className={`cursor-pointer relative shrink-0 w-28 h-18 rounded-2xl overflow-hidden transition-all duration-500 ${
+            i === currentIndex 
+            ? "ring-2 ring-[#BF092F] ring-offset-4 scale-95" 
+            : "opacity-30 hover:opacity-100 grayscale hover:grayscale-0"
+          }`}
+        >
+          <img src={url} className="w-full h-full object-cover" alt="Thumbnail" />
+        </button>
+      ))}
+    </div>
+  </article>
 
-                  {/* Desktop Navigation Orbs */}
-                  <div className="hidden md:flex gap-3 pb-2">
-                    <button
-                      onClick={() => scroll("left")}
-                      className="cursor-pointer h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center text-[#44444E] hover:bg-[#BF092F] hover:border-[#BF092F] hover:text-white transition-all shadow-sm"
-                    >
-                      <ChevronLeft size={18} />
-                    </button>
-                    <button
-                      onClick={() => scroll("right")}
-                      className="cursor-pointer h-10 w-10 rounded-full border border-gray-200 flex items-center justify-center text-[#44444E] hover:bg-[#BF092F] hover:border-[#BF092F] hover:text-white transition-all shadow-sm"
-                    >
-                      <ChevronRight size={18} />
-                    </button>
-                  </div>
-                </div>
-              </div>
+  {/* 03. THE DISCOVERY: BORDERLESS SLIDER */}
+  <article className="pt-20 border-t border-gray-100">
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+      <div>
+        {/* Scaled from text-3xl to text-2xl */}
+        <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
+          Archive <span className="text-gray-300 font-light italic">Discovery.</span>
+        </h3>
+        <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">Additional engineering logs</p>
+      </div>
+      <div className="flex gap-4">
+        <button onClick={() => scroll("left")} className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all">
+          <ChevronLeft size={18} />
+        </button>
+        <button onClick={() => scroll("right")} className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all">
+          <ChevronRight size={18} />
+        </button>
+      </div>
+    </div>
 
-              {/* ↔️ THE SLIDER (Design Unchanged) */}
-              <div
-                ref={scrollContainerRef}
-                className="flex gap-6 overflow-x-auto px-4 md:px-[5%] pb-12 pt-4 snap-x snap-mandatory scrollbar-hide"
-              >
-                {relatedProjects.map((item) => (
-                  <div
-                    key={item.id}
-                    onClick={() => navigate(`/projects/${item.id}`)}
-                    className="cursor-pointer group relative flex-shrink-0 w-[85vw] md:w-[400px] aspect-[3/4] md:aspect-[4/5] snap-center rounded-[30px] overflow-hidden shadow-lg transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-[#BF092F]/20"
-                  >
-                    <img
-                      src={item.imageUrls[0]}
-                      alt={item.name}
-                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
-
-                    <div className="absolute top-6 left-6">
-                      <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black px-4 py-2 rounded-xl uppercase tracking-widest">
-                        {item.type}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-8 left-8 right-8">
-                      <p className="text-[#BF092F] text-[10px] font-black uppercase tracking-tighter mb-2">
-                        Registry ID: {item.id}
-                      </p>
-                      <h4 className="text-xl md:text-2xl font-bold text-white leading-tight mb-4">
-                        {item.name}
-                      </h4>
-                      <div className="h-[1px] w-full bg-white/10 mb-4" />
-                      <p className="text-white/60 text-xs line-clamp-2 leading-relaxed font-light">
-                        {Array.isArray(item.description[0])
-                          ? item.description[1]
-                          : item.description[0]}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-
-                <div className="flex-shrink-0 w-8 md:w-24" />
-              </div>
-
-              {/* 📱 MOBILE NAVIGATION PILL */}
-              <div className="flex md:hidden justify-center mt-2">
-                <div className="inline-flex items-center bg-[#44444E] rounded-full p-1 shadow-2xl">
-                  <button
-                    onClick={() => scroll("left")}
-                    className="cursor-pointer p-4 text-white"
-                  >
-                    <ChevronLeft size={20} />
-                  </button>
-                  <div className="w-[1px] h-4 bg-white/10" />
-                  <button
-                    onClick={() => scroll("right")}
-                    className="cursor-pointer p-4 text-white"
-                  >
-                    <ChevronRight size={20} />
-                  </button>
-                </div>
-              </div>
-            </section>
-          </section>
+    <div ref={scrollContainerRef} className="flex gap-10 overflow-x-auto pb-10 scrollbar-hide snap-x">
+      {relatedProjects.map((item) => (
+        <div
+          key={item.id}
+          onClick={() => navigate(`/projects/${item.id}`)}
+          className="cursor-pointer group shrink-0 w-[80vw] md:w-[400px] snap-start"
+        >
+          <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-700">
+            <img src={item.imageUrls[0]} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt={item.name} />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+          </div>
+          <p className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em] mb-2">Ref_{item.id}</p>
+          <h4 className="text-lg font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors">{item.name}</h4>
+        </div>
+      ))}
+    </div>
+  </article>
+</section>
         </div>
       </main>
       <div
