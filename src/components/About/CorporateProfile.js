@@ -45,9 +45,10 @@ const CorporateProfile = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* HEADER SECTION */}
-        <header className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8">
+        <header className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-8">
           <div style={reveal(hasRevealed)}>
             <div className="flex items-center gap-3 mb-4">
+              {/* Red accent line to match ProductScope */}
               <span className="w-12 h-[2px] bg-[#BF092F]" aria-hidden="true" />
               <p className="text-[10px] tracking-[0.4em] text-[#BF092F] font-bold uppercase">
                 Corporate Identity
@@ -60,7 +61,7 @@ const CorporateProfile = () => {
               Engineering{" "}
               <span className="text-gray-300 font-light">without</span>{" "}
               <br className="hidden sm:block" />
-              Boundaries.
+              <span className="text-[#BF092F]">Boundaries.</span>
             </h2>
           </div>
 
