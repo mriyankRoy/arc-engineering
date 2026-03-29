@@ -453,9 +453,9 @@ export default function FacilityDetailsPage() {
             <article className="pt-20 border-t border-gray-100">
               <div className="mb-12">
                 <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
-                  Systems{" "}
+                  Capabilities{" "}
                   <span className="text-gray-300 font-light italic">
-                    & Machinery.
+                    & Machineries.
                   </span>
                 </h3>
                 <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">
@@ -489,7 +489,7 @@ export default function FacilityDetailsPage() {
                       <div className="px-2">
                         <div className="flex items-center gap-3 mb-2">
                           <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em]">
-                            Asset_Ref_0{index + 1}
+                            Capability_0{index + 1}
                           </span>
                           <div className="h-px flex-1 bg-gray-100" />
                         </div>
