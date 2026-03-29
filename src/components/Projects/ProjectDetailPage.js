@@ -441,149 +441,191 @@ export default function ProjectDetailPage() {
             </div>
           </aside>
 
-         
-          <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 pb-20 px-4 sm:px-6 lg:px-0">
-  {/* 01. THE DOSSIER: MINIMALIST DESCRIPTION */}
-  <article className="relative">
-    <header className="mb-10">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-10 h-[1px] bg-[#BF092F]" />
-        <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#BF092F]">
-          Technical_Summary
-        </span>
-      </div>
-      {/* Scaled down from 4xl/6xl to 3xl/5xl */}
-      <h2 className="text-3xl md:text-5xl font-bold text-[#44444E] tracking-tight leading-none mb-6">
-        Project <span className="text-gray-300 font-light italic">Brief.</span>
-      </h2>
-    </header>
+          <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 py-10 px-4 sm:px-6 lg:px-0">
+            {/* 01. THE DOSSIER: MINIMALIST DESCRIPTION */}
+            <article className="relative">
+              <header className="mb-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-[1px] bg-[#BF092F]" />
+                  <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#BF092F]">
+                    Technical_Summary
+                  </span>
+                </div>
+                {/* Scaled down from 4xl/6xl to 3xl/5xl */}
+                <h2 className="text-3xl md:text-5xl font-bold text-[#44444E] tracking-tight leading-none mb-6">
+                  Project{" "}
+                  <span className="text-gray-300 font-light italic">
+                    Brief.
+                  </span>
+                </h2>
+              </header>
 
-    <div className="grid grid-cols-1 gap-8">
-      {project.description.map((desc, idx) =>
-        Array.isArray(desc) ? (
-          <div key={idx} className="grid sm:grid-cols-2 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
-            {desc.map((item, i) => (
-              <div key={i} className="bg-white p-8 hover:bg-gray-50 transition-colors group">
-                <p className="text-[9px] font-black text-[#BF092F] mb-3 tracking-widest uppercase opacity-50 group-hover:opacity-100 transition-opacity">
-                  Feature_0{i + 1}
-                </p>
-                <p className="text-sm font-bold text-[#44444E] leading-relaxed uppercase tracking-normal">
-                  {item}
-                </p>
+              <div className="grid grid-cols-1 gap-8">
+                {project.description.map((desc, idx) =>
+                  Array.isArray(desc) ? (
+                    <div
+                      key={idx}
+                      className="grid sm:grid-cols-2 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden shadow-sm"
+                    >
+                      {desc.map((item, i) => (
+                        <div
+                          key={i}
+                          className="bg-white p-8 hover:bg-gray-50 transition-colors group"
+                        >
+                          <p className="text-[9px] font-black text-[#BF092F] mb-3 tracking-widest uppercase opacity-50 group-hover:opacity-100 transition-opacity">
+                            Feature_0{i + 1}
+                          </p>
+                          <p className="text-sm font-bold text-[#44444E] leading-relaxed uppercase tracking-normal">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div key={idx} className="relative">
+                      {/* Reduced from text-xl/2xl to text-lg/xl for better flow */}
+                      <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-3xl">
+                        {desc}
+                      </p>
+                    </div>
+                  ),
+                )}
               </div>
-            ))}
-          </div>
-        ) : (
-          <div key={idx} className="relative">
-            {/* Reduced from text-xl/2xl to text-lg/xl for better flow */}
-            <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-3xl">
-              {desc}
-            </p>
-          </div>
-        )
-      )}
-    </div>
-  </article>
+            </article>
 
-  {/* 02. THE STUDIO: CINEMATIC GALLERY */}
-  <article className="space-y-6">
-    <div className="flex items-end justify-between px-2">
-      <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">
-        Visual_Data_Logs
-      </h3>
-      <span className="font-mono text-[9px] text-gray-400">
-        IMG_REF // {currentIndex + 1}.0
-      </span>
-    </div>
+            {/* 02. THE STUDIO: CINEMATIC GALLERY */}
+            <article className="space-y-6">
+              <div className="flex items-end justify-between px-2">
+                <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">
+                  Visual_Data_Logs
+                </h3>
+                <span className="font-mono text-[9px] text-gray-400">
+                  IMG_REF // {currentIndex + 1}.0
+                </span>
+              </div>
 
-    <div 
-      className="relative group aspect-[16/10] md:aspect-video rounded-[2.5rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-2xl cursor-zoom-in"
-      onClick={() => openLightbox(currentIndex)}
-    >
-      <img
-        src={project.imageUrls[currentIndex]}
-        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-        alt="Technical View"
-      />
-      
-      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-        <button 
-          onClick={(e) => { e.stopPropagation(); showPrev(); }}
-          className="cursor-pointer p-4 text-white hover:text-[#BF092F] transition-colors"
-        >
-          <ChevronLeft size={32} strokeWidth={1} />
-        </button>
-      </div>
-      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-        <button 
-          onClick={(e) => { e.stopPropagation(); showNext(); }}
-          className="cursor-pointer p-4 text-white hover:text-[#BF092F] transition-colors"
-        >
-          <ChevronRight size={32} strokeWidth={1} />
-        </button>
-      </div>
+              <div
+                className="relative group aspect-[16/10] md:aspect-video rounded-[2.5rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-2xl cursor-zoom-in"
+                onClick={() => openLightbox(currentIndex)}
+              >
+                <img
+                  src={project.imageUrls[currentIndex]}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  alt="Technical View"
+                />
 
-      <div className="absolute bottom-8 right-8 px-5 py-2.5 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center gap-3">
-        <Maximize2 size={14} className="text-[#BF092F]" />
-        <span className="text-[9px] font-black uppercase tracking-widest text-[#44444E]">Expand View</span>
-      </div>
-    </div>
+                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showPrev();
+                    }}
+                    className="cursor-pointer p-4 text-white hover:text-[#BF092F] transition-colors"
+                  >
+                    <ChevronLeft size={32} strokeWidth={1} />
+                  </button>
+                </div>
+                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showNext();
+                    }}
+                    className="cursor-pointer p-4 text-white hover:text-[#BF092F] transition-colors"
+                  >
+                    <ChevronRight size={32} strokeWidth={1} />
+                  </button>
+                </div>
 
-    <div className="flex gap-4 overflow-x-auto py-4 scrollbar-hide px-2">
-      {project.imageUrls.map((url, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrentIndex(i)}
-          className={`cursor-pointer relative shrink-0 w-28 h-18 rounded-2xl overflow-hidden transition-all duration-500 ${
-            i === currentIndex 
-            ? "ring-2 ring-[#BF092F] ring-offset-4 scale-95" 
-            : "opacity-30 hover:opacity-100 grayscale hover:grayscale-0"
-          }`}
-        >
-          <img src={url} className="w-full h-full object-cover" alt="Thumbnail" />
-        </button>
-      ))}
-    </div>
-  </article>
+                <div className="absolute bottom-8 right-8 px-5 py-2.5 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl flex items-center gap-3">
+                  <Maximize2 size={14} className="text-[#BF092F]" />
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#44444E]">
+                    Expand View
+                  </span>
+                </div>
+              </div>
 
-  {/* 03. THE DISCOVERY: BORDERLESS SLIDER */}
-  <article className="pt-20 border-t border-gray-100">
-    <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-      <div>
-        {/* Scaled from text-3xl to text-2xl */}
-        <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
-          Archive <span className="text-gray-300 font-light italic">Discovery.</span>
-        </h3>
-        <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">Additional engineering logs</p>
-      </div>
-      <div className="flex gap-4">
-        <button onClick={() => scroll("left")} className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all">
-          <ChevronLeft size={18} />
-        </button>
-        <button onClick={() => scroll("right")} className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all">
-          <ChevronRight size={18} />
-        </button>
-      </div>
-    </div>
+              <div className="flex gap-4 overflow-x-auto py-4 scrollbar-hide px-2">
+                {project.imageUrls.map((url, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    className={`cursor-pointer relative shrink-0 w-28 h-18 rounded-2xl overflow-hidden transition-all duration-500 ${
+                      i === currentIndex
+                        ? "ring-2 ring-[#BF092F] ring-offset-4 scale-95"
+                        : "opacity-30 hover:opacity-100 grayscale hover:grayscale-0"
+                    }`}
+                  >
+                    <img
+                      src={url}
+                      className="w-full h-full object-cover"
+                      alt="Thumbnail"
+                    />
+                  </button>
+                ))}
+              </div>
+            </article>
 
-    <div ref={scrollContainerRef} className="flex gap-10 overflow-x-auto pb-10 scrollbar-hide snap-x">
-      {relatedProjects.map((item) => (
-        <div
-          key={item.id}
-          onClick={() => navigate(`/projects/${item.id}`)}
-          className="cursor-pointer group shrink-0 w-[80vw] md:w-[400px] snap-start"
-        >
-          <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-700">
-            <img src={item.imageUrls[0]} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt={item.name} />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-          </div>
-          <p className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em] mb-2">Ref_{item.id}</p>
-          <h4 className="text-lg font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors">{item.name}</h4>
-        </div>
-      ))}
-    </div>
-  </article>
-</section>
+            {/* 03. THE DISCOVERY: BORDERLESS SLIDER */}
+            <article className="pt-20 border-t border-gray-100">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+                <div>
+                  {/* Scaled from text-3xl to text-2xl */}
+                  <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
+                    Archive{" "}
+                    <span className="text-gray-300 font-light italic">
+                      Discovery.
+                    </span>
+                  </h3>
+                  <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">
+                    Additional engineering logs
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <button
+                    onClick={() => scroll("left")}
+                    className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    onClick={() => scroll("right")}
+                    className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </div>
+              </div>
+
+              <div
+                ref={scrollContainerRef}
+                className="flex gap-10 overflow-x-auto pb-10 scrollbar-hide snap-x"
+              >
+                {relatedProjects.map((item) => (
+                  <div
+                    key={item.id}
+                    onClick={() => navigate(`/projects/${item.id}`)}
+                    className="cursor-pointer group shrink-0 w-[80vw] md:w-[400px] snap-start"
+                  >
+                    <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-700">
+                      <img
+                        src={item.imageUrls[0]}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        alt={item.name}
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                    </div>
+                    <p className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em] mb-2">
+                      Ref_{item.id}
+                    </p>
+                    <h4 className="text-lg font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors">
+                      {item.name}
+                    </h4>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </section>
         </div>
       </main>
       <div

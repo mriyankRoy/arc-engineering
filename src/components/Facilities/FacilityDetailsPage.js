@@ -130,79 +130,87 @@ export default function FacilityDetailsPage() {
       </Helmet>
 
       {/* 🔍 LIGHTBOX MODAL */}
-    {/* 🔍 LIGHTBOX MODAL */}
-{lightboxOpen && (
-  <div
-    className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1A1A1E]/95 backdrop-blur-xl md:p-4"
-    onClick={closeLightbox}
-  >
-    {/* Close Button - Moved for better thumb-reach on mobile */}
-    <button
-      onClick={closeLightbox}
-      className="cursor-pointer absolute top-6 right-6 text-white/50 hover:text-[#BF092F] transition-all z-[120] group"
-    >
-      <X
-        size={32}
-        className="md:w-10 md:h-10 group-hover:rotate-90 transition-transform"
-      />
-    </button>
-
-    <div
-      className="w-full h-full md:h-auto max-w-7xl flex flex-col items-center justify-center gap-4 md:gap-6"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="relative w-full flex items-center justify-center group px-4 md:px-24">
-        {/* Navigation Buttons - Hidden on very small screens or made smaller */}
-        <button
-          onClick={showPrev}
-          className="cursor-pointer absolute left-2 md:left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1A1A1E]/95 backdrop-blur-xl md:p-4"
+          onClick={closeLightbox}
         >
-          <ChevronLeft size={40} className="md:w-[60px]" strokeWidth={1} />
-        </button>
+          {/* Close Button - Moved for better thumb-reach on mobile */}
+          <button
+            onClick={closeLightbox}
+            className="cursor-pointer absolute top-6 right-6 text-white/50 hover:text-[#BF092F] transition-all z-[120] group"
+          >
+            <X
+              size={32}
+              className="md:w-10 md:h-10 group-hover:rotate-90 transition-transform"
+            />
+          </button>
 
-        <div className="relative w-full flex justify-center">
-          <img
-            src={currentData?.img}
-            /* Mobile: h-[50vh] or auto width to fill screen 
+          <div
+            className="w-full h-full md:h-auto max-w-7xl flex flex-col items-center justify-center gap-4 md:gap-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full flex items-center justify-center group px-4 md:px-24">
+              {/* Navigation Buttons - Hidden on very small screens or made smaller */}
+              <button
+                onClick={showPrev}
+                className="cursor-pointer absolute left-2 md:left-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+              >
+                <ChevronLeft
+                  size={40}
+                  className="md:w-[60px]"
+                  strokeWidth={1}
+                />
+              </button>
+
+              <div className="relative w-full flex justify-center">
+                <img
+                  src={currentData?.img}
+                  /* Mobile: h-[50vh] or auto width to fill screen 
                Desktop: max-h-[75vh] 
             */
-            className="w-full md:w-auto h-auto max-h-[60vh] md:max-h-[75vh] object-contain select-none rounded-lg md:rounded-2xl shadow-2xl"
-            alt={currentData?.title || "Facility Detail"}
-          />
-        </div>
+                  className="w-full md:w-auto h-auto max-h-[60vh] md:max-h-[75vh] object-contain select-none rounded-lg md:rounded-2xl shadow-2xl"
+                  alt={currentData?.title || "Facility Detail"}
+                />
+              </div>
 
-        <button
-          onClick={showNext}
-          className="cursor-pointer absolute right-2 md:right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
-        >
-          <ChevronRight size={40} className="md:w-[60px]" strokeWidth={1} />
-        </button>
-      </div>
-
-      {/* Info Card - Optimized for mobile height */}
-      <div className="w-[90%] md:w-full max-w-4xl bg-[#44444E] border border-white/10 p-5 md:p-6 rounded-2xl shadow-2xl">
-        <div className="flex items-start justify-between gap-4 md:gap-8">
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-1 md:mb-2">
-              <div className="h-3 w-1 bg-[#BF092F]" />
-              <h4 className="text-white font-black uppercase tracking-widest text-[10px] md:text-sm">
-                {currentData?.title || "Operational View"}
-              </h4>
+              <button
+                onClick={showNext}
+                className="cursor-pointer absolute right-2 md:right-0 text-white/20 hover:text-[#BF092F] transition-all p-2 z-[110] hover:scale-110"
+              >
+                <ChevronRight
+                  size={40}
+                  className="md:w-[60px]"
+                  strokeWidth={1}
+                />
+              </button>
             </div>
-            <p className="text-white/60 leading-relaxed font-light tracking-wide italic text-xs md:text-sm">
-              {currentData?.desc || "Technical documentation for " + facility.title}
-            </p>
-          </div>
-          <div className="text-right shrink-0">
-            <span className="text-white/40 text-[10px] md:text-[12px] font-black tracking-tighter">
-              {currentIndex + 1} / {allImages.length}
-            </span>
+
+            {/* Info Card - Optimized for mobile height */}
+            <div className="w-[90%] md:w-full max-w-4xl bg-[#44444E] border border-white/10 p-5 md:p-6 rounded-2xl shadow-2xl">
+              <div className="flex items-start justify-between gap-4 md:gap-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-1 md:mb-2">
+                    <div className="h-3 w-1 bg-[#BF092F]" />
+                    <h4 className="text-white font-black uppercase tracking-widest text-[10px] md:text-sm">
+                      {currentData?.title || "Operational View"}
+                    </h4>
+                  </div>
+                  <p className="text-white/60 leading-relaxed font-light tracking-wide italic text-xs md:text-sm">
+                    {currentData?.desc ||
+                      "Technical documentation for " + facility.title}
+                  </p>
+                </div>
+                <div className="text-right shrink-0">
+                  <span className="text-white/40 text-[10px] md:text-[12px] font-black tracking-tighter">
+                    {currentIndex + 1} / {allImages.length}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
       {/* 🏗️ HERO SECTION */}
       <div className="pt-22 px-2 md:px-2">
@@ -372,7 +380,7 @@ export default function FacilityDetailsPage() {
             </div>
           </aside>
 
-          <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 pb-20 px-4 sm:px-6 lg:px-0">
+          <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 py-10 px-4 sm:px-6 lg:px-0">
             {/* 01. OPERATIONAL INTELLIGENCE: OVERVIEW */}
             <article className="relative">
               <header className="mb-10">
