@@ -472,7 +472,7 @@ export default function FacilityDetailsPage() {
                       onClick={() => openLightbox(actualIndex)}
                       className="group cursor-pointer"
                     >
-                      <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-1000 border border-gray-50">
+                      <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-1000 border border-gray-50">
                         <img
                           src={cap.img}
                           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"

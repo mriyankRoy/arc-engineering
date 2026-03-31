@@ -505,7 +505,7 @@ export default function ProjectDetailPage() {
               </div>
 
               <div
-                className="relative group aspect-[16/10] md:aspect-video rounded-[2.5rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-2xl cursor-zoom-in"
+                className="relative group aspect-[16/10] md:aspect-video rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 shadow-2xl cursor-zoom-in"
                 onClick={() => openLightbox(currentIndex)}
               >
                 <img
@@ -607,7 +607,7 @@ export default function ProjectDetailPage() {
                     onClick={() => navigate(`/projects/${item.id}`)}
                     className="cursor-pointer group shrink-0 w-[80vw] md:w-[400px] snap-start"
                   >
-                    <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-700">
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-700">
                       <img
                         src={item.imageUrls[0]}
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -616,7 +616,7 @@ export default function ProjectDetailPage() {
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                     </div>
                     <p className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em] mb-2">
-                      Ref_{item.id}
+                      {item.type}
                     </p>
                     <h4 className="text-lg font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors">
                       {item.name}

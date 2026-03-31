@@ -47,6 +47,6 @@ export const skills = [
   {
     title: "Advanced Design Infrastructure",
     description: "Collaboration-focused CAD suite for multi-discipline engineering teams.",
-    image: "https://media.arcengltd.com/skill-images/Advanced_Design_Infrastructure.webp",
+    image: "https://media.arcengltd.com/skill-images/Advance_Design_Infrastructure.webp",
   },
 ];
