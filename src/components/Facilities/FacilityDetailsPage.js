@@ -273,99 +273,97 @@ export default function FacilityDetailsPage() {
       {/* 🏭 MAIN CONTENT */}
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
-          <aside className="lg:col-span-4 space-y-8">
+        <aside className="lg:col-span-4 space-y-8">
             <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden transition-all duration-500">
-              {/* 📱 MOBILE FACILITY SELECTOR (Visible only on mobile) */}
-              <div className="p-6 lg:hidden border-b border-white/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <Layers
-                    size={16}
-                    className="text-[#BF092F]"
-                    aria-hidden="true"
-                  />
-                  <h2 className="text-[11px] text-white tracking-[0.4em] uppercase font-bold">
-                    Select Facility
-                  </h2>
-                </div>
+              
+              {/* 🛠️ SCREEN-SAFE TECHNICAL SELECT */}
+              <div className="p-5 border-b border-white/10 w-full overflow-hidden">
+                <label
+                  htmlFor="facility-switcher"
+                  className="text-[9px] text-white/30 uppercase tracking-[0.2em] font-black block mb-3"
+                >
+                  Facility Registry
+                </label>
 
-                <div className="relative">
+                <div className="relative group w-full max-w-full">
                   <select
+                    id="facility-switcher"
                     value={facility.id}
                     onChange={(e) => navigate(`/facilities/${e.target.value}`)}
-                    className="w-full bg-white/5 border border-white/10 text-white text-[12px] uppercase tracking-[0.2em] px-4 py-4 pr-10 rounded-xl cursor-pointer focus:outline-none focus:border-[#BF092F] appearance-none"
+                    className="w-full max-w-full bg-white/5 border border-white/10 pl-4 pr-12 py-3 rounded-xl 
+                     text-white text-sm font-bold appearance-none cursor-pointer 
+                     focus:outline-none focus:ring-1 focus:ring-[#BF092F] transition-all 
+                     hover:bg-white/10 truncate box-border"
                   >
-                    {facilities.map((f) => (
-                      <option key={f.id} value={f.id} className="bg-[#44444E]">
-                        {f.title}
-                      </option>
-                    ))}
+                    <optgroup label="Operational Units" className="bg-[#1A1A1E]">
+                      {facilities.map((f) => (
+                        <option key={f.id} value={f.id} className="bg-[#1A1A1E] text-white">
+                          {f.title}
+                        </option>
+                      ))}
+                    </optgroup>
                   </select>
-                  {/* Custom Arrow for select */}
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#BF092F]">
-                    <ChevronRight size={14} className="rotate-90" />
+
+                  <div className="absolute right-0 top-0 bottom-0 flex items-center pr-3 pointer-events-none">
+                    <div className="h-2/3 border-l border-white/10 pl-3 flex items-center">
+                      <ChevronRight
+                        size={14}
+                        className="rotate-90 text-[#BF092F] opacity-70 group-hover:opacity-100"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* 🖥️ DESKTOP REGISTRY VIEW (Hidden on mobile) */}
-              <div className="hidden lg:block">
-                <div className="p-8 border-b border-white/10">
-                  <div className="flex items-center gap-3 mb-8">
-                    <Layers
-                      size={16}
-                      className="text-[#BF092F]"
-                      aria-hidden="true"
-                    />
+              {/* 📱 MOBILE PREVIEW TOGGLE */}
+              <div 
+                className="p-6 lg:p-8 flex flex-col gap-4 cursor-pointer lg:cursor-default border-b border-white/10"
+                onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    const content = document.getElementById("specs-content");
+                    const preview = document.getElementById("mobile-preview");
+                    content.classList.toggle("hidden");
+                    preview.classList.toggle("hidden");
+                  }
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Layers size={16} className="text-[#BF092F]" />
                     <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
-                      Facility Registry
+                      Technical Specs
                     </h2>
                   </div>
+                  <ChevronRight size={18} className="text-white/40 lg:hidden transform rotate-90" />
+                </div>
 
-                  <div className="space-y-4">
-                    <SidebarStat
-                      label="Location"
-                      value={facility.location}
-                      icon={<MapPin size={16} />}
-                    />
-                    <SidebarStat
-                      label="Total Area"
-                      value={facility.totalArea}
-                      icon={<ChartArea size={16} />}
-                    />
-                    <SidebarStat
-                      label="Standards"
-                      value={facility.productionCapacity}
-                      icon={<ShieldCheck size={16} />}
-                    />
+                <div id="mobile-preview" className="flex flex-col gap-2 lg:hidden border-t border-white/5 pt-4">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={12} className="text-[#BF092F]" />
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Location:</span>
+                    <span className="text-[10px] text-white font-bold">{facility.location}</span>
                   </div>
+                </div>
+              </div>
 
-                  {/* Desktop Switcher */}
-                  <div className="mt-8 pt-8 border-t border-white/10">
-                    <label
-                      htmlFor="unit-switch-desktop"
-                      className="text-[11px] text-white/40 tracking-[0.3em] uppercase block mb-3 font-bold"
-                    >
-                      Switch Unit
-                    </label>
-                    <select
-                      id="unit-switch-desktop"
-                      value={facility.id}
-                      onChange={(e) =>
-                        navigate(`/facilities/${e.target.value}`)
-                      }
-                      className="rounded-xl w-full bg-black/20 border border-white/10 p-3 text-white outline-none focus:border-[#BF092F] cursor-pointer text-sm font-bold"
-                    >
-                      {facilities.map((f) => (
-                        <option
-                          key={f.id}
-                          value={f.id}
-                          className="bg-[#44444E]"
-                        >
-                          {f.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+              {/* 🖥️ DESKTOP CONTENT / EXPANDED MOBILE CONTENT */}
+              <div id="specs-content" className="hidden lg:block">
+                <div className="p-8 space-y-4">
+                  <SidebarStat
+                    label="Location"
+                    value={facility.location}
+                    icon={<MapPin size={16} />}
+                  />
+                  <SidebarStat
+                    label="Total Area"
+                    value={facility.totalArea}
+                    icon={<ChartArea size={16} />}
+                  />
+                  <SidebarStat
+                    label="Standards"
+                    value={facility.productionCapacity}
+                    icon={<ShieldCheck size={16} />}
+                  />
                 </div>
 
                 <div className="p-8 bg-black/20">
@@ -377,6 +375,7 @@ export default function FacilityDetailsPage() {
                   </button>
                 </div>
               </div>
+
             </div>
           </aside>
 

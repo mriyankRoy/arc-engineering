@@ -27,7 +27,7 @@ const ManufacturingScale = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative bg-white py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-50"
+      className="relative bg-white py-16 md:py-24 lg:py-32 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-gray-100"
       aria-labelledby="scale-heading"
     >
       {/* BACKGROUND DECOR */}

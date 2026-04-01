@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from "react"; // Added useRef
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router";
 import { ArrowRight, Zap } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 
 const heroSentences = [
-  "Advanced Power & Global Infrastructure.",
+  "Engineered for Mission-Critical Reliability.",
   "Precision Engineering for Critical Sites.",
   "High-Performance UK Power Solutions.",
 ];
@@ -12,25 +12,20 @@ const heroSentences = [
 const HomePageSection1 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const videoRef = useRef(null); // Reference for the video element
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    // 1. Reset and play video immediately on component mount (navigation back)
     if (videoRef.current) {
-      videoRef.current.currentTime = 0; 
-      videoRef.current.play().catch(() => {
-        // Safe catch for browsers that block autoplay until interaction
-      });
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
     }
 
-    // 2. Text transition interval
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroSentences.length);
     }, 4500);
 
     return () => {
       clearInterval(interval);
-      // 3. Pause on unmount to save user CPU/Battery when they leave the home page
       if (videoRef.current) {
         videoRef.current.pause();
       }
@@ -45,7 +40,10 @@ const HomePageSection1 = () => {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <Helmet>
-        <title>Arc Engineering Solutions Ltd | UK-Led Power & Infrastructure Solutions</title>
+        <title>
+          Arc Engineering Solutions Ltd | UK-Led Power & Infrastructure
+          Solutions
+        </title>
         <meta
           name="description"
           content="Arc Engineering Solutions Ltd delivers mission-critical power systems and UK-governed engineering solutions for global infrastructure."
@@ -59,13 +57,15 @@ const HomePageSection1 = () => {
         />
       </Helmet>
 
-      <h1 className="sr-only">Arc Engineering Solutions Ltd: Global Leaders in Power Systems</h1>
+      <h1 className="sr-only">
+        Arc Engineering Solutions Ltd: Global Leaders in Power Systems
+      </h1>
 
       <div className="pt-22 px-2 pb-12">
         <div className="relative min-h-[600px] md:h-[75vh] w-full flex items-center overflow-hidden rounded-2xl shadow-2xl bg-[#44444E]">
           <div className="absolute inset-0 z-0">
             <video
-              ref={videoRef} // Attached ref
+              ref={videoRef}
               autoPlay
               loop
               muted
@@ -87,13 +87,13 @@ const HomePageSection1 = () => {
                 videoLoaded ? "opacity-0" : "opacity-50"
               }`}
               style={{
-                backgroundImage: "url('https://media.arcengltd.com/arc-profile/arc-hero-video-poster.webp')",
+                backgroundImage:
+                  "url('https://media.arcengltd.com/arc-profile/arc-hero-video-poster.webp')",
                 backgroundColor: "#44444E",
               }}
             />
           </div>
 
-          {/* Design Strips - Exactly as requested, no changes */}
           <div className="md:hidden absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-transparent z-10" />
           <div
             className="hidden md:block absolute inset-0 z-10"
@@ -125,7 +125,13 @@ const HomePageSection1 = () => {
                     {text.split(" ").map((word, i) => (
                       <span
                         key={i}
-                        className={word.toLowerCase().match(/power|engineering|solutions/) ? "text-[#BF092F]" : ""}
+                        className={
+                          word
+                            .toLowerCase()
+                            .match(/power|engineering|mission-critical|solutions/)
+                            ? "text-[#BF092F]"
+                            : ""
+                        }
                       >
                         {word}{" "}
                       </span>
@@ -135,7 +141,8 @@ const HomePageSection1 = () => {
               </div>
 
               <p className="text-white/80 text-base md:text-xl lg:text-2xl tracking-tight leading-relaxed mb-12 border-l-4 border-[#BF092F] pl-10 max-w-[95%]">
-                Expertly engineered systems designed in the UK to power critical infrastructure across Europe and the globe.
+                Expertly engineered systems designed in the UK to power critical
+                infrastructure across Europe and the globe.
               </p>
 
               <div className="flex flex-wrap gap-6 pb-20">
@@ -143,14 +150,21 @@ const HomePageSection1 = () => {
                   to="/products"
                   className="rounded-2xl group relative flex items-center gap-8 px-10 py-5 bg-[#BF092F] text-white transition-all hover:scale-105 shadow-xl shadow-[#BF092F]/20"
                 >
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">View Products</span>
-                  <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">
+                    View Products
+                  </span>
+                  <ArrowRight
+                    size={20}
+                    className="group-hover:translate-x-2 transition-transform"
+                  />
                 </Link>
                 <Link
                   to="/about"
                   className="rounded-2xl group flex items-center gap-8 px-10 py-5 border border-white/20 text-white transition-all hover:bg-white/10"
                 >
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">Our Expertise</span>
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">
+                    Our Expertise
+                  </span>
                   <Zap size={18} className="text-[#BF092F]" />
                 </Link>
               </div>
