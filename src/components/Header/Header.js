@@ -106,9 +106,9 @@ const Header = () => {
                 aria-label="Arc Engineering Home"
               >
                 <img
-                  src="https://res.cloudinary.com/dc912sjxj/image/upload/v1772287992/Gemini_Generated_Image_tler0wtler0wtler-removebg-preview_zhmv2k.png"
+                  src="https://media.arcengltd.com/arc-profile/arc-logo-remove_bg.webp"
                   alt="Arc Engineering Solutions Ltd Logo"
-                  className="h-10 sm:h-12 md:h-16 w-auto transition-transform duration-500 group-hover/logo:scale-110"
+                  className="h-12 sm:h-14 md:h-20 w-auto transition-transform duration-500 group-hover/logo:scale-110"
                   width="150"
                   height="64"
                   loading="eager"

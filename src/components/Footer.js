@@ -64,9 +64,9 @@ const Footer = () => {
             <div className="lg:col-span-4 flex flex-col items-start space-y-6 md:space-y-8">
               <Link to="/" aria-label="Arc Engineering Solutions Home" className="group">
                 <img
-                  src="https://res.cloudinary.com/dc912sjxj/image/upload/v1772287992/Gemini_Generated_Image_tler0wtler0wtler-removebg-preview_zhmv2k.png"
+                  src="https://media.arcengltd.com/arc-profile/arc-logo-remove_bg.webp"
                   alt="Arc Engineering Solutions Ltd"
-                  className="h-12 md:h-16 w-auto transition-transform duration-500 group-hover:scale-105"
+                  className="h-14 md:h-20 w-auto transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </Link>

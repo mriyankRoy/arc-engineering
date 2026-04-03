@@ -357,7 +357,7 @@ export default function FacilityDetailsPage() {
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
               </header>
-              <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-4xl border-l-2 border-gray-100 pl-8">
+              <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-4xl">
                 {facility.desc}
               </p>
             </article>
