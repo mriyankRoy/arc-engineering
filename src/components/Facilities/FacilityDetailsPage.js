@@ -273,235 +273,197 @@ export default function FacilityDetailsPage() {
       {/* 🏭 MAIN CONTENT */}
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
-        <aside className="lg:col-span-4 space-y-8">
-            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden transition-all duration-500">
-              
-              {/* 🛠️ SCREEN-SAFE TECHNICAL SELECT */}
+          {/* SIDEBAR */}
+          <aside className="lg:col-span-4 space-y-8">
+            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden">
               <div className="p-5 border-b border-white/10 w-full overflow-hidden">
-                <label
-                  htmlFor="facility-switcher"
-                  className="text-[9px] text-white/30 uppercase tracking-[0.2em] font-black block mb-3"
-                >
+                <label className="text-[9px] text-white/30 uppercase tracking-[0.2em] font-black block mb-3">
                   Facility Registry
                 </label>
-
-                <div className="relative group w-full max-w-full">
+                <div className="relative group w-full">
                   <select
-                    id="facility-switcher"
                     value={facility.id}
                     onChange={(e) => navigate(`/facilities/${e.target.value}`)}
-                    className="w-full max-w-full bg-white/5 border border-white/10 pl-4 pr-12 py-3 rounded-xl 
-                     text-white text-sm font-bold appearance-none cursor-pointer 
-                     focus:outline-none focus:ring-1 focus:ring-[#BF092F] transition-all 
-                     hover:bg-white/10 truncate box-border"
+                    className="w-full bg-white/5 border border-white/10 pl-4 pr-12 py-3 rounded-xl text-white text-sm font-bold appearance-none cursor-pointer hover:bg-white/10 transition-all"
                   >
-                    <optgroup label="Operational Units" className="bg-[#1A1A1E]">
-                      {facilities.map((f) => (
-                        <option key={f.id} value={f.id} className="bg-[#1A1A1E] text-white">
-                          {f.title}
-                        </option>
-                      ))}
-                    </optgroup>
+                    {facilities.map((f) => (
+                      <option key={f.id} value={f.id} className="bg-[#1A1A1E]">
+                        {f.title}
+                      </option>
+                    ))}
                   </select>
-
-                  <div className="absolute right-0 top-0 bottom-0 flex items-center pr-3 pointer-events-none">
-                    <div className="h-2/3 border-l border-white/10 pl-3 flex items-center">
-                      <ChevronRight
-                        size={14}
-                        className="rotate-90 text-[#BF092F] opacity-70 group-hover:opacity-100"
-                      />
-                    </div>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <ChevronRight
+                      size={14}
+                      className="rotate-90 text-[#BF092F]"
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* 📱 MOBILE PREVIEW TOGGLE */}
-              <div 
-                className="p-6 lg:p-8 flex flex-col gap-4 cursor-pointer lg:cursor-default border-b border-white/10"
-                onClick={() => {
-                  if (window.innerWidth < 1024) {
-                    const content = document.getElementById("specs-content");
-                    const preview = document.getElementById("mobile-preview");
-                    content.classList.toggle("hidden");
-                    preview.classList.toggle("hidden");
-                  }
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Layers size={16} className="text-[#BF092F]" />
-                    <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
-                      Technical Specs
-                    </h2>
-                  </div>
-                  <ChevronRight size={18} className="text-white/40 lg:hidden transform rotate-90" />
-                </div>
-
-                <div id="mobile-preview" className="flex flex-col gap-2 lg:hidden border-t border-white/5 pt-4">
-                  <div className="flex items-center gap-2">
-                    <MapPin size={12} className="text-[#BF092F]" />
-                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Location:</span>
-                    <span className="text-[10px] text-white font-bold">{facility.location}</span>
-                  </div>
-                </div>
+              <div className="p-8 space-y-4">
+                <SidebarStat
+                  label="Location"
+                  value={facility.location}
+                  icon={<MapPin size={16} />}
+                />
+                <SidebarStat
+                  label="Total Area"
+                  value={facility.totalArea}
+                  icon={<ChartArea size={16} />}
+                />
+                <SidebarStat
+                  label="Standards"
+                  value={facility.productionCapacity}
+                  icon={<ShieldCheck size={16} />}
+                />
               </div>
 
-              {/* 🖥️ DESKTOP CONTENT / EXPANDED MOBILE CONTENT */}
-              <div id="specs-content" className="hidden lg:block">
-                <div className="p-8 space-y-4">
-                  <SidebarStat
-                    label="Location"
-                    value={facility.location}
-                    icon={<MapPin size={16} />}
-                  />
-                  <SidebarStat
-                    label="Total Area"
-                    value={facility.totalArea}
-                    icon={<ChartArea size={16} />}
-                  />
-                  <SidebarStat
-                    label="Standards"
-                    value={facility.productionCapacity}
-                    icon={<ShieldCheck size={16} />}
-                  />
-                </div>
-
-                <div className="p-8 bg-black/20">
-                  <button
-                    onClick={() => navigate("/facilities")}
-                    className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl shadow-lg hover:bg-white hover:text-[#44444E] transition-all flex items-center justify-center gap-2"
-                  >
-                    <ArrowLeft size={14} /> Back to Registry
-                  </button>
-                </div>
+              <div className="p-8 bg-black/20">
+                <button
+                  onClick={() => navigate("/facilities")}
+                  className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-2 hover:bg-white hover:text-[#44444E] transition-all"
+                >
+                  <ArrowLeft size={14} /> Back to Registry
+                </button>
               </div>
-
             </div>
           </aside>
 
+          {/* MAIN COLUMN */}
           <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 py-10 px-4 sm:px-6 lg:px-0">
-            {/* 01. OPERATIONAL INTELLIGENCE: OVERVIEW */}
-            <article className="relative">
-              <header className="mb-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-[1px] bg-[#BF092F]" />
-                  <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#BF092F]">
-                    Operational_Intelligence
-                  </span>
+            {/* 01. OPERATIONAL INTELLIGENCE */}
+            <article className="relative group">
+              <header className="mb-14 relative">
+                <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
+                  01
+                </span>
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="h-[3px] w-12 bg-[#BF092F]" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
+                      Operational_Intelligence
+                    </span>
+                  </div>
+                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    <span>Infrastructure</span>
+                    <span
+                      className="text-transparent"
+                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
+                    >
+                      Capabilities_
+                    </span>
+                  </h2>
+                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold text-[#44444E] tracking-tight leading-none mb-6">
-                  Infrastructure{" "}
-                  <span className="text-gray-300 font-light italic">
-                    Capabilities.
-                  </span>
-                </h2>
               </header>
-
-              <div className="relative">
-                <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-4xl border-l-2 border-gray-100 pl-8 py-1">
-                  {facility.desc}
-                </p>
-              </div>
+              <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-4xl border-l-2 border-gray-100 pl-8">
+                {facility.desc}
+              </p>
             </article>
 
-            {/* 02. VISUAL LOGS: SITE GALLERY */}
-            <article className="space-y-6">
-              <div className="flex items-end justify-between px-2">
-                <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">
-                  Site_Telemetry_Logs
-                </h3>
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-[9px] text-gray-400 uppercase tracking-widest hidden sm:block">
-                    Unit_ID: {facility.id}
-                  </span>
-                  <span className="text-[10px] font-black text-[#44444E] bg-gray-50 px-3 py-1 rounded-full">
-                    COUNT // {facility.facilityImg.length}
-                  </span>
+            {/* 02. VISUAL LOGS */}
+            <article className="space-y-8 relative group">
+              <header className="mb-14 relative">
+                <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
+                  02
+                </span>
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="h-[3px] w-12 bg-[#BF092F]" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
+                      Visual_Telemetry
+                    </span>
+                  </div>
+                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    <span>Site</span>
+                    <span
+                      className="text-transparent"
+                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
+                    >
+                      Gallery_
+                    </span>
+                  </h2>
+                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
-              </div>
+              </header>
 
-              {/* Modern Grid with refined spacing */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {facility.facilityImg.map((src, index) => (
                   <figure
                     key={index}
-                    className="group relative aspect-square rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-sm cursor-zoom-in"
+                    className="group/img relative aspect-square rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-100 shadow-sm cursor-zoom-in"
                     onClick={() => openLightbox(index)}
                   >
                     <img
                       src={src}
-                      className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
-                      alt={`${facility.title} view ${index + 1}`}
+                      className="w-full h-full object-cover grayscale-[0.3] group-hover/img:grayscale-0 transition-all duration-1000 group-hover/img:scale-110"
+                      alt="Facility"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-[#44444E]/40 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
-                      <div className="p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30">
-                        <Maximize2
-                          className="text-white"
-                          size={20}
-                          strokeWidth={1.5}
-                        />
-                      </div>
+                    <div className="absolute inset-0 bg-[#44444E]/40 opacity-0 group-hover/img:opacity-100 transition-all flex items-center justify-center">
+                      <Maximize2 className="text-white" size={24} />
                     </div>
                   </figure>
                 ))}
               </div>
             </article>
 
-            {/* 03. TECHNICAL REGISTRY: SYSTEMS & MACHINERY */}
-            <article className="pt-20 border-t border-gray-100">
-              <div className="mb-12">
-                <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
-                  Capabilities{" "}
-                  <span className="text-gray-300 font-light italic">
-                    & Machineries.
-                  </span>
-                </h3>
-                <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">
-                  Deployment of critical industrial assets
-                </p>
-              </div>
+            {/* 03. TECHNICAL REGISTRY */}
+            <article className="pt-20 border-t border-gray-100 relative group">
+              <header className="mb-14 relative">
+                <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
+                  03
+                </span>
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="h-[3px] w-12 bg-[#BF092F]" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
+                      Asset_Registry
+                    </span>
+                  </div>
+                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    <span>Tech</span>
+                    <span
+                      className="text-transparent"
+                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
+                    >
+                      Machinery_
+                    </span>
+                  </h2>
+                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                </div>
+              </header>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                {facility.capabilityImg?.map((cap, index) => {
-                  const actualIndex = facility.facilityImg.length + index;
-                  return (
-                    <article
-                      key={index}
-                      onClick={() => openLightbox(actualIndex)}
-                      className="group cursor-pointer"
-                    >
-                      <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-1000 border border-gray-50">
-                        <img
-                          src={cap.img}
-                          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                          alt={cap.title}
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
-
-                        <div className="absolute bottom-0 left-0 bg-[#BF092F] text-white p-3 rounded-tr-2xl shadow-lg">
-                          <ShieldCheck size={18} strokeWidth={2} />
-                        </div>
+                {facility.capabilityImg?.map((cap, index) => (
+                  <article
+                    key={index}
+                    className="group/cap cursor-pointer"
+                    onClick={() =>
+                      openLightbox(facility.facilityImg.length + index)
+                    }
+                  >
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-md group-hover/cap:shadow-2xl transition-all duration-1000 border border-gray-50">
+                      <img
+                        src={cap.img}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/cap:scale-110"
+                        alt={cap.title}
+                      />
+                      <div className="absolute bottom-0 left-0 bg-[#BF092F] text-white p-3 rounded-tr-2xl shadow-lg">
+                        <ShieldCheck size={18} />
                       </div>
-
-                      <div className="px-2">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em]">
-                            Capability_0{index + 1}
-                          </span>
-                          <div className="h-px flex-1 bg-gray-100" />
-                        </div>
-                        <h4 className="text-xl font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors mb-2">
-                          {cap.title}
-                        </h4>
-                        <p className="text-gray-500 leading-relaxed text-sm font-medium tracking-wide italic">
-                          {cap.desc}
-                        </p>
-                      </div>
-                    </article>
-                  );
-                })}
+                    </div>
+                    <div className="px-2">
+                      <h4 className="text-xl font-black text-[#44444E] uppercase tracking-tighter group-hover/cap:text-[#BF092F] transition-colors">
+                        {cap.title}
+                      </h4>
+                      <p className="text-gray-500 text-sm font-medium italic mt-2">
+                        {cap.desc}
+                      </p>
+                    </div>
+                  </article>
+                ))}
               </div>
             </article>
           </section>

@@ -443,21 +443,34 @@ export default function ProjectDetailPage() {
 
           <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 py-10 px-4 sm:px-6 lg:px-0">
             {/* 01. THE DOSSIER: MINIMALIST DESCRIPTION */}
-            <article className="relative">
-              <header className="mb-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-[1px] bg-[#BF092F]" />
-                  <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#BF092F]">
-                    Technical_Summary
-                  </span>
+            <article className="relative group">
+              <header className="mb-14 relative">
+                {/* Background Ghost Number */}
+                <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
+                  01
+                </span>
+
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="h-[3px] w-12 bg-[#BF092F]" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
+                      Technical_Summary
+                    </span>
+                  </div>
+
+                  {/* SOLID / OUTLINE COMBO */}
+                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    <span>Project</span>
+                    <span
+                      className="text-transparent"
+                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
+                    >
+                      Brief_
+                    </span>
+                  </h2>
+
+                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
-                {/* Scaled down from 4xl/6xl to 3xl/5xl */}
-                <h2 className="text-3xl md:text-5xl font-bold text-[#44444E] tracking-tight leading-none mb-6">
-                  Project{" "}
-                  <span className="text-gray-300 font-light italic">
-                    Brief.
-                  </span>
-                </h2>
               </header>
 
               <div className="grid grid-cols-1 gap-8">
@@ -494,15 +507,33 @@ export default function ProjectDetailPage() {
             </article>
 
             {/* 02. THE STUDIO: CINEMATIC GALLERY */}
-            <article className="space-y-6">
-              <div className="flex items-end justify-between px-2">
-                <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">
-                  Visual_Data_Logs
-                </h3>
-                <span className="font-mono text-[9px] text-gray-400">
-                  IMG_REF // {currentIndex + 1}.0
+            <article className="space-y-8 relative group">
+              <header className="mb-14 relative">
+                <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
+                  02
                 </span>
-              </div>
+
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="h-[3px] w-12 bg-[#BF092F]" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
+                      Visual_Data_Logs
+                    </span>
+                  </div>
+
+                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    <span>Field</span>
+                    <span
+                      className="text-transparent"
+                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
+                    >
+                      Gallery_
+                    </span>
+                  </h2>
+
+                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                </div>
+              </header>
 
               <div
                 className="relative group aspect-[16/10] md:aspect-video rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 shadow-2xl cursor-zoom-in"
@@ -567,35 +598,54 @@ export default function ProjectDetailPage() {
             </article>
 
             {/* 03. THE DISCOVERY: BORDERLESS SLIDER */}
-            <article className="pt-20 border-t border-gray-100">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-                <div>
-                  {/* Scaled from text-3xl to text-2xl */}
-                  <h3 className="text-2xl font-bold text-[#44444E] tracking-tight uppercase">
-                    Archive{" "}
-                    <span className="text-gray-300 font-light italic">
-                      Discovery.
-                    </span>
-                  </h3>
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-bold">
-                    Additional engineering logs
-                  </p>
+            <article className="space-y-8 relative group">
+              <header className="mb-14 relative">
+                {/* Background Ghost Number */}
+                <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
+                  03
+                </span>
+
+                <div className="relative flex flex-col md:flex-row md:items-end justify-between gap-8">
+                  <div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="h-[3px] w-12 bg-[#BF092F]" />
+                      <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
+                        Archive_Discovery
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                      <span>Related</span>
+                      <span
+                        className="text-transparent"
+                        style={{
+                          WebkitTextStroke: "1px #44444E",
+                          opacity: 0.3,
+                        }}
+                      >
+                        Logs_
+                      </span>
+                    </h3>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() => scroll("left")}
+                      className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all shadow-sm hover:shadow-lg hover:shadow-[#BF092F]/20"
+                    >
+                      <ChevronLeft size={18} />
+                    </button>
+                    <button
+                      onClick={() => scroll("right")}
+                      className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all shadow-sm hover:shadow-lg hover:shadow-[#BF092F]/20"
+                    >
+                      <ChevronRight size={18} />
+                    </button>
+                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <button
-                    onClick={() => scroll("left")}
-                    className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                  <button
-                    onClick={() => scroll("right")}
-                    className="cursor-pointer w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-[#BF092F] hover:text-white transition-all"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
-                </div>
-              </div>
+
+                <div className="mt-8 h-[1px] w-full bg-gray-100" />
+              </header>
 
               <div
                 ref={scrollContainerRef}
@@ -605,22 +655,52 @@ export default function ProjectDetailPage() {
                   <div
                     key={item.id}
                     onClick={() => navigate(`/projects/${item.id}`)}
-                    className="cursor-pointer group shrink-0 w-[80vw] md:w-[400px] snap-start"
+                    className="cursor-pointer group/card shrink-0 w-[85vw] md:w-[420px] snap-start relative"
                   >
-                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-md group-hover:shadow-2xl transition-all duration-700">
+                    {/* 🖼️ IMAGE CONTAINER */}
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-sm group-hover/card:shadow-2xl transition-all duration-700 bg-gray-100">
                       <img
                         src={item.imageUrls[0]}
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110 group-hover/card:rotate-1"
                         alt={item.name}
                       />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+
+                      {/* Dark Overlay that fades on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#44444E]/60 to-transparent group-hover/card:opacity-0 transition-opacity duration-500" />
+
+                      {/* Floating Category Tag (Glassmorphism) */}
+                      <div className="absolute top-4 left-4 px-3 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg translate-y-2 opacity-0 group-hover/card:translate-y-0 group-hover/card:opacity-100 transition-all duration-500">
+                        <p className="text-[8px] font-black text-white uppercase tracking-[0.2em]">
+                          {item.type}
+                        </p>
+                      </div>
+
+                      {/* Corner "Bracket" decoration */}
+                      <div className="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-white/30 group-hover/card:border-[#BF092F] transition-colors duration-500" />
                     </div>
-                    <p className="text-[9px] font-black text-[#BF092F] uppercase tracking-[0.4em] mb-2">
-                      {item.type}
-                    </p>
-                    <h4 className="text-lg font-bold text-[#44444E] uppercase tracking-tight group-hover:text-[#BF092F] transition-colors">
-                      {item.name}
-                    </h4>
+
+                    {/* 📝 TEXT CONTENT */}
+                    <div className="relative pl-2">
+                      {/* ID Stamp */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-[10px] uppercase font-bold text-[#BF092F] bg-[#BF092F]/5 px-2 py-0.5 rounded">
+                          {item.type}
+                        </span>
+                        <div className="h-px w-8 bg-gray-100 group-hover/card:w-12 group-hover/card:bg-[#BF092F]/30 transition-all duration-500" />
+                      </div>
+
+                      <h4 className="text-xl font-bold text-[#44444E] uppercase tracking-tighter leading-tight group-hover/card:text-[#BF092F] transition-colors duration-300">
+                        {item.name}
+                      </h4>
+
+                      {/* "View Log" appearing on hover */}
+                      <div className="flex items-center gap-2 mt-4 opacity-0 -translate-x-4 group-hover/card:opacity-100 group-hover/card:translate-x-0 transition-all duration-500 delay-75">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                          VIEW_PROJECT_LOG
+                        </span>
+                        <ArrowRight size={14} className="text-[#BF092F]" />
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
