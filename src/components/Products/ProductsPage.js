@@ -230,7 +230,7 @@ const ProductPage = () => {
         ) : (
           <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
             <aside className="lg:col-span-3 space-y-8 h-full">
-              <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
+              <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-[20vh] overflow-hidden transition-all duration-500">
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-8">
                     <Filter size={16} className="text-[#BF092F]" />

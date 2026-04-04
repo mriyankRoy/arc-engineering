@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async"; 
+import { Helmet } from "react-helmet-async";
 import { projects } from "../../utils/projects";
 import { useLocation, useNavigate } from "react-router";
 import ProjectCard from "./ProjectCard";
-import {
-  Filter,
-  Home,
-  ArrowRight,
-  Activity,
-  ChevronRight,
-} from "lucide-react";
+import { Filter, Home, ArrowRight, Activity, ChevronRight } from "lucide-react";
 
 const projectTypes = ["All", ...projects.map((cat) => cat.categoryName)];
 
@@ -27,9 +21,10 @@ export default function ProjectsPage() {
   const registrySchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Arc Engineering Project Registry",
-    "description": "Documenting global deployments and bespoke engineering solutions.",
-    "url": "https://arcengltd.com/projects"
+    name: "Arc Engineering Project Registry",
+    description:
+      "Documenting global deployments and bespoke engineering solutions.",
+    url: "https://arcengltd.com/projects",
   };
 
   useEffect(() => {
@@ -67,7 +62,9 @@ export default function ProjectsPage() {
           return (
             <div
               key={category.categoryId}
-              onClick={() => navigate(`/projects?type=${category.categoryName}`)}
+              onClick={() =>
+                navigate(`/projects?type=${category.categoryName}`)
+              }
               className="group relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 cursor-pointer overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-[#BF092F]/20"
             >
               <div className="h-48 bg-[#44444E] relative overflow-hidden">
@@ -97,7 +94,10 @@ export default function ProjectsPage() {
                       {count} Projects
                     </span>
                   </div>
-                  <ArrowRight size={18} className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all" />
+                  <ArrowRight
+                    size={18}
+                    className="text-gray-300 group-hover:text-[#BF092F] group-hover:translate-x-1 transition-all"
+                  />
                 </div>
               </div>
             </div>
@@ -110,9 +110,18 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white text-[#44444E] font-sans selection:bg-[#BF092F] selection:text-white">
       <Helmet>
-        <title>{isGeneralOverview ? "Engineering Logs | Arc Engineering" : `${selectedType} Series | Arc Engineering`}</title>
-        <meta name="description" content="Documenting global deployments and bespoke engineering solutions across critical power infrastructure." />
-        <script type="application/ld+json">{JSON.stringify(registrySchema)}</script>
+        <title>
+          {isGeneralOverview
+            ? "Engineering Logs | Arc Engineering"
+            : `${selectedType} Series | Arc Engineering`}
+        </title>
+        <meta
+          name="description"
+          content="Documenting global deployments and bespoke engineering solutions across critical power infrastructure."
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(registrySchema)}
+        </script>
       </Helmet>
 
       <div className="pt-22 px-2 md:px-2">
@@ -183,7 +192,7 @@ export default function ProjectsPage() {
         ) : (
           <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
             <aside className="lg:col-span-3 space-y-8 h-full">
-              <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-28 overflow-hidden">
+              <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-[20vh] overflow-hidden">
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-8">
                     <Filter size={16} className="text-[#BF092F]" />

@@ -160,7 +160,6 @@ export default function ProjectDetailPage() {
     { label: "Client", value: project?.client, icon: <FileText size={16} /> },
     { label: "Category", value: project?.type, icon: <Tag size={16} /> },
     { label: "Location", value: project?.location, icon: <MapPin size={16} /> },
-    { label: "Log ID", value: project?.id, icon: <Calendar size={16} /> },
   ];
 
   return (
@@ -298,7 +297,7 @@ export default function ProjectDetailPage() {
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
           <aside className="lg:col-span-4 space-y-8">
-            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden transition-all duration-500">
+            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] sticky top-[20vh] overflow-hidden transition-all duration-500">
               {/* 🛠️ SCREEN-SAFE TECHNICAL SELECT */}
               <div className="p-5 border-b border-white/10 w-full overflow-hidden">
                 <label

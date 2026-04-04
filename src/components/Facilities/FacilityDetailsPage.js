@@ -274,8 +274,11 @@ export default function FacilityDetailsPage() {
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
           {/* SIDEBAR */}
+        {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-8">
-            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-28 overflow-hidden">
+            <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-[20vh] overflow-hidden transition-all duration-500">
+              
+              {/* 01. FACILITY REGISTRY SELECTOR */}
               <div className="p-5 border-b border-white/10 w-full overflow-hidden">
                 <label className="text-[9px] text-white/30 uppercase tracking-[0.2em] font-black block mb-3">
                   Facility Registry
@@ -284,7 +287,7 @@ export default function FacilityDetailsPage() {
                   <select
                     value={facility.id}
                     onChange={(e) => navigate(`/facilities/${e.target.value}`)}
-                    className="w-full bg-white/5 border border-white/10 pl-4 pr-12 py-3 rounded-xl text-white text-sm font-bold appearance-none cursor-pointer hover:bg-white/10 transition-all"
+                    className="w-full bg-white/5 border border-white/10 pl-4 pr-12 py-3 rounded-xl text-white text-sm font-bold appearance-none cursor-pointer hover:bg-white/10 transition-all truncate"
                   >
                     {facilities.map((f) => (
                       <option key={f.id} value={f.id} className="bg-[#1A1A1E]">
@@ -301,31 +304,74 @@ export default function FacilityDetailsPage() {
                 </div>
               </div>
 
-              <div className="p-8 space-y-4">
-                <SidebarStat
-                  label="Location"
-                  value={facility.location}
-                  icon={<MapPin size={16} />}
-                />
-                <SidebarStat
-                  label="Total Area"
-                  value={facility.totalArea}
-                  icon={<ChartArea size={16} />}
-                />
-                <SidebarStat
-                  label="Standards"
-                  value={facility.productionCapacity}
-                  icon={<ShieldCheck size={16} />}
-                />
+              {/* 02. INTERACTIVE TECHNICAL SPECS HEADER */}
+              <div 
+                className="p-6 lg:p-8 flex flex-col gap-4 cursor-pointer lg:cursor-default border-b border-white/10"
+                onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    const content = document.getElementById("facility-specs-content");
+                    const preview = document.getElementById("facility-mobile-preview");
+                    content.classList.toggle("hidden");
+                    preview.classList.toggle("hidden");
+                  }
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Layers size={16} className="text-[#BF092F]" />
+                    <h2 className="text-[12px] text-white tracking-[0.4em] uppercase font-bold">
+                      Technical Specs
+                    </h2>
+                  </div>
+                  <ChevronRight
+                    size={18}
+                    className="text-white/40 lg:hidden transform rotate-90"
+                  />
+                </div>
+
+                {/* Mobile Preview: Visible only on mobile, hides when specs-content is toggled */}
+                <div id="facility-mobile-preview" className="flex flex-col gap-2 lg:hidden border-t border-white/5 pt-4">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={12} className="text-[#BF092F]" />
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Loc:</span>
+                    <span className="text-[10px] text-white font-bold">{facility.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <ChartArea size={12} className="text-[#BF092F]" />
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Area:</span>
+                    <span className="text-[10px] text-white font-bold">{facility.totalArea}</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="p-8 bg-black/20">
-                <button
-                  onClick={() => navigate("/facilities")}
-                  className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-2 hover:bg-white hover:text-[#44444E] transition-all"
-                >
-                  <ArrowLeft size={14} /> Back to Registry
-                </button>
+              {/* 03. FULL SPECS & ACTION FOOTER (Hidden on mobile by default) */}
+              <div id="facility-specs-content" className="hidden lg:block">
+                <div className="p-8 space-y-4">
+                  <SidebarStat
+                    label="Location"
+                    value={facility.location}
+                    icon={<MapPin size={16} />}
+                  />
+                  <SidebarStat
+                    label="Total Area"
+                    value={facility.totalArea}
+                    icon={<ChartArea size={16} />}
+                  />
+                  <SidebarStat
+                    label="Standards"
+                    value={facility.productionCapacity}
+                    icon={<ShieldCheck size={16} />}
+                  />
+                </div>
+
+                <div className="p-8 bg-black/20">
+                  <button
+                    onClick={() => navigate("/facilities")}
+                    className="cursor-pointer w-full py-4 bg-[#BF092F] text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-2 hover:bg-white hover:text-[#44444E] transition-all shadow-lg"
+                  >
+                    <ArrowLeft size={14} /> Back to Registry
+                  </button>
+                </div>
               </div>
             </div>
           </aside>

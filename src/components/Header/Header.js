@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { Link, useNavigate, useLocation } from "react-router"; 
-import { Helmet } from "react-helmet-async"; 
+import { Link, useNavigate, useLocation } from "react-router";
+import { Helmet } from "react-helmet-async";
 import HeaderSearch from "./HeaderSearch";
 import HeaderFacilitiesDropdown from "./HeaderFacilitiesDropdown";
 import HeaderProjectsDropdown from "./HeaderProjectsDropdown";
@@ -14,7 +14,7 @@ import FacilitiesMobileDrawer from "./FacilitiesMobileDrawer";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isProductsDrawerOpen, setIsProductsDrawerOpen] = useState(false);
-  const [isProjectsDrawerOpen, setIsProjectsDrawerOpen] = useState(false); 
+  const [isProjectsDrawerOpen, setIsProjectsDrawerOpen] = useState(false);
   const [isFacilitiesDrawerOpen, setIsFacilitiesDrawerOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -23,20 +23,40 @@ const Header = () => {
   const navSchema = {
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
-    "hasPart": [
-      { "@type": "WebPage", "name": "About", "url": "https://arcengltd.com/about" },
-      { "@type": "WebPage", "name": "Products", "url": "https://arcengltd.com/products" },
-      { "@type": "WebPage", "name": "Projects", "url": "https://arcengltd.com/projects" },
-      { "@type": "WebPage", "name": "Facilities", "url": "https://arcengltd.com/facilities" },
-      { "@type": "WebPage", "name": "Careers", "url": "https://arcengltd.com/careers" },
-      { "@type": "WebPage", "name": "Contact", "url": "https://arcengltd.com/contact" }
-    ]
+    hasPart: [
+      { "@type": "WebPage", name: "About", url: "https://arcengltd.com/about" },
+      {
+        "@type": "WebPage",
+        name: "Products",
+        url: "https://arcengltd.com/products",
+      },
+      {
+        "@type": "WebPage",
+        name: "Projects",
+        url: "https://arcengltd.com/projects",
+      },
+      {
+        "@type": "WebPage",
+        name: "Facilities",
+        url: "https://arcengltd.com/facilities",
+      },
+      {
+        "@type": "WebPage",
+        name: "Careers",
+        url: "https://arcengltd.com/careers",
+      },
+      {
+        "@type": "WebPage",
+        name: "Contact",
+        url: "https://arcengltd.com/contact",
+      },
+    ],
   };
 
   // 1. UPDATED NAV ITEMS: Facilities now uses the drawer trigger
   const navItems = [
     { name: "About", path: "/about" },
-    { name: "Products", isDrawer: "products" }, 
+    { name: "Products", isDrawer: "products" },
     { name: "Projects", isDrawer: "projects" },
     { name: "Facilities", isDrawer: "facilities" }, // Changed from path to isDrawer
     { name: "Careers", path: "/careers" },
@@ -59,32 +79,47 @@ const Header = () => {
 
   // 3. UPDATED SCROLL LOCK: Included isFacilitiesDrawerOpen
   useEffect(() => {
-    const isAnyDrawerOpen = 
-      mobileMenuOpen || 
-      isProductsDrawerOpen || 
-      isProjectsDrawerOpen || 
+    const isAnyDrawerOpen =
+      mobileMenuOpen ||
+      isProductsDrawerOpen ||
+      isProjectsDrawerOpen ||
       isFacilitiesDrawerOpen;
-      
+
     document.body.style.overflow = isAnyDrawerOpen ? "hidden" : "unset";
-  }, [mobileMenuOpen, isProductsDrawerOpen, isProjectsDrawerOpen, isFacilitiesDrawerOpen]);
+  }, [
+    mobileMenuOpen,
+    isProductsDrawerOpen,
+    isProjectsDrawerOpen,
+    isFacilitiesDrawerOpen,
+  ]);
 
   const navLinkStyles =
     "relative cursor-pointer inline-flex items-center tracking-widest text-white transition-all duration-300 px-4 py-2 text-[12px] lg:text-[13px] uppercase whitespace-nowrap group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-lg";
 
   const HoverEffect = () => (
     <>
-      <span className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-xl scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] -z-10 border border-white/20 shadow-xl" aria-hidden="true" />
-      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-white group-hover:w-1/4 transition-all duration-300 ease-out rounded-full" aria-hidden="true" />
+      <span
+        className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-xl scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] -z-10 border border-white/20 shadow-xl"
+        aria-hidden="true"
+      />
+      <span
+        className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-white group-hover:w-1/4 transition-all duration-300 ease-out rounded-full"
+        aria-hidden="true"
+      />
     </>
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] pt-1 px-2" role="banner">
+    <header
+      className="fixed top-0 left-0 w-full z-[100] pt-1 px-2"
+      role="banner"
+    >
       <Helmet>
-        <link rel="canonical" href={`https://arcengltd.com${location.pathname}`} />
-        <script type="application/ld+json">
-          {JSON.stringify(navSchema)}
-        </script>
+        <link
+          rel="canonical"
+          href={`https://arcengltd.com${location.pathname}`}
+        />
+        <script type="application/ld+json">{JSON.stringify(navSchema)}</script>
       </Helmet>
 
       <div className="relative w-full mx-auto">
@@ -98,17 +133,23 @@ const Header = () => {
 
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[auto_1fr_auto] h-18 md:h-20 items-center gap-4">
-            
             <div className="flex justify-start items-center">
               <Link
                 to="/"
-                className="flex-shrink-0 group/logo flex items-center"
+                className="flex-shrink-0 group/logo flex items-center relative"
                 aria-label="Arc Engineering Home"
               >
+                {/* Subtle Glow Overlay: Ensures visibility on both Red and Dark Grey */}
+                <div
+                  className="absolute inset-0 bg-white/25 blur-xl rounded-full scale-125 opacity-60 group-hover:opacity-90 transition-opacity duration-500"
+                  aria-hidden="true"
+                />
+
                 <img
                   src="https://media.arcengltd.com/arc-profile/arc-logo-remove_bg.webp"
                   alt="Arc Engineering Solutions Ltd Logo"
-                  className="h-12 sm:h-14 md:h-20 w-auto transition-transform duration-500 group-hover/logo:scale-110"
+                  /* Added a subtle drop-shadow filter to the PNG itself for crispness */
+                  className="h-16 sm:h-16 md:h-20 w-auto transition-transform duration-500 group-hover/logo:scale-105 relative z-10 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
                   width="150"
                   height="64"
                   loading="eager"
@@ -117,7 +158,10 @@ const Header = () => {
               </Link>
             </div>
 
-            <div className="md:hidden flex flex-col items-center justify-center text-center" aria-hidden="true">
+            <div
+              className="md:hidden flex flex-col items-center justify-center text-center"
+              aria-hidden="true"
+            >
               <span className="text-white text-[10px] font-black tracking-[0.2em] uppercase whitespace-nowrap">
                 Arc Engineering
               </span>
@@ -127,16 +171,19 @@ const Header = () => {
             </div>
 
             <div className="flex items-center justify-end">
-              <nav className="hidden md:flex items-center justify-end gap-x-2" aria-label="Main Navigation">
+              <nav
+                className="hidden md:flex items-center justify-end gap-x-2"
+                aria-label="Main Navigation"
+              >
                 <Link to="/about" className={navLinkStyles}>
                   <HoverEffect />
                   <span>About</span>
                 </Link>
-                
+
                 <HeaderProductsDropDown />
                 <HeaderProjectsDropdown />
                 <HeaderFacilitiesDropdown />
-                
+
                 <Link to="/careers" className={navLinkStyles}>
                   <HoverEffect />
                   <span>Careers</span>
@@ -145,7 +192,7 @@ const Header = () => {
                   <HoverEffect />
                   <span>Contact</span>
                 </Link>
-                
+
                 <div className="pl-4 border-l border-white/10" role="search">
                   <HeaderSearch />
                 </div>
@@ -171,24 +218,34 @@ const Header = () => {
       >
         <div className="absolute inset-0 bg-[#44444E]" aria-hidden="true" />
         <div className="h-full pt-28 px-8 relative z-10 overflow-y-auto pb-10">
-          
           <div className="mb-12 flex justify-center w-full px-2">
             <MobileHeaderSearch onSelect={() => setMobileMenuOpen(false)} />
           </div>
 
-          <nav className="flex flex-col gap-2 max-w-sm mx-auto w-full" aria-label="Mobile Navigation">
+          <nav
+            className="flex flex-col gap-2 max-w-sm mx-auto w-full"
+            aria-label="Mobile Navigation"
+          >
             {navItems?.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleMobileNav(item)}
-                  className="group flex items-center justify-between py-4 border-b border-white/5 hover:border-[#BF092F]/50 transition-all text-left"
-                  aria-label={item.isDrawer ? `Open ${item.name} menu` : `Go to ${item.name}`}
-                >
-                  <span className="text-white/80 group-hover:text-white text-xl uppercase tracking-[0.2em]">
-                    {item.name}
-                  </span>
-                  <ArrowRight size={16} className="text-[#BF092F]" aria-hidden="true" />
-                </button>
+              <button
+                key={item.name}
+                onClick={() => handleMobileNav(item)}
+                className="group flex items-center justify-between py-4 border-b border-white/5 hover:border-[#BF092F]/50 transition-all text-left"
+                aria-label={
+                  item.isDrawer
+                    ? `Open ${item.name} menu`
+                    : `Go to ${item.name}`
+                }
+              >
+                <span className="text-white/80 group-hover:text-white text-xl uppercase tracking-[0.2em]">
+                  {item.name}
+                </span>
+                <ArrowRight
+                  size={16}
+                  className="text-[#BF092F]"
+                  aria-hidden="true"
+                />
+              </button>
             ))}
           </nav>
 
