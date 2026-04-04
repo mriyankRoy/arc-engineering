@@ -458,14 +458,8 @@ export default function ProjectDetailPage() {
                   </div>
 
                   {/* SOLID / OUTLINE COMBO */}
-                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
-                    <span>Project</span>
-                    <span
-                      className="text-transparent"
-                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
-                    >
-                      Brief_
-                    </span>
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    Project Brief_
                   </h2>
 
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
@@ -520,14 +514,8 @@ export default function ProjectDetailPage() {
                     </span>
                   </div>
 
-                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
-                    <span>Field</span>
-                    <span
-                      className="text-transparent"
-                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
-                    >
-                      Gallery_
-                    </span>
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    Field Gallery_
                   </h2>
 
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
@@ -613,17 +601,8 @@ export default function ProjectDetailPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
-                      <span>Related</span>
-                      <span
-                        className="text-transparent"
-                        style={{
-                          WebkitTextStroke: "1px #44444E",
-                          opacity: 0.3,
-                        }}
-                      >
-                        Logs_
-                      </span>
+                    <h3 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                      Related Logs_
                     </h3>
                   </div>
 
