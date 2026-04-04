@@ -274,10 +274,9 @@ export default function FacilityDetailsPage() {
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
           {/* SIDEBAR */}
-        {/* SIDEBAR */}
+          {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-8">
             <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-[20vh] overflow-hidden transition-all duration-500">
-              
               {/* 01. FACILITY REGISTRY SELECTOR */}
               <div className="p-5 border-b border-white/10 w-full overflow-hidden">
                 <label className="text-[9px] text-white/30 uppercase tracking-[0.2em] font-black block mb-3">
@@ -305,12 +304,16 @@ export default function FacilityDetailsPage() {
               </div>
 
               {/* 02. INTERACTIVE TECHNICAL SPECS HEADER */}
-              <div 
+              <div
                 className="p-6 lg:p-8 flex flex-col gap-4 cursor-pointer lg:cursor-default border-b border-white/10"
                 onClick={() => {
                   if (window.innerWidth < 1024) {
-                    const content = document.getElementById("facility-specs-content");
-                    const preview = document.getElementById("facility-mobile-preview");
+                    const content = document.getElementById(
+                      "facility-specs-content",
+                    );
+                    const preview = document.getElementById(
+                      "facility-mobile-preview",
+                    );
                     content.classList.toggle("hidden");
                     preview.classList.toggle("hidden");
                   }
@@ -330,16 +333,27 @@ export default function FacilityDetailsPage() {
                 </div>
 
                 {/* Mobile Preview: Visible only on mobile, hides when specs-content is toggled */}
-                <div id="facility-mobile-preview" className="flex flex-col gap-2 lg:hidden border-t border-white/5 pt-4">
+                <div
+                  id="facility-mobile-preview"
+                  className="flex flex-col gap-2 lg:hidden border-t border-white/5 pt-4"
+                >
                   <div className="flex items-center gap-2">
                     <MapPin size={12} className="text-[#BF092F]" />
-                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Loc:</span>
-                    <span className="text-[10px] text-white font-bold">{facility.location}</span>
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
+                      Loc:
+                    </span>
+                    <span className="text-[10px] text-white font-bold">
+                      {facility.location}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <ChartArea size={12} className="text-[#BF092F]" />
-                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">Area:</span>
-                    <span className="text-[10px] text-white font-bold">{facility.totalArea}</span>
+                    <span className="text-[10px] text-white/50 uppercase font-bold tracking-wider">
+                      Area:
+                    </span>
+                    <span className="text-[10px] text-white font-bold">
+                      {facility.totalArea}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -391,14 +405,8 @@ export default function FacilityDetailsPage() {
                       Operational_Intelligence
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
-                    <span>Infrastructure</span>
-                    <span
-                      className="text-transparent"
-                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
-                    >
-                      Capabilities_
-                    </span>
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    Infrastructure Capabilities_
                   </h2>
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
@@ -421,14 +429,8 @@ export default function FacilityDetailsPage() {
                       Visual_Telemetry
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
-                    <span>Site</span>
-                    <span
-                      className="text-transparent"
-                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
-                    >
-                      Gallery_
-                    </span>
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    Site Gallery_
                   </h2>
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
@@ -468,14 +470,8 @@ export default function FacilityDetailsPage() {
                       Asset_Registry
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-4xl font-black text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
-                    <span>Tech</span>
-                    <span
-                      className="text-transparent"
-                      style={{ WebkitTextStroke: "1px #44444E", opacity: 0.3 }}
-                    >
-                      Machinery_
-                    </span>
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                    Tech Machinery_
                   </h2>
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
                 </div>
