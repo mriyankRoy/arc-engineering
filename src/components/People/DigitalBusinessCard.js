@@ -150,13 +150,15 @@ const DigitalBusinessCard = () => {
 
       {/* MAIN CARD CONTAINER */}
       <div className="w-full max-w-md bg-[#44444E] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-t-4 border-[#BF092F] overflow-hidden relative min-h-[700px] flex flex-col border border-white/5">
+        {/* CARBON FIBER PATTERN */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] z-0">
+        {/* UPDATED WATERMARK LOGO */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
           <img
-            src="https://res.cloudinary.com/dc912sjxj/image/upload/v1772287992/Gemini_Generated_Image_tler0wtler0wtler-removebg-preview_zhmv2k.png"
+            src="https://media.arcengltd.com/arc-profile/arc-logo-remove_bg.webp"
             alt="Watermark"
-            className="w-[80%] object-contain grayscale"
+            className="w-[120%] max-w-none object-contain opacity-[0.1] brightness-200 grayscale"
           />
         </div>
 
