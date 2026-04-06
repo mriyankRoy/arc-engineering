@@ -25,9 +25,9 @@ function KineticCard({ data, index }) {
     <motion.article
       ref={ref}
       style={{ opacity }}
-      className="relative w-full h-[80vh] min-h-[600px] overflow-hidden rounded-2xl bg-[#111] shadow-2xl sticky top-20"
+      className="w-full h-[80vh] min-h-[600px] overflow-hidden rounded-2xl bg-[#111] shadow-2xl sticky top-24"
     >
-      {/* 🖼️ IMAGE LAYER (Full Color) */}
+      {/* 🖼️ IMAGE LAYER */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
           style={{ y: imageY }} 
@@ -40,59 +40,59 @@ function KineticCard({ data, index }) {
           />
         </motion.div>
         
-        {/* 🌑 ULTRA-LOW SCRIM: Fades out very early (35%) to keep the top clear */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent via-35%" />
+        {/* 🌑 DENSE BOTTOM SCRIM: Protects the text while leaving 70% of image clear */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black  to-transparent" />
       </div>
 
-      {/* 🖋️ CONTENT LAYER: Pushed completely to the base */}
-      <div className="absolute inset-0 p-8 pb-12 flex flex-col justify-end text-white">
+      {/* 🖋️ CONTENT LAYER: Fixed to bottom-0 with compact vertical stacking */}
+      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 pb-10 flex flex-col text-white">
         
-        {/* Unit Index: Now part of the bottom stack, not floating at the top */}
-        <div className="flex items-center gap-3 mb-4 opacity-40">
-          <span className="text-[10px] font-black tracking-[0.4em] uppercase italic">
+        {/* Unit Index - Compact size */}
+        <div className="flex items-center gap-2 mb-3 opacity-40">
+          <span className="text-[8px] font-black tracking-[0.4em] uppercase italic">
             Unit // 0{index + 1}
           </span>
-          <div className="w-8 h-[1px] bg-white/50" />
+          <div className="w-6 h-[1px] bg-white/30" />
         </div>
 
-        {/* Location Tag */}
-        <div className="flex items-center gap-1.5 mb-2">
-          <MapPin size={14} className="text-[#BF092F]" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
+        {/* Location Tag - Reduced size */}
+        <div className="flex items-center gap-1.5 mb-1.5">
+          <MapPin size={12} className="text-[#BF092F]" />
+          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/70">
             {data.location}
           </span>
         </div>
 
-        {/* Title: 5XL Architectural Scale */}
-        <h4 className="text-4xl font-black uppercase tracking-tighter leading-[0.85] mb-8 drop-shadow-2xl">
+        {/* Title - Reduced from 4xl to 2xl/3xl for better fit */}
+        <h4 className="text-2xl md:text-3xl font-black uppercase tracking-tighter leading-[0.9] mb-6 drop-shadow-2xl">
           {data.title}
         </h4>
 
-        {/* Stats Grid: Minimalist borders */}
-        <div className="grid grid-cols-2 gap-8 mb-10 pt-6 border-t border-white/10">
-          <div className="space-y-1">
-            <p className="text-[8px] uppercase tracking-[0.3em] text-[#BF092F] font-black">Capacity</p>
-            <p className="text-sm font-bold tracking-tight">{data.productionCapacity}</p>
+        {/* Stats Grid - Ultra-minimalist */}
+        <div className="grid grid-cols-2 gap-6 mb-8 pt-4 border-t border-white/10">
+          <div className="space-y-0.5">
+            <p className="text-[7px] uppercase tracking-[0.3em] text-[#BF092F] font-black">Capacity</p>
+            <p className="text-xs font-bold tracking-tight text-white/90">{data.productionCapacity}</p>
           </div>
-          <div className="space-y-1">
-            <p className="text-[8px] uppercase tracking-[0.3em] text-[#BF092F] font-black">Total Area</p>
-            <p className="text-sm font-bold tracking-tight">{data.totalArea}</p>
+          <div className="space-y-0.5">
+            <p className="text-[7px] uppercase tracking-[0.3em] text-[#BF092F] font-black">Total Area</p>
+            <p className="text-xs font-bold tracking-tight text-white/90">{data.totalArea}</p>
           </div>
         </div>
 
-        {/* Premium Action Button */}
+        {/* Action Button - Reduced height to h-14 to save vertical space */}
         <Link
           to={`/facilities/${data.id}`}
-          className="flex items-center justify-between group bg-white text-black h-16 px-8 rounded-xl font-black text-[10px] uppercase tracking-[0.4em] shadow-2xl active:scale-95 transition-all"
+          className="flex items-center justify-between group bg-white text-black h-14 px-6 rounded-xl font-black text-[9px] uppercase tracking-[0.4em] shadow-2xl active:scale-95 transition-all"
         >
           View Technicals
-          <ArrowRight size={20} strokeWidth={3} className="text-[#BF092F] group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={18} strokeWidth={3} className="text-[#BF092F] group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
       {/* Brand Progress Base */}
       <motion.div 
-        className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#BF092F] origin-left"
+        className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#BF092F] origin-left shadow-[0_0_10px_#BF092F]"
         style={{ scaleX: scrollYProgress }}
       />
     </motion.article>
