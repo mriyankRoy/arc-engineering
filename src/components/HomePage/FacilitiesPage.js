@@ -85,7 +85,7 @@ function KineticCard({ data, index }) {
           to={`/facilities/${data.id}`}
           className="flex items-center justify-between group bg-white text-black h-14 px-6 rounded-xl font-black text-[9px] uppercase tracking-[0.4em] shadow-2xl active:scale-95 transition-all"
         >
-          View Technicals
+          View Facility
           <ArrowRight size={18} strokeWidth={3} className="text-[#BF092F] group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
