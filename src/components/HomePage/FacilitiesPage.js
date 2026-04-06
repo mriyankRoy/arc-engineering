@@ -12,103 +12,86 @@ import {
 
 function KineticCard({ data, index }) {
   const ref = useRef(null);
-
+  
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // Parallax and Opacity
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
     <motion.article
       ref={ref}
       style={{ opacity }}
-      // sticky top-24 pins it closer to the top for a "Full Screen" feel
-      // w-full here fills the 95% width of the parent container
-      className="relative w-full h-[75vh] min-h-[550px] overflow-hidden rounded-2xl bg-white shadow-2xl sticky top-24"
+      className="relative w-full h-[80vh] min-h-[600px] overflow-hidden rounded-2xl bg-[#111] shadow-2xl sticky top-20"
     >
-      {/* 🖼️ IMAGE LAYER (Full Color & High Width) */}
-      <div className="absolute inset-0 overflow-hidden bg-gray-100">
-        <motion.div
-          style={{ y: imageY }}
-          className="absolute inset-[-12%] w-[124%] h-[124%]"
+      {/* 🖼️ IMAGE LAYER (Full Color) */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          style={{ y: imageY }} 
+          className="absolute inset-[-15%] w-[130%] h-[130%]"
         >
           <img
             src={data.facilityImg[0]}
             alt={data.title}
-            className="w-full h-full object-cover" // Full color
+            className="w-full h-full object-cover"
           />
         </motion.div>
-
-        {/* SHORT SHADOW SCRIM: Dense at bottom, vanishes by 45% height */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent via-45%" />
+        
+        {/* 🌑 ULTRA-LOW SCRIM: Fades out very early (35%) to keep the top clear */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent via-35%" />
       </div>
 
-      {/* 🖋️ CONTENT LAYER */}
-      <div className="absolute inset-0 p-10 flex flex-col justify-end text-white">
-        {/* Top Index */}
-        <div className="absolute top-8 left-10 flex items-center gap-3">
-          <span className="text-[12px] font-black tracking-[0.5em] text-white/40">
-            0{index + 1}
+      {/* 🖋️ CONTENT LAYER: Pushed completely to the base */}
+      <div className="absolute inset-0 p-8 pb-12 flex flex-col justify-end text-white">
+        
+        {/* Unit Index: Now part of the bottom stack, not floating at the top */}
+        <div className="flex items-center gap-3 mb-4 opacity-40">
+          <span className="text-[10px] font-black tracking-[0.4em] uppercase italic">
+            Unit // 0{index + 1}
           </span>
-          <div className="w-10 h-[1.5px] bg-[#BF092F]" />
+          <div className="w-8 h-[1px] bg-white/50" />
         </div>
 
-        {/* Text Box */}
-        <div className="relative z-10 w-full">
-          <div className="flex items-center gap-2 mb-4">
-            <MapPin size={14} className="text-[#BF092F]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">
-              {data.location}
-            </span>
-          </div>
-
-          <h4 className="text-4xl font-bold uppercase tracking-tighter leading-[0.9] mb-8">
-            {data.title}
-          </h4>
-
-          {/* Expanded Stats Row */}
-          <div className="grid grid-cols-2 gap-8 mb-10 pt-8 border-t border-white/10">
-            <div>
-              <p className="text-[9px] uppercase tracking-[0.3em] text-white/40 mb-2 font-black">
-                Total Area
-              </p>
-              <p className="text-sm font-bold tracking-tight">
-                {data.totalArea}
-              </p>
-            </div>
-            <div>
-              <p className="text-[9px] uppercase tracking-[0.3em] text-white/40 mb-2 font-black">
-                Production
-              </p>
-              <p className="text-sm font-bold tracking-tight">
-                {data.productionCapacity}
-              </p>
-            </div>
-          </div>
-
-          {/* Action Button: Matches the extra width with a larger tap area */}
-          <Link
-            to={`/facilities/${data.id}`}
-            className="flex items-center justify-between group bg-white text-[#44444E] h-16 px-8 rounded-xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl active:scale-95 transition-all"
-          >
-            Explore Technicals
-            <div className="bg-[#BF092F] p-2 rounded-full text-white">
-              <ArrowRight
-                size={20}
-                strokeWidth={3}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </div>
-          </Link>
+        {/* Location Tag */}
+        <div className="flex items-center gap-1.5 mb-2">
+          <MapPin size={14} className="text-[#BF092F]" />
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
+            {data.location}
+          </span>
         </div>
+
+        {/* Title: 5XL Architectural Scale */}
+        <h4 className="text-4xl font-black uppercase tracking-tighter leading-[0.85] mb-8 drop-shadow-2xl">
+          {data.title}
+        </h4>
+
+        {/* Stats Grid: Minimalist borders */}
+        <div className="grid grid-cols-2 gap-8 mb-10 pt-6 border-t border-white/10">
+          <div className="space-y-1">
+            <p className="text-[8px] uppercase tracking-[0.3em] text-[#BF092F] font-black">Capacity</p>
+            <p className="text-sm font-bold tracking-tight">{data.productionCapacity}</p>
+          </div>
+          <div className="space-y-1">
+            <p className="text-[8px] uppercase tracking-[0.3em] text-[#BF092F] font-black">Total Area</p>
+            <p className="text-sm font-bold tracking-tight">{data.totalArea}</p>
+          </div>
+        </div>
+
+        {/* Premium Action Button */}
+        <Link
+          to={`/facilities/${data.id}`}
+          className="flex items-center justify-between group bg-white text-black h-16 px-8 rounded-xl font-black text-[10px] uppercase tracking-[0.4em] shadow-2xl active:scale-95 transition-all"
+        >
+          View Technicals
+          <ArrowRight size={20} strokeWidth={3} className="text-[#BF092F] group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
 
-      {/* Progress Base */}
-      <motion.div
+      {/* Brand Progress Base */}
+      <motion.div 
         className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#BF092F] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
