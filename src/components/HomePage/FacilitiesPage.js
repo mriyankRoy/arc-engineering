@@ -13,83 +13,106 @@ import {
 function KineticCard({ data, index }) {
   const ref = useRef(null);
   
+  // Target the card but track it through the whole viewport
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // Subtle Kinetic Motion
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.97, 1, 1, 0.97]);
+  // 🚀 MODERN SCROLLING EFFECTS
+  // 1. Zoom Out (Ken Burns): Image starts zoomed in (1.3) and settles to 1.1
+  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1.3, 1.1]);
+  
+  // 2. Vertical Parallax: Image slides inside the card
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  // 3. The "Squeeze": Card slightly expands when in focus, then shrinks when passing
+  const cardScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
+  
+  // 4. Content Lift: Text elements float up as the card centers
+  const textY = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <motion.article
       ref={ref}
-      style={{ scale, opacity }}
-      className="relative w-full h-[52vh] min-h-[380px] overflow-hidden rounded-[2.5rem] bg-white shadow-xl"
+      style={{ scale: cardScale, opacity }}
+      // Sticky top-24 makes the cards feel like they "lock" for a moment as you scroll past
+      className="relative w-full h-[70vh] min-h-[500px] overflow-hidden rounded-[3rem] bg-black shadow-2xl mb-[10vh] sticky top-24"
     >
-      {/* 🖼️ THE IMAGE LAYER (Full Clarity) */}
+      {/* 🖼️ IMAGE LAYER: Maximum Clarity with Kinetic Zoom */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div style={{ y: imageY }} className="absolute inset-[-10%] w-[120%] h-[120%]">
+        <motion.div 
+          style={{ y: imageY, scale: imageScale }} 
+          className="absolute inset-0 w-full h-full"
+        >
           <img
             src={data.facilityImg[0]}
             alt={data.title}
-            className="w-full h-full object-cover" // Removed opacity-70 for full visibility
+            className="w-full h-full object-cover"
           />
         </motion.div>
         
-        {/* 🌑 THE SCRIM: Very short, dense black gradient only at the bottom 35% */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent via-35%" />
+        {/* 🌑 REFINED SCRIM: Short but dark to pop the text */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent via-40%" />
       </div>
 
-      {/* 🖋️ THE CONTENT LAYER */}
-      <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
+      {/* 🖋️ CONTENT LAYER */}
+      <div className="absolute inset-0 p-10 flex flex-col justify-end text-white">
         
-        {/* Top Floating Index: Minimal & Elegant */}
-        <div className="absolute top-6 left-8">
-          <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white drop-shadow-md">
-            0{index + 1}
-          </span>
-        </div>
-
-        {/* Location with a subtle drop shadow for visibility on light images */}
-        <div className="flex items-center gap-1.5 mb-2 drop-shadow-lg">
-          <MapPin size={10} className="text-[#BF092F]" />
-          <span className="text-[8px] font-bold uppercase tracking-widest text-white/90">
-            {data.location}
-          </span>
-        </div>
-
-        {/* Title: Strong shadow to separate from background */}
-        <h4 className="text-2xl font-bold uppercase tracking-tighter leading-none mb-6 drop-shadow-2xl">
-          {data.title}
-        </h4>
-
-        {/* Stats Grid: Clean & High-Contrast */}
-        <div className="flex gap-8 mb-8">
-          <div className="border-l-2 border-[#BF092F] pl-3">
-            <p className="text-[7px] uppercase tracking-widest text-white/60 mb-0.5">Area</p>
-            <p className="text-[11px] font-black tracking-tight">{data.totalArea}</p>
+        <motion.div style={{ y: textY }}>
+          {/* Top Floating Badge */}
+          <div className="absolute top-8 left-10">
+            <div className="flex items-center gap-3">
+              <span className="text-[12px] font-black tracking-[0.5em] text-[#BF092F]">0{index + 1}</span>
+              <div className="w-12 h-[1px] bg-white/20" />
+            </div>
           </div>
-          <div className="border-l-2 border-[#BF092F] pl-3">
-            <p className="text-[7px] uppercase tracking-widest text-white/60 mb-0.5">Output</p>
-            <p className="text-[11px] font-black tracking-tight">{data.productionCapacity}</p>
-          </div>
-        </div>
 
-        {/* Modern Sharp Button */}
-        <Link
-          to={`/facilities/${data.id}`}
-          className="flex items-center justify-between group bg-white text-black h-12 px-6 rounded-xl font-black text-[9px] uppercase tracking-[0.2em] shadow-2xl active:scale-95 transition-all"
-        >
-          View Technicals
-          <ArrowRight size={14} className="text-[#BF092F] group-hover:translate-x-1 transition-transform" />
-        </Link>
+          {/* Location & Breadcrumb */}
+          <div className="flex items-center gap-2 mb-3">
+            <div className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/10">
+               <span className="text-[9px] font-bold uppercase tracking-widest">{data.location}</span>
+            </div>
+          </div>
+
+          {/* Title: Massive & Architectural */}
+          <h4 className="text-4xl font-bold uppercase tracking-tighter leading-[0.85] mb-8">
+            {data.title.split(' ').map((word, i) => (
+              <span key={i} className="block">{word}</span>
+            ))}
+          </h4>
+
+          {/* Dynamic Stats Row */}
+          <div className="grid grid-cols-2 gap-4 mb-10">
+            <div className="bg-white/5 backdrop-blur-sm p-5 rounded-2xl border border-white/10">
+              <p className="text-[8px] uppercase tracking-widest text-[#BF092F] font-black mb-1">Total Footprint</p>
+              <p className="text-sm font-bold">{data.totalArea}</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm p-5 rounded-2xl border border-white/10">
+              <p className="text-[8px] uppercase tracking-widest text-[#BF092F] font-black mb-1">Global Output</p>
+              <p className="text-sm font-bold">{data.productionCapacity}</p>
+            </div>
+          </div>
+
+          {/* CTA: High Contrast Minimalist */}
+          <Link
+            to={`/facilities/${data.id}`}
+            className="flex items-center justify-between group bg-white text-black h-16 px-8 rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl transition-all active:scale-95"
+          >
+            Technical Spec
+            <div className="bg-[#BF092F] p-2 rounded-full text-white">
+              <ArrowRight size={18} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        </motion.div>
       </div>
 
-      {/* Finishing Touch: A hairline red base */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#BF092F]" />
+      {/* Finishing Detail: The Red Progress Base */}
+      <motion.div 
+        className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#BF092F] origin-left"
+        style={{ scaleX: scrollYProgress }}
+      />
     </motion.article>
   );
 }
