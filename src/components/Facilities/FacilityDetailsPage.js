@@ -274,7 +274,6 @@ export default function FacilityDetailsPage() {
       <main className="container mx-auto -translate-y-12 relative z-30 pb-20">
         <div className="pt-20 px-4 flex flex-col lg:grid lg:grid-cols-12 gap-8 items-stretch">
           {/* SIDEBAR */}
-          {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-8">
             <div className="rounded-2xl bg-[#44444E] shadow-2xl border-t-4 border-[#BF092F] lg:sticky lg:top-[20vh] overflow-hidden transition-all duration-500">
               {/* 01. FACILITY REGISTRY SELECTOR */}
@@ -395,17 +394,23 @@ export default function FacilityDetailsPage() {
             {/* 01. OPERATIONAL INTELLIGENCE */}
             <article className="relative group">
               <header className="mb-14 relative">
+                {/* The background number */}
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   01
                 </span>
-                <div className="relative">
+
+                {/* The Content Wrapper */}
+                <div className="relative pl-4 md:pl-0">
+                  {" "}
+                  {/* Added padding-left for mobile safety */}
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="h-[3px] w-12 bg-[#BF092F]" />
+                    {/* Added flex-shrink-0 to prevent the line from disappearing */}
+                    <span className="h-[3px] w-12 bg-[#BF092F] shrink-0" />
                     <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
                       Operational_Intelligence
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none">
                     Infrastructure Capabilities_
                   </h2>
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />
