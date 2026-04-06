@@ -149,7 +149,7 @@ const Header = () => {
                   src="https://media.arcengltd.com/arc-profile/arc-logo-remove_bg.webp"
                   alt="Arc Engineering Solutions Ltd Logo"
                   /* Added a subtle drop-shadow filter to the PNG itself for crispness */
-                  className="h-16 sm:h-16 md:h-20 w-auto transition-transform duration-500 group-hover/logo:scale-105 relative z-10 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
+                  className="h-14 sm:h-14 md:h-20 w-auto transition-transform duration-500 group-hover/logo:scale-105 relative z-10 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
                   width="150"
                   height="64"
                   loading="eager"

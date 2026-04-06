@@ -10,6 +10,89 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
+function KineticCard({ data, index }) {
+  const ref = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // Subtle Kinetic Motion
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.97, 1, 1, 0.97]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  return (
+    <motion.article
+      ref={ref}
+      style={{ scale, opacity }}
+      className="relative w-full h-[52vh] min-h-[380px] overflow-hidden rounded-[2.5rem] bg-white shadow-xl"
+    >
+      {/* 🖼️ THE IMAGE LAYER (Full Clarity) */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div style={{ y: imageY }} className="absolute inset-[-10%] w-[120%] h-[120%]">
+          <img
+            src={data.facilityImg[0]}
+            alt={data.title}
+            className="w-full h-full object-cover" // Removed opacity-70 for full visibility
+          />
+        </motion.div>
+        
+        {/* 🌑 THE SCRIM: Very short, dense black gradient only at the bottom 35% */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent via-35%" />
+      </div>
+
+      {/* 🖋️ THE CONTENT LAYER */}
+      <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
+        
+        {/* Top Floating Index: Minimal & Elegant */}
+        <div className="absolute top-6 left-8">
+          <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white drop-shadow-md">
+            0{index + 1}
+          </span>
+        </div>
+
+        {/* Location with a subtle drop shadow for visibility on light images */}
+        <div className="flex items-center gap-1.5 mb-2 drop-shadow-lg">
+          <MapPin size={10} className="text-[#BF092F]" />
+          <span className="text-[8px] font-bold uppercase tracking-widest text-white/90">
+            {data.location}
+          </span>
+        </div>
+
+        {/* Title: Strong shadow to separate from background */}
+        <h4 className="text-2xl font-bold uppercase tracking-tighter leading-none mb-6 drop-shadow-2xl">
+          {data.title}
+        </h4>
+
+        {/* Stats Grid: Clean & High-Contrast */}
+        <div className="flex gap-8 mb-8">
+          <div className="border-l-2 border-[#BF092F] pl-3">
+            <p className="text-[7px] uppercase tracking-widest text-white/60 mb-0.5">Area</p>
+            <p className="text-[11px] font-black tracking-tight">{data.totalArea}</p>
+          </div>
+          <div className="border-l-2 border-[#BF092F] pl-3">
+            <p className="text-[7px] uppercase tracking-widest text-white/60 mb-0.5">Output</p>
+            <p className="text-[11px] font-black tracking-tight">{data.productionCapacity}</p>
+          </div>
+        </div>
+
+        {/* Modern Sharp Button */}
+        <Link
+          to={`/facilities/${data.id}`}
+          className="flex items-center justify-between group bg-white text-black h-12 px-6 rounded-xl font-black text-[9px] uppercase tracking-[0.2em] shadow-2xl active:scale-95 transition-all"
+        >
+          View Technicals
+          <ArrowRight size={14} className="text-[#BF092F] group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+
+      {/* Finishing Touch: A hairline red base */}
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#BF092F]" />
+    </motion.article>
+  );
+}
 export default function FacilitiesPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -74,31 +157,13 @@ export default function FacilitiesPage() {
         </div>
       </header>
 
-      {/* MOBILE SNAP LAYOUT */}
-      <div className="lg:hidden flex flex-col gap-12 snap-y snap-mandatory">
-        {facilities.map((f, i) => (
-          <div key={f.id} className="snap-center h-auto">
-            <div className="w-full aspect-square rounded-[2rem] overflow-hidden mb-6 bg-black shadow-xl relative">
-              <img
-                src={f.facilityImg[0]}
-                alt={`${f.title} Facility in ${f.location}`}
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div
-                className="absolute inset-0 rounded-[2rem] border-[1px] border-white/10 pointer-events-none"
-                aria-hidden="true"
-              />
-            </div>
-            <Section
-              data={f}
-              index={i}
-              onActive={() => setActiveIndex(i)}
-              isMobile
-            />
-          </div>
-        ))}
-      </div>
+      {/* MODERN MOBILE CARD LAYOUT */}
+{/* 📱 KINETIC EXPANSION MOBILE LAYOUT */}
+<div className="lg:hidden flex flex-col gap-4 px-2">
+  {facilities.map((f, i) => (
+    <KineticCard key={f.id} data={f} index={i} />
+  ))}
+</div>
 
       {/* DESKTOP LAYOUT */}
       <div className="hidden lg:flex max-w-[1400px] mx-auto gap-32 relative">
