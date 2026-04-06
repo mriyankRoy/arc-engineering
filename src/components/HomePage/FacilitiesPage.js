@@ -12,104 +12,103 @@ import {
 
 function KineticCard({ data, index }) {
   const ref = useRef(null);
-  
-  // Target the card but track it through the whole viewport
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // 🚀 MODERN SCROLLING EFFECTS
-  // 1. Zoom Out (Ken Burns): Image starts zoomed in (1.3) and settles to 1.1
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1.3, 1.1]);
-  
-  // 2. Vertical Parallax: Image slides inside the card
+  // Parallax and Opacity
   const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-
-  // 3. The "Squeeze": Card slightly expands when in focus, then shrinks when passing
-  const cardScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9]);
-  
-  // 4. Content Lift: Text elements float up as the card centers
-  const textY = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <motion.article
       ref={ref}
-      style={{ scale: cardScale, opacity }}
-      // Sticky top-24 makes the cards feel like they "lock" for a moment as you scroll past
-      className="relative w-full h-[70vh] min-h-[500px] overflow-hidden rounded-[3rem] bg-black shadow-2xl mb-[10vh] sticky top-24"
+      style={{ opacity }}
+      // sticky top-24 pins it closer to the top for a "Full Screen" feel
+      // w-full here fills the 95% width of the parent container
+      className="relative w-full h-[75vh] min-h-[550px] overflow-hidden rounded-2xl bg-white shadow-2xl sticky top-24"
     >
-      {/* 🖼️ IMAGE LAYER: Maximum Clarity with Kinetic Zoom */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          style={{ y: imageY, scale: imageScale }} 
-          className="absolute inset-0 w-full h-full"
+      {/* 🖼️ IMAGE LAYER (Full Color & High Width) */}
+      <div className="absolute inset-0 overflow-hidden bg-gray-100">
+        <motion.div
+          style={{ y: imageY }}
+          className="absolute inset-[-12%] w-[124%] h-[124%]"
         >
           <img
             src={data.facilityImg[0]}
             alt={data.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover" // Full color
           />
         </motion.div>
-        
-        {/* 🌑 REFINED SCRIM: Short but dark to pop the text */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent via-40%" />
+
+        {/* SHORT SHADOW SCRIM: Dense at bottom, vanishes by 45% height */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent via-45%" />
       </div>
 
       {/* 🖋️ CONTENT LAYER */}
       <div className="absolute inset-0 p-10 flex flex-col justify-end text-white">
-        
-        <motion.div style={{ y: textY }}>
-          {/* Top Floating Badge */}
-          <div className="absolute top-8 left-10">
-            <div className="flex items-center gap-3">
-              <span className="text-[12px] font-black tracking-[0.5em] text-[#BF092F]">0{index + 1}</span>
-              <div className="w-12 h-[1px] bg-white/20" />
-            </div>
+        {/* Top Index */}
+        <div className="absolute top-8 left-10 flex items-center gap-3">
+          <span className="text-[12px] font-black tracking-[0.5em] text-white/40">
+            0{index + 1}
+          </span>
+          <div className="w-10 h-[1.5px] bg-[#BF092F]" />
+        </div>
+
+        {/* Text Box */}
+        <div className="relative z-10 w-full">
+          <div className="flex items-center gap-2 mb-4">
+            <MapPin size={14} className="text-[#BF092F]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">
+              {data.location}
+            </span>
           </div>
 
-          {/* Location & Breadcrumb */}
-          <div className="flex items-center gap-2 mb-3">
-            <div className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/10">
-               <span className="text-[9px] font-bold uppercase tracking-widest">{data.location}</span>
-            </div>
-          </div>
-
-          {/* Title: Massive & Architectural */}
-          <h4 className="text-4xl font-bold uppercase tracking-tighter leading-[0.85] mb-8">
-            {data.title.split(' ').map((word, i) => (
-              <span key={i} className="block">{word}</span>
-            ))}
+          <h4 className="text-4xl font-bold uppercase tracking-tighter leading-[0.9] mb-8">
+            {data.title}
           </h4>
 
-          {/* Dynamic Stats Row */}
-          <div className="grid grid-cols-2 gap-4 mb-10">
-            <div className="bg-white/5 backdrop-blur-sm p-5 rounded-2xl border border-white/10">
-              <p className="text-[8px] uppercase tracking-widest text-[#BF092F] font-black mb-1">Total Footprint</p>
-              <p className="text-sm font-bold">{data.totalArea}</p>
+          {/* Expanded Stats Row */}
+          <div className="grid grid-cols-2 gap-8 mb-10 pt-8 border-t border-white/10">
+            <div>
+              <p className="text-[9px] uppercase tracking-[0.3em] text-white/40 mb-2 font-black">
+                Total Area
+              </p>
+              <p className="text-sm font-bold tracking-tight">
+                {data.totalArea}
+              </p>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm p-5 rounded-2xl border border-white/10">
-              <p className="text-[8px] uppercase tracking-widest text-[#BF092F] font-black mb-1">Global Output</p>
-              <p className="text-sm font-bold">{data.productionCapacity}</p>
+            <div>
+              <p className="text-[9px] uppercase tracking-[0.3em] text-white/40 mb-2 font-black">
+                Production
+              </p>
+              <p className="text-sm font-bold tracking-tight">
+                {data.productionCapacity}
+              </p>
             </div>
           </div>
 
-          {/* CTA: High Contrast Minimalist */}
+          {/* Action Button: Matches the extra width with a larger tap area */}
           <Link
             to={`/facilities/${data.id}`}
-            className="flex items-center justify-between group bg-white text-black h-16 px-8 rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl transition-all active:scale-95"
+            className="flex items-center justify-between group bg-white text-[#44444E] h-16 px-8 rounded-xl font-black text-[11px] uppercase tracking-[0.3em] shadow-2xl active:scale-95 transition-all"
           >
-            Technical Spec
+            Explore Technicals
             <div className="bg-[#BF092F] p-2 rounded-full text-white">
-              <ArrowRight size={18} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={20}
+                strokeWidth={3}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </div>
           </Link>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Finishing Detail: The Red Progress Base */}
-      <motion.div 
+      {/* Progress Base */}
+      <motion.div
         className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#BF092F] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
@@ -180,13 +179,14 @@ export default function FacilitiesPage() {
         </div>
       </header>
 
-      {/* MODERN MOBILE CARD LAYOUT */}
-{/* 📱 KINETIC EXPANSION MOBILE LAYOUT */}
-<div className="lg:hidden flex flex-col gap-4 px-2">
-  {facilities.map((f, i) => (
-    <KineticCard key={f.id} data={f} index={i} />
-  ))}
-</div>
+      {/* 📱 EXPANSIVE MOBILE LAYOUT */}
+      <div className="lg:hidden w-full flex flex-col items-center pb-20">
+        <div className="w-[99%] flex flex-col gap-10">
+          {facilities.map((f, i) => (
+            <KineticCard key={f.id} data={f} index={i} />
+          ))}
+        </div>
+      </div>
 
       {/* DESKTOP LAYOUT */}
       <div className="hidden lg:flex max-w-[1400px] mx-auto gap-32 relative">
