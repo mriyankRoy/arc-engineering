@@ -394,23 +394,17 @@ export default function FacilityDetailsPage() {
             {/* 01. OPERATIONAL INTELLIGENCE */}
             <article className="relative group">
               <header className="mb-14 relative">
-                {/* The background number */}
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   01
                 </span>
-
-                {/* The Content Wrapper */}
-                <div className="relative pl-4 md:pl-0">
-                  {" "}
-                  {/* Added padding-left for mobile safety */}
+                <div className="relative">
                   <div className="flex items-center gap-4 mb-4">
-                    {/* Added flex-shrink-0 to prevent the line from disappearing */}
-                    <span className="h-[3px] w-12 bg-[#BF092F] shrink-0" />
+                    <span className="h-[3px] w-12 bg-[#BF092F]" />
                     <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#BF092F]">
-                      Operational_Intelligence
+                      Facility_Detail
                     </span>
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none">
+                  <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
                     Infrastructure Capabilities_
                   </h2>
                   <div className="mt-8 h-[1px] w-full bg-gray-100" />

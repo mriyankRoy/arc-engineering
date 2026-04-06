@@ -25,7 +25,7 @@ function KineticCard({ data, index }) {
     <motion.article
       ref={ref}
       style={{ opacity }}
-      className="w-full h-[80vh] min-h-[600px] overflow-hidden rounded-2xl bg-[#111] shadow-2xl sticky top-24"
+      className="w-full h-[75vh] min-h-[600px] overflow-hidden rounded-2xl bg-[#111] shadow-2xl sticky top-24"
     >
       {/* 🖼️ IMAGE LAYER */}
       <div className="absolute inset-0 overflow-hidden">
@@ -50,7 +50,7 @@ function KineticCard({ data, index }) {
         {/* Unit Index - Compact size */}
         <div className="flex items-center gap-2 mb-3 opacity-40">
           <span className="text-[8px] font-black tracking-[0.4em] uppercase italic">
-            Unit // 0{index + 1}
+            Facility // 0{index + 1}
           </span>
           <div className="w-6 h-[1px] bg-white/30" />
         </div>
