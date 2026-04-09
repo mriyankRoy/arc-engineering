@@ -443,7 +443,7 @@ export default function ProjectDetailPage() {
           <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 py-10 px-4 sm:px-6 lg:px-0">
             {/* 01. THE DOSSIER: MINIMALIST DESCRIPTION */}
             <article className="relative group">
-              <header className="mb-14 relative">
+              <header className="mb-5 relative">
                 {/* Background Ghost Number */}
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   01
@@ -462,7 +462,7 @@ export default function ProjectDetailPage() {
                     Project Brief_
                   </h2>
 
-                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                  <div className="mt-5 h-[1px] w-full bg-gray-100" />
                 </div>
               </header>
 
@@ -489,7 +489,6 @@ export default function ProjectDetailPage() {
                     </div>
                   ) : (
                     <div key={idx} className="relative">
-                      {/* Reduced from text-xl/2xl to text-lg/xl for better flow */}
                       <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-3xl">
                         {desc}
                       </p>
@@ -501,7 +500,7 @@ export default function ProjectDetailPage() {
 
             {/* 02. THE STUDIO: CINEMATIC GALLERY */}
             <article className="space-y-8 relative group">
-              <header className="mb-14 relative">
+              <header className="mb-10 relative">
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   02
                 </span>
@@ -518,7 +517,7 @@ export default function ProjectDetailPage() {
                     Field Gallery_
                   </h2>
 
-                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                  <div className="mt-7 h-[1px] w-full bg-gray-100" />
                 </div>
               </header>
 
@@ -586,7 +585,7 @@ export default function ProjectDetailPage() {
 
             {/* 03. THE DISCOVERY: BORDERLESS SLIDER */}
             <article className="space-y-8 relative group">
-              <header className="mb-14 relative">
+              <header className="mb-10 relative">
                 {/* Background Ghost Number */}
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   03
@@ -622,7 +621,7 @@ export default function ProjectDetailPage() {
                   </div>
                 </div>
 
-                <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                <div className="mt-7 h-[1px] w-full bg-gray-100" />
               </header>
 
               <div

@@ -393,7 +393,7 @@ export default function FacilityDetailsPage() {
           <section className="lg:col-span-8 space-y-16 md:space-y-24 lg:pl-12 xl:pl-20 py-10 px-4 sm:px-6 lg:px-0">
             {/* 01. OPERATIONAL INTELLIGENCE */}
             <article className="relative group">
-              <header className="mb-14 relative">
+              <header className="mb-5 relative">
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   01
                 </span>
@@ -407,7 +407,7 @@ export default function FacilityDetailsPage() {
                   <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
                     Infrastructure Capabilities_
                   </h2>
-                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                  <div className="mt-5 h-[1px] w-full bg-gray-100" />
                 </div>
               </header>
               <p className="text-lg md:text-xl leading-relaxed text-gray-500 font-medium tracking-tight max-w-4xl">
@@ -417,7 +417,7 @@ export default function FacilityDetailsPage() {
 
             {/* 02. VISUAL LOGS */}
             <article className="space-y-8 relative group">
-              <header className="mb-14 relative">
+              <header className="mb-10 relative">
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   02
                 </span>
@@ -431,7 +431,7 @@ export default function FacilityDetailsPage() {
                   <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
                     Site Gallery_
                   </h2>
-                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                  <div className="mt-7 h-[1px] w-full bg-gray-100" />
                 </div>
               </header>
 
@@ -458,7 +458,7 @@ export default function FacilityDetailsPage() {
 
             {/* 03. TECHNICAL REGISTRY */}
             <article className="pt-20 border-t border-gray-100 relative group">
-              <header className="mb-14 relative">
+              <header className="mb-10 relative">
                 <span className="absolute -left-6 -top-10 text-[130px] font-black text-gray-100/40 select-none pointer-events-none group-hover:text-[#BF092F]/10 transition-all duration-700 font-mono">
                   03
                 </span>
@@ -472,7 +472,7 @@ export default function FacilityDetailsPage() {
                   <h2 className="text-2xl md:text-3xl font-semibold text-[#44444E] tracking-tighter uppercase leading-none flex flex-col md:flex-row md:items-baseline gap-2">
                     Tech Machinery_
                   </h2>
-                  <div className="mt-8 h-[1px] w-full bg-gray-100" />
+                  <div className="mt-7 h-[1px] w-full bg-gray-100" />
                 </div>
               </header>
 
