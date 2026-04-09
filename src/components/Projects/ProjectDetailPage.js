@@ -638,7 +638,7 @@ export default function ProjectDetailPage() {
                     <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-sm group-hover/card:shadow-2xl transition-all duration-700 bg-gray-100">
                       <img
                         src={item.imageUrls[0]}
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110 group-hover/card:rotate-1"
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110 "
                         alt={item.name}
                       />
 
